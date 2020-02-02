@@ -32,9 +32,7 @@ namespace DMHannayFYP
         {
             // Load a instance of the create user form with the details from the selected user.
             EmployeeID = 1;
-        }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>")]
+        }        
         public static string HashingSHA1(string ValueToHash)
         {
             var sha1 = System.Security.Cryptography.SHA512.Create();    // Create the Highest Hash Value
@@ -47,6 +45,47 @@ namespace DMHannayFYP
                 stringbuilder.Append(hashing[a].ToString("X2"));
             }
             return stringbuilder.ToString();
+        }        
+        public int GetLoginUserID(string LoginName, string Password)
+        {
+            UserID = 0;
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection())
+                {
+                    sqlConnection.ConnectionString = GetConnString(1);
+                    sqlConnection.Open();
+                    using (SqlCommand sqlCommand = new SqlCommand())
+                    {
+                        sqlCommand.CommandText = "SELECT EmployeeID,Password,UserGuid from tblEmployees WHERE LoginCode = @LoginCode";
+                        sqlCommand.Connection = sqlConnection;
+                        sqlCommand.Parameters.AddWithValue("@LoginCode", LoginName);
+                        SqlDataReader dataReader = sqlCommand.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            int dbUserId = Convert.ToInt32(dataReader["EmployeeID"]);
+                            string dbPassword = Convert.ToString(dataReader["Password"]);
+                            string dbUserGuid = Convert.ToString(dataReader["UserGuid"]);
+                            string PasswordHash = HashingSHA1(Password + dbUserGuid);
+                            if (dbPassword == PasswordHash)
+                            {
+                                UserID = dbUserId;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Incorrect Username and Password \nPlease try again", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+                        }
+                    }
+                    sqlConnection.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            return UserID;
         }
     }
 }

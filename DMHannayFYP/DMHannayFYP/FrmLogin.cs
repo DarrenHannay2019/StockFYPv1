@@ -19,6 +19,9 @@ namespace DMHannayFYP
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            int PassResult = 0;
+            ClsEmployee clsEmployee = new ClsEmployee();
+            PassResult = clsEmployee.GetLoginUserID(TxtUserName.Text.TrimEnd(), TxtPassword.Text.TrimEnd());
 
         }
 

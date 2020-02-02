@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.TxtPassword = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtUserName = new System.Windows.Forms.TextBox();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,14 +46,14 @@
             this.TxtPassword.Size = new System.Drawing.Size(422, 29);
             this.TxtPassword.TabIndex = 12;
             // 
-            // textBox1
+            // TxtUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(208, 78);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox1.MaxLength = 16;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(422, 29);
-            this.textBox1.TabIndex = 11;
+            this.TxtUserName.Location = new System.Drawing.Point(208, 78);
+            this.TxtUserName.Margin = new System.Windows.Forms.Padding(6);
+            this.TxtUserName.MaxLength = 16;
+            this.TxtUserName.Name = "TxtUserName";
+            this.TxtUserName.Size = new System.Drawing.Size(422, 29);
+            this.TxtUserName.TabIndex = 11;
             // 
             // BtnExit
             // 
@@ -107,7 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 286);
             this.Controls.Add(this.TxtPassword);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtUserName);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.label2);
@@ -122,7 +122,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox TxtPassword;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtUserName;
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Label label2;

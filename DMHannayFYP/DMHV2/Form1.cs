@@ -27,10 +27,14 @@ namespace DMHV2
             int PassResult = 0;
             int TotalUsers = 0;
             clsEmployee clsEmployee = new clsEmployee();
+            TotalUsers = clsEmployee.GetAllUserTotal(1);
             PassResult = clsEmployee.GetLoginUserID(TxtUserName.Text.TrimEnd(), TxtPassword.Text.TrimEnd());
-            if (PassResult != 0 || TotalUsers != 0)
+            if ((PassResult != 0) || (TotalUsers != 0))
             {
-
+                FrmMain frmMain = new FrmMain();
+                frmMain.RefToLoginForm = this;
+                frmMain.Show();
+                this.Hide();
             }
             else
             {

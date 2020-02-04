@@ -87,5 +87,29 @@ namespace DMHV2
             }
             return UserID;
         }
+        public int GetAllUserTotal(int connID)
+        {
+            Result = 0;
+            try
+            {
+                using(SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(connID);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
+                    {
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandText = "SELECT COUNT(*) AS TotalRecords from tblEmployees";
+                        Result = (int)SelectCmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {                
+                return ex.Number;
+                throw;
+            }
+            return Result;
+        }
     }
 }

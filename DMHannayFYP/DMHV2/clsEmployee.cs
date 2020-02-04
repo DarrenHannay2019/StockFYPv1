@@ -11,6 +11,12 @@ namespace DMHV2
 {
     class clsEmployee : clsUtils
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string LoginCode { get; set; }
+        public string PasswordEntered { get; set; }
+        private string PasswordHashed;
+        public int ProfileID { get; set; }
         public clsEmployee()
         {
             SaveToDB = false;
@@ -110,6 +116,38 @@ namespace DMHV2
                 throw;
             }
             return Result;
+        }
+        public bool SaveToEmployeeTable()
+        {
+            PasswordHashed = HashingSHA1(PasswordEntered);
+            SaveToDB = false;
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                SaveToDB = false;
+                return SaveToDB;
+                throw;
+            }
+            return SaveToDB;
+        }
+        public bool UpdateToEmployeeTable()
+        {
+            PasswordHashed = HashingSHA1(PasswordEntered);
+            UpdateToDB = false;
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                UpdateToDB = false;
+                return UpdateToDB;
+                throw;
+            }
+            return UpdateToDB;
         }
     }
 }

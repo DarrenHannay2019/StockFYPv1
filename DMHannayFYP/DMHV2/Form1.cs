@@ -29,7 +29,7 @@ namespace DMHV2
             clsEmployee clsEmployee = new clsEmployee();
             TotalUsers = clsEmployee.GetAllUserTotal(1);
             PassResult = clsEmployee.GetLoginUserID(TxtUserName.Text.TrimEnd(), TxtPassword.Text.TrimEnd());
-            if ((PassResult != 0) || (TotalUsers != 0))
+            if ((PassResult != 0) && (TotalUsers != 0))
             {
                 FrmMain frmMain = new FrmMain();
                 frmMain.RefToLoginForm = this;
@@ -41,7 +41,9 @@ namespace DMHV2
                 DialogResult dialog = MessageBox.Show("Unknown User and do you wish to add new user?",Application.ProductName,MessageBoxButtons.YesNo,MessageBoxIcon.Error);
                 if (dialog == DialogResult.Yes)
                 {
-
+                    FrmEmployee frmEmployee = new FrmEmployee();
+                    frmEmployee.ShowDialog();
+                    Application.Exit();
                 }
                 else
                 {

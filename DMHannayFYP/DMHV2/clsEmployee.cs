@@ -106,7 +106,7 @@ namespace DMHV2
                     {
                         SelectCmd.Connection = conn;
                         SelectCmd.CommandText = "SELECT COUNT(*) AS TotalRecords from tblEmployees";
-                        Result = (int)SelectCmd.ExecuteNonQuery();
+                        Result = (int)SelectCmd.ExecuteScalar();
                     }
                 }
             }
@@ -117,16 +117,36 @@ namespace DMHV2
             }
             return Result;
         }
-        public bool SaveToEmployeeTable()
+        public bool SaveToEmployeeTable(int connID)
         {
-            PasswordHashed = HashingSHA1(PasswordEntered);
+           
             SaveToDB = false;
+            Guid usergiud = System.Guid.NewGuid();
+            PasswordHashed = HashingSHA1(PasswordEntered + usergiud.ToString());
             try
             {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(connID);
+                    conn.Open();
+                    using (SqlCommand InsertCmd = new SqlCommand())
+                    {
+                        InsertCmd.Connection = conn;
+                        InsertCmd.CommandText = "INSERT INTO tblEmployees (FirstName, LastName, LoginCode, Password, ProfileID, UserGuid) VALUES (@FirstName, @LastName, @LoginCode, @Password, @ProfileID, @UserGuid)";
+                        InsertCmd.Parameters.AddWithValue("@FirstName", FirstName);
+                        InsertCmd.Parameters.AddWithValue("@LastName", LastName);
+                        InsertCmd.Parameters.AddWithValue("@LoginCode", LoginCode);
+                        InsertCmd.Parameters.AddWithValue("@Password", PasswordHashed);
+                        InsertCmd.Parameters.AddWithValue("@ProfileID", ProfileID);
+                        InsertCmd.Parameters.AddWithValue("@UserGuid", usergiud);
 
+                        Result = (int)InsertCmd.ExecuteNonQuery();
+                    }
+                }
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
                 SaveToDB = false;
                 return SaveToDB;
                 throw;

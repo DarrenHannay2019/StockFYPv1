@@ -102,6 +102,10 @@
             // CboProfiles
             // 
             this.CboProfiles.FormattingEnabled = true;
+            this.CboProfiles.Items.AddRange(new object[] {
+            "Standard Uers",
+            "System Administrator",
+            "System Manager"});
             this.CboProfiles.Location = new System.Drawing.Point(109, 198);
             this.CboProfiles.Name = "CboProfiles";
             this.CboProfiles.Size = new System.Drawing.Size(121, 24);

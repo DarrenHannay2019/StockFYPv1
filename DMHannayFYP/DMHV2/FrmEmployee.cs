@@ -42,7 +42,7 @@ namespace DMHV2
                 clsEmployee.FirstName = TxtFirstName.Text.TrimEnd();
                 clsEmployee.LastName = TxtLastName.Text.TrimEnd();
                 clsEmployee.ProfileID = CboProfiles.SelectedIndex;
-                clsEmployee.SaveToEmployeeTable();
+                clsEmployee.SaveToEmployeeTable(1);
             }
             else
             {

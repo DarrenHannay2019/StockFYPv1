@@ -56,6 +56,7 @@ namespace DMHV2
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            RefToLoginForm.Close();
             Application.Exit();     // Exit the application
         }
         private void FrmMain_Load(object sender, EventArgs e)
@@ -65,14 +66,15 @@ namespace DMHV2
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (Form LoginForms in Application.OpenForms)
+            foreach (Form DataGrids in Application.OpenForms)
             {
-                if (LoginForms is Form1)
+                if (DataGrids is frmDataGrid)
                 {
-                    LoginForms.ShowDialog();
+                    DataGrids.Close();
                     break;
                 }
             }
+            //   RefToLoginForm.ShowDialog();
         }
         // End Of Sprint One
         // Start Of Sprint Two
@@ -124,7 +126,8 @@ namespace DMHV2
 
         private void securityToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            RefToLoginForm.ShowDialog();
+            this.Hide();
         }
 
       

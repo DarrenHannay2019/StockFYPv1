@@ -78,6 +78,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDataGrid.resx">
+      <DependentUpon>frmDataGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEmployee.resx">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </EmbeddedResource>

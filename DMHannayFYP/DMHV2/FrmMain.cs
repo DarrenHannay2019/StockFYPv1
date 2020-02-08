@@ -22,38 +22,37 @@ namespace DMHV2
         // Sprint One Start
         private void warehousesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDataGrid dataGrid = new frmDataGrid();
 
         }
 
         private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // 3
         }
 
         private void shopsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // 2
         }
 
         private void currentStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // 4
         }
 
         private void allStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // 5
         }
 
         private void seasonsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // 6
         }
 
         private void purchaseOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // 7
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -81,43 +80,43 @@ namespace DMHV2
         // Start Of Sprint Two
         private void warehouseAdjustmentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //8
         }
 
         private void warehouseTransfersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //9
         }
 
         private void warehouseReturnsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //10
         }
       
         private void shopDeliveriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //11
         }
         // End Of Sprint Two
         // Start Of Sprint Three
         private void shopAdjustmentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //12
         }
 
         private void shopTransfersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //13
         }
 
         private void shopSalesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //14
         }
 
         private void shopReturnsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //15
         }
 
         private void maintananceFunctionsToolStripMenuItem_Click(object sender, EventArgs e)

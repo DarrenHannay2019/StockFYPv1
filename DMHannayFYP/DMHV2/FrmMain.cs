@@ -22,6 +22,7 @@ namespace DMHV2
         // Sprint One Start
         private void warehousesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmDataGrid dataGrid = new frmDataGrid();
 
         }
 

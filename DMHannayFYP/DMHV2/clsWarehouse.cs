@@ -6,6 +6,12 @@ namespace DMHV2
 {
     public class clsWarehouse : clsUtils
     {
+        // Properties / fields for the class
+        // started 09/02/2020
+        // completed 00/02/2020
+        public string WarehouseName;
+        public string WarehouseType;
+
         public clsWarehouse(int user)
         {
             SaveToDB = false;
@@ -17,7 +23,7 @@ namespace DMHV2
         {
             UserID = 0;
         }
-        public bool SaveWarehouseToDB(string WarehouseRef, string WarehouseName, string Street, string Area, string Town, string County, string PostCode, string ContactName, string Telephone, string FaxNumber, string EmailAddress, string WebsiteAddress, string WarehouseType, string Memo, int UserID)
+        public bool SaveWarehouseToDB()
         {
             SaveToDB = false;
             try
@@ -29,19 +35,19 @@ namespace DMHV2
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblWarehouses (WarehouseRef,WarehouseName,Street,Area,Town,County,PostCode,ContactName,Telephone,WebSite,Fax,eMail,WarehouseType,Memo,CreatedBy,CreatedDate) VALUES (@WarehouseRef,@WarehouseName,@Street,@Area,@Town,@County,@PostCode,@ContactName,@Telephone,@WebSite,@Fax,@eMail,@WarehouseType,@Memo,@CreatedBy,@CreatedDate)";
+                        sqlCommand.CommandText = "INSERT INTO tblWarehouses (WarehouseRef, WarehouseName, ,PostCode, ContactName, Telephone, WebSite, Fax, eMail, WarehouseType, Memo, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @WarehouseName, , @PostCode, @ContactName, @Telephone, @WebSite, @Fax, @eMail, @WarehouseType, @Memo, @CreatedBy, @CreatedDate)";
                         sqlCommand.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         sqlCommand.Parameters.AddWithValue("@WarehouseName", WarehouseName);
-                        sqlCommand.Parameters.AddWithValue("@Street", Street);
-                        sqlCommand.Parameters.AddWithValue("@Area", Area);
-                        sqlCommand.Parameters.AddWithValue("@Town", Town);
-                        sqlCommand.Parameters.AddWithValue("@County", County);
+                        sqlCommand.Parameters.AddWithValue("@Street", AddressLine1);
+                        sqlCommand.Parameters.AddWithValue("@Area", AddressLine2);
+                        sqlCommand.Parameters.AddWithValue("@Town", AddressLine3);
+                        sqlCommand.Parameters.AddWithValue("@County", AddressLine4);
                         sqlCommand.Parameters.AddWithValue("@PostCode", PostCode);
                         sqlCommand.Parameters.AddWithValue("@ContactName", ContactName);
                         sqlCommand.Parameters.AddWithValue("@Telephone", Telephone);
                         sqlCommand.Parameters.AddWithValue("@WebSite", WebsiteAddress);
-                        sqlCommand.Parameters.AddWithValue("@Fax", FaxNumber);
-                        sqlCommand.Parameters.AddWithValue("@eMail", EmailAddress);
+                        sqlCommand.Parameters.AddWithValue("@Fax", Fax);
+                        sqlCommand.Parameters.AddWithValue("@eMail", eMail);
                         sqlCommand.Parameters.AddWithValue("@WarehouseType", WarehouseType);
                         sqlCommand.Parameters.AddWithValue("@Memo", Memo);
                         sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);

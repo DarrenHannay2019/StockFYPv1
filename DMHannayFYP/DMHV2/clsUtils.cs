@@ -18,6 +18,25 @@ namespace DMHV2
         public int NoRecords { get; set; }
         public int Result { get; set; }
         public int UserID { get; set; }
+        public string AddressLine1;
+        public string AddressLine2;
+        public string AddressLine3;
+        public string AddressLine4;
+        public string PostCode;
+        public string Telephone;
+        public string ContactName;
+        public string Fax;
+        public string eMail;
+        public string WebsiteAddress;
+        public string Memo;
+        public string StockCode;
+        public string ShopRef;
+        public string WarehouseRef;
+        public string SupplierRef;
+        public string SeasonName;
+        public int DeliveredQtyHangers;
+        public int DeliveredQtyBoxes;
+        public int DeliveredQtyGarments;
         public static string GetConnString(int ID)
         {
             // Returns the correct Database connection string for the identity record.

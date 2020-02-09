@@ -12,7 +12,7 @@ namespace DMHV2
 {
     public partial class FrmEmployee : Form
     {
-        public string ModeOfForm;
+        public string ModeOfForm { get; set; }
         public FrmEmployee()
         {
             InitializeComponent();

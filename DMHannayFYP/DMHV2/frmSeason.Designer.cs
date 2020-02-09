@@ -86,6 +86,7 @@
             this.BtnOK.TabIndex = 6;
             this.BtnOK.Text = "OK";
             this.BtnOK.UseVisualStyleBackColor = true;
+            this.BtnOK.Click += new System.EventHandler(this.BtnOK_Click);
             // 
             // frmSeason
             // 

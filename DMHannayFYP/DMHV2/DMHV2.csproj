@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="clsEmployee.cs" />
     <Compile Include="clsPurchaseOrder.cs" />
+    <Compile Include="clsShop.cs" />
+    <Compile Include="clsStock.cs" />
+    <Compile Include="clsSupplier.cs" />
     <Compile Include="clsUtils.cs" />
     <Compile Include="clsWarehouse.cs" />
     <Compile Include="Form1.cs">

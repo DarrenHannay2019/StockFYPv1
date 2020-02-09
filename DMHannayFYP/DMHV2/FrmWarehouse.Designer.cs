@@ -83,13 +83,14 @@
             // CmdOK
             // 
             this.CmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CmdOK.Location = new System.Drawing.Point(356, 503);
+            this.CmdOK.Location = new System.Drawing.Point(370, 507);
             this.CmdOK.Margin = new System.Windows.Forms.Padding(4);
             this.CmdOK.Name = "CmdOK";
             this.CmdOK.Size = new System.Drawing.Size(112, 28);
             this.CmdOK.TabIndex = 13;
             this.CmdOK.Text = "Button1";
             this.CmdOK.UseVisualStyleBackColor = true;
+            this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
             // 
             // label9
             // 
@@ -192,24 +193,26 @@
             // CmdClear
             // 
             this.CmdClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CmdClear.Location = new System.Drawing.Point(599, 503);
+            this.CmdClear.Location = new System.Drawing.Point(613, 507);
             this.CmdClear.Margin = new System.Windows.Forms.Padding(4);
             this.CmdClear.Name = "CmdClear";
             this.CmdClear.Size = new System.Drawing.Size(112, 28);
             this.CmdClear.TabIndex = 15;
             this.CmdClear.Text = "Clear";
             this.CmdClear.UseVisualStyleBackColor = true;
+            this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
             // 
             // CmdCancel
             // 
             this.CmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CmdCancel.Location = new System.Drawing.Point(477, 503);
+            this.CmdCancel.Location = new System.Drawing.Point(491, 507);
             this.CmdCancel.Margin = new System.Windows.Forms.Padding(4);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(112, 28);
             this.CmdCancel.TabIndex = 14;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
+            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
             // TabControl1
             // 
@@ -504,13 +507,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 1095);
+            this.ClientSize = new System.Drawing.Size(738, 548);
             this.Controls.Add(this.CmdOK);
             this.Controls.Add(this.CmdClear);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.TabControl1);
             this.Name = "FrmWarehouse";
             this.Text = "FrmWarehouse";
+            this.Load += new System.EventHandler(this.FrmWarehouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridStock)).EndInit();
             this.TabPage3.ResumeLayout(false);

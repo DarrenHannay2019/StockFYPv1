@@ -45,7 +45,7 @@
   <Class Name="DMHV2.frmDataGrid" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAIgwAAAGAQAACQCGOAIAgDACAAAgAIBgACAIRAAAA=</HashCode>
       <FileName>frmDataGrid.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,6 +80,13 @@
     <Position X="9.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsWarehouse">
+    <Position X="5.5" Y="6.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAACAABABAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clsWarehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

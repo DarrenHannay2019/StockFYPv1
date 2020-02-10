@@ -34,7 +34,7 @@
             this.TxtTotalItems = new System.Windows.Forms.Label();
             this.Label12 = new System.Windows.Forms.Label();
             this.TabPage3 = new System.Windows.Forms.TabPage();
-            this.gridStock = new System.Windows.Forms.DataGridView();
+            this.gridStocks = new System.Windows.Forms.DataGridView();
             this.gridTrans = new System.Windows.Forms.DataGridView();
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.CmdClear = new System.Windows.Forms.Button();
@@ -68,7 +68,7 @@
             this.TabPage4 = new System.Windows.Forms.TabPage();
             this.TxtMemo = new System.Windows.Forms.TextBox();
             this.TabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridStocks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTrans)).BeginInit();
             this.TabPage2.SuspendLayout();
             this.TabControl1.SuspendLayout();
@@ -133,7 +133,7 @@
             this.TabPage3.Controls.Add(this.TxtTotalValue);
             this.TabPage3.Controls.Add(this.TxtTotalItems);
             this.TabPage3.Controls.Add(this.Label12);
-            this.TabPage3.Controls.Add(this.gridStock);
+            this.TabPage3.Controls.Add(this.gridStocks);
             this.TabPage3.Location = new System.Drawing.Point(4, 25);
             this.TabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TabPage3.Name = "TabPage3";
@@ -143,20 +143,20 @@
             this.TabPage3.Text = "Stock";
             this.TabPage3.UseVisualStyleBackColor = true;
             // 
-            // gridStock
+            // gridStocks
             // 
-            this.gridStock.AllowUserToAddRows = false;
-            this.gridStock.AllowUserToDeleteRows = false;
-            this.gridStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gridStock.Location = new System.Drawing.Point(4, 3);
-            this.gridStock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gridStock.Name = "gridStock";
-            this.gridStock.ReadOnly = true;
-            this.gridStock.RowHeadersVisible = false;
-            this.gridStock.RowHeadersWidth = 62;
-            this.gridStock.Size = new System.Drawing.Size(520, 327);
-            this.gridStock.TabIndex = 0;
+            this.gridStocks.AllowUserToAddRows = false;
+            this.gridStocks.AllowUserToDeleteRows = false;
+            this.gridStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridStocks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridStocks.Location = new System.Drawing.Point(4, 3);
+            this.gridStocks.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.gridStocks.Name = "gridStocks";
+            this.gridStocks.ReadOnly = true;
+            this.gridStocks.RowHeadersVisible = false;
+            this.gridStocks.RowHeadersWidth = 62;
+            this.gridStocks.Size = new System.Drawing.Size(520, 327);
+            this.gridStocks.TabIndex = 0;
             // 
             // gridTrans
             // 
@@ -531,7 +531,7 @@
             this.Load += new System.EventHandler(this.frmShop_Load);
             this.TabPage3.ResumeLayout(false);
             this.TabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridStocks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTrans)).EndInit();
             this.TabPage2.ResumeLayout(false);
             this.TabControl1.ResumeLayout(false);
@@ -551,7 +551,6 @@
         internal System.Windows.Forms.Label TxtTotalItems;
         internal System.Windows.Forms.Label Label12;
         internal System.Windows.Forms.TabPage TabPage3;
-        internal System.Windows.Forms.DataGridView gridStock;
         internal System.Windows.Forms.DataGridView gridTrans;
         internal System.Windows.Forms.TabPage TabPage2;
         internal System.Windows.Forms.Button CmdClear;
@@ -584,5 +583,6 @@
         internal System.Windows.Forms.TextBox TxtShopRef;
         internal System.Windows.Forms.TabPage TabPage4;
         internal System.Windows.Forms.TextBox TxtMemo;
+        private System.Windows.Forms.DataGridView gridStocks;
     }
 }

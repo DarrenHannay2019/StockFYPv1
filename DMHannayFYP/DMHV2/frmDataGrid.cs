@@ -18,12 +18,44 @@ namespace DMHV2
 
         private void TsbNew_Click(object sender, EventArgs e)
         {
+            if(FunctionID == 1)
+            {
 
+            }
+            if(FunctionID == 2)
+            {
+                clsShop clsShop = new clsShop();
+                clsShop.LoadNewRecord();
+                
+            }
+            if (FunctionID == 3)
+            {
+
+            }
+            if (FunctionID == 4)
+            {
+
+            }
+            if (FunctionID == 5)
+            {
+
+            }
+            if (FunctionID == 6)
+            {
+
+            }
         }
 
         private void TsbRecord_Click(object sender, EventArgs e)
         {
 
+            if (FunctionID == 2)
+            {
+                clsShop clsShop = new clsShop();
+                clsShop.ShopRef = "";
+                clsShop.LoadSelectedRecord();
+
+            }
         }
 
         private void TsbDelete_Click(object sender, EventArgs e)

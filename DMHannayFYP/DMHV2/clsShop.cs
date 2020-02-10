@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Windows.Forms;
+
     public class clsShop : clsUtils
     {
         // Properties / fields for the class
@@ -16,9 +12,16 @@ namespace DMHV2
         // completed 00/02/2020
         public string ShopType;
         public string ShopName;
-        public string GetShopName(string ShopRef)
+        public void LoadNewRecord()
         {
-            string ShopName;
+
+        }
+        public void LoadSelectedRecord()
+        {
+
+        }
+        public string GetShopName()
+        {
             try
             {
                 using (SqlConnection sqlConnection = new SqlConnection())
@@ -34,8 +37,9 @@ namespace DMHV2
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
                 throw;
             }
             return ShopName;
@@ -45,30 +49,31 @@ namespace DMHV2
             SaveToDB = false;
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection())
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand InsertCmd = new SqlCommand())
                     {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblShops (ShopRef,ShopName,ContactName,Street,Area,Town,County,PostCode,Telephone,Fax,eMail,ShopType,Memo,CreatedBy,CreatedDate) VALUES (@ShopRef,@ShopName,@ContactName,@Street,@Area,@Town,@County,@PostCode,@Telephone,@Fax,@eMail,@ShopType,@Memo,@CreatedBy,@CreatedDate)";
-                        sqlCommand.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        sqlCommand.Parameters.AddWithValue("@ShopName", ShopName);
-                        sqlCommand.Parameters.AddWithValue("@Street", AddressLine1);
-                        sqlCommand.Parameters.AddWithValue("@Area", AddressLine2);
-                        sqlCommand.Parameters.AddWithValue("@Town", AddressLine3);
-                        sqlCommand.Parameters.AddWithValue("@County", AddressLine4);
-                        sqlCommand.Parameters.AddWithValue("@PostCode", PostCode);
-                        sqlCommand.Parameters.AddWithValue("@ContactName", ContactName);
-                        sqlCommand.Parameters.AddWithValue("@Telephone", Telephone);
-                        sqlCommand.Parameters.AddWithValue("@Fax", Fax);
-                        sqlCommand.Parameters.AddWithValue("@eMail", eMail);
-                        sqlCommand.Parameters.AddWithValue("@ShopType", ShopType);
-                        sqlCommand.Parameters.AddWithValue("@Memo", Memo);
-                        sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);
-                        sqlCommand.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
-                        Result = (int)sqlCommand.ExecuteNonQuery();
+                        InsertCmd.Connection = conn;
+                        InsertCmd.CommandType = CommandType.Text;
+                        InsertCmd.CommandText = "INSERT INTO tblShops (ShopRef, ShopName, Address1, Address2, Address3, Address4, PostCode, Telephone, Fax, eMail, ShopType, Memo, ContactName, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Address1, @Address2, @Address3, @Address4, @PostCode, @Telephone, @Fax, @eMail, @ShopType, @Memo, @ContactName, @CreatedBy, @CreatedDate)";
+                        InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                        InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                        InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
+                        InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
+                        InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
+                        InsertCmd.Parameters.AddWithValue("@Address4", AddressLine4);
+                        InsertCmd.Parameters.AddWithValue("@PostCode", PostCode);
+                        InsertCmd.Parameters.AddWithValue("@ContactName", ContactName);
+                        InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                        InsertCmd.Parameters.AddWithValue("@Fax", Fax);
+                        InsertCmd.Parameters.AddWithValue("@eMail", eMail);
+                        InsertCmd.Parameters.AddWithValue("@ShopType", ShopType);
+                        InsertCmd.Parameters.AddWithValue("@Memo", Memo);
+                        InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
+                        InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                        Result = (int)InsertCmd.ExecuteNonQuery();
                     }
                 }
                 if (Result != 1)
@@ -87,52 +92,96 @@ namespace DMHV2
             }
             return SaveToDB;
         }
-        public bool UpdateShopToDB(string ShopRef, string ShopName, string Street, string Area, string Town, string County, string PostCode, string ContactName, string Telephone, string FaxNumber, string EmailAddress, string ShopType, string Memo)
+        public bool UpdateShopToDB()
         {
             UpdateToDB = true;
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection())
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand UpdateCmd = new SqlCommand())
                     {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblShops SET ShopName = @ShopName,Street=@Street,Area=@Area,Town=@Town,County = @County,PostCode = @PostCode,ContactName = @ContactName,Telephone = Telephone,Fax = @Fax,eMail = @eMail,Memo = @Memo,ShopType = @ShopType WHERE ShopRef = @ShopRef";
-                        sqlCommand.Parameters.AddWithValue("@ShopRef", ShopRef);
-                        sqlCommand.Parameters.AddWithValue("@ShopName", ShopName);
-                        sqlCommand.Parameters.AddWithValue("@Street", Street);
-                        sqlCommand.Parameters.AddWithValue("@Area", Area);
-                        sqlCommand.Parameters.AddWithValue("@Town", Town);
-                        sqlCommand.Parameters.AddWithValue("@County", County);
-                        sqlCommand.Parameters.AddWithValue("@PostCode", PostCode);
-                        sqlCommand.Parameters.AddWithValue("@ContactName", ContactName);
-                        sqlCommand.Parameters.AddWithValue("@Telephone", Telephone);
-                        sqlCommand.Parameters.AddWithValue("@Fax", FaxNumber);
-                        sqlCommand.Parameters.AddWithValue("@eMail", EmailAddress);
-                        sqlCommand.Parameters.AddWithValue("@WarehouseType", ShopType);
-                        sqlCommand.Parameters.AddWithValue("@Memo", Memo);
-                        sqlCommand.ExecuteNonQuery();
+                        UpdateCmd.Connection = conn;
+                        UpdateCmd.CommandType = CommandType.Text;
+                        UpdateCmd.CommandText = "UPDATE tblShops SET ShopName = @ShopName, Address1 = @Address1, Address2 = @Address2, Address3 =@Address3, Address4 = @Address4, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, Fax = @Fax, eMail = @eMail, Memo = @Memo, ShopType = @ShopType WHERE ShopRef = @ShopRef";
+                        UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                        UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                        UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine2);
+                        UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine3);
+                        UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine4);
+                        UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
+                        UpdateCmd.Parameters.AddWithValue("@ContactName", ContactName);
+                        UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                        UpdateCmd.Parameters.AddWithValue("@Fax", Fax);
+                        UpdateCmd.Parameters.AddWithValue("@eMail", eMail);
+                        UpdateCmd.Parameters.AddWithValue("@ShopType", ShopType);
+                        UpdateCmd.Parameters.AddWithValue("@Memo", Memo);
+                        UpdateCmd.ExecuteNonQuery();
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
+                UpdateToDB = false;
                 throw;
             }
             return UpdateToDB;
         }
-        public int TotalShopRecords(string ShopRef)
+        public int TotalShopRecords()
         {
-            int NoRecords = 0;
-
-            return NoRecords;
+            Result = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
+                    {
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandType = CommandType.Text;
+                        SelectCmd.CommandText = "SELECT * FROM tblStockMovements WHERE LocationRef = @LocationRef";
+                        SelectCmd.Parameters.AddWithValue("@LocationRef", ShopRef);
+                        Result = (int)SelectCmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);                
+                throw;
+            }
+            return Result;
         }
-        public bool DeleteShopRecord(string ShopRef)
+        public bool DeleteShopRecord()
         {
             DeleteFromDB = false;
-
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand DeleteCmd = new SqlCommand())
+                    {
+                        DeleteCmd.Connection = conn;
+                        DeleteCmd.CommandType = CommandType.Text;
+                        DeleteCmd.CommandText = "DELETE FROM tblShops WHERE ShopRef = @ShopRef";
+                        DeleteCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                        DeleteCmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                DeleteFromDB = false;
+                throw;
+            }
             return DeleteFromDB;
         }
     }

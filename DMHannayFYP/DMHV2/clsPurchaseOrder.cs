@@ -53,14 +53,14 @@ namespace DMHV2
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrderLines (PurchaseOrderID, StockCode, TotalItems, TotalBoxes, TotalLooseItems, LineAmount, LineVAT) VALUES (@PurchaseOrderID, @StockCode, @TotalItems, @TotalBoxes, @TotalLooseItems, @LineAmount, @LineVAT)";
-                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderId);
-                        sqlCommand.Parameters.AddWithValue("@StockCode", StockCodeID);
-                        sqlCommand.Parameters.AddWithValue("@TotalItems", TotalItems);
-                        sqlCommand.Parameters.AddWithValue("@TotalBoxes", TotalBoxes);
-                        sqlCommand.Parameters.AddWithValue("@TotalLooseItems", TotalLooseItems);
-                        sqlCommand.Parameters.AddWithValue("@LineAmount", LineAmount);
-                        sqlCommand.Parameters.AddWithValue("@LineVAT", LineVAT);
+                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrderLines (PurchaseOrderID, StockCode, DeliveredQtyGarments, DeliveredQtyBoxes, DeliveredQtyHangers,  LineAmount) VALUES (@PurchaseOrderID, @StockCode, @DeliveredQtyGarments, @DeliveredQtyBoxes, @DeliveredQtyHangers,, @LineAmount)";
+                       
+                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
+                        sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyBoxes", DeliveredQtyBoxes);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyHangers", DeliveredQtyHangers);
+                        sqlCommand.Parameters.AddWithValue("@LineAmount", LineAmount);                    
                         Result = (int)sqlCommand.ExecuteNonQuery();
                     }
                 }
@@ -94,13 +94,12 @@ namespace DMHV2
                     {
                         sqlCommand.Connection = sqlConnection;
                         sqlCommand.CommandText = "UPDATE tblPurchaseOrderLines SET TotalItems = @TotalItems,TotalBoxes = @TotalBoxes,TotalLooseItems = @TotalLooseItems,LineAmount = @LineAmount,LineVAT = @LineVAT WHERE PurchaseOrderID = @PurchaseOrderID AND StockCode = @StockCode";
-                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderId);
-                        sqlCommand.Parameters.AddWithValue("@StockCode", StockCodeID);
-                        sqlCommand.Parameters.AddWithValue("@TotalItems", TotalItems);
-                        sqlCommand.Parameters.AddWithValue("@TotalBoxes", TotalBoxes);
-                        sqlCommand.Parameters.AddWithValue("@TotalLooseItems", TotalLooseItems);
+                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
+                        sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyBoxes", DeliveredQtyBoxes);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyHangers", DeliveredQtyHangers);
                         sqlCommand.Parameters.AddWithValue("@LineAmount", LineAmount);
-                        sqlCommand.Parameters.AddWithValue("@LineVAT", LineVAT);
                         Result = (int)sqlCommand.ExecuteNonQuery();
                     }
                 }
@@ -130,6 +129,7 @@ namespace DMHV2
         public int TotalGarments;
         public int TotalHangers;
         public int TotalBoxes;
+        public int PurchaseOrderID;
         public decimal NetAmount;
         public decimal DeliveryCharge;
         public decimal Commission;
@@ -160,21 +160,21 @@ namespace DMHV2
                     {
                         sqlCommand.Connection = sqlConnection;
                         sqlCommand.CommandText = "INSERT INTO tblPurchaseOrders (OurRef, SupplierRef, LocationRef, TotalItems, TotalBoxes, TotalHangers, NetAmount, DeliveryCharge, Commission, VATAmount, TotalAmount, DeliveryDate, SeasonID, Notes, InvoiceNo, Shipper, ShipperInvoice, CreatedBy, CreatedDate) VALUES (@OurRef, @SupplierRef, @LocationRef, @TotalItems, @TotalBoxes, @TotalHangers, @NetAmount, @DeliveryCharge, @Commission, @VATAmount, @TotalAmount, @DeliveryDate, @SeasonID, @Notes, @InvoiceNo, @Shipper, @ShipperInvoice, @CreatedBy, @CreatedDate)";
-                        sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
+                        sqlCommand.Parameters.AddWithValue("@OurRef", StockCode);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        sqlCommand.Parameters.AddWithValue("@LocationRef", LocationRef);
-                        sqlCommand.Parameters.AddWithValue("@TotalItems", TotalItems);
+                        sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
+                        sqlCommand.Parameters.AddWithValue("@TotalItems", TotalGarments);
                         sqlCommand.Parameters.AddWithValue("@TotalBoxes", TotalBoxes);
-                        sqlCommand.Parameters.AddWithValue("@TotalLoose", TotalLoose);
+                        sqlCommand.Parameters.AddWithValue("@TotalLoose", TotalHangers);
                         sqlCommand.Parameters.AddWithValue("@NetAmount", NetAmount);
                         sqlCommand.Parameters.AddWithValue("@Commission", Commission);
                         sqlCommand.Parameters.AddWithValue("@DeliveryCharge", DeliveryCharge);
                         sqlCommand.Parameters.AddWithValue("@VATAmount", VATAmount);
                         sqlCommand.Parameters.AddWithValue("@TotalAmount", TotalAmount);
                         sqlCommand.Parameters.AddWithValue("@DeliveryDate", DeliveryDate);
-                        sqlCommand.Parameters.AddWithValue("@SeasonID", SeasonID);
+                        sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
                         sqlCommand.Parameters.AddWithValue("@Notes", Notes);
-                        sqlCommand.Parameters.AddWithValue("@Invoice", Invoice);
+                        sqlCommand.Parameters.AddWithValue("@Invoice", SupplierInvoice);
                         sqlCommand.Parameters.AddWithValue("@Shipper", Shipper);
                         sqlCommand.Parameters.AddWithValue("@ShipperInvoice", ShipperInvoice);
                         sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);
@@ -212,24 +212,24 @@ namespace DMHV2
                     {
                         sqlCommand.Connection = sqlConnection;
                         sqlCommand.CommandText = "UPDATE tblPurchaseOrders SET OurRef = @OurRef, SupplierRef = @SupplierRef, LocationRef = @LocationRef, TotalItems = @TotalItems, TotalBoxes = @TotalBoxes, TotalHangers = @TotalHangers, NetAmount = @NetAmount, DeliveryCharge = @DeliveryCharge, Commission = @Commission, VATAmount = @VATAmount, TotalAmount = @TotalAmount, DeliveryDate = @DeliveryDate, SeasonID = @SeasonID, Notes = @Notes, InvoiceNo = @InvoiceNo, Shipper = @Shipper, ShipperInvoice = @ShipperInvoice WHERE DeliveriesID = @DeliveriesID";
-                        sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
+                        sqlCommand.Parameters.AddWithValue("@OurRef", StockCode);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        sqlCommand.Parameters.AddWithValue("@LocationRef", LocationRef);
-                        sqlCommand.Parameters.AddWithValue("@TotalItems", TotalItems);
+                        sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
+                        sqlCommand.Parameters.AddWithValue("@TotalItems", TotalGarments);
                         sqlCommand.Parameters.AddWithValue("@TotalBoxes", TotalBoxes);
-                        sqlCommand.Parameters.AddWithValue("@TotalLoose", TotalLoose);
+                        sqlCommand.Parameters.AddWithValue("@TotalLoose", TotalHangers);
                         sqlCommand.Parameters.AddWithValue("@NetAmount", NetAmount);
                         sqlCommand.Parameters.AddWithValue("@Commission", Commission);
                         sqlCommand.Parameters.AddWithValue("@DeliveryCharge", DeliveryCharge);
                         sqlCommand.Parameters.AddWithValue("@VATAmount", VATAmount);
                         sqlCommand.Parameters.AddWithValue("@TotalAmount", TotalAmount);
                         sqlCommand.Parameters.AddWithValue("@DeliveryDate", DeliveryDate);
-                        sqlCommand.Parameters.AddWithValue("@SeasonID", SeasonID);
+                        sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
                         sqlCommand.Parameters.AddWithValue("@Notes", Notes);
-                        sqlCommand.Parameters.AddWithValue("@Invoice", Invoice);
+                        sqlCommand.Parameters.AddWithValue("@Invoice", SupplierInvoice);
                         sqlCommand.Parameters.AddWithValue("@Shipper", Shipper);
                         sqlCommand.Parameters.AddWithValue("@ShipperInvoice", ShipperInvoice);
-                        sqlCommand.Parameters.AddWithValue("@DeliveriesID", DeliveriesID);
+                        sqlCommand.Parameters.AddWithValue("@DeliveriesID", PurchaseOrderID);
                         Result = (int)sqlCommand.ExecuteNonQuery();
                     }
                 }

@@ -21,5 +21,10 @@ namespace DMHV2
         {
 
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();   // close the form.
+        }
     }
 }

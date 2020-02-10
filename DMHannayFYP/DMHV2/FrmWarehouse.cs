@@ -25,8 +25,8 @@ namespace DMHV2
             clsWarehouse clsWarehouse = new clsWarehouse(UserID);
             if(Modeform == "New")
             {
-                clsWarehouse.
-                clsWarehouse.SaveWarehouseToDB(TxtWarehouseRef.Text.TrimEnd(),TxtWarehouseName.Text.TrimEnd(),TxtAddress1.Text.TrimEnd(),TxtAddress2.Text.TrimEnd(),)
+               // clsWarehouse.
+               // clsWarehouse.SaveWarehouseToDB(TxtWarehouseRef.Text.TrimEnd(), TxtWarehouseName.Text.TrimEnd(), TxtAddress1.Text.TrimEnd(), TxtAddress2.Text.TrimEnd());
             }
             else
             {

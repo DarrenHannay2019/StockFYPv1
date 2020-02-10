@@ -40,7 +40,7 @@ namespace DMHV2
             }
             return ShopName;
         }
-        public bool SaveShopToDB(string ShopRef, string ShopName, string Street, string Area, string Town, string County, string PostCode, string ContactName, string Telephone, string FaxNumber, string EmailAddress, string ShopType, string Memo, int UserID)
+        public bool SaveShopToDB()
         {
             SaveToDB = false;
             try

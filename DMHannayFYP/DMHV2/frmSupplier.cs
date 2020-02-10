@@ -16,5 +16,35 @@ namespace DMHV2
         {
             InitializeComponent();
         }
+
+        private void CmdClear_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes(this);
+        }
+        private void ClearTextBoxes(Control control)
+        {
+            // Code from https://stackoverflow.com/questions/4811229/how-to-clear-the-text-of-all-textboxes-in-the-form
+            foreach (Control c in control.Controls)
+            {
+                if (c is TextBox)
+                {
+                    ((TextBox)c).Clear();
+                }
+                if (c.HasChildren)
+                {
+                    ClearTextBoxes(c);
+                }
+            }
+        }
+
+        private void CmdCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();   // close the form.
+        }
+
+        private void CmdOK_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

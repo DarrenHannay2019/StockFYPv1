@@ -71,10 +71,11 @@
             // TxtMemo
             // 
             this.TxtMemo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtMemo.Location = new System.Drawing.Point(3, 3);
+            this.TxtMemo.Location = new System.Drawing.Point(3, 2);
+            this.TxtMemo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMemo.Multiline = true;
             this.TxtMemo.Name = "TxtMemo";
-            this.TxtMemo.Size = new System.Drawing.Size(611, 384);
+            this.TxtMemo.Size = new System.Drawing.Size(542, 305);
             this.TxtMemo.TabIndex = 0;
             // 
             // tabPage1
@@ -103,234 +104,249 @@
             this.tabPage1.Controls.Add(this.Label7);
             this.tabPage1.Controls.Add(this.Label5);
             this.tabPage1.Controls.Add(this.Label6);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(617, 390);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(548, 309);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Details";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // TxtWebsiteAddress
             // 
-            this.TxtWebsiteAddress.Location = new System.Drawing.Point(158, 343);
+            this.TxtWebsiteAddress.Location = new System.Drawing.Point(140, 274);
+            this.TxtWebsiteAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtWebsiteAddress.MaxLength = 255;
             this.TxtWebsiteAddress.Name = "TxtWebsiteAddress";
-            this.TxtWebsiteAddress.Size = new System.Drawing.Size(406, 26);
+            this.TxtWebsiteAddress.Size = new System.Drawing.Size(361, 22);
             this.TxtWebsiteAddress.TabIndex = 47;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(85, 342);
+            this.label11.Location = new System.Drawing.Point(76, 274);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 20);
+            this.label11.Size = new System.Drawing.Size(65, 17);
             this.label11.TabIndex = 46;
             this.label11.Text = "WebSite:";
             // 
             // TxtEmailAddress
             // 
-            this.TxtEmailAddress.Location = new System.Drawing.Point(159, 314);
+            this.TxtEmailAddress.Location = new System.Drawing.Point(141, 251);
+            this.TxtEmailAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtEmailAddress.MaxLength = 255;
             this.TxtEmailAddress.Name = "TxtEmailAddress";
-            this.TxtEmailAddress.Size = new System.Drawing.Size(406, 26);
+            this.TxtEmailAddress.Size = new System.Drawing.Size(361, 22);
             this.TxtEmailAddress.TabIndex = 45;
             // 
             // TxtTelephoneLine2
             // 
-            this.TxtTelephoneLine2.Location = new System.Drawing.Point(395, 258);
+            this.TxtTelephoneLine2.Location = new System.Drawing.Point(351, 206);
+            this.TxtTelephoneLine2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtTelephoneLine2.MaxLength = 20;
             this.TxtTelephoneLine2.Name = "TxtTelephoneLine2";
-            this.TxtTelephoneLine2.Size = new System.Drawing.Size(173, 26);
+            this.TxtTelephoneLine2.Size = new System.Drawing.Size(154, 22);
             this.TxtTelephoneLine2.TabIndex = 44;
             // 
             // TxtFaxNumber
             // 
-            this.TxtFaxNumber.Location = new System.Drawing.Point(160, 287);
+            this.TxtFaxNumber.Location = new System.Drawing.Point(142, 230);
+            this.TxtFaxNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtFaxNumber.MaxLength = 20;
             this.TxtFaxNumber.Name = "TxtFaxNumber";
-            this.TxtFaxNumber.Size = new System.Drawing.Size(173, 26);
+            this.TxtFaxNumber.Size = new System.Drawing.Size(154, 22);
             this.TxtFaxNumber.TabIndex = 43;
             // 
             // TxtTelephoneNumber1
             // 
-            this.TxtTelephoneNumber1.Location = new System.Drawing.Point(160, 258);
+            this.TxtTelephoneNumber1.Location = new System.Drawing.Point(142, 206);
+            this.TxtTelephoneNumber1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtTelephoneNumber1.MaxLength = 20;
             this.TxtTelephoneNumber1.Name = "TxtTelephoneNumber1";
-            this.TxtTelephoneNumber1.Size = new System.Drawing.Size(173, 26);
+            this.TxtTelephoneNumber1.Size = new System.Drawing.Size(154, 22);
             this.TxtTelephoneNumber1.TabIndex = 42;
             // 
             // TxtPostCode
             // 
-            this.TxtPostCode.Location = new System.Drawing.Point(160, 226);
+            this.TxtPostCode.Location = new System.Drawing.Point(142, 181);
+            this.TxtPostCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtPostCode.MaxLength = 11;
             this.TxtPostCode.Name = "TxtPostCode";
-            this.TxtPostCode.Size = new System.Drawing.Size(100, 26);
+            this.TxtPostCode.Size = new System.Drawing.Size(89, 22);
             this.TxtPostCode.TabIndex = 41;
             // 
             // TxtAddressLine4
             // 
-            this.TxtAddressLine4.Location = new System.Drawing.Point(160, 194);
+            this.TxtAddressLine4.Location = new System.Drawing.Point(142, 155);
+            this.TxtAddressLine4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtAddressLine4.MaxLength = 60;
             this.TxtAddressLine4.Name = "TxtAddressLine4";
-            this.TxtAddressLine4.Size = new System.Drawing.Size(410, 26);
+            this.TxtAddressLine4.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine4.TabIndex = 40;
             // 
             // TxtAddressLine3
             // 
-            this.TxtAddressLine3.Location = new System.Drawing.Point(160, 168);
+            this.TxtAddressLine3.Location = new System.Drawing.Point(142, 134);
+            this.TxtAddressLine3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtAddressLine3.MaxLength = 60;
             this.TxtAddressLine3.Name = "TxtAddressLine3";
-            this.TxtAddressLine3.Size = new System.Drawing.Size(410, 26);
+            this.TxtAddressLine3.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine3.TabIndex = 39;
             // 
             // TxtAddressLine2
             // 
-            this.TxtAddressLine2.Location = new System.Drawing.Point(160, 136);
+            this.TxtAddressLine2.Location = new System.Drawing.Point(142, 109);
+            this.TxtAddressLine2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtAddressLine2.MaxLength = 60;
             this.TxtAddressLine2.Name = "TxtAddressLine2";
-            this.TxtAddressLine2.Size = new System.Drawing.Size(410, 26);
+            this.TxtAddressLine2.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine2.TabIndex = 38;
             // 
             // TxtAddressLine1
             // 
-            this.TxtAddressLine1.Location = new System.Drawing.Point(160, 103);
+            this.TxtAddressLine1.Location = new System.Drawing.Point(142, 82);
+            this.TxtAddressLine1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtAddressLine1.MaxLength = 60;
             this.TxtAddressLine1.Name = "TxtAddressLine1";
-            this.TxtAddressLine1.Size = new System.Drawing.Size(410, 26);
+            this.TxtAddressLine1.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine1.TabIndex = 37;
             // 
             // TxtContactName
             // 
-            this.TxtContactName.Location = new System.Drawing.Point(160, 71);
+            this.TxtContactName.Location = new System.Drawing.Point(142, 57);
+            this.TxtContactName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtContactName.MaxLength = 60;
             this.TxtContactName.Name = "TxtContactName";
-            this.TxtContactName.Size = new System.Drawing.Size(410, 26);
+            this.TxtContactName.Size = new System.Drawing.Size(365, 22);
             this.TxtContactName.TabIndex = 36;
             // 
             // TxtSupplierName
             // 
-            this.TxtSupplierName.Location = new System.Drawing.Point(160, 39);
+            this.TxtSupplierName.Location = new System.Drawing.Point(142, 31);
+            this.TxtSupplierName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtSupplierName.MaxLength = 60;
             this.TxtSupplierName.Name = "TxtSupplierName";
-            this.TxtSupplierName.Size = new System.Drawing.Size(410, 26);
+            this.TxtSupplierName.Size = new System.Drawing.Size(365, 22);
             this.TxtSupplierName.TabIndex = 35;
             // 
             // TxtSupplierRef
             // 
-            this.TxtSupplierRef.Location = new System.Drawing.Point(160, 8);
+            this.TxtSupplierRef.Location = new System.Drawing.Point(142, 6);
+            this.TxtSupplierRef.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtSupplierRef.MaxLength = 8;
             this.TxtSupplierRef.Name = "TxtSupplierRef";
-            this.TxtSupplierRef.Size = new System.Drawing.Size(135, 26);
+            this.TxtSupplierRef.Size = new System.Drawing.Size(120, 22);
             this.TxtSupplierRef.TabIndex = 34;
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(50, 7);
+            this.Label1.Location = new System.Drawing.Point(44, 6);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(101, 20);
+            this.Label1.Size = new System.Drawing.Size(90, 17);
             this.Label1.TabIndex = 24;
             this.Label1.Text = "Supplier Ref:";
             // 
             // Label10
             // 
             this.Label10.AutoSize = true;
-            this.Label10.Location = new System.Drawing.Point(91, 317);
+            this.Label10.Location = new System.Drawing.Point(81, 254);
             this.Label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(52, 20);
+            this.Label10.Size = new System.Drawing.Size(46, 17);
             this.Label10.TabIndex = 33;
             this.Label10.Text = "EMail:";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(39, 40);
+            this.Label2.Location = new System.Drawing.Point(35, 32);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(117, 20);
+            this.Label2.Size = new System.Drawing.Size(105, 17);
             this.Label2.TabIndex = 25;
             this.Label2.Text = "Supplier Name:";
             // 
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(85, 287);
+            this.Label9.Location = new System.Drawing.Point(76, 230);
             this.Label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(39, 20);
+            this.Label9.Size = new System.Drawing.Size(34, 17);
             this.Label9.TabIndex = 32;
             this.Label9.Text = "Fax:";
             // 
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(40, 73);
+            this.Label3.Location = new System.Drawing.Point(36, 58);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(115, 20);
+            this.Label3.Size = new System.Drawing.Size(101, 17);
             this.Label3.TabIndex = 26;
             this.Label3.Text = "Contact Name:";
             // 
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(349, 258);
+            this.Label8.Location = new System.Drawing.Point(310, 206);
             this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(28, 20);
+            this.Label8.Size = new System.Drawing.Size(26, 17);
             this.Label8.TabIndex = 31;
             this.Label8.Text = "(2)";
             // 
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(70, 107);
+            this.Label4.Location = new System.Drawing.Point(62, 86);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(72, 20);
+            this.Label4.Size = new System.Drawing.Size(64, 17);
             this.Label4.TabIndex = 27;
             this.Label4.Text = "Address:";
             // 
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.Location = new System.Drawing.Point(131, 258);
+            this.Label7.Location = new System.Drawing.Point(116, 206);
             this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(28, 20);
+            this.Label7.Size = new System.Drawing.Size(26, 17);
             this.Label7.TabIndex = 30;
             this.Label7.Text = "(1)";
             // 
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(65, 234);
+            this.Label5.Location = new System.Drawing.Point(58, 187);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(87, 20);
+            this.Label5.Size = new System.Drawing.Size(77, 17);
             this.Label5.TabIndex = 28;
             this.Label5.Text = "Post Code:";
             // 
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(57, 258);
+            this.Label6.Location = new System.Drawing.Point(51, 206);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(88, 20);
+            this.Label6.Size = new System.Drawing.Size(80, 17);
             this.Label6.TabIndex = 29;
             this.Label6.Text = "Telephone:";
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.gridTrans);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(617, 390);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(548, 309);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Items";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -341,21 +357,22 @@
             this.gridTrans.AllowUserToDeleteRows = false;
             this.gridTrans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTrans.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridTrans.Location = new System.Drawing.Point(3, 3);
-            this.gridTrans.Margin = new System.Windows.Forms.Padding(4);
+            this.gridTrans.Location = new System.Drawing.Point(3, 2);
+            this.gridTrans.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gridTrans.Name = "gridTrans";
             this.gridTrans.ReadOnly = true;
             this.gridTrans.RowHeadersWidth = 62;
-            this.gridTrans.Size = new System.Drawing.Size(611, 384);
+            this.gridTrans.Size = new System.Drawing.Size(542, 305);
             this.gridTrans.TabIndex = 34;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.TxtMemo);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(617, 390);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Size = new System.Drawing.Size(548, 309);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Memo";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -365,51 +382,56 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(11, 10);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(625, 423);
+            this.tabControl1.Size = new System.Drawing.Size(556, 338);
             this.tabControl1.TabIndex = 39;
             // 
             // CmdClear
             // 
-            this.CmdClear.Location = new System.Drawing.Point(520, 440);
-            this.CmdClear.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdClear.Location = new System.Drawing.Point(462, 352);
+            this.CmdClear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CmdClear.Name = "CmdClear";
-            this.CmdClear.Size = new System.Drawing.Size(112, 28);
+            this.CmdClear.Size = new System.Drawing.Size(100, 22);
             this.CmdClear.TabIndex = 38;
             this.CmdClear.Text = "Clear";
             this.CmdClear.UseVisualStyleBackColor = true;
+            this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
             // 
             // CmdCancel
             // 
-            this.CmdCancel.Location = new System.Drawing.Point(399, 440);
-            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdCancel.Location = new System.Drawing.Point(355, 352);
+            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CmdCancel.Name = "CmdCancel";
-            this.CmdCancel.Size = new System.Drawing.Size(112, 28);
+            this.CmdCancel.Size = new System.Drawing.Size(100, 22);
             this.CmdCancel.TabIndex = 37;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
+            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
             // CmdOK
             // 
-            this.CmdOK.Location = new System.Drawing.Point(278, 440);
-            this.CmdOK.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdOK.Location = new System.Drawing.Point(247, 352);
+            this.CmdOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CmdOK.Name = "CmdOK";
-            this.CmdOK.Size = new System.Drawing.Size(112, 28);
+            this.CmdOK.Size = new System.Drawing.Size(100, 22);
             this.CmdOK.TabIndex = 36;
             this.CmdOK.Text = "Button1";
             this.CmdOK.UseVisualStyleBackColor = true;
+            this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
             // 
             // frmSupplier
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 485);
+            this.ClientSize = new System.Drawing.Size(594, 388);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.CmdClear);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.CmdOK);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmSupplier";
             this.Text = "frmSupplier";
             this.tabPage1.ResumeLayout(false);

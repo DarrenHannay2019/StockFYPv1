@@ -55,15 +55,15 @@ namespace DMHV2
                         sqlCommand.CommandText = "INSERT INTO tblShops (ShopRef,ShopName,ContactName,Street,Area,Town,County,PostCode,Telephone,Fax,eMail,ShopType,Memo,CreatedBy,CreatedDate) VALUES (@ShopRef,@ShopName,@ContactName,@Street,@Area,@Town,@County,@PostCode,@Telephone,@Fax,@eMail,@ShopType,@Memo,@CreatedBy,@CreatedDate)";
                         sqlCommand.Parameters.AddWithValue("@ShopRef", ShopRef);
                         sqlCommand.Parameters.AddWithValue("@ShopName", ShopName);
-                        sqlCommand.Parameters.AddWithValue("@Street", Street);
-                        sqlCommand.Parameters.AddWithValue("@Area", Area);
-                        sqlCommand.Parameters.AddWithValue("@Town", Town);
-                        sqlCommand.Parameters.AddWithValue("@County", County);
+                        sqlCommand.Parameters.AddWithValue("@Street", AddressLine1);
+                        sqlCommand.Parameters.AddWithValue("@Area", AddressLine2);
+                        sqlCommand.Parameters.AddWithValue("@Town", AddressLine3);
+                        sqlCommand.Parameters.AddWithValue("@County", AddressLine4);
                         sqlCommand.Parameters.AddWithValue("@PostCode", PostCode);
                         sqlCommand.Parameters.AddWithValue("@ContactName", ContactName);
                         sqlCommand.Parameters.AddWithValue("@Telephone", Telephone);
-                        sqlCommand.Parameters.AddWithValue("@Fax", FaxNumber);
-                        sqlCommand.Parameters.AddWithValue("@eMail", EmailAddress);
+                        sqlCommand.Parameters.AddWithValue("@Fax", Fax);
+                        sqlCommand.Parameters.AddWithValue("@eMail", eMail);
                         sqlCommand.Parameters.AddWithValue("@ShopType", ShopType);
                         sqlCommand.Parameters.AddWithValue("@Memo", Memo);
                         sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);
@@ -84,7 +84,6 @@ namespace DMHV2
             {
                 SaveToDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
-
             }
             return SaveToDB;
         }

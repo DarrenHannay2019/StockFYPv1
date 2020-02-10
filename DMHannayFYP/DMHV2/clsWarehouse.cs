@@ -11,7 +11,6 @@ namespace DMHV2
         // completed 00/02/2020
         public string WarehouseName;
         public string WarehouseType;
-
         public clsWarehouse(int user)
         {
             SaveToDB = false;
@@ -28,31 +27,31 @@ namespace DMHV2
             SaveToDB = false;
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection())
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand InsertCmd = new SqlCommand())
                     {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblWarehouses (WarehouseRef, WarehouseName, ,PostCode, ContactName, Telephone, WebSite, Fax, eMail, WarehouseType, Memo, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @WarehouseName, , @PostCode, @ContactName, @Telephone, @WebSite, @Fax, @eMail, @WarehouseType, @Memo, @CreatedBy, @CreatedDate)";
-                        sqlCommand.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                        sqlCommand.Parameters.AddWithValue("@WarehouseName", WarehouseName);
-                        sqlCommand.Parameters.AddWithValue("@Street", AddressLine1);
-                        sqlCommand.Parameters.AddWithValue("@Area", AddressLine2);
-                        sqlCommand.Parameters.AddWithValue("@Town", AddressLine3);
-                        sqlCommand.Parameters.AddWithValue("@County", AddressLine4);
-                        sqlCommand.Parameters.AddWithValue("@PostCode", PostCode);
-                        sqlCommand.Parameters.AddWithValue("@ContactName", ContactName);
-                        sqlCommand.Parameters.AddWithValue("@Telephone", Telephone);
-                        sqlCommand.Parameters.AddWithValue("@WebSite", WebsiteAddress);
-                        sqlCommand.Parameters.AddWithValue("@Fax", Fax);
-                        sqlCommand.Parameters.AddWithValue("@eMail", eMail);
-                        sqlCommand.Parameters.AddWithValue("@WarehouseType", WarehouseType);
-                        sqlCommand.Parameters.AddWithValue("@Memo", Memo);
-                        sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);
-                        sqlCommand.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
-                        Result = (int)sqlCommand.ExecuteNonQuery();
+                        InsertCmd.Connection = conn;
+                        InsertCmd.CommandText = "INSERT INTO tblWarehouses (WarehouseRef, WarehouseName, Address1, Address2, Address3, Address4 ,PostCode, ContactName, Telephone, WebSite, Fax, eMail, WarehouseType, Memo, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @WarehouseName, @Address1, @Address2, @Address3, @Address4 , @PostCode, @ContactName, @Telephone, @WebSite, @Fax, @eMail, @WarehouseType, @Memo, @CreatedBy, @CreatedDate)";
+                        InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                        InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
+                        InsertCmd.Parameters.AddWithValue("@Street", AddressLine1);
+                        InsertCmd.Parameters.AddWithValue("@Area", AddressLine2);
+                        InsertCmd.Parameters.AddWithValue("@Town", AddressLine3);
+                        InsertCmd.Parameters.AddWithValue("@County", AddressLine4);
+                        InsertCmd.Parameters.AddWithValue("@PostCode", PostCode);
+                        InsertCmd.Parameters.AddWithValue("@ContactName", ContactName);
+                        InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                        InsertCmd.Parameters.AddWithValue("@WebSite", WebsiteAddress);
+                        InsertCmd.Parameters.AddWithValue("@Fax", Fax);
+                        InsertCmd.Parameters.AddWithValue("@eMail", eMail);
+                        InsertCmd.Parameters.AddWithValue("@WarehouseType", WarehouseType);
+                        InsertCmd.Parameters.AddWithValue("@Memo", Memo);
+                        InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
+                        InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                        Result = (int)InsertCmd.ExecuteNonQuery();
                     }
                 }
                 if (Result != 1)
@@ -72,78 +71,110 @@ namespace DMHV2
             }
             return SaveToDB;
         }
-        public bool UpdateWarehouseToDB(string WarehouseRef, string WarehouseName, string Street, string Area, string Town, string County, string PostCode, string ContactName, string Telephone, string FaxNumber, string EmailAddress, string WebsiteAddress, string WarehouseType, string Memo)
+        public bool UpdateWarehouseToDB()
         {
             UpdateToDB = true;
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection())
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand UpdateCmd = new SqlCommand())
                     {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblWarehouses SET WarehouseName = @WarehouseName,Street=@Street,Area=@Area,Town=@Town,County = @County,PostCode = @PostCode,ContactName = @ContactName,Telephone = Telephone,WebSite = @WebSite,Fax = @Fax,eMail = @eMail,Memo = @Memo,WarehouseType = @WarehouseType WHERE WarehouseRef = @WarehouseRef";
-                        sqlCommand.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                        sqlCommand.Parameters.AddWithValue("@WarehouseName", WarehouseName);
-                        sqlCommand.Parameters.AddWithValue("@Street", Street);
-                        sqlCommand.Parameters.AddWithValue("@Area", Area);
-                        sqlCommand.Parameters.AddWithValue("@Town", Town);
-                        sqlCommand.Parameters.AddWithValue("@County", County);
-                        sqlCommand.Parameters.AddWithValue("@PostCode", PostCode);
-                        sqlCommand.Parameters.AddWithValue("@ContactName", ContactName);
-                        sqlCommand.Parameters.AddWithValue("@Telephone", Telephone);
-                        sqlCommand.Parameters.AddWithValue("@WebSite", WebsiteAddress);
-                        sqlCommand.Parameters.AddWithValue("@Fax", FaxNumber);
-                        sqlCommand.Parameters.AddWithValue("@eMail", EmailAddress);
-                        sqlCommand.Parameters.AddWithValue("@WarehouseType", WarehouseType);
-                        sqlCommand.Parameters.AddWithValue("@Memo", Memo);
-                        sqlCommand.ExecuteNonQuery();
+                        UpdateCmd.Connection = conn;
+                        UpdateCmd.CommandText = "UPDATE tblWarehouses SET WarehouseName = @WarehouseName, Street = @Street, Area = @Area, Town = @Town, County = @County, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, WebSite = @WebSite, Fax = @Fax, eMail = @eMail, Memo = @Memo, WarehouseType = @WarehouseType WHERE WarehouseRef = @WarehouseRef";
+                        UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                        UpdateCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
+                        UpdateCmd.Parameters.AddWithValue("@Street", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Area", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Town", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@County", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
+                        UpdateCmd.Parameters.AddWithValue("@ContactName", ContactName);
+                        UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                        UpdateCmd.Parameters.AddWithValue("@WebSite", WebsiteAddress);
+                        UpdateCmd.Parameters.AddWithValue("@Fax", Fax);
+                        UpdateCmd.Parameters.AddWithValue("@eMail", eMail);
+                        UpdateCmd.Parameters.AddWithValue("@WarehouseType", WarehouseType);
+                        UpdateCmd.Parameters.AddWithValue("@Memo", Memo);
+                        UpdateCmd.ExecuteNonQuery();
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-
+                MessageBox.Show(ex.Message);
                 throw;
             }
             return UpdateToDB;
         }
-        public string GetWarehouseName(string WarehouseRef)
-        {
-            string WarehouseName;
+        public string GetWarehouseName()
+        {          
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection())
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    sqlConnection.ConnectionString = GetConnString(1);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCommand = new SqlCommand())
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
                     {
-                        sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "SELECT WarehouseName FROM tblWarehouses WHERE WarehouseRef = @WarehouseRef";
-                        sqlCommand.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                        WarehouseName = (string)sqlCommand.ExecuteScalar();
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandText = "SELECT WarehouseName FROM tblWarehouses WHERE WarehouseRef = @WarehouseRef";
+                        SelectCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                        WarehouseName = (string)SelectCmd.ExecuteScalar();
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
                 throw;
             }
             return WarehouseName;
         }
-        public int TotalWarehouseRecords(string warehouseRef)
+        public int TotalWarehouseRecords()
         {
             int NoRecords = 0;
+            try
+            {
+                using(SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
+                    {
 
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
             return NoRecords;
         }
-        public bool DeleteWarehouseRecord(string WarehouseRef)
+        public bool DeleteWarehouseRecord()
         {
             DeleteFromDB = false;
+            try
+            {
+                using(SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using(SqlCommand DeleteCmd = new SqlCommand())
+                    {
 
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
             return DeleteFromDB;
         }
     }

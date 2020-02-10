@@ -6,6 +6,7 @@
     public partial class frmShop : Form
     {        
          clsShop objShop = new clsShop();
+        public string FormMode { get; set; }
         public frmShop()
         {
             InitializeComponent();
@@ -27,7 +28,6 @@
             objShop.ContactName = TxtContactName.Text.TrimEnd();
             objShop.Memo = TxtMemo.Text.TrimEnd();
             objShop.SaveShopToDB();
-
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)
@@ -58,9 +58,7 @@
         }
 
         private void TxtShopRef_Leave(object sender, EventArgs e)
-        {
-           
-            
+        {      
             TxtShopRef.Text = clsUtils.ChangeCase(Convert.ToString(TxtShopRef.Text), 1);
         }
 
@@ -97,6 +95,23 @@
         private void TxtPostCode_Leave(object sender, EventArgs e)
         {
             TxtPostCode.Text = clsUtils.ChangeCase(TxtPostCode.Text, 1);
+        }
+
+        private void frmShop_Load(object sender, EventArgs e)
+        {
+            if(FormMode == "New")
+            {
+                CmdOK.Text = "Save";
+            }
+            else
+            {
+                CmdOK.Text = "OK";
+                LoadData();
+            }
+        }
+        private void LoadData()
+        {
+
         }
     }
 }

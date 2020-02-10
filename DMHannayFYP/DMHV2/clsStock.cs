@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Data.SqlClient;
+    using System.Windows.Forms;
+
     public class clsStock : clsUtils
     {
         // Properties / fields for the class
@@ -18,7 +14,10 @@ namespace DMHV2
         public decimal AmountTaken;
         public decimal CostValue;
         public decimal PCMarkUp;
-        private int userID;
+        public clsStock()
+        {
+
+        }
         public void LoadNewForm()
         {
 
@@ -101,9 +100,9 @@ namespace DMHV2
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-
+                MessageBox.Show(ex.Message);
                 throw;
             }
             return UpdateToDB;

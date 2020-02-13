@@ -13,7 +13,7 @@ namespace DMHV2
         // Properties / fields for the class
         // started 09/02/2020
         // completed 00/02/2020
-
+        public int PurchaseOrderID { get; set; }
         public clsPurchaseOrder()
         {
             
@@ -121,6 +121,18 @@ namespace DMHV2
         }
         public bool DeletePurchaseOrderLineRecord()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                conn.Open();
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.CommandText = "DELETE FROM tblPurchaseOrders where PurchaseOrderID = @PurchaseOrderID";
+                    DeleteCmd.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
+                    DeleteCmd.ExecuteNonQuery();
+                }
+            }
             return DeleteFromDB;
         }
     }
@@ -252,25 +264,35 @@ namespace DMHV2
         }
         public bool DeletePurchaseOrderHeadRecord()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                conn.Open();
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.CommandText = "DELETE FROM tblPurchaseOrders where PurchaseOrderID = @PurchaseOrderID";
+                    DeleteCmd.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
+                    DeleteCmd.ExecuteNonQuery();
+                }
+            }
             return DeleteFromDB;
         }
         public int GetLastPurchaseOrderHead()
         {
             Result = 0;
-            using (SqlConnection sqlConnection = new SqlConnection())
+            using (SqlConnection conn = new SqlConnection())
             {
-                sqlConnection.ConnectionString = GetConnString(1);
-                sqlConnection.Open();
-                using (SqlCommand sqlCommand = new SqlCommand())
+                conn.ConnectionString = GetConnString(1);
+                conn.Open();
+                using (SqlCommand SelectCmd = new SqlCommand())
                 {
-                    sqlCommand.Connection = sqlConnection;
-                    sqlCommand.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblPurchaseOrders";
-                    Result = (int)sqlCommand.ExecuteNonQuery();
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblPurchaseOrders";
+                    Result = (int)SelectCmd.ExecuteNonQuery();
                 }
-            }
-       
-            return Result;
-           
+            }       
+            return Result;           
         }
     }
 }

@@ -156,14 +156,14 @@ namespace DMHV2
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (Form DataGrids in Application.OpenForms)
-            {
-                if (DataGrids is frmDataGrid)
-                {
-                    DataGrids.Close();
-                    break;
-                }
-            }
+            //foreach (Form DataGrids in Application.OpenForms)
+            //{
+            //    if (DataGrids is frmDataGrid)
+            //    {
+            //        DataGrids.Close();
+            //        break;
+            //    }
+            //}
             //   RefToLoginForm.ShowDialog();
         }
         // End Of Sprint One

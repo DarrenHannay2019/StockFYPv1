@@ -30,6 +30,14 @@ namespace DMHV2
             UpdateToDB = false;
             DeleteFromDB = false;
         }
+        public void LoadNewRecord()
+        {
+
+        }
+        public void LoadSelectedRecord()
+        {
+
+        }
         public bool DeleteSupplierRecord()
         {
             return DeleteFromDB;

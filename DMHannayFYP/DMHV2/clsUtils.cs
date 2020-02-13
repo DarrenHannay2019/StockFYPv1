@@ -37,7 +37,7 @@ namespace DMHV2
         public int DeliveredQtyHangers;
         public int DeliveredQtyBoxes;
         public int DeliveredQtyGarments;
-        public static string GetConnString(int ID)
+        public static  string GetConnString(int ID)
         {
             // Returns the correct Database connection string for the identity record.
             if (ID == 1)
@@ -57,7 +57,7 @@ namespace DMHV2
                 return @"Initial Catalog=master;Data Source=192.168.1.200;Persist Security Info=False;Integrated Security=false;User ID=FYPUser;Password=@35Adc@*K9z&QJ";
             }
         }
-        public static DateTime GetSundayDate(DateTime DatePicked, int DateType)
+        public DateTime GetSundayDate(DateTime DatePicked, int DateType)
         {
             // Gives the correct Sunday's Date depending on the function that is calling the function.
             if (DateType == 1)
@@ -87,7 +87,7 @@ namespace DMHV2
             }
         }
 
-        public static int GetConnID()
+        public int GetConnID()
         {
             // open stream file to load c:\FPYData\conset.txt into memory
             // send back value to calling function.
@@ -95,7 +95,7 @@ namespace DMHV2
             int idToPass = Convert.ToInt32(content);
             return idToPass;
         }
-        public static int GetBackupConnID(int ida)
+        public int GetBackupConnID(int ida)
         {
             // open stream file to load c:\FPYData\conset.txt into memory
             // send back value to calling function.

@@ -20,41 +20,85 @@ namespace DMHV2
         {
             if(FunctionID == 1)
             {
-
+                clsWarehouse oWarehouse = new clsWarehouse(UserID);
+                oWarehouse.LoadNewRecord();
             }
             if(FunctionID == 2)
             {
-                clsShop clsShop = new clsShop();
-                clsShop.LoadNewRecord();
-                
+                clsShop oShop = new clsShop();
+                oShop.LoadNewRecord();                
             }
             if (FunctionID == 3)
             {
-
+                clsSupplier oSupplier = new clsSupplier(UserID);
+                oSupplier.LoadNewRecord();
             }
             if (FunctionID == 4)
             {
-
+                clsStock oStock = new clsStock();
+                oStock.LoadNewForm();
             }
             if (FunctionID == 5)
             {
-
+                clsStock oStock = new clsStock();
+                oStock.LoadNewForm();
             }
             if (FunctionID == 6)
             {
-
+                clsSeason oSeason = new clsSeason();
+                oSeason.LoadNewSeasonForm();
+            }
+            if (FunctionID == 7)
+            {
+                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
+                oPurchaseOrder.LoadNewPurchaseOrder();
             }
         }
 
         private void TsbRecord_Click(object sender, EventArgs e)
         {
-
+            if (FunctionID == 1)
+            {
+                clsWarehouse oWarehouse = new clsWarehouse(UserID);
+                oWarehouse.WarehouseRef = "";
+                oWarehouse.LoadSelectedRecord();
+            }
             if (FunctionID == 2)
             {
-                clsShop clsShop = new clsShop();
-                clsShop.ShopRef = "";
-                clsShop.LoadSelectedRecord();
-
+                clsShop oShop = new clsShop();
+                oShop.ShopRef = "";
+                oShop.LoadSelectedRecord();
+            }
+            if (FunctionID == 3)
+            {
+                clsSupplier oSupplier = new clsSupplier(UserID);
+                oSupplier.SupplierRef = "";
+                oSupplier.LoadSelectedRecord();
+            }
+            if (FunctionID == 4)
+            {
+                clsStock oStock = new clsStock();
+                oStock.StockCode = "";
+                oStock.LoadSelectedForm();
+            }
+            if (FunctionID == 5)
+            {
+                clsStock oStock = new clsStock();
+                oStock.StockCode = "";
+                oStock.LoadSelectedForm();
+            }
+            if (FunctionID == 6)
+            {
+                clsSeason oSeason = new clsSeason();
+                oSeason.SeasonID = 0;
+                oSeason.LoadSelectedSeasonForm();
+            }
+            if (FunctionID == 7)
+            {
+                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
+                oPurchaseOrder.PurchaseOrderID = 0;
+                oPurchaseOrder.LoadSelectedPurchaseOrder();
+               
             }
         }
 
@@ -145,6 +189,23 @@ namespace DMHV2
                 DataGridView1.Columns[2].Width = 120;
                 DataGridView1.Columns[2].HeaderText = "Warehouse Type";
             }
+            if(FunctionID == 2)
+            {
+
+            }
+            if(FunctionID == 3)
+            {
+
+            }
+            if(FunctionID == 4)
+            {
+
+            }
+            if(FunctionID == 5)
+            {
+
+            }
+
         }
         private string GetFunctionSelectString()
         {

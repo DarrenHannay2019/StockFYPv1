@@ -22,6 +22,17 @@ namespace DMHV2
         {
             UserID = 0;
         }
+        public void LoadNewRecord()
+        {
+            FrmWarehouse oWarehouse = new FrmWarehouse();
+            oWarehouse.ShowDialog();
+        }
+        public void LoadSelectedRecord()
+        {
+            FrmWarehouse oWarehouse = new FrmWarehouse();
+            oWarehouse.WarehouseRef = "";
+            oWarehouse.ShowDialog();
+        }
         public bool SaveWarehouseToDB()
         {
             SaveToDB = false;
@@ -166,7 +177,10 @@ namespace DMHV2
                     conn.Open();
                     using(SqlCommand DeleteCmd = new SqlCommand())
                     {
-
+                        DeleteCmd.Connection = conn;
+                        DeleteCmd.CommandText = "DELETE FROM tblWarehouses where WarehouseRef = @WarehouseRef";
+                        DeleteCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                        DeleteCmd.ExecuteNonQuery();
                     }
                 }
             }

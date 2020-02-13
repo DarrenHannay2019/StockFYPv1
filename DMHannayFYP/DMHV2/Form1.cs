@@ -33,6 +33,7 @@ namespace DMHV2
             {
                 FrmMain frmMain = new FrmMain();
                 frmMain.RefToLoginForm = this;
+                frmMain.UserID = PassResult;
                 frmMain.Show();
                 this.Hide();
             }

@@ -1,9 +1,10 @@
-﻿using System;
-using System.Data.SqlClient;
-using System.Windows.Forms;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Windows.Forms;
+
     public class clsWarehouse : clsUtils
     {
         // Properties / fields for the class
@@ -30,7 +31,7 @@ namespace DMHV2
         public void LoadSelectedRecord()
         {
             FrmWarehouse oWarehouse = new FrmWarehouse();
-            oWarehouse.WarehouseRef = "";
+            oWarehouse.TxtWarehouseRef.Text = WarehouseRef;
             oWarehouse.ShowDialog();
         }
         public bool SaveWarehouseToDB()
@@ -45,6 +46,7 @@ namespace DMHV2
                     using (SqlCommand InsertCmd = new SqlCommand())
                     {
                         InsertCmd.Connection = conn;
+                        InsertCmd.CommandType = CommandType.Text;
                         InsertCmd.CommandText = "INSERT INTO tblWarehouses (WarehouseRef, WarehouseName, Address1, Address2, Address3, Address4 ,PostCode, ContactName, Telephone, WebSite, Fax, eMail, WarehouseType, Memo, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @WarehouseName, @Address1, @Address2, @Address3, @Address4 , @PostCode, @ContactName, @Telephone, @WebSite, @Fax, @eMail, @WarehouseType, @Memo, @CreatedBy, @CreatedDate)";
                         InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
@@ -78,7 +80,6 @@ namespace DMHV2
             {
                 SaveToDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
-
             }
             return SaveToDB;
         }
@@ -94,6 +95,7 @@ namespace DMHV2
                     using (SqlCommand UpdateCmd = new SqlCommand())
                     {
                         UpdateCmd.Connection = conn;
+                        UpdateCmd.CommandType = CommandType.Text;
                         UpdateCmd.CommandText = "UPDATE tblWarehouses SET WarehouseName = @WarehouseName, Street = @Street, Area = @Area, Town = @Town, County = @County, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, WebSite = @WebSite, Fax = @Fax, eMail = @eMail, Memo = @Memo, WarehouseType = @WarehouseType WHERE WarehouseRef = @WarehouseRef";
                         UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         UpdateCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
@@ -131,6 +133,7 @@ namespace DMHV2
                     using (SqlCommand SelectCmd = new SqlCommand())
                     {
                         SelectCmd.Connection = conn;
+                        SelectCmd.CommandType = CommandType.Text;
                         SelectCmd.CommandText = "SELECT WarehouseName FROM tblWarehouses WHERE WarehouseRef = @WarehouseRef";
                         SelectCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         WarehouseName = (string)SelectCmd.ExecuteScalar();
@@ -155,7 +158,11 @@ namespace DMHV2
                     conn.Open();
                     using (SqlCommand SelectCmd = new SqlCommand())
                     {
-
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblStockMovements WHERE LocationRef = @LocationRef";
+                        SelectCmd.CommandType = CommandType.Text;
+                        SelectCmd.Parameters.AddWithValue("@LocationRef", WarehouseRef);
+                        Result = (int)SelectCmd.ExecuteNonQuery();
                     }
                 }
             }
@@ -178,10 +185,19 @@ namespace DMHV2
                     using(SqlCommand DeleteCmd = new SqlCommand())
                     {
                         DeleteCmd.Connection = conn;
+                        DeleteCmd.CommandType = CommandType.Text;
                         DeleteCmd.CommandText = "DELETE FROM tblWarehouses where WarehouseRef = @WarehouseRef";
                         DeleteCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                        DeleteCmd.ExecuteNonQuery();
+                        Result = (int)DeleteCmd.ExecuteNonQuery();
                     }
+                }
+                if(Result == 1)
+                {
+                    DeleteFromDB = true;
+                }
+                else
+                {
+                    DeleteFromDB = false;
                 }
             }
             catch (SqlException ex)

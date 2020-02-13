@@ -57,46 +57,50 @@ namespace DMHV2
 
         private void TsbRecord_Click(object sender, EventArgs e)
         {
+            int selectid;
+            selectid = DataGridView1.CurrentRow.Index;
+            string i;
+            i = DataGridView1[0, selectid].Value.ToString();
             if (FunctionID == 1)
             {
                 clsWarehouse oWarehouse = new clsWarehouse(UserID);
-                oWarehouse.WarehouseRef = "";
+                oWarehouse.WarehouseRef = i;
                 oWarehouse.LoadSelectedRecord();
             }
             if (FunctionID == 2)
             {
                 clsShop oShop = new clsShop();
-                oShop.ShopRef = "";
+                oShop.ShopRef = i;
                 oShop.LoadSelectedRecord();
             }
             if (FunctionID == 3)
             {
                 clsSupplier oSupplier = new clsSupplier(UserID);
-                oSupplier.SupplierRef = "";
+                oSupplier.SupplierRef = i;
                 oSupplier.LoadSelectedRecord();
             }
             if (FunctionID == 4)
             {
                 clsStock oStock = new clsStock();
-                oStock.StockCode = "";
+                oStock.StockCode = i;
                 oStock.LoadSelectedForm();
             }
             if (FunctionID == 5)
             {
                 clsStock oStock = new clsStock();
-                oStock.StockCode = "";
+                oStock.StockCode = i;
                 oStock.LoadSelectedForm();
             }
             if (FunctionID == 6)
             {
                 clsSeason oSeason = new clsSeason();
-                oSeason.SeasonID = 0;
+                oSeason.SeasonID = Convert.ToInt32(i);
                 oSeason.LoadSelectedSeasonForm();
             }
             if (FunctionID == 7)
             {
                 clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
-                oPurchaseOrder.PurchaseOrderID = 0;
+                oPurchaseOrder.PurchaseOrderID = Convert.ToInt32(i);
                 oPurchaseOrder.LoadSelectedPurchaseOrder();
                
             }
@@ -104,7 +108,53 @@ namespace DMHV2
 
         private void TsbDelete_Click(object sender, EventArgs e)
         {
+            int selectid;
+            selectid = DataGridView1.CurrentRow.Index;
+            string i;
+            i = DataGridView1[0, selectid].Value.ToString();
+            if (FunctionID == 1)
+            {
+                clsWarehouse oWarehouse = new clsWarehouse(UserID);
+                oWarehouse.WarehouseRef = i;
+               
+            }
+            if (FunctionID == 2)
+            {
+                clsShop oShop = new clsShop();
+                oShop.ShopRef = i;
+               
+            }
+            if (FunctionID == 3)
+            {
+                clsSupplier oSupplier = new clsSupplier(UserID);
+                oSupplier.SupplierRef = i;
+               
+            }
+            if (FunctionID == 4)
+            {
+                clsStock oStock = new clsStock();
+                oStock.StockCode = i;
+              
+            }
+            if (FunctionID == 5)
+            {
+                clsStock oStock = new clsStock();
+                oStock.StockCode = i;
+                
+            }
+            if (FunctionID == 6)
+            {
+                clsSeason oSeason = new clsSeason();
+                oSeason.SeasonID = Convert.ToInt32(i);
+                
+            }
+            if (FunctionID == 7)
+            {
+                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
+                oPurchaseOrder.PurchaseOrderID = Convert.ToInt32(i);
+               
 
+            }
         }
 
         private void TsbRefresh_Click(object sender, EventArgs e)

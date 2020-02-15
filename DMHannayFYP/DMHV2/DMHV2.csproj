@@ -54,6 +54,7 @@
     <Compile Include="clsSupplier.cs" />
     <Compile Include="clsUtils.cs" />
     <Compile Include="clsWarehouse.cs" />
+    <Compile Include="clsWarehouseAdjustment.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

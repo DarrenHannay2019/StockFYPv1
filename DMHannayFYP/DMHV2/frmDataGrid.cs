@@ -53,6 +53,26 @@ namespace DMHV2
                 clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
                 oPurchaseOrder.LoadNewPurchaseOrder();
             }
+            if (FunctionID == 8)
+            {
+
+            }
+            if (FunctionID == 9)
+            {
+
+            }
+            if (FunctionID == 10)
+            { }
+            if (FunctionID == 11)
+            { }
+            if (FunctionID == 12)
+            { }
+            if (FunctionID == 13)
+            { }
+            if (FunctionID == 14)
+            { }
+            if (FunctionID == 15)
+            { }
         }
 
         private void TsbRecord_Click(object sender, EventArgs e)
@@ -104,6 +124,26 @@ namespace DMHV2
                 oPurchaseOrder.LoadSelectedPurchaseOrder();
                
             }
+            if (FunctionID == 8)
+            {
+
+            }
+            if (FunctionID == 9)
+            {
+
+            }
+            if (FunctionID == 10)
+            { }
+            if (FunctionID == 11)
+            { }
+            if (FunctionID == 12)
+            { }
+            if (FunctionID == 13)
+            { }
+            if (FunctionID == 14)
+            { }
+            if (FunctionID == 15)
+            { }
         }
 
         private void TsbDelete_Click(object sender, EventArgs e)
@@ -152,6 +192,26 @@ namespace DMHV2
                
 
             }
+            if (FunctionID == 8)
+            {
+
+            }
+            if (FunctionID == 9)
+            {
+
+            }
+            if (FunctionID == 10)
+            { }
+            if (FunctionID == 11)
+            { }
+            if (FunctionID == 12)
+            {            }
+            if (FunctionID == 13)
+            { }
+            if (FunctionID == 14)
+            { }
+            if (FunctionID == 15)
+            { }
         }
 
         private void TsbRefresh_Click(object sender, EventArgs e)

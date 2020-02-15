@@ -62,17 +62,29 @@ namespace DMHV2
                 clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
             }
             if (FunctionID == 10)
-            { }
+            {
+                clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
+            }
             if (FunctionID == 11)
-            { }
+            {
+                clsShopDelivery oShopDelivery = new clsShopDelivery();
+            }
             if (FunctionID == 12)
-            { }
+            {
+                clsShopAdjustment oShopAdjustment = new clsShopAdjustment();
+            }
             if (FunctionID == 13)
-            { }
+            {
+                clsShopTransfer oShopTransfer = new clsShopTransfer();
+            }
             if (FunctionID == 14)
-            { }
+            {
+                clsShopSale oShopSale = new clsShopSale();
+            }
             if (FunctionID == 15)
-            { }
+            {
+                clsShopReturn oShopReturn = new clsShopReturn();
+            }
         }
 
         private void TsbRecord_Click(object sender, EventArgs e)
@@ -126,24 +138,36 @@ namespace DMHV2
             }
             if (FunctionID == 8)
             {
-
+                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
             }
             if (FunctionID == 9)
             {
-
+                clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
             }
             if (FunctionID == 10)
-            { }
+            {
+                clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
+            }
             if (FunctionID == 11)
-            { }
+            {
+                clsShopDelivery oShopDelivery = new clsShopDelivery();
+            }
             if (FunctionID == 12)
-            { }
+            {
+                clsShopAdjustment oShopAdjustment = new clsShopAdjustment();
+            }
             if (FunctionID == 13)
-            { }
+            {
+                clsShopTransfer oShopTransfer = new clsShopTransfer();
+            }
             if (FunctionID == 14)
-            { }
+            {
+                clsShopSale oShopSale = new clsShopSale();
+            }
             if (FunctionID == 15)
-            { }
+            {
+                clsShopReturn oShopReturn = new clsShopReturn();
+            }
         }
 
         private void TsbDelete_Click(object sender, EventArgs e)
@@ -194,24 +218,36 @@ namespace DMHV2
             }
             if (FunctionID == 8)
             {
-
+                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
             }
             if (FunctionID == 9)
             {
-
+                clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
             }
             if (FunctionID == 10)
-            { }
+            {
+                clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
+            }
             if (FunctionID == 11)
-            { }
+            {
+                clsShopDelivery oShopDelivery = new clsShopDelivery();
+            }
             if (FunctionID == 12)
-            {            }
+            {
+                clsShopAdjustment oShopAdjustment = new clsShopAdjustment();
+            }
             if (FunctionID == 13)
-            { }
+            {
+                clsShopTransfer oShopTransfer = new clsShopTransfer();
+            }
             if (FunctionID == 14)
-            { }
+            {
+                clsShopSale oShopSale = new clsShopSale();
+            }
             if (FunctionID == 15)
-            { }
+            {
+                clsShopReturn oShopReturn = new clsShopReturn();
+            }
         }
 
         private void TsbRefresh_Click(object sender, EventArgs e)

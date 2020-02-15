@@ -8,6 +8,14 @@ namespace DMHV2
 {
     public class clsShopDelivery : clsUtils
     {
+        public void LoadNewForm()
+        {
+
+        }
+        public void LoadSelectedForm()
+        {
+
+        }
     }
     public class clsShopDeliveryHead : clsShopDelivery
     { }

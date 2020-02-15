@@ -20,10 +20,13 @@
         }
         public void LoadNewForm()
         {
-
+            frmStock objStock = new frmStock();
+            
+            objStock.ShowDialog();
         }
         public void LoadSelectedForm()
         {
+            frmStock objStock = new frmStock();
 
         }
         public bool SaveStockCode()

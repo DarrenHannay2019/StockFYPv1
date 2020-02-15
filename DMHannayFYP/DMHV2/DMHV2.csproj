@@ -50,12 +50,17 @@
     <Compile Include="clsPurchaseOrder.cs" />
     <Compile Include="clsSeason.cs" />
     <Compile Include="clsShop.cs" />
+    <Compile Include="clsShopAdjustment.cs" />
     <Compile Include="clsShopDelivery.cs" />
+    <Compile Include="clsShopReturn.cs" />
+    <Compile Include="clsShopSale.cs" />
+    <Compile Include="clsShopTransfer.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsSupplier.cs" />
     <Compile Include="clsUtils.cs" />
     <Compile Include="clsWarehouse.cs" />
     <Compile Include="clsWarehouseAdjustment.cs" />
+    <Compile Include="clsWarehouseReturn.cs" />
     <Compile Include="clsWarehouseTransfer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

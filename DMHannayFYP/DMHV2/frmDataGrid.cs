@@ -55,11 +55,11 @@ namespace DMHV2
             }
             if (FunctionID == 8)
             {
-
+                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
             }
             if (FunctionID == 9)
             {
-
+                clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
             }
             if (FunctionID == 10)
             { }

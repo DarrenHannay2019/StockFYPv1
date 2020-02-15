@@ -115,20 +115,17 @@ namespace DMHV2
             if (FunctionID == 1)
             {
                 clsWarehouse oWarehouse = new clsWarehouse(UserID);
-                oWarehouse.WarehouseRef = i;
-               
+                oWarehouse.WarehouseRef = i;               
             }
             if (FunctionID == 2)
             {
                 clsShop oShop = new clsShop();
-                oShop.ShopRef = i;
-               
+                oShop.ShopRef = i;               
             }
             if (FunctionID == 3)
             {
                 clsSupplier oSupplier = new clsSupplier(UserID);
-                oSupplier.SupplierRef = i;
-               
+                oSupplier.SupplierRef = i;               
             }
             if (FunctionID == 4)
             {

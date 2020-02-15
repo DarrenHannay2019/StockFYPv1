@@ -33,7 +33,6 @@
             this.TxtWebsiteAddress = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.TxtEmailAddress = new System.Windows.Forms.TextBox();
-            this.TxtTelephoneLine2 = new System.Windows.Forms.TextBox();
             this.TxtFaxNumber = new System.Windows.Forms.TextBox();
             this.TxtTelephoneNumber1 = new System.Windows.Forms.TextBox();
             this.TxtPostCode = new System.Windows.Forms.TextBox();
@@ -49,7 +48,6 @@
             this.Label2 = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
-            this.Label8 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
             this.Label5 = new System.Windows.Forms.Label();
@@ -83,7 +81,6 @@
             this.tabPage1.Controls.Add(this.TxtWebsiteAddress);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.TxtEmailAddress);
-            this.tabPage1.Controls.Add(this.TxtTelephoneLine2);
             this.tabPage1.Controls.Add(this.TxtFaxNumber);
             this.tabPage1.Controls.Add(this.TxtTelephoneNumber1);
             this.tabPage1.Controls.Add(this.TxtPostCode);
@@ -99,7 +96,6 @@
             this.tabPage1.Controls.Add(this.Label2);
             this.tabPage1.Controls.Add(this.Label9);
             this.tabPage1.Controls.Add(this.Label3);
-            this.tabPage1.Controls.Add(this.Label8);
             this.tabPage1.Controls.Add(this.Label4);
             this.tabPage1.Controls.Add(this.Label7);
             this.tabPage1.Controls.Add(this.Label5);
@@ -133,25 +129,16 @@
             // 
             // TxtEmailAddress
             // 
-            this.TxtEmailAddress.Location = new System.Drawing.Point(141, 251);
+            this.TxtEmailAddress.Location = new System.Drawing.Point(142, 232);
             this.TxtEmailAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtEmailAddress.MaxLength = 255;
             this.TxtEmailAddress.Name = "TxtEmailAddress";
             this.TxtEmailAddress.Size = new System.Drawing.Size(361, 22);
             this.TxtEmailAddress.TabIndex = 45;
             // 
-            // TxtTelephoneLine2
-            // 
-            this.TxtTelephoneLine2.Location = new System.Drawing.Point(351, 206);
-            this.TxtTelephoneLine2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TxtTelephoneLine2.MaxLength = 20;
-            this.TxtTelephoneLine2.Name = "TxtTelephoneLine2";
-            this.TxtTelephoneLine2.Size = new System.Drawing.Size(154, 22);
-            this.TxtTelephoneLine2.TabIndex = 44;
-            // 
             // TxtFaxNumber
             // 
-            this.TxtFaxNumber.Location = new System.Drawing.Point(142, 230);
+            this.TxtFaxNumber.Location = new System.Drawing.Point(348, 206);
             this.TxtFaxNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtFaxNumber.MaxLength = 20;
             this.TxtFaxNumber.Name = "TxtFaxNumber";
@@ -252,7 +239,7 @@
             // Label10
             // 
             this.Label10.AutoSize = true;
-            this.Label10.Location = new System.Drawing.Point(81, 254);
+            this.Label10.Location = new System.Drawing.Point(80, 237);
             this.Label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(46, 17);
@@ -272,7 +259,7 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(76, 230);
+            this.Label9.Location = new System.Drawing.Point(303, 209);
             this.Label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(34, 17);
@@ -288,16 +275,6 @@
             this.Label3.Size = new System.Drawing.Size(101, 17);
             this.Label3.TabIndex = 26;
             this.Label3.Text = "Contact Name:";
-            // 
-            // Label8
-            // 
-            this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(310, 206);
-            this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(26, 17);
-            this.Label8.TabIndex = 31;
-            this.Label8.Text = "(2)";
             // 
             // Label4
             // 
@@ -332,7 +309,7 @@
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(51, 206);
+            this.Label6.Location = new System.Drawing.Point(28, 206);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(80, 17);
@@ -434,6 +411,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmSupplier";
             this.Text = "frmSupplier";
+            this.Load += new System.EventHandler(this.frmSupplier_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -452,7 +430,6 @@
         private System.Windows.Forms.TextBox TxtWebsiteAddress;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TxtEmailAddress;
-        private System.Windows.Forms.TextBox TxtTelephoneLine2;
         private System.Windows.Forms.TextBox TxtFaxNumber;
         private System.Windows.Forms.TextBox TxtTelephoneNumber1;
         private System.Windows.Forms.TextBox TxtPostCode;
@@ -468,7 +445,6 @@
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Label Label9;
         internal System.Windows.Forms.Label Label3;
-        internal System.Windows.Forms.Label Label8;
         internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.Label Label7;
         internal System.Windows.Forms.Label Label5;

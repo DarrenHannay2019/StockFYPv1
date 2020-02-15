@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class FrmEmployee : Form
     {
         public string ModeOfForm { get; set; }
@@ -27,6 +20,7 @@ namespace DMHV2
             else
             {
                 BtnOK.Text = "OK";
+                LoadData();
             }
         }
 
@@ -55,12 +49,16 @@ namespace DMHV2
                 clsEmployee.ProfileID = CboProfiles.SelectedIndex;
                 clsEmployee.UpdateToEmployeeTable();
             }
-
+            this.Close();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();   // Close The Form
+        }
+        private void LoadData()
+        {
+
         }
     }
 }

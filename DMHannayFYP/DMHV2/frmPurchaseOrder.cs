@@ -12,6 +12,7 @@ namespace DMHV2
 {
     public partial class frmPurchaseOrder : Form
     {
+        public string FormMode { get; set; }
         public frmPurchaseOrder()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace DMHV2
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void TxtSupplierRef_Leave(object sender, EventArgs e)
@@ -48,6 +49,23 @@ namespace DMHV2
         }
 
         private void BtnDeleteFromGrid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmPurchaseOrder_Load(object sender, EventArgs e)
+        {
+            if(FormMode == "New")
+            {
+                cmdOK.Text = "Save";
+            }
+            else
+            {
+                cmdOK.Text = "OK";
+                LoadData();
+            }
+        }
+        private void LoadData()
         {
 
         }

@@ -12,6 +12,8 @@ namespace DMHV2
 {
     public partial class frmSupplier : Form
     {
+        public string FormMode { get; set;}
+        clsSupplier objSupplier = new clsSupplier(0);
         public frmSupplier()
         {
             InitializeComponent();
@@ -44,7 +46,57 @@ namespace DMHV2
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
+            if (FormMode == "New")
+            {
+                objSupplier.SupplierRef = TxtSupplierRef.Text.TrimEnd();
+                objSupplier.SupplierName = TxtSupplierName.Text.TrimEnd();
+                objSupplier.AddressLine1 = TxtAddressLine1.Text.TrimEnd();
+                objSupplier.AddressLine2 = TxtAddressLine2.Text.TrimEnd();
+                objSupplier.AddressLine3 = TxtAddressLine3.Text.TrimEnd();
+                objSupplier.AddressLine4 = TxtAddressLine4.Text.TrimEnd();
+                objSupplier.PostCode = TxtPostCode.Text.TrimEnd();
+                objSupplier.Telephone = TxtTelephoneNumber1.Text.TrimEnd();
+                objSupplier.ContactName = TxtContactName.Text.TrimEnd();
+                objSupplier.eMail = TxtEmailAddress.Text.TrimEnd();
+                objSupplier.Fax = TxtFaxNumber.Text.TrimEnd();
+                objSupplier.Memo = TxtMemo.Text.TrimEnd();               
+                objSupplier.WebsiteAddress = TxtWebsiteAddress.Text.TrimEnd();
+                objSupplier.SaveSupplierRecord();
+            }
+            else
+            {
+                objSupplier.SupplierRef = TxtSupplierRef.Text.TrimEnd();
+                objSupplier.SupplierName = TxtSupplierName.Text.TrimEnd();
+                objSupplier.AddressLine1 = TxtAddressLine1.Text.TrimEnd();
+                objSupplier.AddressLine2 = TxtAddressLine2.Text.TrimEnd();
+                objSupplier.AddressLine3 = TxtAddressLine3.Text.TrimEnd();
+                objSupplier.AddressLine4 = TxtAddressLine4.Text.TrimEnd();
+                objSupplier.PostCode = TxtPostCode.Text.TrimEnd();
+                objSupplier.Telephone = TxtTelephoneNumber1.Text.TrimEnd();
+                objSupplier.ContactName = TxtContactName.Text.TrimEnd();
+                objSupplier.eMail = TxtEmailAddress.Text.TrimEnd();
+                objSupplier.Fax = TxtFaxNumber.Text.TrimEnd();
+                objSupplier.Memo = TxtMemo.Text.TrimEnd();
+                objSupplier.WebsiteAddress = TxtWebsiteAddress.Text.TrimEnd();
+                objSupplier.UpdateSupplierRecord();
+            }
+            this.Close();
+        }
 
+        private void frmSupplier_Load(object sender, EventArgs e)
+        {
+            if (FormMode == "New")
+            {
+                CmdOK.Text = "Save";
+            }
+            else
+            {
+                CmdOK.Text = "OK";
+                LoadData();
+            }
+        }
+        private void LoadData()
+        {
         }
     }
 }

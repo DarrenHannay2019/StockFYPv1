@@ -26,6 +26,7 @@
         public void LoadNewRecord()
         {
             FrmWarehouse oWarehouse = new FrmWarehouse();
+            oWarehouse.Modeform = "New";
             oWarehouse.ShowDialog();
         }
         public void LoadSelectedRecord()
@@ -50,10 +51,10 @@
                         InsertCmd.CommandText = "INSERT INTO tblWarehouses (WarehouseRef, WarehouseName, Address1, Address2, Address3, Address4 ,PostCode, ContactName, Telephone, WebSite, Fax, eMail, WarehouseType, Memo, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @WarehouseName, @Address1, @Address2, @Address3, @Address4 , @PostCode, @ContactName, @Telephone, @WebSite, @Fax, @eMail, @WarehouseType, @Memo, @CreatedBy, @CreatedDate)";
                         InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
-                        InsertCmd.Parameters.AddWithValue("@Street", AddressLine1);
-                        InsertCmd.Parameters.AddWithValue("@Area", AddressLine2);
-                        InsertCmd.Parameters.AddWithValue("@Town", AddressLine3);
-                        InsertCmd.Parameters.AddWithValue("@County", AddressLine4);
+                        InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
+                        InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
+                        InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
+                        InsertCmd.Parameters.AddWithValue("@Address4", AddressLine4);
                         InsertCmd.Parameters.AddWithValue("@PostCode", PostCode);
                         InsertCmd.Parameters.AddWithValue("@ContactName", ContactName);
                         InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
@@ -99,10 +100,10 @@
                         UpdateCmd.CommandText = "UPDATE tblWarehouses SET WarehouseName = @WarehouseName, Street = @Street, Area = @Area, Town = @Town, County = @County, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, WebSite = @WebSite, Fax = @Fax, eMail = @eMail, Memo = @Memo, WarehouseType = @WarehouseType WHERE WarehouseRef = @WarehouseRef";
                         UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         UpdateCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
-                        UpdateCmd.Parameters.AddWithValue("@Street", AddressLine1);
-                        UpdateCmd.Parameters.AddWithValue("@Area", AddressLine1);
-                        UpdateCmd.Parameters.AddWithValue("@Town", AddressLine1);
-                        UpdateCmd.Parameters.AddWithValue("@County", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine1);
+                        UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine1);
                         UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
                         UpdateCmd.Parameters.AddWithValue("@ContactName", ContactName);
                         UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);

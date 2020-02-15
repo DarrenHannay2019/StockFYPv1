@@ -24,11 +24,14 @@ namespace DMHV2
         }
         public void LoadNewPurchaseOrder()
         {
-
+            frmPurchaseOrder oPurchaseOrder = new frmPurchaseOrder();
+            oPurchaseOrder.Show();
         }
         public void LoadSelectedPurchaseOrder()
         {
-
+            frmPurchaseOrder oPurchaseOrder = new frmPurchaseOrder();
+            oPurchaseOrder.TxtOrderID.Text = PurchaseOrderID.ToString();
+            oPurchaseOrder.Show();
         }
     }
     public class clsPurchaseOrderLine : clsUtils

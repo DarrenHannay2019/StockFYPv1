@@ -32,7 +32,8 @@ namespace DMHV2
         }
         public void LoadNewRecord()
         {
-
+            frmSupplier objSupplier = new frmSupplier();
+            objSupplier.ShowDialog();
         }
         public void LoadSelectedRecord()
         {
@@ -53,7 +54,7 @@ namespace DMHV2
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblSuppliers (SupplierRef,SupplierName,Address1,Address2,Address3,Address4,PostCode,ContactName,Telephone,Telephone2,Fax,eMail,Memo,CreatedBy,CreatedDate) VALUES (@SupplierRef,@SupplierName,@Address1,@Address2,@Address3,@Address4,@PostCode,@ContactName,@Telephone,@Telephone2,@Fax,@eMail,@Memo,@CreatedBy,@CreatedDate)";
+                        sqlCommand.CommandText = "INSERT INTO tblSuppliers (SupplierRef, SupplierName, Address1, Address2, Address3, Address4, PostCode, ContactName, Telephone, Telephone2, Fax, eMail, Memo, CreatedBy, CreatedDate) VALUES (@SupplierRef, @SupplierName, @Address1, @Address2, @Address3, @Address4, @PostCode, @ContactName, @Telephone, @Telephone2, @Fax, @eMail, @Memo, @CreatedBy, @CreatedDate)";
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         sqlCommand.Parameters.AddWithValue("@SupplierName", SupplierName);
                         sqlCommand.Parameters.AddWithValue("@Street", AddressLine1);

@@ -150,7 +150,7 @@
         }
         public int TotalWarehouseRecords()
         {
-            int NoRecords = 0;
+            NoRecords = 0;
             try
             {
                 using(SqlConnection conn = new SqlConnection())
@@ -166,6 +166,7 @@
                         Result = (int)SelectCmd.ExecuteNonQuery();
                     }
                 }
+               
             }
             catch (SqlException ex)
             {

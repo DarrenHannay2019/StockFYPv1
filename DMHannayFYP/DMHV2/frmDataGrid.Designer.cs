@@ -41,7 +41,7 @@
             this.SplitContainer2 = new System.Windows.Forms.SplitContainer();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TSSLFunction = new System.Windows.Forms.ToolStripStatusLabel();
             this.TSSCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -187,7 +187,7 @@
             // 
             this.SplitContainer2.Panel2.Controls.Add(this.StatusStrip1);
             this.SplitContainer2.Size = new System.Drawing.Size(800, 391);
-            this.SplitContainer2.SplitterDistance = 355;
+            this.SplitContainer2.SplitterDistance = 354;
             this.SplitContainer2.SplitterWidth = 5;
             this.SplitContainer2.TabIndex = 0;
             // 
@@ -202,28 +202,28 @@
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.ReadOnly = true;
             this.DataGridView1.RowHeadersWidth = 51;
-            this.DataGridView1.Size = new System.Drawing.Size(800, 355);
+            this.DataGridView1.Size = new System.Drawing.Size(800, 354);
             this.DataGridView1.TabIndex = 0;
             // 
             // StatusStrip1
             // 
             this.StatusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripStatusLabel1,
+            this.TSSLFunction,
             this.TSSCount,
             this.ToolStripStatusLabel3});
-            this.StatusStrip1.Location = new System.Drawing.Point(0, 5);
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 6);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 21, 0);
             this.StatusStrip1.Size = new System.Drawing.Size(800, 26);
             this.StatusStrip1.TabIndex = 0;
             this.StatusStrip1.Text = "StatusStrip1";
             // 
-            // ToolStripStatusLabel1
+            // TSSLFunction
             // 
-            this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(88, 20);
-            this.ToolStripStatusLabel1.Text = "Warehouses";
+            this.TSSLFunction.Name = "TSSLFunction";
+            this.TSSLFunction.Size = new System.Drawing.Size(88, 20);
+            this.TSSLFunction.Text = "Warehouses";
             // 
             // TSSCount
             // 
@@ -279,7 +279,7 @@
         public System.Windows.Forms.SplitContainer SplitContainer2;
         internal System.Windows.Forms.DataGridView DataGridView1;
         internal System.Windows.Forms.StatusStrip StatusStrip1;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
+        internal System.Windows.Forms.ToolStripStatusLabel TSSLFunction;
         internal System.Windows.Forms.ToolStripStatusLabel TSSCount;
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
         internal System.Windows.Forms.BindingSource BindingSource1;

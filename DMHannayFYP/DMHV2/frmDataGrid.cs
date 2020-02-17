@@ -173,35 +173,81 @@ namespace DMHV2
         private void TsbDelete_Click(object sender, EventArgs e)
         {
             int selectid;
+            int NoRecords = 0;
             selectid = DataGridView1.CurrentRow.Index;
             string i;
             i = DataGridView1[0, selectid].Value.ToString();
             if (FunctionID == 1)
             {
                 clsWarehouse oWarehouse = new clsWarehouse(UserID);
-                oWarehouse.WarehouseRef = i;               
+                oWarehouse.WarehouseRef = i;
+                NoRecords = oWarehouse.TotalWarehouseRecords();
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    oWarehouse.WarehouseRef = i;
+                    oWarehouse.DeleteWarehouseRecord();
+                }
             }
             if (FunctionID == 2)
             {
                 clsShop oShop = new clsShop();
-                oShop.ShopRef = i;               
+                oShop.ShopRef = i;
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                   // oWarehouse.WarehouseRef = i;
+                    //oWarehouse.DeleteWarehouseRecord();
+                }
             }
             if (FunctionID == 3)
             {
                 clsSupplier oSupplier = new clsSupplier(UserID);
-                oSupplier.SupplierRef = i;               
+                oSupplier.SupplierRef = i;
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                   // oWarehouse.WarehouseRef = i;
+                   // oWarehouse.DeleteWarehouseRecord();
+                }
             }
             if (FunctionID == 4)
             {
                 clsStock oStock = new clsStock();
                 oStock.StockCode = i;
-              
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                   // oWarehouse.WarehouseRef = i;
+                   // oWarehouse.DeleteWarehouseRecord();
+                }
+
             }
             if (FunctionID == 5)
             {
                 clsStock oStock = new clsStock();
                 oStock.StockCode = i;
-                
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                   // oWarehouse.WarehouseRef = i;
+                   // oWarehouse.DeleteWarehouseRecord();
+                }
             }
             if (FunctionID == 6)
             {
@@ -248,11 +294,17 @@ namespace DMHV2
             {
                 clsShopReturn oShopReturn = new clsShopReturn();
             }
+            if (NoRecords != 0)
+            {
+                MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void TsbRefresh_Click(object sender, EventArgs e)
         {
-
+            BindingSource1.DataSource = "";
+            LoadData();
+            CustomiseDataGrid();
         }
 
         private void TsbPrint_Click(object sender, EventArgs e)
@@ -331,24 +383,91 @@ namespace DMHV2
                 // WarehouseType
                 DataGridView1.Columns[2].Width = 120;
                 DataGridView1.Columns[2].HeaderText = "Warehouse Type";
+                TSSLFunction.Text = "Warehouses";
             }
             if(FunctionID == 2)
             {
-
+                // ShopRef
+                DataGridView1.Columns[0].Width = 70;
+                DataGridView1.Columns[0].HeaderText = "Shop Ref";
+                // ShopName
+                DataGridView1.Columns[1].Width = 220;
+                DataGridView1.Columns[1].HeaderText = "Shop Name";
+                // ShopType
+                DataGridView1.Columns[2].Width = 120;
+                DataGridView1.Columns[2].HeaderText = "Shop Type";
+                TSSLFunction.Text = "Shops";
             }
             if(FunctionID == 3)
             {
-
+                // SupplierRef
+                DataGridView1.Columns[0].Width = 70;
+                DataGridView1.Columns[0].HeaderText = "Supplier Ref";
+                // SupplierName
+                DataGridView1.Columns[1].Width = 220;
+                DataGridView1.Columns[1].HeaderText = "Supplier Name";
+                // ContactName
+                DataGridView1.Columns[2].Width = 120;
+                DataGridView1.Columns[2].HeaderText = "Contact Name";
+                // Telephone
+                DataGridView1.Columns[3].Width = 120;
+                DataGridView1.Columns[3].HeaderText = "Telephone Number";
+                TSSLFunction.Text = "Suppliers";
             }
             if(FunctionID == 4)
             {
-
+                TSSLFunction.Text = "Current Stock";
             }
             if(FunctionID == 5)
             {
-
+                TSSLFunction.Text = "All Stock";
             }
-
+            if (FunctionID == 6)
+            {
+                // WarehouseRef
+                DataGridView1.Columns[0].Width = 70;
+                DataGridView1.Columns[0].HeaderText = "Season ID";
+                // WarehouseName
+                DataGridView1.Columns[1].Width = 220;
+                DataGridView1.Columns[1].HeaderText = "Season Name";
+                TSSLFunction.Text = "Seasons";
+            }
+            if (FunctionID == 7)
+            {
+                TSSLFunction.Text = "Purchase Orders";
+            }
+            if (FunctionID == 8)
+            {
+                TSSLFunction.Text = "Warehouse Adjustments";
+            }
+            if (FunctionID == 9)
+            {
+                TSSLFunction.Text = "Warehouse Transfers";
+            }
+            if (FunctionID == 10)
+            {
+                TSSLFunction.Text = "Warehouse Returns";
+            }
+            if (FunctionID == 11)
+            {
+                TSSLFunction.Text = "Shop Deliveries";
+            }
+            if (FunctionID == 12)
+            {
+                TSSLFunction.Text = "Shop Adjustments";
+            }
+            if (FunctionID == 13)
+            {
+                TSSLFunction.Text = "Shop Transfers";
+            }
+            if (FunctionID == 14)
+            {
+                TSSLFunction.Text = "Shop Sales";
+            }
+            if (FunctionID == 15)
+            {
+                TSSLFunction.Text = "Shop Returns";
+            }
         }
         private string GetFunctionSelectString()
         {
@@ -379,6 +498,38 @@ namespace DMHV2
             else if (FunctionID == 7)
             {
                 SqlCmdString = "SELECT * from tblPurchaseOrders";
+            }
+            if (FunctionID == 8)
+            {
+
+            }
+            if (FunctionID == 9)
+            {
+
+            }
+            if (FunctionID == 10)
+            {
+
+            }
+            if (FunctionID == 11)
+            {
+
+            }
+            if (FunctionID == 12)
+            {
+
+            }
+            if (FunctionID == 13)
+            {
+
+            }
+            if (FunctionID == 14)
+            {
+
+            }
+            if (FunctionID == 15)
+            {
+
             }
             return SqlCmdString;
         }

@@ -10,28 +10,28 @@
   <Class Name="DMHV2.clsPurchaseOrder">
     <Position X="16.25" Y="8.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAEAAAAACAAA=</HashCode>
       <FileName>clsPurchaseOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DMHV2.clsPurchaseOrderLine">
-    <Position X="12.25" Y="8.75" Width="2" />
+    <Position X="12.25" Y="9.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAgAAQAAAAAAAAAAAAAAAACAAAAAAAAAAEAA=</HashCode>
       <FileName>clsPurchaseOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DMHV2.clsPurchaseOrderHead">
-    <Position X="10" Y="8.75" Width="2" />
+    <Position X="10" Y="9.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>ABIgAAQAAAAQCAAAJAAAAAAAAAAEAAABAARAAAAAhAA=</HashCode>
+      <HashCode>ABIgAAQQAAAQCAAAJgAAAAAAAAAEACABAARAAEAChAA=</HashCode>
       <FileName>clsPurchaseOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DMHV2.clsUtils">
     <Position X="4" Y="1" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>ACABIABAiAAhAAAAiAAoCAwAAAAAAAAqAIAWoEAQAAA=</HashCode>
+      <HashCode>ACABIABAiAAhAAAAiQAoCAwAAAAAAAAqAIAWoEAQAAA=</HashCode>
       <FileName>clsUtils.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="DMHV2.frmDataGrid">
     <Position X="21" Y="3" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>ACAIgwAAAGAQAACQCGOAIAgDACAAAgAIBgACAIRAAAA=</HashCode>
+      <HashCode>ACAIg0AAAGAQAACQCGOAIAgDACAAAgAIBgACAIRAAAA=</HashCode>
       <FileName>frmDataGrid.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -55,7 +55,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AQBAAAAAACBAIBAAAACAAAACAACACIAAAAAQQGABAQA=</HashCode>
+      <HashCode>AQBAAAAAACBQIBAAAACAAAACAACACIAAAAAQQGABAQA=</HashCode>
       <FileName>FrmEmployee.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -88,28 +88,28 @@
   <Class Name="DMHV2.clsWarehouse">
     <Position X="3.5" Y="8.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAACAEAAAAACAAAAAAAACAABABAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACBEAAAAACAAAAAAAACAABABAACAAAAEAAAAAAAAA=</HashCode>
       <FileName>clsWarehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DMHV2.clsShop">
     <Position X="14.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAABAAQAAAgAABAAAAAAAQAAgAgAgAAAEAAAAAAAAA=</HashCode>
       <FileName>clsShop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DMHV2.clsStock">
     <Position X="10" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACCAAAAAAAAAACAAAAgAgAAAAAEA=</HashCode>
+      <HashCode>AAAQAAAgAAAAAAAAQCAAAAAAIAACCAAAAgAgABAAAUA=</HashCode>
       <FileName>clsStock.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DMHV2.clsSupplier">
     <Position X="7.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAABAAAgAIAIAAAAAQA=</HashCode>
+      <HashCode>AgAABAAAAAAAAAAAAAAAAAAAAAABAAAgAMAIAAAAAQA=</HashCode>
       <FileName>clsSupplier.cs</FileName>
     </TypeIdentifier>
   </Class>

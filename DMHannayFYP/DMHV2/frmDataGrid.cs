@@ -20,8 +20,8 @@ namespace DMHV2
         {
             if(FunctionID == 1)
             {
-                clsWarehouse oWarehouse = new clsWarehouse(UserID);
-                oWarehouse.LoadNewRecord();
+                clsWarehouse objWarehouse = new clsWarehouse(UserID);
+                objWarehouse.LoadNewRecord();
             }
             if(FunctionID == 2)
             {

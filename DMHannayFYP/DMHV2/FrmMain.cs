@@ -13,7 +13,7 @@ namespace DMHV2
     public partial class FrmMain : Form
     {
         public Form RefToLoginForm { get; set; }
-        public int UserID = 0;
+        public int UserID;
         public string UserName;
         public FrmMain()
         {

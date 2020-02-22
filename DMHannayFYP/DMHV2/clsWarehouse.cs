@@ -11,13 +11,14 @@
         // started 09/02/2020
         // completed 00/02/2020
         public string WarehouseName;
+        private int Users;
         public string WarehouseType;
-        public clsWarehouse(int user)
+        public clsWarehouse(int User)
         {
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
-            UserID = user;
+            Users = User;
         }
         ~clsWarehouse()
         {
@@ -26,6 +27,7 @@
         public void LoadNewRecord()
         {
             FrmWarehouse oWarehouse = new FrmWarehouse();
+            oWarehouse.UserIDs = Users;
             oWarehouse.Modeform = "New";
             oWarehouse.ShowDialog();
         }
@@ -63,7 +65,7 @@
                         InsertCmd.Parameters.AddWithValue("@eMail", eMail);
                         InsertCmd.Parameters.AddWithValue("@WarehouseType", WarehouseType);
                         InsertCmd.Parameters.AddWithValue("@Memo", Memo);
-                        InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
+                        InsertCmd.Parameters.AddWithValue("@CreatedBy", Users);
                         InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                         Result = (int)InsertCmd.ExecuteNonQuery();
                     }

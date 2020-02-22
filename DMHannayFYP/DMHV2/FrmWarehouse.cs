@@ -13,18 +13,20 @@ namespace DMHV2
 {
     public partial class FrmWarehouse : Form
     {
-        clsWarehouse objWarehouse = new clsWarehouse(0);
-        public int UserID { get; set; }
+        public int UserIDs;
         public string Modeform { get; set; }
         public string WarehouseRef { get; set; }
+        clsUtils clsUtils2 = new clsUtils();
+     
         public FrmWarehouse()
         {
             InitializeComponent();
         }
 
         private void CmdOK_Click(object sender, EventArgs e)
-        {           
-            if(Modeform == "New")
+        {
+            clsWarehouse objWarehouse = new clsWarehouse(UserIDs);
+            if (Modeform == "New")
             {
                 objWarehouse.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
                 objWarehouse.WarehouseName = TxtWarehouseName.Text.TrimEnd();

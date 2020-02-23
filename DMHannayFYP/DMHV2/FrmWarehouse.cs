@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace DMHV2
@@ -106,19 +102,20 @@ namespace DMHV2
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dtk);
                 }
-                TxtWarehouseRef.Text = dtk.Rows[0][1].ToString();
-                TxtWarehouseName.Text = dtk.Rows[0][2].ToString();
-                TxtContactName.Text = dtk.Rows[0][2].ToString();
+                TxtWarehouseRef.Text = dtk.Rows[0][0].ToString();
+                TxtWarehouseName.Text = dtk.Rows[0][1].ToString();               
                 TxtAddress1.Text = dtk.Rows[0][2].ToString();
-                TxtAddress2.Text = dtk.Rows[0][2].ToString();
-                TxtAddress3.Text = dtk.Rows[0][2].ToString();
-                TxtAddress4.Text = dtk.Rows[0][2].ToString();
-                TxtPostCode.Text = dtk.Rows[0][2].ToString();
-                TxtTelephone1.Text = dtk.Rows[0][2].ToString();
-                TxtFax.Text = dtk.Rows[0][2].ToString();
-                TxteMail.Text = dtk.Rows[0][2].ToString();
-                TxtMemo.Text = dtk.Rows[0][2].ToString();
-                cboWType.Text = dtk.Rows[0][2].ToString();
+                TxtAddress2.Text = dtk.Rows[0][3].ToString();
+                TxtAddress3.Text = dtk.Rows[0][4].ToString();
+                TxtAddress4.Text = dtk.Rows[0][5].ToString();
+                TxtPostCode.Text = dtk.Rows[0][6].ToString();
+                TxtTelephone1.Text = dtk.Rows[0][7].ToString();
+                TxtFax.Text = dtk.Rows[0][8].ToString();
+                TxteMail.Text = dtk.Rows[0][9].ToString();
+                TxtWebsite.Text = dtk.Rows[0][10].ToString();
+                cboWType.Text = dtk.Rows[0][11].ToString();
+                TxtMemo.Text = dtk.Rows[0][12].ToString();               
+                TxtContactName.Text = dtk.Rows[0][13].ToString();              
             }
             using (SqlConnection conn = new SqlConnection())
             {
@@ -129,7 +126,8 @@ namespace DMHV2
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode, QtyHangers, Value From QryWarehouseStockDisplay Where LocationRef = @LocationRef AND QtyHangers <> '0' ORDER BY StockCode";
+                    SelectCmd.CommandText = "SELECT StockCode, QtyHangers, Value From QryWarehouseStock Where LocationRef = @LocationRef AND QtyHangers <> '0' ORDER BY StockCode";
+                    SelectCmd.Parameters.AddWithValue("@LocationRef", TxtWarehouseRef.Text.TrimEnd());
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dt);
                 }
@@ -162,7 +160,7 @@ namespace DMHV2
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode, MovementType, MovementQtyHangers, MovementDate, Reference from tblStockMovements where LocationRef= @LocationRef And LocationType='Warehouse' Order By MovementDate";
+                    SelectCmd.CommandText = "SELECT StockCode, MovementType, MovementQtyHangers, MovementDate, MovementReference from tblStockMovements where LocationRef= @LocationRef And LocationType=1 Order By MovementDate";
                     SelectCmd.Parameters.AddWithValue("@LocationRef", TxtWarehouseRef.Text.TrimEnd());
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dt);
@@ -185,6 +183,7 @@ namespace DMHV2
                 gridTrans.Columns[1].HeaderText = "Type";
                 gridTrans.Columns[2].HeaderText = "Qty";
                 gridTrans.Columns[3].HeaderText = "Date";
+                gridTrans.Columns[4].HeaderText = "Reference";
             }
             for (int i = 0; i < gridStock.Rows.Count; i++)
             {
@@ -212,52 +211,72 @@ namespace DMHV2
 
         private void TxtWarehouseRef_Leave(object sender, EventArgs e)
         {
-
+            TxtWarehouseRef.Text = clsUtils.ChangeCase(TxtWarehouseRef.Text,1);
         }
 
         private void TxtWarehouseName_Leave(object sender, EventArgs e)
         {
-
+            TxtWarehouseName.Text = clsUtils.ChangeCase(TxtWarehouseName.Text, 0);
         }
 
         private void TxtContactName_Leave(object sender, EventArgs e)
         {
-
+            TxtContactName.Text = clsUtils.ChangeCase(TxtContactName.Text,0);
         }
 
         private void TxtAddress1_Leave(object sender, EventArgs e)
         {
-
+            TxtAddress1.Text = clsUtils.ChangeCase(TxtAddress1.Text, 0);
         }
 
         private void TxtAddress2_Leave(object sender, EventArgs e)
         {
-
+            TxtAddress2.Text = clsUtils.ChangeCase(TxtAddress2.Text, 0);
         }
 
         private void TxtAddress3_Leave(object sender, EventArgs e)
         {
-
+            TxtAddress3.Text = clsUtils.ChangeCase(TxtAddress3.Text, 0);
         }
 
         private void TxtAddress4_Leave(object sender, EventArgs e)
         {
-
+            TxtAddress4.Text = clsUtils.ChangeCase(TxtAddress4.Text, 0);
         }
 
         private void TxtPostCode_Leave(object sender, EventArgs e)
         {
-
+            TxtPostCode.Text = clsUtils.ChangeCase(TxtPostCode.Text, 1);
         }
 
         private void TxtWebsite_Leave(object sender, EventArgs e)
         {
+            // https://stackoverflow.com/questions/3228984/a-better-way-to-validate-url-in-c-sharp-than-try-catch 
+            // User https://stackoverflow.com/users/626273/stema
+            string regular = @"^(ht|f|sf)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$";
+            string regular123 = @"^(www.)[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$";
 
+            string myString = TxtWebsite.Text.Trim();
+            if (Regex.IsMatch(myString, regular))
+            {
+                MessageBox.Show("It is valide url  " + myString);
+            }
+            else if (Regex.IsMatch(myString, regular123))
+            {
+                MessageBox.Show("Valide url with www. " + myString);
+            }
+            else
+            {
+                MessageBox.Show("InValide URL  " + myString);
+            }
         }
 
         private void TxteMail_Leave(object sender, EventArgs e)
-        {
-
+        {          
+            if(clsUtils.IsValidEmail(TxteMail.Text))
+                TxteMail.Text = clsUtils.ChangeCase(TxteMail.Text, 2);
+            else
+            { TxteMail.Text = "Please Try Again"; }
         }
     }
 }

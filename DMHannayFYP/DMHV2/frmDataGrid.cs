@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using System.Drawing;
-
+using Microsoft.VisualBasic;
 namespace DMHV2
 {
     public partial class frmDataGrid : Form
@@ -311,12 +311,149 @@ namespace DMHV2
 
         private void TsbPrint_Click(object sender, EventArgs e)
         {
+            if (FunctionID == 1)
+            {
+                // Warehouses
+            }
+            if (FunctionID == 2)
+            {
+                // Shops
+            }
+            if (FunctionID == 3)
+            {
+                //Suppliers
+            }
+            if (FunctionID == 4)
+            {
+                //Stock
+            }
+            if (FunctionID == 5)
+            {
+                //Stock
+            }
+            if (FunctionID == 6)
+            {
+                // season
 
+            }
+            if (FunctionID == 7)
+            {
+                // Purchase Orders
+
+            }
+            if (FunctionID == 8)
+            {
+                // clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
+            }
+            if (FunctionID == 9)
+            {
+                // clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
+            }
+            if (FunctionID == 10)
+            {
+                // clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
+            }
+            if (FunctionID == 11)
+            {
+                // clsShopDelivery oShopDelivery = new clsShopDelivery();
+            }
+            if (FunctionID == 12)
+            {
+                // clsShopAdjustment oShopAdjustment = new clsShopAdjustment();
+            }
+            if (FunctionID == 13)
+            {
+                // clsShopTransfer oShopTransfer = new clsShopTransfer();
+            }
+            if (FunctionID == 14)
+            {
+                // clsShopSale oShopSale = new clsShopSale();
+            }
+            if (FunctionID == 15)
+            {
+                //  clsShopReturn oShopReturn = new clsShopReturn();
+            }
         }
 
         private void TsbFind_Click(object sender, EventArgs e)
-        {
+        {           
+            if (FunctionID == 1)
+            {
+                // Warehouses
+                BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code",Application.ProductName) +"'";
+            }
+            if (FunctionID == 2)
+            {
+                // Shops
+                BindingSource1.Filter = "ShopRef Like '%" + Interaction.InputBox("Please Enter a Shop Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 3)
+            {
+                //Suppliers
+                BindingSource1.Filter = "SupplierRef Like '%" + Interaction.InputBox("Please Enter a Supplier Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 4)
+            {
+                //Stock
+                BindingSource1.Filter = "SupplierRef Like '%" + Interaction.InputBox("Please Enter a Supplier Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 5)
+            {
+                //Stock
+                BindingSource1.Filter = "SupplierRef Like '%" + Interaction.InputBox("Please Enter a Supplier Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 6)
+            {
+                // season
+                BindingSource1.Filter = "SeasonName Like '%" + Interaction.InputBox("Please Enter a Season Name", Application.ProductName) + "'";
 
+            }
+            if (FunctionID == 7)
+            {
+                // Purchase Orders
+                BindingSource1.Filter = "LocationRef Like '%" + Interaction.InputBox("Please Enter a Warehouse / Shop Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 8)
+            {
+                // clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
+                BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 9)
+            {
+                // clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
+                BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 10)
+            {
+                // clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
+                BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 11)
+            {
+                // clsShopDelivery oShopDelivery = new clsShopDelivery();
+                BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 12)
+            {
+                // clsShopAdjustment oShopAdjustment = new clsShopAdjustment();
+                BindingSource1.Filter = "ShopRef Like '%" + Interaction.InputBox("Please Enter a Shop Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 13)
+            {
+                // clsShopTransfer oShopTransfer = new clsShopTransfer();
+                BindingSource1.Filter = "FromShopRef Like '%" + Interaction.InputBox("Please Enter a Shop Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 14)
+            {
+                // clsShopSale oShopSale = new clsShopSale();
+                BindingSource1.Filter = "ShopRef Like '%" + Interaction.InputBox("Please Enter a Shop Reference Code", Application.ProductName) + "'";
+            }
+            if (FunctionID == 15)
+            {
+                //  clsShopReturn oShopReturn = new clsShopReturn();
+                BindingSource1.Filter = "WarehouseRef Like '%" + Interaction.InputBox("Please Enter a Warehouse Reference Code", Application.ProductName) + "'";
+            }
+            TSSCount.Text = DataGridView1.Rows.Count.ToString();
         }
 
         private void TsbClose_Click(object sender, EventArgs e)

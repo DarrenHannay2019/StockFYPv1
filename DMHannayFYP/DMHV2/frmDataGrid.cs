@@ -55,7 +55,7 @@ namespace DMHV2
             }
             if (FunctionID == 8)
             {
-                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
+                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();                
             }
             if (FunctionID == 9)
             {
@@ -96,46 +96,59 @@ namespace DMHV2
             i = DataGridView1[0, selectid].Value.ToString();
             if (FunctionID == 1)
             {
-                clsWarehouse oWarehouse = new clsWarehouse(UserID);
-                oWarehouse.WarehouseRef = i;
+                clsWarehouse oWarehouse = new clsWarehouse(UserID)
+                {
+                    WarehouseRef = i
+                };
                 oWarehouse.LoadSelectedRecord();
             }
             if (FunctionID == 2)
             {
-                clsShop oShop = new clsShop();
-                oShop.ShopRef = i;
+                clsShop oShop = new clsShop
+                {
+                    ShopRef = i
+                };
                 oShop.LoadSelectedRecord();
             }
             if (FunctionID == 3)
             {
-                clsSupplier oSupplier = new clsSupplier(UserID);
-                oSupplier.SupplierRef = i;
+                clsSupplier oSupplier = new clsSupplier(UserID)
+                {
+                    SupplierRef = i
+                };
                 oSupplier.LoadSelectedRecord();
             }
             if (FunctionID == 4)
             {
-                clsStock oStock = new clsStock();
-                oStock.StockCode = i;
+                clsStock oStock = new clsStock
+                {
+                    StockCode = i
+                };
                 oStock.LoadSelectedForm();
             }
             if (FunctionID == 5)
             {
-                clsStock oStock = new clsStock();
-                oStock.StockCode = i;
+                clsStock oStock = new clsStock
+                {
+                    StockCode = i
+                };
                 oStock.LoadSelectedForm();
             }
             if (FunctionID == 6)
             {
-                clsSeason oSeason = new clsSeason();
-                oSeason.SeasonID = Convert.ToInt32(i);
+                clsSeason oSeason = new clsSeason
+                {
+                    SeasonID = Convert.ToInt32(i)
+                };
                 oSeason.LoadSelectedSeasonForm();
             }
             if (FunctionID == 7)
             {
-                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
-                oPurchaseOrder.PurchaseOrderID = Convert.ToInt32(i);
-                oPurchaseOrder.LoadSelectedPurchaseOrder();
-               
+                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder
+                {
+                    PurchaseOrderID = Convert.ToInt32(i)
+                };
+                oPurchaseOrder.LoadSelectedPurchaseOrder();               
             }
             if (FunctionID == 8)
             {
@@ -180,100 +193,149 @@ namespace DMHV2
             i = DataGridView1[0, selectid].Value.ToString();
             if (FunctionID == 1)
             {
-                clsWarehouse oWarehouse = new clsWarehouse(UserID);
-                oWarehouse.WarehouseRef = i;
+                clsWarehouse oWarehouse = new clsWarehouse(UserID)
+                {
+                    WarehouseRef = i
+                };
                 NoRecords = oWarehouse.TotalWarehouseRecords();
                 if (NoRecords != 0)
                 {
                     MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-                {
-                    oWarehouse.WarehouseRef = i;
+                {                   
                     oWarehouse.DeleteWarehouseRecord();
                 }
             }
             if (FunctionID == 2)
             {
-                clsShop oShop = new clsShop();
-                oShop.ShopRef = i;
+                clsShop oShop = new clsShop
+                {
+                    ShopRef = i
+                };
+                NoRecords = oShop.TotalShopRecords();
                 if (NoRecords != 0)
                 {
-                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Unable to remove Shop Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-                {
-                   // oWarehouse.WarehouseRef = i;
-                    //oWarehouse.DeleteWarehouseRecord();
+                {                    
+                    oShop.DeleteShopRecord();
                 }
             }
             if (FunctionID == 3)
             {
-                clsSupplier oSupplier = new clsSupplier(UserID);
-                oSupplier.SupplierRef = i;
+                clsSupplier oSupplier = new clsSupplier(UserID)
+                {
+                    SupplierRef = i
+                };
+                
                 if (NoRecords != 0)
                 {
                     MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                   // oWarehouse.WarehouseRef = i;
-                   // oWarehouse.DeleteWarehouseRecord();
+                    oSupplier.DeleteSupplierRecord();                 
                 }
             }
             if (FunctionID == 4)
             {
-                clsStock oStock = new clsStock();
-                oStock.StockCode = i;
+                clsStock oStock = new clsStock
+                {
+                    StockCode = i
+                };
                 if (NoRecords != 0)
                 {
                     MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                   // oWarehouse.WarehouseRef = i;
-                   // oWarehouse.DeleteWarehouseRecord();
+                    oStock.DeleteStockCode();
                 }
 
             }
             if (FunctionID == 5)
             {
-                clsStock oStock = new clsStock();
-                oStock.StockCode = i;
+                clsStock oStock = new clsStock
+                {
+                    StockCode = i
+                };
                 if (NoRecords != 0)
                 {
                     MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                   // oWarehouse.WarehouseRef = i;
-                   // oWarehouse.DeleteWarehouseRecord();
+                    oStock.DeleteStockCode();
                 }
             }
             if (FunctionID == 6)
             {
-                clsSeason oSeason = new clsSeason();
-                oSeason.SeasonID = Convert.ToInt32(i);
-                
+                clsSeason oSeason = new clsSeason
+                {
+                    SeasonID = Convert.ToInt32(i)
+                };
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                   
+                }
             }
             if (FunctionID == 7)
             {
-                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
-                oPurchaseOrder.PurchaseOrderID = Convert.ToInt32(i);
-               
+                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder
+                {
+                    PurchaseOrderID = Convert.ToInt32(i)
+                };
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    
+                }
 
             }
             if (FunctionID == 8)
             {
                 clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                   
+                }
             }
             if (FunctionID == 9)
             {
                 clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    
+                }
             }
             if (FunctionID == 10)
             {
                 clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
+                if (NoRecords != 0)
+                {
+                    MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    
+                }
             }
             if (FunctionID == 11)
             {
@@ -470,6 +532,7 @@ namespace DMHV2
         #region CustomiseDataGrid
         private void SetupStyleGrid()
         {
+            // To give all functions a default look to the datagrids
             DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             DataGridView1.BackgroundColor = Color.LightCoral;
             DataGridView1.DefaultCellStyle.SelectionBackColor = Color.Plum;

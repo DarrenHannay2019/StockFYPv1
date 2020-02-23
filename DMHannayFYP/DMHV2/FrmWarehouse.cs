@@ -259,15 +259,15 @@ namespace DMHV2
             string myString = TxtWebsite.Text.Trim();
             if (Regex.IsMatch(myString, regular))
             {
-                MessageBox.Show("It is valide url  " + myString);
+                MessageBox.Show("It is valid url  " + myString);
             }
             else if (Regex.IsMatch(myString, regular123))
             {
-                MessageBox.Show("Valide url with www. " + myString);
+                MessageBox.Show("Valid url with www. " + myString);
             }
             else
             {
-                MessageBox.Show("InValide URL  " + myString);
+                MessageBox.Show("InValid URL  " + myString);
             }
         }
 

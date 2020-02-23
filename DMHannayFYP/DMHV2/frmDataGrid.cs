@@ -25,33 +25,33 @@ namespace DMHV2
             }
             if(FunctionID == 2)
             {
-                clsShop oShop = new clsShop();
-                oShop.LoadNewRecord();                
+                clsShop objShop = new clsShop();
+                objShop.LoadNewRecord();                
             }
             if (FunctionID == 3)
             {
-                clsSupplier oSupplier = new clsSupplier(UserID);
-                oSupplier.LoadNewRecord();
+                clsSupplier objSupplier = new clsSupplier(UserID);
+                objSupplier.LoadNewRecord();
             }
             if (FunctionID == 4)
             {
-                clsStock oStock = new clsStock();
-                oStock.LoadNewForm();
+                clsStock objStock = new clsStock();
+                objStock.LoadNewForm();
             }
             if (FunctionID == 5)
             {
-                clsStock oStock = new clsStock();
-                oStock.LoadNewForm();
+                clsStock objStock = new clsStock();
+                objStock.LoadNewForm();
             }
             if (FunctionID == 6)
             {
-                clsSeason oSeason = new clsSeason();
-                oSeason.LoadNewSeasonForm();
+                clsSeason objSeason = new clsSeason();
+                objSeason.LoadNewSeasonForm();
             }
             if (FunctionID == 7)
             {
-                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder();
-                oPurchaseOrder.LoadNewPurchaseOrder();
+                clsPurchaseOrder objPurchaseOrder = new clsPurchaseOrder();
+                objPurchaseOrder.LoadNewPurchaseOrder();
             }
             if (FunctionID == 8)
             {
@@ -299,6 +299,7 @@ namespace DMHV2
             {
                 MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            TsbRefresh.PerformClick();
         }
 
         private void TsbRefresh_Click(object sender, EventArgs e)

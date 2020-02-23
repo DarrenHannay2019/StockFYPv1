@@ -282,7 +282,7 @@ namespace DMHV2
                 }
                 else
                 {
-                   
+                    oSeason.DeleteSeasonName();
                 }
             }
             if (FunctionID == 7)
@@ -297,7 +297,16 @@ namespace DMHV2
                 }
                 else
                 {
-                    
+                    clsPurchaseOrderLine orderLine = new clsPurchaseOrderLine
+                    {
+                        PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
+                    };
+                    clsPurchaseOrderHead orderHead = new clsPurchaseOrderHead
+                    {
+                        PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
+                    };
+                    orderLine.DeletePurchaseOrderLineRecord();
+                    orderHead.DeletePurchaseOrderHeadRecord();
                 }
 
             }

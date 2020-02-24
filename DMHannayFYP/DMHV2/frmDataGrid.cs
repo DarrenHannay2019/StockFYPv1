@@ -182,6 +182,7 @@ namespace DMHV2
             {
                 clsShopReturn oShopReturn = new clsShopReturn();
             }
+            TsbRefresh.PerformClick();
         }
 
         private void TsbDelete_Click(object sender, EventArgs e)

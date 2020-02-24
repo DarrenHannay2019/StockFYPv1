@@ -16,27 +16,35 @@
         }
 
         private void CmdOK_Click(object sender, EventArgs e)
-        { 
-            objShop.ShopRef = TxtShopRef.Text.TrimEnd();
-            objShop.ShopName = TxtShopName.Text.TrimEnd();
-            objShop.AddressLine1 = TxtAddress1.Text.TrimEnd();
-            objShop.AddressLine2 = TxtAddress2.Text.TrimEnd();
-            objShop.AddressLine3 = TxtAddress3.Text.TrimEnd();
-            objShop.AddressLine4 = TxtAddress4.Text.TrimEnd();
-            objShop.PostCode = TxtPostCode.Text.TrimEnd();
-            objShop.ShopType = cboWType.Text.TrimEnd();
-            objShop.Telephone = TxtTelephone1.Text.TrimEnd();
-            objShop.Fax = TxtFax.Text.TrimEnd();
-            objShop.eMail = TxteMail.Text.TrimEnd();
-            objShop.ContactName = TxtContactName.Text.TrimEnd();
-            objShop.Memo = TxtMemo.Text.TrimEnd();
-            if (FormMode == "New")
-            {               
-                objShop.SaveShopToDB();
+        {
+            if (TxteMail.Text != "Please Try Again")
+            {
+                objShop.ShopRef = TxtShopRef.Text.TrimEnd();
+                objShop.ShopName = TxtShopName.Text.TrimEnd();
+                objShop.AddressLine1 = TxtAddress1.Text.TrimEnd();
+                objShop.AddressLine2 = TxtAddress2.Text.TrimEnd();
+                objShop.AddressLine3 = TxtAddress3.Text.TrimEnd();
+                objShop.AddressLine4 = TxtAddress4.Text.TrimEnd();
+                objShop.PostCode = TxtPostCode.Text.TrimEnd();
+                objShop.ShopType = cboWType.Text.TrimEnd();
+                objShop.Telephone = TxtTelephone1.Text.TrimEnd();
+                objShop.Fax = TxtFax.Text.TrimEnd();
+                objShop.eMail = TxteMail.Text.TrimEnd();
+                objShop.ContactName = TxtContactName.Text.TrimEnd();
+                objShop.Memo = TxtMemo.Text.TrimEnd();
+                if (FormMode == "New")
+                {
+                    objShop.SaveShopToDB();
+                }
+                else
+                {
+                    objShop.UpdateShopToDB();
+                }
             }
             else
-            {               
-                objShop.UpdateShopToDB();
+            {
+                MessageBox.Show("Please enter a valid email address!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxteMail.SelectAll();
             }
             this.Close();
         }
@@ -226,6 +234,14 @@
             }   
             TxtTotalItems.Text = QtyInStock.ToString();
             TxtTotalValue.Text = ValueInStock.ToString("C2");           
+        }
+
+        private void TxteMail_Leave(object sender, EventArgs e)
+        {
+            if (clsUtils.IsValidEmail(TxteMail.Text))
+                TxteMail.Text = clsUtils.ChangeCase(TxteMail.Text, 2);
+            else
+            { TxteMail.Text = "Please Try Again"; }
         }
     }
 }

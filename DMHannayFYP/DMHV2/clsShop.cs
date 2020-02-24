@@ -14,11 +14,19 @@
         public string ShopName;
         public void LoadNewRecord()
         {
-
+            frmShop shop = new frmShop
+            {
+                FormMode = "New"
+            };
+            shop.ShowDialog();
         }
         public void LoadSelectedRecord()
         {
-
+            frmShop shop = new frmShop
+            {
+                FormMode = "Old"
+            };
+            shop.ShowDialog();
         }
         public string GetShopName()
         {

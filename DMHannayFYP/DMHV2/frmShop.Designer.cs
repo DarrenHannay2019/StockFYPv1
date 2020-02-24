@@ -385,6 +385,7 @@
             this.TxteMail.Name = "TxteMail";
             this.TxteMail.Size = new System.Drawing.Size(329, 22);
             this.TxteMail.TabIndex = 11;
+            this.TxteMail.Leave += new System.EventHandler(this.TxteMail_Leave);
             // 
             // TxtFax
             // 

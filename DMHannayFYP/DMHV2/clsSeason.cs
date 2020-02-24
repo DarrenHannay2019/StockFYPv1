@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DMHV2
 {
@@ -32,10 +35,63 @@ namespace DMHV2
         }
         public bool UpdateSeasonName()
         {
+            UpdateToDB = true;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand UpdateCmd = new SqlCommand())
+                    {
+                        UpdateCmd.Connection = conn;
+                        UpdateCmd.CommandType = CommandType.Text;
+                        UpdateCmd.CommandText = "UPDATE tblSeasons SET SeasonName = @SeasonName WHERE SeasonID = @SeasonID";
+                        UpdateCmd.Parameters.AddWithValue("@SeasonID", SeasonID);
+                        UpdateCmd.Parameters.AddWithValue("@SeasonName", SeasonName);                       
+                        UpdateCmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
             return UpdateToDB;
+     
         }
         public bool SaveSeasonName()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                try
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using(SqlCommand InsertCmd = new SqlCommand())
+                    {
+                        InsertCmd.Connection = conn;
+                        InsertCmd.CommandType = CommandType.Text;
+                        InsertCmd.CommandText = "INSERT INTO tblSeasons (SeasonName) VALUES (@SeasonName)";
+                        InsertCmd.Parameters.AddWithValue("@SeasonName", SeasonName);
+                        Result = (int)InsertCmd.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Unable to Open connection to Database\nBecause : " + ex.Message.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+            }
+            if(Result != 1)
+            {
+                SaveToDB = false;
+            }
+            else
+            { 
+                SaveToDB = true;
+            }
             return SaveToDB;
         }
     }

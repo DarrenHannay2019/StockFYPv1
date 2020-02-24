@@ -21,13 +21,19 @@ namespace DMHV2
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
+            clsSeason season = new clsSeason();
             if(ModeOfForm == "New")
             {
-
+                // Save to the database                
+                season.SeasonName = TxtSeasonName.Text.TrimEnd();
+                season.SaveSeasonName();
+                this.Close();
             }
             else
             {
-
+                season.SeasonName = TxtSeasonName.Text.TrimEnd();
+                season.UpdateSeasonName();
+                this.Close();   // close form
             }
         }
 

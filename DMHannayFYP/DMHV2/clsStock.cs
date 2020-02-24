@@ -21,13 +21,14 @@
         public void LoadNewForm()
         {
             frmStock objStock = new frmStock();
-            
+            objStock.FormMode = "New";
             objStock.ShowDialog();
         }
         public void LoadSelectedForm()
         {
             frmStock objStock = new frmStock();
-
+            objStock.FormMode = "Old";
+            objStock.ShowDialog();
         }
         public bool SaveStockCode()
         {

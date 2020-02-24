@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Data.SqlClient;
+    using System.Windows.Forms;
+
     public class clsPurchaseOrder : clsUtils
     {
         // Properties / fields for the class
@@ -44,6 +40,12 @@ namespace DMHV2
             UpdateToDB = false;
             DeleteFromDB = false;
         }
+        ~clsPurchaseOrderLine()
+        {
+            SaveToDB = false;
+            UpdateToDB = false;
+            DeleteFromDB = false;
+        }
         public bool SaveToPurchaseOrderLinetbl()
         {
             SaveToDB = false;
@@ -57,7 +59,6 @@ namespace DMHV2
                     {
                         sqlCommand.Connection = sqlConnection;
                         sqlCommand.CommandText = "INSERT INTO tblPurchaseOrderLines (PurchaseOrderID, StockCode, DeliveredQtyGarments, DeliveredQtyBoxes, DeliveredQtyHangers,  LineAmount) VALUES (@PurchaseOrderID, @StockCode, @DeliveredQtyGarments, @DeliveredQtyBoxes, @DeliveredQtyHangers,, @LineAmount)";
-                       
                         sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
@@ -156,7 +157,15 @@ namespace DMHV2
         public string ShipperInvoice;
         public string SupplierInvoice;
         public string Notes;
-        public clsPurchaseOrderHead()
+        private int UserIDs;
+        public clsPurchaseOrderHead(int UserID)
+        {
+            UserIDs = UserID;
+            SaveToDB = false;
+            UpdateToDB = false;
+            DeleteFromDB = false;
+        }
+        ~clsPurchaseOrderHead()
         {
             SaveToDB = false;
             UpdateToDB = false;
@@ -192,7 +201,7 @@ namespace DMHV2
                         sqlCommand.Parameters.AddWithValue("@Invoice", SupplierInvoice);
                         sqlCommand.Parameters.AddWithValue("@Shipper", Shipper);
                         sqlCommand.Parameters.AddWithValue("@ShipperInvoice", ShipperInvoice);
-                        sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);
+                        sqlCommand.Parameters.AddWithValue("@CreatedBy", UserIDs);
                         sqlCommand.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                         Result = (int)sqlCommand.ExecuteNonQuery();
                     }

@@ -301,7 +301,7 @@ namespace DMHV2
                     {
                         PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
                     };
-                    clsPurchaseOrderHead orderHead = new clsPurchaseOrderHead
+                    clsPurchaseOrderHead orderHead = new clsPurchaseOrderHead(UserID)
                     {
                         PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
                     };

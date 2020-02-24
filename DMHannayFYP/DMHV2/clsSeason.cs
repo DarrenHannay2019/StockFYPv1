@@ -31,6 +31,29 @@ namespace DMHV2
         }
         public bool DeleteSeasonName()
         {
+            DeleteFromDB = false;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand DeleteCmd = new SqlCommand())
+                    {
+                        DeleteCmd.Connection = conn;
+                        DeleteCmd.CommandType = CommandType.Text;
+                        DeleteCmd.CommandText = "DELETE FROM tblSeasons WHERE SeasonID = @SeasonID";
+                        DeleteCmd.Parameters.AddWithValue("@SeasonID", SeasonID);
+                        DeleteCmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                DeleteFromDB = false;
+                throw;
+            }
             return DeleteFromDB;
         }
         public bool UpdateSeasonName()

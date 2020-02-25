@@ -59,19 +59,19 @@ namespace DMHV2
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dtk);
                 }
-                TxtSupplierRef.Text = dtk.Rows[0][1].ToString();
-                TxtSupplierName.Text = dtk.Rows[0][1].ToString();
-                TxtAddressLine1.Text = dtk.Rows[0][2].ToString();
-                TxtAddressLine2.Text = dtk.Rows[0][3].ToString();
-                TxtAddressLine3.Text = dtk.Rows[0][4].ToString();
-                TxtAddressLine4.Text = dtk.Rows[0][5].ToString();
-                TxtPostCode.Text = dtk.Rows[0][6].ToString();
-                TxtTelephoneNumber1.Text = dtk.Rows[0][7].ToString();
-                TxtFaxNumber.Text = dtk.Rows[0][8].ToString();
-                TxtEmailAddress.Text = dtk.Rows[0][9].ToString();
-                //TxtWebsiteAddress.Text = dtk.Rows[0][10].ToString();             
-                TxtMemo.Text = dtk.Rows[0][10].ToString();
-                TxtContactName.Text = dtk.Rows[0][11].ToString();
+                //TxtSupplierRef.Text = dtk.Rows[0][1].ToString();
+                //TxtSupplierName.Text = dtk.Rows[0][1].ToString();
+                //TxtAddressLine1.Text = dtk.Rows[0][2].ToString();
+                //TxtAddressLine2.Text = dtk.Rows[0][3].ToString();
+                //TxtAddressLine3.Text = dtk.Rows[0][4].ToString();
+                //TxtAddressLine4.Text = dtk.Rows[0][5].ToString();
+                //TxtPostCode.Text = dtk.Rows[0][6].ToString();
+                //TxtTelephoneNumber1.Text = dtk.Rows[0][7].ToString();
+                //TxtFaxNumber.Text = dtk.Rows[0][8].ToString();
+                //TxtEmailAddress.Text = dtk.Rows[0][9].ToString();
+                ////TxtWebsiteAddress.Text = dtk.Rows[0][10].ToString();             
+                //TxtMemo.Text = dtk.Rows[0][10].ToString();
+                //TxtContactName.Text = dtk.Rows[0][11].ToString();
             }
             using (SqlConnection conn = new SqlConnection())
             {

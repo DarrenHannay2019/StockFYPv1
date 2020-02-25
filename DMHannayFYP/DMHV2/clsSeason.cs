@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Windows.Forms;
+
     public class clsSeason : clsUtils
     {
         public int SeasonID { get; set; }
@@ -71,7 +66,7 @@ namespace DMHV2
                         UpdateCmd.CommandType = CommandType.Text;
                         UpdateCmd.CommandText = "UPDATE tblSeasons SET SeasonName = @SeasonName WHERE SeasonID = @SeasonID";
                         UpdateCmd.Parameters.AddWithValue("@SeasonID", SeasonID);
-                        UpdateCmd.Parameters.AddWithValue("@SeasonName", SeasonName);                       
+                        UpdateCmd.Parameters.AddWithValue("@SeasonName", SeasonName);
                         UpdateCmd.ExecuteNonQuery();
                     }
                 }
@@ -81,8 +76,7 @@ namespace DMHV2
                 MessageBox.Show(ex.Message);
                 throw;
             }
-            return UpdateToDB;
-     
+            return UpdateToDB;     
         }
         public bool SaveSeasonName()
         {

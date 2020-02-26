@@ -25,15 +25,15 @@ namespace DMHV2
                     InsertCmd.CommandType = CommandType.Text;
                     InsertCmd.CommandText = "INSERT INTO tblShopTransfers (Reference, TransferDate, ShopRef, ShopName, ToShopRef, ToShopName, TotalQtyOut, TotalQtyIn, CreatedBy, CreatedDate) VALUES (@Reference, @TransferDate, @ShopRef, @ShopName, @ToShopRef, @ToShopName, @TotalQtyOut, @TotalQtyIn, @CreatedBy, @CreatedDate)";
                     InsertCmd.Parameters.AddWithValue("@Reference", Reference);
-                    InsertCmd.Parameters.AddWithValue("@TransferDate", CDate(TransferDate));
+                    InsertCmd.Parameters.AddWithValue("@TransferDate", MovementDate);
                     InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                     InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
                     InsertCmd.Parameters.AddWithValue("@ToShopRef", ToShopRef);
                     InsertCmd.Parameters.AddWithValue("@ToShopName", ToShopName);
-                    InsertCmd.Parameters.AddWithValue("@TotalQtyOut", CInt(TotalQtyOut));
-                    InsertCmd.Parameters.AddWithValue("@TotalQtyIn", CInt(TotalQtyIn));
-                    InsertCmd.Parameters.AddWithValue("@CreatedBy", username);
-                    InsertCmd.Parameters.AddWithValue("@CreatedDate", Date.Now);
+                    InsertCmd.Parameters.AddWithValue("@TotalQtyOut", Qty*-1);
+                    InsertCmd.Parameters.AddWithValue("@TotalQtyIn", Qty);
+                    InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
+                    InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                     InsertCmd.ExecuteNonQuery();
                 }
             }
@@ -50,15 +50,15 @@ namespace DMHV2
                     UpdateCmd.Connection.Open();
                     UpdateCmd.CommandType = CommandType.Text;
                     UpdateCmd.CommandText = "UPDATE tblShopTransfers SET Reference = @Reference, TransferDate = @TransferDate, ShopRef = @ShopRef, ShopName = @ShopName, ToShopRef = @ToShopRef, ToShopName = @ToShopName, TotalQtyOut = @TotalQtyOut, TotalQtyOut = @TotalQtyOut WHERE TransferID = @TransferID";
-                    UpdateCmd.Parameters.AddWithValue("@TransferID", CInt(TransferID));
+                    UpdateCmd.Parameters.AddWithValue("@TransferID", ID);
                     UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
-                    UpdateCmd.Parameters.AddWithValue("@TransferDate", CDate(TransferDate));
+                    UpdateCmd.Parameters.AddWithValue("@TransferDate", MovementDate);
                     UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                     UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
                     UpdateCmd.Parameters.AddWithValue("@ToShopRef", ToShopRef);
                     UpdateCmd.Parameters.AddWithValue("@ToShopName", ToShopName);
-                    UpdateCmd.Parameters.AddWithValue("@TotalQtyOut", CInt(TotalQtyOut));
-                    UpdateCmd.Parameters.AddWithValue("@TotalQtyIn", CInt(TotalQtyIn));
+                    UpdateCmd.Parameters.AddWithValue("@TotalQtyOut", Qty * -1);
+                    UpdateCmd.Parameters.AddWithValue("@TotalQtyIn", Qty);
                     UpdateCmd.ExecuteNonQuery();
                 }
             }          
@@ -93,13 +93,13 @@ namespace DMHV2
                     InsertCmd.Connection.Open();
                     InsertCmd.CommandType = CommandType.Text;
                     InsertCmd.CommandText = "INSERT INTO tblShopTransferLines (TransferID, SMTOID, SMTIID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@TransferID, @SMTOID, @SMTIID, @StockCode, @CurrentQty, @TOQty, @TIQty)";
-                    InsertCmd.Parameters.AddWithValue("@TransferID", TransferID);
-                    InsertCmd.Parameters.AddWithValue("@SMTOID", CInt(smtoid));
-                    InsertCmd.Parameters.AddWithValue("@SMTIID", CInt(smtiid));
+                    InsertCmd.Parameters.AddWithValue("@TransferID", ID);
+                    InsertCmd.Parameters.AddWithValue("@SMTOID", smtoid);
+                    InsertCmd.Parameters.AddWithValue("@SMTIID", smtiid);
                     InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                    InsertCmd.Parameters.AddWithValue("@CurrentQty", CInt(CurrQty));
-                    InsertCmd.Parameters.AddWithValue("@TOQty", CInt(TOQty));
-                    InsertCmd.Parameters.AddWithValue("@TIQty", CInt(TIQty));
+                    InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrQty);
+                    InsertCmd.Parameters.AddWithValue("@TOQty", TOQty);
+                    InsertCmd.Parameters.AddWithValue("@TIQty", TIQty);
                     InsertCmd.ExecuteNonQuery();
                 }
             }
@@ -116,13 +116,13 @@ namespace DMHV2
                     UpdateCmd.Connection.Open();
                     UpdateCmd.CommandType = CommandType.Text;
                     UpdateCmd.CommandText = "UPDATE tblShopTransferLines SET SMTOID = @SMTOID, SMTIID = @SMTIID, CurrentQty = @CurrentQty, TOQty = @TOQty, TIQty = @TIQty WHERE TransferID = @TransferID AND StockCode = @StockCode";
-                    UpdateCmd.Parameters.AddWithValue("@TransferID", CInt(TransferID));
-                    UpdateCmd.Parameters.AddWithValue("@SMTOID", CInt(smtoid));
-                    UpdateCmd.Parameters.AddWithValue("@SMTIID", CInt(smtiid));
+                    UpdateCmd.Parameters.AddWithValue("@TransferID", ID);
+                    UpdateCmd.Parameters.AddWithValue("@SMTOID", smtoid);
+                    UpdateCmd.Parameters.AddWithValue("@SMTIID", smtiid);
                     UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                    UpdateCmd.Parameters.AddWithValue("@CurrentQty", CInt(CurrQty));
-                    UpdateCmd.Parameters.AddWithValue("@TOQty", CInt(TOQty));
-                    UpdateCmd.Parameters.AddWithValue("@TIQty", CInt(TIQty));
+                    UpdateCmd.Parameters.AddWithValue("@CurrentQty", CurrQty);
+                    UpdateCmd.Parameters.AddWithValue("@TOQty", TOQty);
+                    UpdateCmd.Parameters.AddWithValue("@TIQty", TIQty);
                     UpdateCmd.ExecuteNonQuery();
                 }
             }

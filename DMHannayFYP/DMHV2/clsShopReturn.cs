@@ -27,10 +27,10 @@ namespace DMHV2
                     InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                     InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                     InsertCmd.Parameters.AddWithValue("@Reference", Reference);
-                    InsertCmd.Parameters.AddWithValue("@TotalItems", CInt(TotalItems));
-                    InsertCmd.Parameters.AddWithValue("@TransactionDate", CDate(TransactionDate));
-                    InsertCmd.Parameters.AddWithValue("@CreatedBy", username);
-                    InsertCmd.Parameters.AddWithValue("@CreatedDate", Date.Now);
+                    InsertCmd.Parameters.AddWithValue("@TotalItems", TotalItems);
+                    InsertCmd.Parameters.AddWithValue("@TransactionDate", MovementDate);
+                    InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
+                    InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                     InsertCmd.ExecuteNonQuery();
                 }
             }
@@ -47,16 +47,15 @@ namespace DMHV2
                     UpdateCmd.Connection.Open();
                     UpdateCmd.CommandType = CommandType.Text;
                     UpdateCmd.CommandText = "UPDATE tblReturns SET ShopRef = @ShopRef, WarehouseRef = @WarehouseRef, Reference = @Reference, TotalItems = @TotalItems,TransactionDate = @TransactionDate WHERE ReturnsID = @ReturnsID";
-                    UpdateCmd.Parameters.AddWithValue("@ReturnsID", CInt(ReturnID));
+                    UpdateCmd.Parameters.AddWithValue("@ReturnsID", ID);
                     UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                     UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                     UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
-                    UpdateCmd.Parameters.AddWithValue("@TotalItems", CInt(TotalItems));
-                    UpdateCmd.Parameters.AddWithValue("@TransactionDate", CDate(TransactionDate));
+                    UpdateCmd.Parameters.AddWithValue("@TotalItems", TotalItems);
+                    UpdateCmd.Parameters.AddWithValue("@TransactionDate", MovementDate);
                     UpdateCmd.ExecuteNonQuery();
                 }
             }
-
             return UpdateToDB;
         }
         public bool DeleteShopReturnHead()
@@ -88,7 +87,7 @@ namespace DMHV2
                     InsertCmd.Connection.Open();
                     InsertCmd.CommandType = CommandType.Text;
                     InsertCmd.CommandText = "INSERT INTO tblReturnLines (ReturnID, StockCode, Qty, Value) VALUES (@ReturnID, @StockCode, @Qty, @Value)";
-                    InsertCmd.Parameters.AddWithValue("@ReturnID", ReturnID);
+                    InsertCmd.Parameters.AddWithValue("@ReturnID", ID);
                     InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                     InsertCmd.Parameters.AddWithValue("@Qty", Qty);
                     InsertCmd.Parameters.AddWithValue("@Value", Value);
@@ -108,10 +107,10 @@ namespace DMHV2
                     UpdateCmd.Connection.Open();
                     UpdateCmd.CommandType = CommandType.Text;
                     UpdateCmd.CommandText = "UPDATE tblReturnLines SET Qty = @Qty,Value = @Value WHERE ReturnID = @ReturnID AND StockCode = @StockCode";
-                    UpdateCmd.Parameters.AddWithValue("@ReturnID", CInt(ReturnID));
+                    UpdateCmd.Parameters.AddWithValue("@ReturnID", ID);
                     UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                    UpdateCmd.Parameters.AddWithValue("@Qty", CInt(Qty));
-                    UpdateCmd.Parameters.AddWithValue("@Value", CInt(Value));
+                    UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
+                    UpdateCmd.Parameters.AddWithValue("@Value", Value);
                     UpdateCmd.ExecuteNonQuery();
                 }
             }                     

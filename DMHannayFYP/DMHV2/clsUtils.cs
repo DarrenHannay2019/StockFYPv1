@@ -38,6 +38,31 @@ namespace DMHV2
         public int DeliveredQtyHangers;
         public int DeliveredQtyBoxes;
         public int DeliveredQtyGarments;
+        public DateTime MovementDate;
+        public int AdjustmentID;
+        public int Qty;
+        public string MovementType;
+        public decimal Value;
+        public string WarehouseName;
+        public string ShopName;
+        public string ToShopRef;
+        public string ToShopName;
+        public string FromShopRef;
+        public string FromShopName;
+        public int CurrQty;
+        public int CurrentQty;
+        public int ID;
+        public int SalesID;
+        public decimal SalesAmount;
+        public int smtiid;
+        public int smtoid;
+        public int TOQty;
+        public int TIQty;
+        public int TotalLossItems;
+        public int TotalGainItems;
+        public int TotalItems;
+        public string Reference;
+        public int ShopDelID;
         public static string GetConnString(int ID)
         {
             // Returns the correct Database connection string for the identity record.

@@ -17,51 +17,62 @@
     {
         public bool SaveWarehouseAdjustmentHead()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblWarehouseAdjustments(WarehouseRef,Reference,TotalLossItems,TotalGainItems,MovementDate,CreatedBy,CreatedDate) VALUES (@WarehouseRef,@Reference,@TotalLossItems,@TotalGainItems,@MovementDate,@CreatedBy,@CreatedDate)"
-                With.Parameters
-                    .AddWithValue("@WarehouseRef", WarehouseRef)
-                    .AddWithValue("@Reference", Reference)
-                    .AddWithValue("@TotalLossItems", CInt(TotalLossItems))
-                    .AddWithValue("@TotalGainItems", CInt(TotalGainItems))
-                    .AddWithValue("@MovementDate", CDate(MovementDate))
-                    .AddWithValue("@CreatedBy", username)
-                    .AddWithValue("@CreatedDate", Date.Now)
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand InsertCmd = new SqlCommand())
+                {
+                    InsertCmd.Connection = conn;
+                    InsertCmd.Connection.Open();
+                    InsertCmd.CommandType = CommandType.Text;
+                    InsertCmd.CommandText = "INSERT INTO tblWarehouseAdjustments(WarehouseRef, Reference, TotalLossItems, TotalGainItems, MovementDate, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @Reference, @TotalLossItems, @TotalGainItems, @MovementDate, @CreatedBy, @CreatedDate)";
+                    InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                    InsertCmd.Parameters.AddWithValue("@Reference", Reference);
+                    InsertCmd.Parameters.AddWithValue("@TotalLossItems", CInt(TotalLossItems));
+                    InsertCmd.Parameters.AddWithValue("@TotalGainItems", CInt(TotalGainItems));
+                    InsertCmd.Parameters.AddWithValue("@MovementDate", CDate(MovementDate));
+                    InsertCmd.Parameters.AddWithValue("@CreatedBy", username);
+                    InsertCmd.Parameters.AddWithValue("@CreatedDate", Date.Now);
+                    InsertCmd.ExecuteNonQuery();
+                }
+            }
             return SaveToDB;
         }
         public bool UpdateWarehouseAdjustmentHead()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblWarehouseAdjustments SET WarehouseRef = @WarehouseRef,Reference = @Reference,TotalLossItems = @TotalLossItems,TotalGainItems = @TotalGainItems, MovementDate = @MovementDate WHERE ID = @ID"
-                With.Parameters
-                    .AddWithValue("@ID", ID)
-                    .AddWithValue("@WarehouseRef", ShopRef)
-                    .AddWithValue("@Reference", Reference)
-                    .AddWithValue("@TotalLossItems", TotalLossItems)
-                    .AddWithValue("@TotalGainItems", TotalGainItems)
-                    .AddWithValue("@MovementDate", CDate(MovementDate))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand UpdateCmd = new SqlCommand())
+                {
+                    UpdateCmd.Connection = conn;
+                    UpdateCmd.Connection.Open();
+                    UpdateCmd.CommandType = CommandType.Text;
+                    UpdateCmd.CommandText = "UPDATE tblWarehouseAdjustments SET WarehouseRef = @WarehouseRef, Reference = @Reference, TotalLossItems = @TotalLossItems, TotalGainItems = @TotalGainItems, MovementDate = @MovementDate WHERE ID = @ID";
+                    UpdateCmd.Parameters.AddWithValue("@ID", ID);
+                    UpdateCmd.Parameters.AddWithValue("@WarehouseRef", ShopRef);
+                    UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
+                    UpdateCmd.Parameters.AddWithValue("@TotalLossItems", TotalLossItems);
+                    UpdateCmd.Parameters.AddWithValue("@TotalGainItems", TotalGainItems);
+                    UpdateCmd.Parameters.AddWithValue("@MovementDate", CDate(MovementDate));
+                    UpdateCmd.ExecuteNonQuery();
+                }
+            }
             return UpdateToDB;
         }
         public bool DeleteWarehouseAdjustmentHead()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "";
+                }
+            }
             return DeleteFromDB;
         }
     }
@@ -69,48 +80,59 @@
     {
         public bool SaveWarehouseAdjustmentLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblWarehouseAdjustmentsLines(WarehouseAdjustID,StockCode,MovementType,Qty,Value) VALUES (@WarehouseAdjustID,@StockCode,@MovementType,@Qty,@Value)"
-                With.Parameters
-                    .AddWithValue("@WarehouseAdjustID", CInt(WarehouseAdjustID))
-                    .AddWithValue("@StockCode", StockCode)
-                    .AddWithValue("@MovementType", MovementType)
-                    .AddWithValue("@Qty", CInt(qty))
-                    .AddWithValue("@Value", CDec(Value))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand InsertCmd = new SqlCommand())
+                {
+                    InsertCmd.Connection = conn;
+                    InsertCmd.Connection.Open();
+                    InsertCmd.CommandType = CommandType.Text;
+                    InsertCmd.CommandText = "INSERT INTO tblWarehouseAdjustmentsLines (WarehouseAdjustID, StockCode, MovementType, Qty, Value) VALUES (@WarehouseAdjustID, @StockCode, @MovementType, @Qty, @Value)";
+                    InsertCmd.Parameters.AddWithValue("@WarehouseAdjustID", CInt(WarehouseAdjustID));
+                    InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                    InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
+                    InsertCmd.Parameters.AddWithValue("@Qty", CInt(qty));
+                    InsertCmd.Parameters.AddWithValue("@Value", CDec(Value));
+                    InsertCmd.ExecuteNonQuery();
+                }
+            }
             return SaveToDB;
         }
         public bool UpdateWarehouseAdjustmentLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblWarehouseAdjustmentsLines SET MovementType = @MovementType,Qty = @Qty,Value = @Value WHERE WarehouseAdjustID = @WarehouseAdjustID AND StockCode = @StockCode"
-                With.Parameters
-                    .AddWithValue("@StockCode", StockCode)
-                    .AddWithValue("@MovementType", MovementType)
-                    .AddWithValue("@Qty", CInt(Qty))
-                    .AddWithValue("@Value", CDec(Value))
-                    .AddWithValue("@WarehouseAdjustID", CInt(ID))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand UpdateCmd = new SqlCommand())
+                {
+                    UpdateCmd.Connection = conn;
+                    UpdateCmd.Connection.Open();
+                    UpdateCmd.CommandType = CommandType.Text;
+                    UpdateCmd.CommandText = "UPDATE tblWarehouseAdjustmentsLines SET MovementType = @MovementType, Qty = @Qty, Value = @Value WHERE WarehouseAdjustID = @WarehouseAdjustID AND StockCode = @StockCode";
+                    UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                    UpdateCmd.Parameters.AddWithValue("@MovementType", MovementType);
+                    UpdateCmd.Parameters.AddWithValue("@Qty", CInt(Qty));
+                    UpdateCmd.Parameters.AddWithValue("@Value", CDec(Value));
+                    UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustID", CInt(ID));
+                    UpdateCmd.ExecuteNonQuery();
+                }
+            }
             return UpdateToDB;
         }
         public bool DeleteWarehouseAdjustmentLine()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "";
+                }
+            }
             return DeleteFromDB;
         }
     }

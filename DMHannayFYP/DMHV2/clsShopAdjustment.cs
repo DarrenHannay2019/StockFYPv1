@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System.Data;
+    using System.Data.SqlClient;
+
     public class clsShopAdjustment : clsUtils
     {
     }
@@ -15,47 +10,47 @@ namespace DMHV2
     {
         public bool SaveShopAdjustHead()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblShopAdjustments(ShopRef,Reference,TotalLossItems,TotalGainItems,MovementDate,CreatedBy,CreatedDate) VALUES (@ShopRef,@Reference,@TotalLossItems,@TotalGainItems,@MovementDate,@CreatedBy,@CreatedDate)"
-                With.Parameters
-                    .AddWithValue("@ShopRef", ShopRef)
-                    .AddWithValue("@Reference", Reference)
-                    .AddWithValue("@TotalLossItems", CInt(TotalLossItems))
-                    .AddWithValue("@TotalGainItems", CInt(TotalGainItems))
-                    .AddWithValue("@MovementDate", CDate(MovementDate))
-                    .AddWithValue("@CreatedBy", username)
-                    .AddWithValue("@CreatedDate", Date.Now)
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            //using(SqlConnection conn = new SqlConnection())
+            //{
+            //    conn.ConnectionString = GetConnString(1);
+            //    using(SqlCommand InsertCmd = new SqlCommand())
+            //    {
+            //        InsertCmd.Connection = conn;
+            //        InsertCmd.Connection.Open();
+            //        InsertCmd.CommandType = CommandType.Text;
+            //        InsertCmd.CommandText = "INSERT INTO tblShopAdjustments(ShopRef, Reference, TotalLossItems, TotalGainItems, MovementDate, CreatedBy, CreatedDate) VALUES (@ShopRef, @Reference, @TotalLossItems, @TotalGainItems, @MovementDate, @CreatedBy, @CreatedDate)";
+            //        InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+            //        InsertCmd.Parameters.AddWithValue("@Reference", Reference);
+            //        InsertCmd.Parameters.AddWithValue("@TotalLossItems", CInt(TotalLossItems));
+            //        InsertCmd.Parameters.AddWithValue("@TotalGainItems", CInt(TotalGainItems));
+            //        InsertCmd.Parameters.AddWithValue("@MovementDate", CDate(MovementDate));
+            //        InsertCmd.Parameters.AddWithValue("@CreatedBy", username);
+            //        InsertCmd.Parameters.AddWithValue("@CreatedDate", Date.Now);
+            //        InsertCmd.ExecuteNonQuery();
+            //    }
+            //}          
             return SaveToDB;
         }
         public bool UpdateShopAdjustHead()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblShopAdjustments SET ShopRef = @ShopRef,Reference = @Reference,TotalLossItems = @TotalLossItems,TotalGainItems = @TotalGainItems, MovementDate = @MovementDate WHERE ID = @ID"
-                With.Parameters
-                    .AddWithValue("@ID", CInt(ID))
-                    .AddWithValue("@ShopRef", ShopRef)
-                    .AddWithValue("@Reference", Reference)
-                    .AddWithValue("@TotalLossItems", CInt(TotalLossItems))
-                    .AddWithValue("@TotalGainItems", CInt(TotalGainItems))
-                    .AddWithValue("@MovementDate", CDate(MovementDate))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            //using(SqlConnection conn = new SqlConnection())
+            //{
+            //    conn.ConnectionString = GetConnString(1);
+            //    using (SqlCommand UpdateCmd = new SqlCommand())
+            //    {
+            //        UpdateCmd.Connection = conn;
+            //        UpdateCmd.Connection.Open();
+            //        UpdateCmd.CommandType = CommandType.Text;
+            //        UpdateCmd.CommandText = "UPDATE tblShopAdjustments SET ShopRef = @ShopRef,Reference = @Reference,TotalLossItems = @TotalLossItems,TotalGainItems = @TotalGainItems, MovementDate = @MovementDate WHERE ID = @ID";
+            //        UpdateCmd.Parameters.AddWithValue("@ID", CInt(ID));
+            //        UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+            //        UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
+            //        UpdateCmd.Parameters.AddWithValue("@TotalLossItems", CInt(TotalLossItems));
+            //        UpdateCmd.Parameters.AddWithValue("@TotalGainItems", CInt(TotalGainItems));
+            //        UpdateCmd.Parameters.AddWithValue("@MovementDate", CDate(MovementDate));
+            //        UpdateCmd.ExecuteNonQuery();
+            //    }
+            //}           
             return UpdateToDB;
         }
         public bool DeleteShopAdjustHead()
@@ -67,44 +62,44 @@ namespace DMHV2
     {
         public bool SaveShopAdjustLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblShopAdjustmentsLines(ShopAdjustID,StockCode,MovementType,Qty,Value) VALUES (@ShopAdjustID,@StockCode,@MovementType,@Qty,@Value)"
-                With.Parameters
-                    .AddWithValue("@ShopAdjustID", CInt(ShopAdjustID))
-                    .AddWithValue("@StockCode", StockCode)
-                    .AddWithValue("@MovementType", MovementType)
-                    .AddWithValue("@Qty", CInt(qty))
-                    .AddWithValue("@Value", CDec(Value))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            //using(SqlConnection conn = new SqlConnection())
+            //{
+            //    conn.ConnectionString = GetConnString(1);
+            //    using (SqlCommand InsertCmd = new SqlCommand())
+            //    {
+            //        InsertCmd.Connection = conn;
+            //        InsertCmd.Connection.Open();
+            //        InsertCmd.CommandType = CommandType.Text;
+            //        InsertCmd.CommandText = "INSERT INTO tblShopAdjustmentsLines(ShopAdjustID,StockCode,MovementType,Qty,Value) VALUES (@ShopAdjustID,@StockCode,@MovementType,@Qty,@Value)";
+            //        InsertCmd.Parameters.AddWithValue("@ShopAdjustID", CInt(ShopAdjustID));
+            //        InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
+            //        InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
+            //         InsertCmd.Parameters.AddWithValue("@Qty", CInt(qty));
+            //        InsertCmd.Parameters.AddWithValue("@Value", CDec(Value));
+            //        InsertCmd.ExecuteNonQuery();
+            //    }
+            //}         
             return SaveToDB;
         }
         public bool UpdateShopAdjustLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblShopAdjustmentsLines SET MovementType = @MovementType,Qty = @Qty,Value = @Value WHERE ShopAdjustID = @ShopAdjustID AND StockCode = @StockCode"
-                With.Parameters
-                    .AddWithValue("@StockCode", StockCode)
-                    .AddWithValue("@MovementType", MovementType)
-                    .AddWithValue("@Qty", CInt(Qty))
-                    .AddWithValue("@Value", CDec(Value))
-                    .AddWithValue("@ShopAdjustID", CInt(ID))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            //using(SqlConnection conn = new SqlConnection())
+            //{
+            //    conn.ConnectionString = GetConnString(1);
+            //    using (SqlCommand UpdateCmd = new SqlCommand())
+            //    {
+            //        UpdateCmd.Connection = conn;
+            //        UpdateCmd.Connection.Open();
+            //        UpdateCmd.CommandType = CommandType.Text;
+            //        UpdateCmd.CommandText = "UPDATE tblShopAdjustmentsLines SET MovementType = @MovementType,Qty = @Qty,Value = @Value WHERE ShopAdjustID = @ShopAdjustID AND StockCode = @StockCode";
+            //        UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
+            //        UpdateCmd.Parameters.AddWithValue("@MovementType", MovementType);
+            //        UpdateCmd.Parameters.AddWithValue("@Qty", CInt(Qty));
+            //        UpdateCmd.Parameters.AddWithValue("@Value", CDec(Value));
+            //        UpdateCmd.Parameters.AddWithValue("@ShopAdjustID", CInt(ID));
+            //        UpdateCmd.ExecuteNonQuery();
+            //    }
+            //}
             return UpdateToDB;
         }
         public bool DeleteShopAdjustLine()

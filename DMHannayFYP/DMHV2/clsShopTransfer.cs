@@ -10,7 +10,33 @@ namespace DMHV2
     {
     }
     public class clsShopTransferHead : clsUtils
-    { }
+    {
+        public bool SaveShopTransferHead()
+        {
+            return SaveToDB;
+        }
+        public bool UpdateShopTransferHead()
+        {
+            return UpdateToDB;
+        }
+        public bool DeleteShopTransferHead()
+        {
+            return DeleteFromDB;
+        }
+    }
     public class clsShopTransferLine : clsUtils
-    { }
+    {
+        public bool SaveShopTransferLine()
+        {
+            return SaveToDB;
+        }
+        public bool UpdateShopTransferLine()
+        {
+            return UpdateToDB;
+        }
+        public bool DeleteShopTransferLine()
+        {
+            return DeleteFromDB;
+        }
+    }
 }

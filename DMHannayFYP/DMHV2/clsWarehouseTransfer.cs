@@ -14,10 +14,32 @@
     }
     public class clsWarehouseTransferHead : clsWarehouseTransfer
     {
-
+        public bool SaveWarehouseTransferHead()
+        {
+            return SaveToDB;
+        }
+        public bool UpdateWarehouseTransferHead()
+        {
+            return UpdateToDB;
+        }
+        public bool DeleteWarehouseTransferHead()
+        {
+            return DeleteFromDB;
+        }
     }
     public class clsWarehouseTransferLine : clsWarehouseTransfer
     {
-
+        public bool SaveWarehouseTransferLine()
+        {
+            return SaveToDB;
+        }
+        public bool UpdateWarehouseTransferLine()
+        {
+            return UpdateToDB;
+        }
+        public bool DeleteWarehouseTransferLine()
+        {
+            return DeleteFromDB;
+        }
     }
 }

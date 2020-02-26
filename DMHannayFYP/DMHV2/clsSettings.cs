@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace DMHV2
 {
-    class clsSettings
+    public class clsSettings : clsUtils
     {
+        public clsSettings()
+        {
+
+        }
+        ~clsSettings()
+        {
+
+        }
+        public bool UpdateSettings()
+        {
+            return UpdateToDB;
+        }
+        public void Backup()
+        {
+
+        }
+        public void Restore()
+        {
+
+        }
     }
 }

@@ -10,8 +10,34 @@ namespace DMHV2
     {
     }
     public class clsWarehouseReturnHead : clsWarehouseReturn
-    { }
+    {
+        public bool SaveWarehouseReturnHead()
+        {
+            return SaveToDB;
+        }
+        public bool UpdateWarehouseReturnHead()
+        {
+            return UpdateToDB;
+        }
+        public bool DeleteWarehouseReturnHead()
+        {
+            return DeleteFromDB;
+        }
+    }
     public class clsWarehouseReturnLine : clsWarehouseReturn
-    { }
+    {
+        public bool SaveWarehouseReturnLine()
+        {
+            return SaveToDB;
+        }
+        public bool UpdateWarehouseReturnLine()
+        {
+            return UpdateToDB;
+        }
+        public bool DeleteWarehouseReturnLine()
+        {
+            return DeleteFromDB;
+        }
+    }
 
 }

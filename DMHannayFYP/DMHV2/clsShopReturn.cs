@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace DMHV2
@@ -13,98 +15,121 @@ namespace DMHV2
     {
         public bool SaveShopReturnHead()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblReturns(ShopRef,WarehouseRef,Reference,TotalItems,TransactionDate,CreatedBy,CreatedDate) VALUES (@ShopRef,@WarehouseRef,@Reference,@TotalItems,@TransactionDate,@CreatedBy,@CreatedDate)"
-                With.Parameters
-                    .AddWithValue("@ShopRef", ShopRef)
-                    .AddWithValue("@WarehouseRef", WarehouseRef)
-                    .AddWithValue("@Reference", Reference)
-                    .AddWithValue("@TotalItems", CInt(TotalItems))
-                    .AddWithValue("@TransactionDate", CDate(TransactionDate))
-                    .AddWithValue("@CreatedBy", username)
-                    .AddWithValue("@CreatedDate", Date.Now)
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using(SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using(SqlCommand InsertCmd = new SqlCommand())
+                {
+                    InsertCmd.Connection = conn;
+                    InsertCmd.Connection.Open();
+                    InsertCmd.CommandType = CommandType.Text;
+                    InsertCmd.CommandText = "INSERT INTO tblReturns(ShopRef, WarehouseRef, Reference, TotalItems, TransactionDate, CreatedBy, CreatedDate) VALUES (@ShopRef, @WarehouseRef, @Reference, @TotalItems, @TransactionDate, @CreatedBy, @CreatedDate)";
+                    InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                    InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                    InsertCmd.Parameters.AddWithValue("@Reference", Reference);
+                    InsertCmd.Parameters.AddWithValue("@TotalItems", CInt(TotalItems));
+                    InsertCmd.Parameters.AddWithValue("@TransactionDate", CDate(TransactionDate));
+                    InsertCmd.Parameters.AddWithValue("@CreatedBy", username);
+                    InsertCmd.Parameters.AddWithValue("@CreatedDate", Date.Now);
+                    InsertCmd.ExecuteNonQuery();
+                }
+            }
             return SaveToDB;
         }
         public bool UpdateShopReturnHead()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblReturns SET ShopRef=@ShopRef,WarehouseRef=@WarehouseRef,Reference=@Reference,TotalItems = @TotalItems,TransactionDate=@TransactionDate WHERE ReturnsID =@ReturnsID"
-                With.Parameters
-                    .AddWithValue("@ReturnsID", CInt(ReturnID))
-                    .AddWithValue("@ShopRef", ShopRef)
-                    .AddWithValue("@WarehouseRef", WarehouseRef)
-                    .AddWithValue("@Reference", Reference)
-                    .AddWithValue("@TotalItems", CInt(TotalItems))
-                    .AddWithValue("@TransactionDate", CDate(TransactionDate))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using(SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using(SqlCommand UpdateCmd = new SqlCommand())
+                {
+                    UpdateCmd.Connection = conn;
+                    UpdateCmd.Connection.Open();
+                    UpdateCmd.CommandType = CommandType.Text;
+                    UpdateCmd.CommandText = "UPDATE tblReturns SET ShopRef = @ShopRef, WarehouseRef = @WarehouseRef, Reference = @Reference, TotalItems = @TotalItems,TransactionDate = @TransactionDate WHERE ReturnsID = @ReturnsID";
+                    UpdateCmd.Parameters.AddWithValue("@ReturnsID", CInt(ReturnID));
+                    UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                    UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
+                    UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
+                    UpdateCmd.Parameters.AddWithValue("@TotalItems", CInt(TotalItems));
+                    UpdateCmd.Parameters.AddWithValue("@TransactionDate", CDate(TransactionDate));
+                    UpdateCmd.ExecuteNonQuery();
+                }
+            }
+
             return UpdateToDB;
         }
         public bool DeleteShopReturnHead()
         {
-            return DeleteFromDB;
+            using(SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "";
+                }
+            }
+                return DeleteFromDB;
         }
     }
     public class clsShopReturnLine : clsShopReturn
     {
         public bool SaveShopReturnLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblReturnLines (ReturnID,StockCode,Qty,Value) VALUES (@ReturnID,@StockCode,@Qty,@Value)"
-                With.Parameters
-                    .AddWithValue("@ReturnID", ReturnID)
-                    .AddWithValue("@StockCode", StockCode)
-                    .AddWithValue("@Qty", Qty)
-                    .AddWithValue("@Value", Value)
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand InsertCmd = new SqlCommand())
+                {
+                    InsertCmd.Connection = conn;
+                    InsertCmd.Connection.Open();
+                    InsertCmd.CommandType = CommandType.Text;
+                    InsertCmd.CommandText = "INSERT INTO tblReturnLines (ReturnID, StockCode, Qty, Value) VALUES (@ReturnID, @StockCode, @Qty, @Value)";
+                    InsertCmd.Parameters.AddWithValue("@ReturnID", ReturnID);
+                    InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                    InsertCmd.Parameters.AddWithValue("@Qty", Qty);
+                    InsertCmd.Parameters.AddWithValue("@Value", Value);
+                    InsertCmd.ExecuteNonQuery();
+                }
+            }
             return SaveToDB;
         }
         public bool UpdateShopReturnLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblReturnLines SET Qty = @Qty,Value=@Value WHERE ReturnID = @ReturnID AND StockCode = @StockCode"
-                With.Parameters
-                    .AddWithValue("@ReturnID", CInt(ReturnID))
-                    .AddWithValue("@StockCode", StockCode)
-                    .AddWithValue("@Qty", CInt(Qty))
-                    .AddWithValue("@Value", CInt(Value))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand UpdateCmd = new SqlCommand())
+                {
+                    UpdateCmd.Connection = conn;
+                    UpdateCmd.Connection.Open();
+                    UpdateCmd.CommandType = CommandType.Text;
+                    UpdateCmd.CommandText = "UPDATE tblReturnLines SET Qty = @Qty,Value = @Value WHERE ReturnID = @ReturnID AND StockCode = @StockCode";
+                    UpdateCmd.Parameters.AddWithValue("@ReturnID", CInt(ReturnID));
+                    UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                    UpdateCmd.Parameters.AddWithValue("@Qty", CInt(Qty));
+                    UpdateCmd.Parameters.AddWithValue("@Value", CInt(Value));
+                    UpdateCmd.ExecuteNonQuery();
+                }
+            }                     
             return UpdateToDB;
         }
         public bool DeleteShopReturnLine()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "";
+                }
+            }
             return DeleteFromDB;
         }
     }

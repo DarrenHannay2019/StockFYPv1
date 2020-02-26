@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,58 +15,64 @@ namespace DMHV2
     {
         public bool SaveShopSaleHead()
         {
-            Try
-            Using conn As New SqlConnection(ut.GetConnString())
-                Dim inscmd As New SqlCommand
-                With inscmd
-                    .Connection = conn
-                    .Connection.Open()
-                    .CommandType = CommandType.Text
-                    .CommandText = "INSERT INTO tblSales (ShopRef,ShopName,SAReference,TransactionDate,TotalQty,TotalValue,CreatedBy,CreatedDate) VALUES (@ShopRef,@ShopName,@SAReference,@TransactionDate,@TotalQty,@TotalValue,@CreatedBy,@CreatedDate)"
-                    With.Parameters
-                        .AddWithValue("@ShopRef", shopref)
-                        .AddWithValue("@ShopName", shopname)
-                        .AddWithValue("@SAReference", "0")
-                        .AddWithValue("@TransactionDate", TransactionDate)
-                        .AddWithValue("@TotalQty", TotalQty)
-                        .AddWithValue("@TotalValue", TotalValue)
-                        .AddWithValue("@CreatedBy", username)
-                        .AddWithValue("@CreatedDate", Date.Now)
-                    End With
-                    .ExecuteNonQuery()
-                End With
-            End Using
-            Return True
-        Catch ex As SqlException
-            MsgBox("Record Creation Failed because of" & vbCrLf & ex.ErrorCode & "  " & ex.Message, MsgBoxStyle.Information, Application.ProductName)
-        End Try
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand InsertCmd = new SqlCommand())
+                {
+                    InsertCmd.Connection = conn;
+                    InsertCmd.Connection.Open();
+                    InsertCmd.CommandType = CommandType.Text;
+                    InsertCmd.CommandText = "INSERT INTO tblSales (ShopRef, ShopName, Reference, TransactionDate, TotalQty, TotalValue, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Reference, @TransactionDate, @TotalQty, @TotalValue, @CreatedBy, @CreatedDate)";
+                    InsertCmd.Parameters.AddWithValue("@ShopRef", shopref);
+                    InsertCmd.Parameters.AddWithValue("@ShopName", shopname);
+                    InsertCmd.Parameters.AddWithValue("@SAReference", "0");
+                    InsertCmd.Parameters.AddWithValue("@TransactionDate", TransactionDate);
+                    InsertCmd.Parameters.AddWithValue("@TotalQty", TotalQty);
+                    InsertCmd.Parameters.AddWithValue("@TotalValue", TotalValue);
+                    InsertCmd.Parameters.AddWithValue("@CreatedBy", username);
+                    InsertCmd.Parameters.AddWithValue("@CreatedDate", Date.Now);
+                    InsertCmd.ExecuteNonQuery();
+                }
+            }
             return SaveToDB;
         }
         public bool UpdateShopSaleHead()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblSales SET ShopRef = @ShopRef,ShopName=@ShopName,SAReference = @SAReference,TransactionDate=@TransactionDate,TotalQty = @TotalQty,TotalValue=@TotalValue WHERE SalesID=@SalesID"
-                With.Parameters
-                    .AddWithValue("@SalesID", CInt(SalesID))
-                    .AddWithValue("@ShopRef", shopref)
-                    .AddWithValue("@ShopName", shopname)
-                    .AddWithValue("@SAReference", SAReference)
-                    .AddWithValue("@TransactionDate", CDate(TransactionDate))
-                    .AddWithValue("@TotalQty", CInt(TotalQty))
-                    .AddWithValue("@TotalValue", CDec(TotalValue))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand UpdateCmd = new SqlCommand())
+                {
+                    UpdateCmd.Connection = conn;
+                    UpdateCmd.Connection.Open();
+                    UpdateCmd.CommandType = CommandType.Text;
+                    UpdateCmd.CommandText = "UPDATE tblSales SET ShopRef = @ShopRef, ShopName = @ShopName, Reference = @Reference, TransactionDate = @TransactionDate, TotalQty = @TotalQty, TotalValue = @TotalValue WHERE SalesID = @SalesID";
+                    UpdateCmd.Parameters.AddWithValue("@SalesID", CInt(SalesID));
+                    UpdateCmd.Parameters.AddWithValue("@ShopRef", shopref);
+                    UpdateCmd.Parameters.AddWithValue("@ShopName", shopname);
+                    UpdateCmd.Parameters.AddWithValue("@Reference", SAReference);
+                    UpdateCmd.Parameters.AddWithValue("@TransactionDate", CDate(TransactionDate));
+                    UpdateCmd.Parameters.AddWithValue("@TotalQty", CInt(TotalQty));
+                    UpdateCmd.Parameters.AddWithValue("@TotalValue", CDec(TotalValue));
+                    UpdateCmd.ExecuteNonQuery();
+                }
+            }
             return UpdateToDB;
         }
         public bool DeleteShopSaleHead()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "";
+                }
+            }
             return DeleteFromDB;
         }
     }
@@ -72,71 +80,79 @@ namespace DMHV2
     {
         public bool SaveShopSaleLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblSalesLines (SalesID,StockCode,CurrentQty,QtySold,SalesAmount,StockMovementID) VALUES (@SalesID,@StockCode,@CurrentQty,@QtySold,@SalesAmount,@StockMovementID)"
-                With.Parameters
-                    .AddWithValue("@SalesID", salesID)
-                    .AddWithValue("@StockCode", stockcode)
-                    .AddWithValue("@CurrentQty", CurrentQty)
-                    .AddWithValue("@QtySold", QtySold)
-                    .AddWithValue("@SalesAmount", SalesAmount)
-                    .AddWithValue("@StockMovementID", StockID)
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
-        Return True
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand InsertCmd = new SqlCommand())
+                {
+                    InsertCmd.Connection = conn;
+                    InsertCmd.Connection.Open();
+                    InsertCmd.CommandType = CommandType.Text;
+                    InsertCmd.CommandText = "INSERT INTO tblSalesLines (SalesID, StockCode, CurrentQty, QtySold, SalesAmount, StockMovementID) VALUES (@SalesID, @StockCode, @CurrentQty, @QtySold, @SalesAmount, @StockMovementID)";
+                    InsertCmd.Parameters.AddWithValue("@SalesID", salesID);
+                    InsertCmd.Parameters.AddWithValue("@StockCode", stockcode);
+                    InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
+                    InsertCmd.Parameters.AddWithValue("@QtySold", QtySold);
+                    InsertCmd.Parameters.AddWithValue("@SalesAmount", SalesAmount);
+                    InsertCmd.Parameters.AddWithValue("@StockMovementID", StockID);
+                    InsertCmd.ExecuteNonQuery();
+                }
+            }
             return SaveToDB;
         }
         public bool UpdateShopSaleLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim updCmd As New SqlCommand()
-            With updCmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "UPDATE tblSalesLines SET CurrentQty = @CurrentQty, QtySold = @QtySold,SalesAmount = @SalesAmount,StockMovementID = @StockMovementID WHERE SalesID = @SalesID AND StockCode =@StockCode"
-                With.Parameters
-                    .AddWithValue("@SalesID", CInt(salesID))
-                    .AddWithValue("@StockCode", stockcode)
-                    .AddWithValue("@CurrentQty", CInt(CurrentQty))
-                    .AddWithValue("@QtySold", CInt(QtySold))
-                    .AddWithValue("@SalesAmount", CDec(SalesAmount))
-                    .AddWithValue("@StockMovementID", CInt(StockID))
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand UpdateCmd = new SqlCommand())
+                {
+                    UpdateCmd.Connection = conn;
+                    UpdateCmd.Connection.Open();
+                    UpdateCmd.CommandType = CommandType.Text;
+                    UpdateCmd.CommandText = "UPDATE tblSalesLines SET CurrentQty = @CurrentQty, QtySold = @QtySold, SalesAmount = @SalesAmount, StockMovementID = @StockMovementID WHERE SalesID = @SalesID AND StockCode = @StockCode";
+                    UpdateCmd.Parameters.AddWithValue("@SalesID", CInt(salesID));
+                    UpdateCmd.Parameters.AddWithValue("@StockCode", stockcode);
+                    UpdateCmd.Parameters.AddWithValue("@CurrentQty", CInt(CurrentQty));
+                    UpdateCmd.Parameters.AddWithValue("@QtySold", CInt(QtySold));
+                    UpdateCmd.Parameters.AddWithValue("@SalesAmount", CDec(SalesAmount));
+                    UpdateCmd.Parameters.AddWithValue("@StockMovementID", CInt(StockID));
+                }
+            }
             return UpdateToDB;
         }
         public bool DeleteShopSaleLine()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "";
+                }
+            }
             return DeleteFromDB;
         }
         public bool DeleteShopZeroSaleLine()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim inscmd As New SqlCommand
-            With inscmd
-                .Connection = conn
-                .Connection.Open()
-                .CommandType = CommandType.Text
-                .CommandText = "DELETE from tblSalesLines WHERE SalesID = @SalesID AND QtySold = @QtySold AND SalesAmount = @SalesAmount;"
-                With.Parameters
-                    .AddWithValue("@SalesID", salesID)
-                    .AddWithValue("@QtySold", "0")
-                    .AddWithValue("@SalesAmount", "0.00")
-
-                End With
-                .ExecuteNonQuery()
-            End With
-        End Using
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand DeleteCmd = new SqlCommand())
+                {
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "DELETE from tblSalesLines WHERE SalesID = @SalesID AND QtySold = @QtySold AND SalesAmount = @SalesAmount;";
+                    DeleteCmd.Parameters.AddWithValue("@SalesID", salesID);
+                    DeleteCmd.Parameters.AddWithValue("@QtySold", "0");
+                    DeleteCmd.Parameters.AddWithValue("@SalesAmount", "0.00");
+                    DeleteCmd.ExecuteNonQuery();
+                }
+            }
             return DeleteFromDB;
         }
     }

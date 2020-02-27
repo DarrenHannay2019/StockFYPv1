@@ -141,6 +141,12 @@
     <Compile Include="frmShop.Designer.cs">
       <DependentUpon>frmShop.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmShopAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShopAdjustment.Designer.cs">
+      <DependentUpon>frmShopAdjustment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmShop.resx">
       <DependentUpon>frmShop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShopAdjustment.resx">
+      <DependentUpon>frmShopAdjustment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>

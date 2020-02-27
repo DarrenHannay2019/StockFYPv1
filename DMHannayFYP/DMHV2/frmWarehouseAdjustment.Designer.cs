@@ -273,7 +273,6 @@
             this.TxtWarehouseName.Name = "TxtWarehouseName";
             this.TxtWarehouseName.Size = new System.Drawing.Size(180, 22);
             this.TxtWarehouseName.TabIndex = 53;
-            this.TxtWarehouseName.Text = "Universal Warehouse";
             // 
             // DateTimePicker1
             // 
@@ -343,7 +342,6 @@
             this.TxtWarehouseRef.Name = "TxtWarehouseRef";
             this.TxtWarehouseRef.Size = new System.Drawing.Size(83, 22);
             this.TxtWarehouseRef.TabIndex = 49;
-            this.TxtWarehouseRef.Text = "UNI";
             // 
             // TxtReference
             // 
@@ -407,7 +405,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 796);
+            this.ClientSize = new System.Drawing.Size(706, 450);
             this.Controls.Add(this.TxtRecordID);
             this.Controls.Add(this.Label6);
             this.Controls.Add(this.TxtTotalLoss);

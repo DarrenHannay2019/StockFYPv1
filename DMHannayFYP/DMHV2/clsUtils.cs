@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Globalization;
+    using System.IO;
+    using System.Text.RegularExpressions;
+
     public class clsUtils
     {
         // Global properties

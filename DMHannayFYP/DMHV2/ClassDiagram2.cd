@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DMHV2.clsEmployee">
+    <Position X="1.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQQFAgAAAIAAAAAAAACACAAAAAAAAEAAAEAAAAgQo=</HashCode>
+      <FileName>clsEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsPurchaseOrder">
+    <Position X="8.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAEAAAAACAAA=</HashCode>
+      <FileName>clsPurchaseOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsPurchaseOrderLine">
+    <Position X="18" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAgAAQAAAAAAAAAAAAAAAACAAAAAAAAAAEAA=</HashCode>
+      <FileName>clsPurchaseOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsPurchaseOrderHead">
+    <Position X="15.75" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABIgAAQQAAAQCBAAJgAAAAAAAAAEACABAARAAEAChAA=</HashCode>
+      <FileName>clsPurchaseOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsSeason">
+    <Position X="2.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAIEAQQAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clsSeason.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsShop">
+    <Position X="10.5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAQAAAgAABAAAAAAAQAAgAgAgAAAEAAAAAAAAA=</HashCode>
+      <FileName>clsShop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsStock">
+    <Position X="13.25" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAgAAAAAAAAQCAAAAAAIAACCAAAAgAgABAAAUA=</HashCode>
+      <FileName>clsStock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsSupplier">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAABAAAAAAAAAAAAAAAAAAAAAABAAAgAMAIAAAAAQA=</HashCode>
+      <FileName>clsSupplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsUtils">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCBBKADAiEAjgCQAiQIoSBwAgAQAAgAuBIB2sEBwICA=</HashCode>
+      <FileName>clsUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.clsWarehouse">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBGAAAAACAAAAAAAACAABABAACAAAAEAAAAAAAAA=</HashCode>
+      <FileName>clsWarehouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.Form1" Collapsed="true">
+    <Position X="63.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACAAABAAAACAAABSAAAACAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmDataGrid" Collapsed="true">
+    <Position X="65.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIg0AAAGAQAACQCGOAIAgDACAAAgAIBgACAIRAAAA=</HashCode>
+      <FileName>frmDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.FrmEmployee" Collapsed="true">
+    <Position X="67.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAACBQIBAAAACAAAACAACACIAAAAAQQGABAQA=</HashCode>
+      <FileName>FrmEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.FrmMain" Collapsed="true">
+    <Position X="69" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cwCEAABDCCAAYBACJACJBCkCBAgIAQABIQFABDEAAMg=</HashCode>
+      <FileName>FrmMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmPurchaseOrder" Collapsed="true">
+    <Position X="70.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>bUCIRIBYECgZQRRCCEiAAQADUTD/AEFQkEAYQAgBBLA=</HashCode>
+      <FileName>frmPurchaseOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmSeason" Collapsed="true">
+    <Position X="63.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAAACAIABAAAACAAAACAACAAQAAAAAABEABAQA=</HashCode>
+      <FileName>frmSeason.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmSettings" Collapsed="true">
+    <Position X="65.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAEGACAYAAAACAGAhCBIG3KIAAIpEAAEBAAAA=</HashCode>
+      <FileName>frmSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmShop" Collapsed="true">
+    <Position X="67.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4BmAAgiIEmARARAYAECAAAgCFCN4ABAAAJBsAgBgggA=</HashCode>
+      <FileName>frmShop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmShopAdjustment" Collapsed="true">
+    <Position X="69" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAmGQAAAAAABiQAggCBAEwAQCIBHIFCgAkCCA=</HashCode>
+      <FileName>frmShopAdjustment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmShopDelivery" Collapsed="true">
+    <Position X="70.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIQQAQMCIABACAACiQAiACABh8AEAJAECIKAgABgA=</HashCode>
+      <FileName>frmShopDelivery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmShopReturn" Collapsed="true">
+    <Position X="63.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAKQQAwcCIAAAEAIAiQAQACAAC4JgAAAECACAgABAA=</HashCode>
+      <FileName>frmShopReturn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmShopSale" Collapsed="true">
+    <Position X="65.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYAARAAQkCACAAgAAACAAwACBDzzAgAIAACYACgAwAE=</HashCode>
+      <FileName>frmShopSale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmShopTransfer" Collapsed="true">
+    <Position X="67.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAwAI2GCAQAEAAACAAAgCAQG4RwAAADAVAgACAEA=</HashCode>
+      <FileName>frmShopTransfer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmStock" Collapsed="true">
+    <Position X="69" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgEAAAAAgWAQABCAAACAAAgCEAEAAABAABAQwIEAAIA=</HashCode>
+      <FileName>frmStock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmSupplier" Collapsed="true">
+    <Position X="70.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICmAEAAIEGARQBAACAKAAAgCEAERAABAABAEAgABhAA=</HashCode>
+      <FileName>frmSupplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.FrmWarehouse" Collapsed="true">
+    <Position X="63.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBmAQiDIEmgRARUQAECAAAgCBCN4ACAQAJBMAiBggAg=</HashCode>
+      <FileName>FrmWarehouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmWarehouseAdjustment" Collapsed="true">
+    <Position X="65.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEIBAAAmGwAACAAAECAAggCACE4BwAIABgUAgIIAAA=</HashCode>
+      <FileName>frmWarehouseAdjustment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmWarehouseReturn" Collapsed="true">
+    <Position X="67.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAKQQAwcCIAAAEAIAiQAQACAAC4JgAAAECACAgABAA=</HashCode>
+      <FileName>frmWarehouseReturn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.frmWarehouseTransfer" Collapsed="true">
+    <Position X="69" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAwAI2GCAQAEAAACAAAgCAQG4RwAAADAVAgACAEA=</HashCode>
+      <FileName>frmWarehouseTransfer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.Program" Collapsed="true">
+    <Position X="70.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.Properties.Resources" Collapsed="true">
+    <Position X="63.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMHV2.Properties.Settings" Collapsed="true">
+    <Position X="65.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

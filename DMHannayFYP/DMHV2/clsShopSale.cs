@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DMHV2
 {
-    public class clsShopSale : clsUtils
+    public class clsShopSale
     {
     }
     public class clsShopSaleHead : clsShopSale

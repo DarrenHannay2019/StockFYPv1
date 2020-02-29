@@ -68,7 +68,9 @@
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE from tblShopAdjustments where ID = @ID;";
+                    DeleteCmd.Parameters.AddWithValue("@ID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;
@@ -128,7 +130,7 @@
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE from tblStockMovements WHERE TransferReference = @TransferReference AND MovementType = 'Stock Loss' AND MovementDate = @MovementDate;DELETE from tblStockMovements WHERE TransferReference = @TransferReference AND MovementType = 'Stock Gain' AND MovementDate = @MovementDate;";
                 }
             }
             return DeleteFromDB;

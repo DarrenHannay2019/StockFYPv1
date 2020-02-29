@@ -30,7 +30,7 @@
             oPurchaseOrder.Show();
         }
     }
-    public class clsPurchaseOrderLine : clsUtils
+    public class clsPurchaseOrderLine : clsPurchaseOrder
     {
         public decimal LineAmount;
         public int PurchaseOrderID;
@@ -140,7 +140,7 @@
             return DeleteFromDB;
         }
     }
-    public class clsPurchaseOrderHead : clsUtils
+    public class clsPurchaseOrderHead : clsPurchaseOrder
     {
         public int TotalGarments;
         public int TotalHangers;

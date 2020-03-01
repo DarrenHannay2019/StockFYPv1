@@ -24,7 +24,35 @@ namespace DMHV2
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
-
+            clsSettings settings = new clsSettings();
+            settings.ContactName = txtCompanyName.Text.TrimEnd();
+            settings.AddressLine1 = txtAdd1.Text.TrimEnd();
+            settings.AddressLine2 = txtAdd2.Text.TrimEnd();
+            settings.AddressLine3 = txtAdd3.Text.TrimEnd();
+            settings.AddressLine4 = txtAdd4.Text.TrimEnd();
+            settings.PostCode = txtPostCode.Text.TrimEnd();
+            settings.Telephone = txtTelephone.Text.TrimEnd();
+            settings.Fax = txtFax.Text.TrimEnd();
+            settings.Memo = txtVATReg.Text.TrimEnd();
+            settings.eMail = txtEmail.Text.TrimEnd();
+            settings.WebsiteAddress = txtWWW.Text.TrimEnd();
+            settings.Value = Convert.ToDecimal(txtVATRate.Text.TrimEnd());
+            if (FormMode == "New")
+            {
+                settings.SaveToDB = settings.SaveSettings();
+                if (settings.SaveToDB == false)
+                    MessageBox.Show("Unable to Save to Database", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    this.Close();
+            }
+            else
+            {
+                settings.UpdateToDB = settings.UpdateSettings();
+                if(settings.UpdateToDB == false)
+                    MessageBox.Show("Unable to Update in Database", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    this.Close();
+            }
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)
@@ -44,11 +72,40 @@ namespace DMHV2
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-           
+           if(FormMode == "New")
+            {
+                CmdOK.Text = "Save";
+            }
+           else
+            {
+                LoadData();
+                CmdOK.Text = "OK";
+            }
+            LoadCombos();
         }
         private void LoadData()
         {
-
+            using(SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataSet SettingData = new DataSet();
+                SqlDataAdapter SettingsDataAdapter = new SqlDataAdapter("SELECT * from tblCompanyDetails",conn);
+                SettingsDataAdapter.Fill(SettingData, "tblCompanyDetails");
+                txtCompanyName.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["CompanyName"].ToString();
+                txtAdd1.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Street"].ToString();
+                txtAdd2.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Area"].ToString();
+                txtAdd3.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Town"].ToString();
+                txtAdd4.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["County"].ToString();
+                txtPostCode.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["PostCode"].ToString();
+                txtTelephone.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Telephone"].ToString();
+                txtFax.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Fax"].ToString();
+                txtVATReg.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["VATRegistrationNo"].ToString();
+                txtEmail.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Email"].ToString();
+                txtWWW.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Website"].ToString();
+                txtVATRate.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["VatRate"].ToString();
+            // txtVATRate.Text = FormatPercent(txtVATRate.Text)
+            }
         }
         private void LoadCombos()
         {
@@ -82,6 +139,56 @@ namespace DMHV2
                 }
 
             }
+        }
+
+        private void txtCompanyName_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd1_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd2_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd3_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd4_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPostCode_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtWWW_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtVATRate_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtVATReg_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using System.IO;
+using System.Data;
 
 namespace DMHV2
 {
@@ -18,8 +14,36 @@ namespace DMHV2
         {
 
         }
+        public bool SaveSettings()
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand InsertCmd = new SqlCommand())
+                {
+                    InsertCmd.Connection = conn;
+                    InsertCmd.Connection.Open();
+                    InsertCmd.CommandType = CommandType.Text;
+                    InsertCmd.CommandText = "INSERT INTO tblSales (ShopRef, ShopName, Reference, TransactionDate, TotalQty, TotalValue, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Reference, @TransactionDate, @TotalQty, @TotalValue, @CreatedBy, @CreatedDate)";
+                    InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
+                    InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                    InsertCmd.Parameters.AddWithValue("@Reference", "0");
+                    InsertCmd.Parameters.AddWithValue("@TransactionDate", MovementDate);
+                    InsertCmd.Parameters.AddWithValue("@TotalQty", Qty);
+                    InsertCmd.Parameters.AddWithValue("@TotalValue", Value);
+                    InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
+                    InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                    InsertCmd.ExecuteNonQuery();
+                }
+            }
+            return SaveToDB;
+
+            return SaveToDB;
+        }
         public bool UpdateSettings()
         {
+
+
             return UpdateToDB;
         }
         public string Backup()

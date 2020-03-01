@@ -153,6 +153,7 @@
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(305, 22);
             this.txtCompanyName.TabIndex = 0;
+            this.txtCompanyName.Leave += new System.EventHandler(this.txtCompanyName_Leave);
             // 
             // txtVATRate
             // 
@@ -161,6 +162,7 @@
             this.txtVATRate.Name = "txtVATRate";
             this.txtVATRate.Size = new System.Drawing.Size(84, 22);
             this.txtVATRate.TabIndex = 10;
+            this.txtVATRate.Leave += new System.EventHandler(this.txtVATRate_Leave);
             // 
             // Label1
             // 
@@ -179,6 +181,7 @@
             this.txtVATReg.Name = "txtVATReg";
             this.txtVATReg.Size = new System.Drawing.Size(308, 22);
             this.txtVATReg.TabIndex = 11;
+            this.txtVATReg.Leave += new System.EventHandler(this.txtVATReg_Leave);
             // 
             // Label20
             // 
@@ -312,6 +315,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(308, 22);
             this.txtEmail.TabIndex = 9;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtAdd1
             // 
@@ -321,6 +325,7 @@
             this.txtAdd1.Name = "txtAdd1";
             this.txtAdd1.Size = new System.Drawing.Size(308, 22);
             this.txtAdd1.TabIndex = 1;
+            this.txtAdd1.Leave += new System.EventHandler(this.txtAdd1_Leave);
             // 
             // txtWWW
             // 
@@ -330,6 +335,7 @@
             this.txtWWW.Name = "txtWWW";
             this.txtWWW.Size = new System.Drawing.Size(308, 22);
             this.txtWWW.TabIndex = 8;
+            this.txtWWW.Leave += new System.EventHandler(this.txtWWW_Leave);
             // 
             // txtAdd2
             // 
@@ -339,6 +345,7 @@
             this.txtAdd2.Name = "txtAdd2";
             this.txtAdd2.Size = new System.Drawing.Size(308, 22);
             this.txtAdd2.TabIndex = 2;
+            this.txtAdd2.Leave += new System.EventHandler(this.txtAdd2_Leave);
             // 
             // CmdBackup
             // 
@@ -379,6 +386,7 @@
             this.txtAdd3.Name = "txtAdd3";
             this.txtAdd3.Size = new System.Drawing.Size(308, 22);
             this.txtAdd3.TabIndex = 3;
+            this.txtAdd3.Leave += new System.EventHandler(this.txtAdd3_Leave);
             // 
             // lblBackupinfo
             // 
@@ -457,6 +465,7 @@
             this.txtAdd4.Name = "txtAdd4";
             this.txtAdd4.Size = new System.Drawing.Size(308, 22);
             this.txtAdd4.TabIndex = 4;
+            this.txtAdd4.Leave += new System.EventHandler(this.txtAdd4_Leave);
             // 
             // txtPostCode
             // 
@@ -466,6 +475,7 @@
             this.txtPostCode.Name = "txtPostCode";
             this.txtPostCode.Size = new System.Drawing.Size(84, 22);
             this.txtPostCode.TabIndex = 5;
+            this.txtPostCode.Leave += new System.EventHandler(this.txtPostCode_Leave);
             // 
             // CmdOK
             // 

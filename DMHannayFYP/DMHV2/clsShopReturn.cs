@@ -68,7 +68,9 @@ namespace DMHV2
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE FROM tblReturns WHERE ReturnsID = @ReturnsID";
+                    DeleteCmd.Parameters.AddWithValue("@ReturnsID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
                 return DeleteFromDB;
@@ -126,7 +128,9 @@ namespace DMHV2
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE FROM tblReturnLines WHERE ReturnID = @ReturnID;";
+                    DeleteCmd.Parameters.AddWithValue("@ReturnID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;

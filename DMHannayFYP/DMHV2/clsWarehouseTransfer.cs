@@ -72,7 +72,9 @@
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE FROM tblWarehouseTransfers WHERE TransferID = @TransferID";
+                    DeleteCmd.Parameters.AddWithValue("@TransferID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;
@@ -136,7 +138,9 @@
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE FROM tblWarehouseTransferLines WHERE TransferID = @TransferID;";
+                    DeleteCmd.Parameters.AddWithValue("@TransferID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;

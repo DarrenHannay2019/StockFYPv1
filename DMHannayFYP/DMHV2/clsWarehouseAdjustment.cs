@@ -65,7 +65,9 @@
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE from tblWarehouseAdjustments where ID = @ID;";
+                    DeleteCmd.Parameters.AddWithValue("@ID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;
@@ -125,7 +127,9 @@
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE from tblWarehouseAdjustmentsLines WHERE WHAdjustID = @WHAdjustID;";
+                    DeleteCmd.Parameters.AddWithValue("@WHAdjustID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;

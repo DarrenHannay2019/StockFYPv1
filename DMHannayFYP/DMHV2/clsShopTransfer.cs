@@ -74,7 +74,9 @@ namespace DMHV2
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE FROM tblShopTransfers WHERE TransferID = @TransferID";
+                    DeleteCmd.Parameters.AddWithValue("@TransferID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;
@@ -138,7 +140,9 @@ namespace DMHV2
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "";
+                    DeleteCmd.CommandText = "DELETE FROM tblShopTransferLines WHERE TransferID = @TransferID;";
+                    DeleteCmd.Parameters.AddWithValue("@TransferID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;

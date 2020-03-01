@@ -83,7 +83,12 @@ namespace DMHV2
             {
                 using (SqlCommand DeleteCmd = new SqlCommand())
                 {
-
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "DELETE from tblShopDeliveries where DeliveriesID = @DeliveriesID;";
+                    DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;
@@ -136,7 +141,12 @@ namespace DMHV2
             {
                 using (SqlCommand DeleteCmd = new SqlCommand())
                 {
-
+                    DeleteCmd.Connection = conn;
+                    DeleteCmd.Connection.Open();
+                    DeleteCmd.CommandType = CommandType.Text;
+                    DeleteCmd.CommandText = "DELETE from tblShopDeliveriesLines WHERE DeliveriesID = @DeliveriesID;";
+                    DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;

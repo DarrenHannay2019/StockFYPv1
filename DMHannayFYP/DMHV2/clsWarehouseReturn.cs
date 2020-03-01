@@ -68,7 +68,9 @@ namespace DMHV2
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "DELETE FROM tblWReturns WHERE ReturnsID = @ReturnsID";
+                    DeleteCmd.CommandText = "DELETE FROM tblWHReturns WHERE ReturnsID = @ReturnsID";
+                    DeleteCmd.Parameters.AddWithValue("@ReturnsID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;
@@ -126,11 +128,9 @@ namespace DMHV2
                     DeleteCmd.Connection = conn;
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
-                    DeleteCmd.CommandText = "DELETE From tblStockMovements WHERE TransferReference = @TransferReference AND MovementType = @MovementType AND MovementDate = @MovementDate AND Reference = @Reference;DELETE FROM tblWReturnLines WHERE ReturnID = @ReturnID;";
-                    DeleteCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
-                    DeleteCmd.Parameters.AddWithValue("MovementType", MovementType);
-                    DeleteCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
-                    DeleteCmd.Parameters.AddWithValue("@Reference", Reference);
+                    DeleteCmd.CommandText = "DELETE FROM tblWReturnLines WHERE ReturnID = @ReturnID;";
+                    DeleteCmd.Parameters.AddWithValue("@ReturnID", ID);
+                    DeleteCmd.ExecuteNonQuery();
                 }
             }
             return DeleteFromDB;

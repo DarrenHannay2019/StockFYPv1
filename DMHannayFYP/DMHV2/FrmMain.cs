@@ -313,5 +313,10 @@ namespace DMHV2
         {
 
         }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace DMHV2
                     InsertCmd.Connection = conn;
                     InsertCmd.Connection.Open();
                     InsertCmd.CommandType = CommandType.Text;
-                    InsertCmd.CommandText = "INSERT INTO tblSales (ShopRef, ShopName, Reference, TransactionDate, TotalQty, TotalValue, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Reference, @TransactionDate, @TotalQty, @TotalValue, @CreatedBy, @CreatedDate)";
+                    InsertCmd.CommandText = "INSERT INTO tblCompanyDetails () VALUES ()";
                     InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                     InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
                     InsertCmd.Parameters.AddWithValue("@Reference", "0");
@@ -36,13 +36,26 @@ namespace DMHV2
                     InsertCmd.ExecuteNonQuery();
                 }
             }
-            return SaveToDB;
-
-            return SaveToDB;
+            return SaveToDB;            
         }
         public bool UpdateSettings()
         {
-
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                using (SqlCommand UpdateCmd = new SqlCommand())
+                {
+                    UpdateCmd.Connection = conn;
+                    UpdateCmd.Connection.Open();
+                    UpdateCmd.CommandType = CommandType.Text;
+                    UpdateCmd.CommandText = "UPDATE tblCompanyDetails SET @xx=Xx WHERE @XX=XX";
+                    UpdateCmd.Parameters.AddWithValue("@ReturnID", ID);
+                    UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                    UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
+                    UpdateCmd.Parameters.AddWithValue("@Value", Value);
+                    UpdateCmd.ExecuteNonQuery();
+                }
+            }
 
             return UpdateToDB;
         }

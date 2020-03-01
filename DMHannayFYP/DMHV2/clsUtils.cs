@@ -59,6 +59,7 @@
         public int TotalItems;
         public string Reference;
         public int ShopDelID;
+        public int TransferReference;
         public static string GetConnString(int ID)
         {
             // Returns the correct Database connection string for the identity record.

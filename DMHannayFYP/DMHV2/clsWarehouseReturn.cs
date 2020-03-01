@@ -127,6 +127,10 @@ namespace DMHV2
                     DeleteCmd.Connection.Open();
                     DeleteCmd.CommandType = CommandType.Text;
                     DeleteCmd.CommandText = "DELETE From tblStockMovements WHERE TransferReference = @TransferReference AND MovementType = @MovementType AND MovementDate = @MovementDate AND Reference = @Reference;DELETE FROM tblWReturnLines WHERE ReturnID = @ReturnID;";
+                    DeleteCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
+                    DeleteCmd.Parameters.AddWithValue("MovementType", MovementType);
+                    DeleteCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
+                    DeleteCmd.Parameters.AddWithValue("@Reference", Reference);
                 }
             }
             return DeleteFromDB;

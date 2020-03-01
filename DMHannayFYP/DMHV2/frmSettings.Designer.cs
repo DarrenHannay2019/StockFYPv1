@@ -543,6 +543,7 @@
             this.Controls.Add(this.TabControl1);
             this.Name = "frmSettings";
             this.Text = "frmSettings";
+            this.Load += new System.EventHandler(this.frmSettings_Load);
             this.GroupBox3.ResumeLayout(false);
             this.GroupBox3.PerformLayout();
             this.TabPage4.ResumeLayout(false);

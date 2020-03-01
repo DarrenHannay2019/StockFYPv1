@@ -4,7 +4,7 @@
     using System.Data;
     using System.Data.SqlClient;
 
-    public class clsWarehouseTransfer
+    public class clsWarehouseTransfer : clsUtils
     {
         public string ToWarehouseRef { get; set; }
         public string ToWarehouseName { get; set; }
@@ -95,7 +95,7 @@
                     InsertCmd.Parameters.AddWithValue("@SMTOID", smtoid);
                     InsertCmd.Parameters.AddWithValue("@SMTIID", smtiid);
                     InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                    InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrQty);
+                    InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
                     InsertCmd.Parameters.AddWithValue("@TOQty", TOQty);
                     InsertCmd.Parameters.AddWithValue("@TIQty", TIQty);
                     InsertCmd.ExecuteNonQuery();

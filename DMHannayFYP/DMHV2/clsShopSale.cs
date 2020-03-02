@@ -10,6 +10,19 @@ namespace DMHV2
 {
     public class clsShopSale : clsUtils
     {
+        public void LoadNewForm()
+        {
+
+        }
+        public void LoadSelectedForm()
+        {
+
+        }
+        public int GetLastShopSaleHead()
+        {
+
+            return Result;
+        }
     }
     public class clsShopSaleHead : clsShopSale
     {

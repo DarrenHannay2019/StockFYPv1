@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TxtSID = new System.Windows.Forms.TextBox();
             this.Label11 = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
@@ -166,29 +166,29 @@
             // 
             // CurrentQty
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N0";
-            dataGridViewCellStyle13.NullValue = null;
-            this.CurrentQty.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.CurrentQty.DefaultCellStyle = dataGridViewCellStyle7;
             this.CurrentQty.HeaderText = "Current Qty";
             this.CurrentQty.MinimumWidth = 6;
             this.CurrentQty.Name = "CurrentQty";
             // 
             // TransFromQty
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.NullValue = null;
-            this.TransFromQty.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.NullValue = null;
+            this.TransFromQty.DefaultCellStyle = dataGridViewCellStyle8;
             this.TransFromQty.HeaderText = "Adjustment Type";
             this.TransFromQty.MinimumWidth = 6;
             this.TransFromQty.Name = "TransFromQty";
             // 
             // TransToQty
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "N0";
-            dataGridViewCellStyle15.NullValue = null;
-            this.TransToQty.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = null;
+            this.TransToQty.DefaultCellStyle = dataGridViewCellStyle9;
             this.TransToQty.HeaderText = "Adjustment Qty";
             this.TransToQty.MinimumWidth = 6;
             this.TransToQty.Name = "TransToQty";
@@ -356,6 +356,7 @@
             this.txtWarehouseRef.Name = "txtWarehouseRef";
             this.txtWarehouseRef.Size = new System.Drawing.Size(76, 22);
             this.txtWarehouseRef.TabIndex = 30;
+            this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // txtReference
             // 
@@ -414,6 +415,7 @@
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(129, 22);
             this.txtStockCode.TabIndex = 31;
+            this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // frmShopAdjustment
             // 
@@ -450,6 +452,7 @@
             this.Controls.Add(this.txtStockCode);
             this.Name = "frmShopAdjustment";
             this.Text = "frmShopAdjustment";
+            this.Load += new System.EventHandler(this.frmShopAdjustment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

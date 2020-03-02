@@ -230,6 +230,7 @@
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(148, 22);
             this.txtStockCode.TabIndex = 4;
+            this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // txtShopRef
             // 
@@ -240,6 +241,7 @@
             this.txtShopRef.Name = "txtShopRef";
             this.txtShopRef.Size = new System.Drawing.Size(148, 22);
             this.txtShopRef.TabIndex = 2;
+            this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
             // txtReference
             // 
@@ -278,6 +280,7 @@
             this.txtWarehouseRef.Name = "txtWarehouseRef";
             this.txtWarehouseRef.Size = new System.Drawing.Size(92, 22);
             this.txtWarehouseRef.TabIndex = 6;
+            this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // cmdClear
             // 
@@ -460,6 +463,7 @@
             this.Controls.Add(this.GroupBox1);
             this.Name = "frmWarehouseReturn";
             this.Text = "frmWarehouseReturn";
+            this.Load += new System.EventHandler(this.frmWarehouseReturn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).EndInit();
             this.GroupBox2.ResumeLayout(false);
             this.GroupBox2.PerformLayout();

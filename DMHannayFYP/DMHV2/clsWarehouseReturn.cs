@@ -10,6 +10,19 @@ namespace DMHV2
 {
     public class clsWarehouseReturn : clsUtils
     {
+        public void LoadNewForm()
+        {
+
+        }
+        public void LoadSelectedForm()
+        {
+
+        }
+        public int GetLastWarehouseReturnHead()
+        {
+
+            return Result;
+        }
     }
     public class clsWarehouseReturnHead : clsWarehouseReturn
     {

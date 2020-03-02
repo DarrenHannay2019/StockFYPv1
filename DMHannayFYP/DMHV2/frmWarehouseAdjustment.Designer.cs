@@ -342,6 +342,7 @@
             this.TxtWarehouseRef.Name = "TxtWarehouseRef";
             this.TxtWarehouseRef.Size = new System.Drawing.Size(83, 22);
             this.TxtWarehouseRef.TabIndex = 49;
+            this.TxtWarehouseRef.Leave += new System.EventHandler(this.TxtWarehouseRef_Leave);
             // 
             // TxtReference
             // 
@@ -400,6 +401,7 @@
             this.TxtStockCode.Name = "TxtStockCode";
             this.TxtStockCode.Size = new System.Drawing.Size(128, 22);
             this.TxtStockCode.TabIndex = 30;
+            this.TxtStockCode.Leave += new System.EventHandler(this.TxtStockCode_Leave);
             // 
             // frmWarehouseAdjustment
             // 
@@ -436,6 +438,7 @@
             this.Controls.Add(this.TxtStockCode);
             this.Name = "frmWarehouseAdjustment";
             this.Text = "frmWarehouseAdjustment";
+            this.Load += new System.EventHandler(this.frmWarehouseAdjustment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

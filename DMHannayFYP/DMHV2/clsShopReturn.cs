@@ -10,6 +10,19 @@ namespace DMHV2
 {
     public class clsShopReturn : clsUtils
     {
+        public void LoadNewForm()
+        {
+
+        }
+        public void LoadSelectedForm()
+        {
+
+        }
+        public int GetLastShopReturnHead()
+        {
+
+            return Result;
+        }
     }
     public class clsShopReturnHead : clsShopReturn
     {

@@ -19,6 +19,10 @@ namespace DMHV2
         {
 
         }
+        public int GetLastShopDelivery()
+        {
+            return Result;
+        }
     }
     public class clsShopDeliveryHead : clsShopDelivery
     {

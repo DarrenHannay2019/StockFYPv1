@@ -9,7 +9,19 @@
         public string Reference { get; set; }
         public int TotalLossItems { get; set; }
         public int TotalGainItems { get; set; }
+        public void LoadNewForm()
+        {
+        
+        }
+        public void LoadSelectedForm()
+        {
+        
+        }
+        public int GetLastShopAdjustmentHead()
+        {
 
+            return Result;
+        }
     }
     public class clsShopAdjustmentHead : clsShopAdjustment
     {

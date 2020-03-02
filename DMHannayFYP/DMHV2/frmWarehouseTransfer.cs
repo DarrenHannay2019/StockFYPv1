@@ -41,5 +41,29 @@ namespace DMHV2
         {
 
         }
+
+        private void frmWarehouseTransfer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtFromShopRef_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtToShopRef_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtStockCode_Leave(object sender, EventArgs e)
+        {
+
+        }
+        private void LoadData()
+        {
+
+        }
     }
 }

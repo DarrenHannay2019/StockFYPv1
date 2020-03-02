@@ -203,6 +203,7 @@
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(149, 22);
             this.txtStockCode.TabIndex = 33;
+            this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // Label16
             // 
@@ -244,7 +245,7 @@
             this.txtWarehouseRef.Name = "txtWarehouseRef";
             this.txtWarehouseRef.Size = new System.Drawing.Size(84, 22);
             this.txtWarehouseRef.TabIndex = 44;
-            this.txtWarehouseRef.Text = "UNI";
+            this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // cmdAddItem
             // 
@@ -293,6 +294,7 @@
             this.txtShopRef.Name = "txtShopRef";
             this.txtShopRef.Size = new System.Drawing.Size(81, 22);
             this.txtShopRef.TabIndex = 32;
+            this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
             // Label4
             // 
@@ -401,7 +403,6 @@
             this.txtWarehouseName.Name = "txtWarehouseName";
             this.txtWarehouseName.Size = new System.Drawing.Size(252, 22);
             this.txtWarehouseName.TabIndex = 50;
-            this.txtWarehouseName.Text = "Universal Warehouse";
             // 
             // Label5
             // 
@@ -450,6 +451,7 @@
             this.Controls.Add(this.Label5);
             this.Name = "frmShopDelivery";
             this.Text = "frmShopDelivery";
+            this.Load += new System.EventHandler(this.frmShopDelivery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             this.StatusStrip1.ResumeLayout(false);
             this.StatusStrip1.PerformLayout();

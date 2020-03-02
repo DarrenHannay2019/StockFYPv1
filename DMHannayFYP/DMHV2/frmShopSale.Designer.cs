@@ -81,6 +81,7 @@
             this.CheckBox1.TabIndex = 81;
             this.CheckBox1.Text = "Enter A Zero Stock";
             this.CheckBox1.UseVisualStyleBackColor = true;
+            this.CheckBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // TxtStockCode
             // 
@@ -89,6 +90,7 @@
             this.TxtStockCode.Name = "TxtStockCode";
             this.TxtStockCode.Size = new System.Drawing.Size(148, 22);
             this.TxtStockCode.TabIndex = 43;
+            this.TxtStockCode.Leave += new System.EventHandler(this.TxtStockCode_Leave);
             // 
             // cmdDelToGrid
             // 
@@ -315,6 +317,7 @@
             this.txtShopRef.Name = "txtShopRef";
             this.txtShopRef.Size = new System.Drawing.Size(84, 22);
             this.txtShopRef.TabIndex = 42;
+            this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
             // txtTotalGarments
             // 
@@ -525,6 +528,7 @@
             this.Controls.Add(this.Label1);
             this.Name = "frmShopSale";
             this.Text = "frmShopSale";
+            this.Load += new System.EventHandler(this.frmShopSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

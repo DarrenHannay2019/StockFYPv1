@@ -36,5 +36,29 @@ namespace DMHV2
         {
 
         }
+
+        private void txtShopRef_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtStockCode_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmShopSale_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void LoadData()
+        {
+
+        }
     }
 }

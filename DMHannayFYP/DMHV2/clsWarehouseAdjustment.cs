@@ -6,7 +6,19 @@
 
     public class clsWarehouseAdjustment : clsUtils
     {
+        public void LoadNewForm()
+        {
 
+        }
+        public void LoadSelectedForm()
+        {
+
+        }
+        public int GetLastWarehouseAdjustmentHead()
+        {
+
+            return Result;
+        }
     }
     public class clsWarehouseAdjustmentHead : clsWarehouseAdjustment
     {

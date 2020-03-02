@@ -216,6 +216,7 @@
             this.TxtStockCode.Name = "TxtStockCode";
             this.TxtStockCode.Size = new System.Drawing.Size(148, 22);
             this.TxtStockCode.TabIndex = 29;
+            this.TxtStockCode.Leave += new System.EventHandler(this.TxtStockCode_Leave);
             // 
             // txtToShopName
             // 
@@ -234,6 +235,7 @@
             this.TxtToShopRef.Name = "TxtToShopRef";
             this.TxtToShopRef.Size = new System.Drawing.Size(68, 22);
             this.TxtToShopRef.TabIndex = 28;
+            this.TxtToShopRef.Leave += new System.EventHandler(this.TxtToShopRef_Leave);
             // 
             // txtFromShopName
             // 
@@ -252,6 +254,7 @@
             this.TxtFromShopRef.Name = "TxtFromShopRef";
             this.TxtFromShopRef.Size = new System.Drawing.Size(68, 22);
             this.TxtFromShopRef.TabIndex = 27;
+            this.TxtFromShopRef.Leave += new System.EventHandler(this.TxtFromShopRef_Leave);
             // 
             // TxtTFNote
             // 
@@ -411,6 +414,7 @@
             this.Controls.Add(this.Label1);
             this.Name = "frmShopTransfer";
             this.Text = "frmShopTransfer";
+            this.Load += new System.EventHandler(this.frmShopTransfer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

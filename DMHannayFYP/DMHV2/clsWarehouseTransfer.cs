@@ -8,6 +8,19 @@
     {
         public string ToWarehouseRef { get; set; }
         public string ToWarehouseName { get; set; }
+        public void LoadNewForm()
+        {
+
+        }
+        public void LoadSelectedForm()
+        {
+
+        }
+        public int GetLastWarehouseTransferHead()
+        {
+
+            return Result;
+        }
     }
     public class clsWarehouseTransferHead : clsWarehouseTransfer
     {

@@ -146,12 +146,12 @@ namespace DMHV2
         private void FrmMain_Load(object sender, EventArgs e)
         {
             // Functions not implemented as of this release
-            shopFunctionsToolStripMenuItem.Visible = false;
-            maintananceFunctionsToolStripMenuItem.Visible = false;
+           // shopFunctionsToolStripMenuItem.Visible = false;
+           // maintananceFunctionsToolStripMenuItem.Visible = false;
             reportsToolStripMenuItem.Visible = false;
-            warehouseAdjustmentsToolStripMenuItem.Visible = false;
-            warehouseReturnsToolStripMenuItem.Visible = false;
-            warehouseTransfersToolStripMenuItem.Visible = false;
+           // warehouseAdjustmentsToolStripMenuItem.Visible = false;
+          //  warehouseReturnsToolStripMenuItem.Visible = false;
+          //  warehouseTransfersToolStripMenuItem.Visible = false;
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -316,7 +316,8 @@ namespace DMHV2
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            clsSettings settings = new clsSettings();
+            settings.LoadSettings();
         }
     }
 }

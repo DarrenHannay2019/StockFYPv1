@@ -14,6 +14,34 @@ namespace DMHV2
         {
 
         }
+        public void LoadSettings()
+        {
+            Result = CheckDB();
+            if(Result == 1)
+            {
+                LoadOldForm();
+            }
+            else
+            {
+                LoadNewForm();
+            }
+        }
+        private void LoadOldForm()
+        {
+            frmSettings settings = new frmSettings
+            {
+                FormMode = "Old"
+            };
+            settings.ShowDialog();
+        }
+        private void LoadNewForm()
+        {
+            frmSettings settings = new frmSettings
+            {
+                FormMode = "New"
+            };
+            settings.ShowDialog();
+        }
         public bool SaveSettings()
         {
             using (SqlConnection conn = new SqlConnection())
@@ -87,6 +115,20 @@ namespace DMHV2
         public void Restore()
         {
 
+        }
+        public int CheckDB()
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                conn.Open();
+                using (SqlCommand selectCmd = new SqlCommand())
+                {
+                    selectCmd.Connection = conn;
+                    selectCmd.CommandText = "Select COUNT(*) from tblCompanyDetails";
+                    return (int)selectCmd.ExecuteScalar();
+                }
+            }
         }
     }
 }

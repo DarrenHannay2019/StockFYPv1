@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -97,7 +98,9 @@ namespace DMHV2
                 txtVATReg.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["VATRegistrationNo"].ToString();
                 txtEmail.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Email"].ToString();
                 txtWWW.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["Website"].ToString();
-                txtVATRate.Text = SettingData.Tables["tblCompanyDetails"].Rows[0]["VatRate"].ToString();
+                double VatRate;
+                VatRate = Convert.ToDouble(SettingData.Tables["tblCompanyDetails"].Rows[0]["VatRate"]);
+                txtVATRate.Text = VatRate.ToString("P2",CultureInfo.InvariantCulture);
             // txtVATRate.Text = FormatPercent(txtVATRate.Text)
             }
         }
@@ -136,52 +139,55 @@ namespace DMHV2
 
         private void txtCompanyName_Leave(object sender, EventArgs e)
         {
-
+            txtCompanyName.Text = clsUtils.ChangeCase(txtCompanyName.Text, 3);
         }
 
         private void txtAdd1_Leave(object sender, EventArgs e)
         {
-
+            txtAdd1.Text = clsUtils.ChangeCase(txtAdd1.Text, 3);
         }
 
         private void txtAdd2_Leave(object sender, EventArgs e)
         {
-
+            txtAdd2.Text = clsUtils.ChangeCase(txtAdd2.Text, 3);
         }
 
         private void txtAdd3_Leave(object sender, EventArgs e)
         {
-
+            txtAdd3.Text = clsUtils.ChangeCase(txtAdd3.Text, 3);
         }
 
         private void txtAdd4_Leave(object sender, EventArgs e)
         {
-
+            txtAdd4.Text = clsUtils.ChangeCase(txtAdd4.Text, 3);
         }
 
         private void txtPostCode_Leave(object sender, EventArgs e)
         {
-
+            txtPostCode.Text = clsUtils.ChangeCase(txtPostCode.Text, 1);
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-
+            if (clsUtils.IsValidEmail(txtEmail.Text))
+                txtEmail.Text = clsUtils.ChangeCase(txtEmail.Text, 2);
+            else
+            { txtEmail.Text = "Please Try Again"; }
         }
 
         private void txtWWW_Leave(object sender, EventArgs e)
         {
-
+            txtWWW.Text = clsUtils.ChangeCase(txtWWW.Text, 2);
         }
 
         private void txtVATRate_Leave(object sender, EventArgs e)
         {
-
+            txtVATRate.Text = VatRate.ToString("P2", CultureInfo.InvariantCulture);
         }
 
         private void txtVATReg_Leave(object sender, EventArgs e)
         {
-
+            txtVATReg.Text = clsUtils.ChangeCase(txtVATReg.Text, 1);
         }
     }
 }

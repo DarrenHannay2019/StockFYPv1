@@ -162,7 +162,7 @@
                 TxteMail.Text = dtk.Rows[0][2].ToString();
                 TxtMemo.Text = dtk.Rows[0][2].ToString();
                 cboWType.Text = dtk.Rows[0][2].ToString();
-                this.Text = "Warehouse Details for [" + TxtShopRef.Text.TrimEnd() + "] " + TxtShopName.Text.TrimEnd();
+                this.Text = "Shop Details for [" + TxtShopRef.Text.TrimEnd() + "] " + TxtShopName.Text.TrimEnd();
             }
             using (SqlConnection conn = new SqlConnection())
             {

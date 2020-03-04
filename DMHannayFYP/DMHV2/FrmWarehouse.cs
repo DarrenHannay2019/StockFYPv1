@@ -77,6 +77,7 @@ namespace DMHV2
             if (Modeform == "New")
             {
                 CmdOK.Text = "Save";
+                this.Text = "New Warehouse";
             }
             else
             {
@@ -114,8 +115,8 @@ namespace DMHV2
                 TxteMail.Text = dtk.Rows[0][9].ToString();
                 TxtWebsite.Text = dtk.Rows[0][10].ToString();
                 cboWType.Text = dtk.Rows[0][11].ToString();
-                TxtMemo.Text = dtk.Rows[0][12].ToString();               
-                TxtContactName.Text = dtk.Rows[0][13].ToString();              
+                TxtMemo.Text = dtk.Rows[0][12].ToString();     
+                TxtContactName.Text = dtk.Rows[0][13].ToString(); 
             }
             using (SqlConnection conn = new SqlConnection())
             {
@@ -192,6 +193,7 @@ namespace DMHV2
             }            
             label9.Text = QtyInStock.ToString();
             TxtTotalValue.Text = ValueInStock.ToString("C2");
+            this.Text = "Warehouse Details for [" + TxtWarehouseRef.Text.TrimEnd() + "] " + TxtWarehouseName.Text.TrimEnd();
         }
         private void ClearTextBoxes(Control control)
         {

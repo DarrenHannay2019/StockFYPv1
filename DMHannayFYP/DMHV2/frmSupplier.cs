@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace DMHV2
 {
@@ -82,6 +83,7 @@ namespace DMHV2
             if (FormMode == "New")
             {
                 CmdOK.Text = "Save";
+                this.Text = "New Supplier";
             }
             else
             {
@@ -152,6 +154,77 @@ namespace DMHV2
                 gridTrans.Columns[2].HeaderText = "Qty";
                 gridTrans.Columns[3].HeaderText = "Date";
                 gridTrans.Columns[4].HeaderText = "Reference";
+                this.Text = "Supplier Details for [" + TxtSupplierRef.Text.TrimEnd() + "] " + TxtSupplierName.Text.TrimEnd();
+            }
+        }
+
+        private void TxtSupplierRef_Leave(object sender, EventArgs e)
+        {
+            TxtSupplierRef.Text = clsUtils.ChangeCase(TxtSupplierRef.Text, 1);
+        }
+
+        private void TxtSupplierName_Leave(object sender, EventArgs e)
+        {
+            TxtSupplierName.Text = clsUtils.ChangeCase(TxtSupplierName.Text, 0);
+        }
+
+        private void TxtContactName_Leave(object sender, EventArgs e)
+        {
+            TxtContactName.Text = clsUtils.ChangeCase(TxtContactName.Text, 0);
+        }
+
+        private void TxtAddressLine1_Leave(object sender, EventArgs e)
+        {
+            TxtAddressLine1.Text = clsUtils.ChangeCase(TxtAddressLine1.Text, 0);
+        }
+
+        private void TxtAddressLine2_Leave(object sender, EventArgs e)
+        {
+            TxtAddressLine2.Text = clsUtils.ChangeCase(TxtAddressLine2.Text, 0);
+        }
+
+        private void TxtAddressLine3_Leave(object sender, EventArgs e)
+        {
+            TxtAddressLine3.Text = clsUtils.ChangeCase(TxtAddressLine3.Text, 0);
+        }
+
+        private void TxtAddressLine4_Leave(object sender, EventArgs e)
+        {
+            TxtAddressLine4.Text = clsUtils.ChangeCase(TxtAddressLine4.Text, 0);
+        }
+
+        private void TxtPostCode_Leave(object sender, EventArgs e)
+        {
+            TxtPostCode.Text = clsUtils.ChangeCase(TxtPostCode.Text, 1);
+        }
+
+        private void TxtEmailAddress_Leave(object sender, EventArgs e)
+        {
+            if (clsUtils.IsValidEmail(TxtEmailAddress.Text))
+                TxtEmailAddress.Text = clsUtils.ChangeCase(TxtEmailAddress.Text, 2);
+            else
+            { TxtEmailAddress.Text = "Please Try Again"; }
+        }
+
+        private void TxtWebsiteAddress_Leave(object sender, EventArgs e)
+        {
+            // https://stackoverflow.com/questions/3228984/a-better-way-to-validate-url-in-c-sharp-than-try-catch 
+            // User https://stackoverflow.com/users/626273/stema
+            string regular = @"^(ht|f|sf)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$";
+            string regular123 = @"^(www.)[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$";
+
+            string myString = TxtWebsiteAddress.Text.Trim();
+            if (Regex.IsMatch(myString, regular))
+            {
+                MessageBox.Show("It is valid url  " + myString);
+            }
+            else if (Regex.IsMatch(myString, regular123))
+            {
+                MessageBox.Show("Valid url with www. " + myString);
+            }
+            else
+            {
+                MessageBox.Show("InValid URL  " + myString);
             }
         }
     }

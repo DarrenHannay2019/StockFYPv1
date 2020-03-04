@@ -117,6 +117,7 @@
             this.TxtWebsiteAddress.Name = "TxtWebsiteAddress";
             this.TxtWebsiteAddress.Size = new System.Drawing.Size(361, 22);
             this.TxtWebsiteAddress.TabIndex = 47;
+            this.TxtWebsiteAddress.Leave += new System.EventHandler(this.TxtWebsiteAddress_Leave);
             // 
             // label11
             // 
@@ -135,6 +136,7 @@
             this.TxtEmailAddress.Name = "TxtEmailAddress";
             this.TxtEmailAddress.Size = new System.Drawing.Size(361, 22);
             this.TxtEmailAddress.TabIndex = 45;
+            this.TxtEmailAddress.Leave += new System.EventHandler(this.TxtEmailAddress_Leave);
             // 
             // TxtFaxNumber
             // 
@@ -162,6 +164,7 @@
             this.TxtPostCode.Name = "TxtPostCode";
             this.TxtPostCode.Size = new System.Drawing.Size(89, 22);
             this.TxtPostCode.TabIndex = 41;
+            this.TxtPostCode.Leave += new System.EventHandler(this.TxtPostCode_Leave);
             // 
             // TxtAddressLine4
             // 
@@ -171,6 +174,7 @@
             this.TxtAddressLine4.Name = "TxtAddressLine4";
             this.TxtAddressLine4.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine4.TabIndex = 40;
+            this.TxtAddressLine4.Leave += new System.EventHandler(this.TxtAddressLine4_Leave);
             // 
             // TxtAddressLine3
             // 
@@ -180,6 +184,7 @@
             this.TxtAddressLine3.Name = "TxtAddressLine3";
             this.TxtAddressLine3.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine3.TabIndex = 39;
+            this.TxtAddressLine3.Leave += new System.EventHandler(this.TxtAddressLine3_Leave);
             // 
             // TxtAddressLine2
             // 
@@ -189,6 +194,7 @@
             this.TxtAddressLine2.Name = "TxtAddressLine2";
             this.TxtAddressLine2.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine2.TabIndex = 38;
+            this.TxtAddressLine2.Leave += new System.EventHandler(this.TxtAddressLine2_Leave);
             // 
             // TxtAddressLine1
             // 
@@ -198,6 +204,7 @@
             this.TxtAddressLine1.Name = "TxtAddressLine1";
             this.TxtAddressLine1.Size = new System.Drawing.Size(365, 22);
             this.TxtAddressLine1.TabIndex = 37;
+            this.TxtAddressLine1.Leave += new System.EventHandler(this.TxtAddressLine1_Leave);
             // 
             // TxtContactName
             // 
@@ -207,6 +214,7 @@
             this.TxtContactName.Name = "TxtContactName";
             this.TxtContactName.Size = new System.Drawing.Size(365, 22);
             this.TxtContactName.TabIndex = 36;
+            this.TxtContactName.Leave += new System.EventHandler(this.TxtContactName_Leave);
             // 
             // TxtSupplierName
             // 
@@ -216,6 +224,7 @@
             this.TxtSupplierName.Name = "TxtSupplierName";
             this.TxtSupplierName.Size = new System.Drawing.Size(365, 22);
             this.TxtSupplierName.TabIndex = 35;
+            this.TxtSupplierName.Leave += new System.EventHandler(this.TxtSupplierName_Leave);
             // 
             // TxtSupplierRef
             // 
@@ -225,6 +234,7 @@
             this.TxtSupplierRef.Name = "TxtSupplierRef";
             this.TxtSupplierRef.Size = new System.Drawing.Size(120, 22);
             this.TxtSupplierRef.TabIndex = 34;
+            this.TxtSupplierRef.Leave += new System.EventHandler(this.TxtSupplierRef_Leave);
             // 
             // Label1
             // 

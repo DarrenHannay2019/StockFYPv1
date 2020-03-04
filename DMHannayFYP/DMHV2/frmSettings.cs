@@ -182,6 +182,8 @@ namespace DMHV2
 
         private void txtVATRate_Leave(object sender, EventArgs e)
         {
+            double VatRate;
+            VatRate = Convert.ToDouble(txtVATRate.Text.TrimEnd());
             txtVATRate.Text = VatRate.ToString("P2", CultureInfo.InvariantCulture);
         }
 

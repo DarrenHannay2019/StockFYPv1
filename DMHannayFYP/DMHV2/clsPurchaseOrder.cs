@@ -33,7 +33,7 @@
     public class clsPurchaseOrderLine : clsPurchaseOrder
     {
         public decimal LineAmount;
-        public int PurchaseOrderID;
+     
         public clsPurchaseOrderLine()
         {
             SaveToDB = false;
@@ -144,8 +144,7 @@
     {
         public int TotalGarments;
         public int TotalHangers;
-        public int TotalBoxes;
-        public int PurchaseOrderID;
+        public int TotalBoxes;       
         public decimal NetAmount;
         public decimal DeliveryCharge;
         public decimal Commission;

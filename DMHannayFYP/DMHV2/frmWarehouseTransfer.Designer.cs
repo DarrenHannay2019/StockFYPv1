@@ -46,9 +46,9 @@
             this.TxtCurrentQty = new System.Windows.Forms.TextBox();
             this.TxtStockCode = new System.Windows.Forms.TextBox();
             this.txtToShopName = new System.Windows.Forms.TextBox();
-            this.TxtToShopRef = new System.Windows.Forms.TextBox();
+            this.TxtToWarehouseRef = new System.Windows.Forms.TextBox();
             this.txtFromShopName = new System.Windows.Forms.TextBox();
-            this.TxtFromShopRef = new System.Windows.Forms.TextBox();
+            this.TxtFromWarehouseRef = new System.Windows.Forms.TextBox();
             this.TxtTFNote = new System.Windows.Forms.TextBox();
             this.CmdClear = new System.Windows.Forms.Button();
             this.CmdOK = new System.Windows.Forms.Button();
@@ -227,15 +227,15 @@
             this.txtToShopName.TabIndex = 42;
             this.txtToShopName.TabStop = false;
             // 
-            // TxtToShopRef
+            // TxtToWarehouseRef
             // 
-            this.TxtToShopRef.Location = new System.Drawing.Point(334, 130);
-            this.TxtToShopRef.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtToShopRef.MaxLength = 8;
-            this.TxtToShopRef.Name = "TxtToShopRef";
-            this.TxtToShopRef.Size = new System.Drawing.Size(68, 22);
-            this.TxtToShopRef.TabIndex = 28;
-            this.TxtToShopRef.Leave += new System.EventHandler(this.TxtToShopRef_Leave);
+            this.TxtToWarehouseRef.Location = new System.Drawing.Point(334, 130);
+            this.TxtToWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtToWarehouseRef.MaxLength = 8;
+            this.TxtToWarehouseRef.Name = "TxtToWarehouseRef";
+            this.TxtToWarehouseRef.Size = new System.Drawing.Size(68, 22);
+            this.TxtToWarehouseRef.TabIndex = 28;
+            this.TxtToWarehouseRef.Leave += new System.EventHandler(this.TxtToWarehouseRef_Leave);
             // 
             // txtFromShopName
             // 
@@ -246,15 +246,15 @@
             this.txtFromShopName.TabIndex = 41;
             this.txtFromShopName.TabStop = false;
             // 
-            // TxtFromShopRef
+            // TxtFromWarehouseRef
             // 
-            this.TxtFromShopRef.Location = new System.Drawing.Point(334, 100);
-            this.TxtFromShopRef.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtFromShopRef.MaxLength = 8;
-            this.TxtFromShopRef.Name = "TxtFromShopRef";
-            this.TxtFromShopRef.Size = new System.Drawing.Size(68, 22);
-            this.TxtFromShopRef.TabIndex = 27;
-            this.TxtFromShopRef.Leave += new System.EventHandler(this.TxtFromShopRef_Leave);
+            this.TxtFromWarehouseRef.Location = new System.Drawing.Point(334, 100);
+            this.TxtFromWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtFromWarehouseRef.MaxLength = 8;
+            this.TxtFromWarehouseRef.Name = "TxtFromWarehouseRef";
+            this.TxtFromWarehouseRef.Size = new System.Drawing.Size(68, 22);
+            this.TxtFromWarehouseRef.TabIndex = 27;
+            this.TxtFromWarehouseRef.Leave += new System.EventHandler(this.TxtFromWarehouseRef_Leave);
             // 
             // TxtTFNote
             // 
@@ -397,9 +397,9 @@
             this.Controls.Add(this.TxtCurrentQty);
             this.Controls.Add(this.TxtStockCode);
             this.Controls.Add(this.txtToShopName);
-            this.Controls.Add(this.TxtToShopRef);
+            this.Controls.Add(this.TxtToWarehouseRef);
             this.Controls.Add(this.txtFromShopName);
-            this.Controls.Add(this.TxtFromShopRef);
+            this.Controls.Add(this.TxtFromWarehouseRef);
             this.Controls.Add(this.TxtTFNote);
             this.Controls.Add(this.CmdClear);
             this.Controls.Add(this.CmdOK);
@@ -441,9 +441,9 @@
         internal System.Windows.Forms.TextBox TxtCurrentQty;
         internal System.Windows.Forms.TextBox TxtStockCode;
         internal System.Windows.Forms.TextBox txtToShopName;
-        internal System.Windows.Forms.TextBox TxtToShopRef;
+        internal System.Windows.Forms.TextBox TxtToWarehouseRef;
         internal System.Windows.Forms.TextBox txtFromShopName;
-        internal System.Windows.Forms.TextBox TxtFromShopRef;
+        internal System.Windows.Forms.TextBox TxtFromWarehouseRef;
         internal System.Windows.Forms.TextBox TxtTFNote;
         internal System.Windows.Forms.Button CmdClear;
         internal System.Windows.Forms.Button CmdOK;

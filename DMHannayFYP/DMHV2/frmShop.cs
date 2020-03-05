@@ -234,9 +234,9 @@
             {
                 QtyInStock += Convert.ToInt32(gridStocks.Rows[i].Cells[1].Value);
                 ValueInStock += Convert.ToDecimal(gridStocks.Rows[i].Cells[2].Value);
-            }   
+            }
             TxtTotalItems.Text = QtyInStock.ToString();
-            TxtTotalValue.Text = ValueInStock.ToString("C2");           
+            TxtTotalValue.Text = ValueInStock.ToString("C2");
         }
 
         private void TxteMail_Leave(object sender, EventArgs e)

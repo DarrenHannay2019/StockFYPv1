@@ -6,9 +6,7 @@
 
     public class clsShopAdjustment : clsUtils
     {
-        public string Reference { get; set; }
-        public int TotalLossItems { get; set; }
-        public int TotalGainItems { get; set; }
+  
         public void LoadNewForm()
         {
         

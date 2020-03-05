@@ -12,6 +12,7 @@ namespace DMHV2
 {
     public partial class frmShopAdjustment : Form
     {
+        public string FormMode { get; set; }
         public frmShopAdjustment()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace DMHV2
 
         private void CmdCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void txtStockCode_Leave(object sender, EventArgs e)
@@ -49,12 +50,24 @@ namespace DMHV2
 
         private void txtWarehouseRef_Leave(object sender, EventArgs e)
         {
-
+            txtWarehouseRef.Text =clsWarehouse.ChangeCase(txtWarehouseRef.Text, 1);
+            clsWarehouse warehouse = new clsWarehouse(0);
+            warehouse.WarehouseRef = txtWarehouseRef.Text.TrimEnd();
+            txtWarehouseName.Text = warehouse.GetWarehouseName();
         }
 
         private void frmShopAdjustment_Load(object sender, EventArgs e)
         {
-
+            if (FormMode == "New")
+            {
+                CmdOK.Text = "Save";
+                this.Text = "New Shop";
+            }
+            else
+            {
+                CmdOK.Text = "OK";
+                LoadData();
+            }
         }
         private void LoadData()
         {

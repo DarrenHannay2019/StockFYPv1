@@ -1,26 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Data.SqlClient;
+    using System.Data;
+
     public class clsShopDelivery : clsUtils
     {
        
         public void LoadNewForm()
         {
-
+            frmShopAdjustment shopAdjustment = new frmShopAdjustment
+            {
+                FormMode = "New"
+            };
+            shopAdjustment.Show();
         }
         public void LoadSelectedForm()
         {
-
+            frmShopAdjustment shopAdjustment = new frmShopAdjustment
+            {
+                FormMode = "New"                
+            };
+            shopAdjustment.TxtSID.Text = ID.ToString();
+            shopAdjustment.Show();
         }
         public int GetLastShopDelivery()
         {
+            Result = 0;
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                conn.Open();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopDelivery";
+                    Result = (int)SelectCmd.ExecuteScalar();
+                }
+            }
             return Result;
         }
     }

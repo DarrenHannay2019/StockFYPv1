@@ -12,6 +12,7 @@ namespace DMHV2
 {
     public partial class frmShopReturn : Form
     {
+        public string FormMode { get; set; }
         public frmShopReturn()
         {
             InitializeComponent();

@@ -8,15 +8,34 @@
     {
         public void LoadNewForm()
         {
-
+            frmWarehouseAdjustment warehouseAdjustment = new frmWarehouseAdjustment
+            {
+                FormMode = "New"
+            };
+            warehouseAdjustment.Show();
         }
         public void LoadSelectedForm()
         {
-
+            frmWarehouseAdjustment warehouseAdjustment = new frmWarehouseAdjustment
+            {
+                FormMode = "Old"
+            };
+            warehouseAdjustment.Show();
         }
         public int GetLastWarehouseAdjustmentHead()
         {
-
+            Result = 0;
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(1);
+                conn.Open();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblWarehouseAdjustments";
+                    Result = (int)SelectCmd.ExecuteScalar();
+                }
+            }
             return Result;
         }
     }

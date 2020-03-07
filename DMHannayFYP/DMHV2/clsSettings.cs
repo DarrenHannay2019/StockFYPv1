@@ -173,7 +173,7 @@ namespace DMHV2
             }
             return "Backup Completed";
         }
-        public void Restore()
+        public string Restore()
         {
             using (SqlConnection conn = new SqlConnection())
             {
@@ -183,14 +183,14 @@ namespace DMHV2
                 using (SqlCommand RestoreCMD = new SqlCommand())
                 {
                     RestoreCMD.Connection = conn;
-                    RestoreCMD.CommandText = "ALTER DATABASE " + WarehouseName + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                    RestoreCMD.CommandText = "ALTER DATABASE " + Reference + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
                     RestoreCMD.ExecuteNonQuery();
                 }
                 // Restore The Database
                 using (SqlCommand RestoreCMD = new SqlCommand())
                 {
                     RestoreCMD.Connection = conn;
-                    RestoreCMD.CommandText = "Restore Database " + WarehouseName + " FROM DISK ='C:\\DBBackup\\" + AddressLine1 + ".bak'";
+                    RestoreCMD.CommandText = "Restore Database " + Reference + " FROM DISK ='C:\\DBBackup\\" + AddressLine1 + ".bak'";
 
                     RestoreCMD.ExecuteNonQuery();
                 }
@@ -198,11 +198,12 @@ namespace DMHV2
                 using (SqlCommand RestoreCMD = new SqlCommand())
                 {
                     RestoreCMD.Connection = conn;
-                    RestoreCMD.CommandText = "ALTER DATABASE " + WarehouseName + " SET Multi_User";
+                    RestoreCMD.CommandText = "ALTER DATABASE " + Reference + " SET Multi_User";
 
                     RestoreCMD.ExecuteNonQuery();
                 }
             }
+            return "Restore to the file name Required!";
         }
         public int CheckDB()
         {

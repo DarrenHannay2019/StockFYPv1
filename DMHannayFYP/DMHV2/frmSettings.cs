@@ -16,22 +16,23 @@ namespace DMHV2
         {
             InitializeComponent();
         }
-
         private void CmdOK_Click(object sender, EventArgs e)
         {
-            clsSettings settings = new clsSettings();
-            settings.ContactName = txtCompanyName.Text.TrimEnd();
-            settings.AddressLine1 = txtAdd1.Text.TrimEnd();
-            settings.AddressLine2 = txtAdd2.Text.TrimEnd();
-            settings.AddressLine3 = txtAdd3.Text.TrimEnd();
-            settings.AddressLine4 = txtAdd4.Text.TrimEnd();
-            settings.PostCode = txtPostCode.Text.TrimEnd();
-            settings.Telephone = txtTelephone.Text.TrimEnd();
-            settings.Fax = txtFax.Text.TrimEnd();
-            settings.Memo = txtVATReg.Text.TrimEnd();
-            settings.eMail = txtEmail.Text.TrimEnd();
-            settings.WebsiteAddress = txtWWW.Text.TrimEnd();
-            settings.Value = Convert.ToDecimal(txtVATRate.Text.TrimEnd());
+            clsSettings settings = new clsSettings
+            {
+                ContactName = txtCompanyName.Text.TrimEnd(),
+                AddressLine1 = txtAdd1.Text.TrimEnd(),
+                AddressLine2 = txtAdd2.Text.TrimEnd(),
+                AddressLine3 = txtAdd3.Text.TrimEnd(),
+                AddressLine4 = txtAdd4.Text.TrimEnd(),
+                PostCode = txtPostCode.Text.TrimEnd(),
+                Telephone = txtTelephone.Text.TrimEnd(),
+                Fax = txtFax.Text.TrimEnd(),
+                Memo = txtVATReg.Text.TrimEnd(),
+                eMail = txtEmail.Text.TrimEnd(),
+                WebsiteAddress = txtWWW.Text.TrimEnd(),
+                Value = Convert.ToDecimal(txtVATRate.Text.TrimEnd())
+            };
             if (FormMode == "New")
             {
                 settings.SaveToDB = settings.SaveSettings();
@@ -57,12 +58,17 @@ namespace DMHV2
 
         private void CmdBackup_Click(object sender, EventArgs e)
         {
-
+            clsSettings settings = new clsSettings();
+            settings.Reference = ComboBox1.Text;
+            lblBackupinfo.Text = settings.Backup();
         }
 
         private void CmdRestore_Click(object sender, EventArgs e)
         {
-
+            clsSettings settings = new clsSettings();
+            settings.Reference = ComboBox1.Text;
+            settings.AddressLine1 = ComboBox3.Text;
+            lblRestoreInfo.Text = settings.Restore();
         }
 
         private void frmSettings_Load(object sender, EventArgs e)

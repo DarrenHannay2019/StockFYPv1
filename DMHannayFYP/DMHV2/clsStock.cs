@@ -333,6 +333,10 @@
         {
             return UpdateToDB;
         }
+        public bool UpdatePCMarkup()
+        {
+            return UpdateToDB;
+        }
         public int GetStockQty()
         {
             return 0;

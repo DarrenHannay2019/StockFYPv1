@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data;
-using System.Data.SqlClient;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Text;
+    using System.Windows.Forms;
+    using System.Data.SqlClient;
+
     class clsEmployee : clsUtils
     {
         public string FirstName { get; set; }

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace DMHV2
 {
     public class clsSettings : clsUtils
     {
+        public string VATRegistration { get; set; }
+        public decimal VATRate { get; set; }
         public clsSettings()
         {
 
@@ -44,47 +47,105 @@ namespace DMHV2
         }
         public bool SaveSettings()
         {
-            using (SqlConnection conn = new SqlConnection())
+            try
             {
-                conn.ConnectionString = GetConnString(1);
-                using (SqlCommand InsertCmd = new SqlCommand())
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    InsertCmd.Connection = conn;
-                    InsertCmd.Connection.Open();
-                    InsertCmd.CommandType = CommandType.Text;
-                    InsertCmd.CommandText = "INSERT INTO tblCompanyDetails () VALUES ()";
-                    InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                    InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
-                    InsertCmd.Parameters.AddWithValue("@Reference", "0");
-                    InsertCmd.Parameters.AddWithValue("@TransactionDate", MovementDate);
-                    InsertCmd.Parameters.AddWithValue("@TotalQty", Qty);
-                    InsertCmd.Parameters.AddWithValue("@TotalValue", Value);
-                    InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
-                    InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
-                    InsertCmd.ExecuteNonQuery();
+                    conn.ConnectionString = GetConnString(1);
+                    try
+                    {
+                        using (SqlCommand InsertCmd = new SqlCommand())
+                        {
+                            InsertCmd.Connection = conn;
+                            InsertCmd.Connection.Open();
+                            InsertCmd.CommandType = CommandType.Text;
+                            InsertCmd.CommandText = "INSERT INTO tblCompanyDetails (CompanyName, Address1, Address2, Address3, Address4, PostCode, Telephone, Fax, VATRegistrationNo, Email, Website, VATRate) VALUES (@CompanyName, @Address1, @Address2, @Address3, @Address4, @PostCode, @Telephone, @Fax, @VATRegistrationNo, @Email, @Website, @VATRate)";
+                            InsertCmd.Parameters.AddWithValue("@CompanyName", WarehouseName);
+                            InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
+                            InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
+                            InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
+                            InsertCmd.Parameters.AddWithValue("@Address4", AddressLine4);
+                            InsertCmd.Parameters.AddWithValue("@PostCode", PostCode);
+                            InsertCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                            InsertCmd.Parameters.AddWithValue("@Fax", Fax);
+                            InsertCmd.Parameters.AddWithValue("@VATRegistration", VATRegistration);
+                            InsertCmd.Parameters.AddWithValue("@Email", eMail);
+                            InsertCmd.Parameters.AddWithValue("@Website", WebsiteAddress);
+                            InsertCmd.Parameters.AddWithValue("@VATRate", VATRate);
+                            Result = (int)InsertCmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        SaveToDB = false;
+                        MessageBox.Show("Error in adding to database\n" + ex.Message);
+                        throw;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
                 }
             }
+            catch (SqlException ex)
+            {
+                SaveToDB = false;
+                MessageBox.Show("Error in adding to database\n" + ex.Message);
+                throw;
+            }
+            if (Result == 1)
+                SaveToDB = true;
+            else
+                SaveToDB = false;
             return SaveToDB;            
         }
         public bool UpdateSettings()
         {
-            using (SqlConnection conn = new SqlConnection())
+            try
             {
-                conn.ConnectionString = GetConnString(1);
-                using (SqlCommand UpdateCmd = new SqlCommand())
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    UpdateCmd.Connection = conn;
-                    UpdateCmd.Connection.Open();
-                    UpdateCmd.CommandType = CommandType.Text;
-                    UpdateCmd.CommandText = "UPDATE tblCompanyDetails SET @xx=Xx WHERE @XX=XX";
-                    UpdateCmd.Parameters.AddWithValue("@ReturnID", ID);
-                    UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                    UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
-                    UpdateCmd.Parameters.AddWithValue("@Value", Value);
-                    UpdateCmd.ExecuteNonQuery();
+                    conn.ConnectionString = GetConnString(1);
+                    try
+                    {
+                        using (SqlCommand UpdateCmd = new SqlCommand())
+                        {
+                            UpdateCmd.Connection = conn;
+                            UpdateCmd.Connection.Open();
+                            UpdateCmd.CommandType = CommandType.Text;
+                            UpdateCmd.CommandText = "UPDATE tblCompanyDetails SET CompanyName =  @CompanyName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, Telephone = @Telephone, Fax = @Fax, VATRegistrationNo = @VATRegistrationNo, Email = @Email, Website = @Website, VATRate = @VATRate WHERE CompanyID = @CompanyID";
+                            UpdateCmd.Parameters.AddWithValue("@CompanyID", ID);
+                            UpdateCmd.Parameters.AddWithValue("@CompanyName", WarehouseName);
+                            UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
+                            UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine2);
+                            UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine3);
+                            UpdateCmd.Parameters.AddWithValue("@Address4", AddressLine4);
+                            UpdateCmd.Parameters.AddWithValue("@PostCode", PostCode);
+                            UpdateCmd.Parameters.AddWithValue("@Telephone", Telephone);
+                            UpdateCmd.Parameters.AddWithValue("@Fax", Fax);
+                            UpdateCmd.Parameters.AddWithValue("@VATRegistration", VATRegistration);
+                            UpdateCmd.Parameters.AddWithValue("@Email", eMail);
+                            UpdateCmd.Parameters.AddWithValue("@Website", WebsiteAddress);
+                            UpdateCmd.Parameters.AddWithValue("@VATRate", VATRate);
+                            Result = (int)UpdateCmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Error in adding to database\n" + ex.Message);
+                        throw;
+                    }
                 }
             }
-
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error in adding to database\n" + ex.Message);
+                throw;
+            }
+            if (Result == 1)
+                UpdateToDB = true;
+            else
+                UpdateToDB = false;
             return UpdateToDB;
         }
         public string Backup()
@@ -114,7 +175,34 @@ namespace DMHV2
         }
         public void Restore()
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = GetConnString(3);
+                conn.Open();
+                // Set Database to single mode
+                using (SqlCommand RestoreCMD = new SqlCommand())
+                {
+                    RestoreCMD.Connection = conn;
+                    RestoreCMD.CommandText = "ALTER DATABASE " + WarehouseName + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                    RestoreCMD.ExecuteNonQuery();
+                }
+                // Restore The Database
+                using (SqlCommand RestoreCMD = new SqlCommand())
+                {
+                    RestoreCMD.Connection = conn;
+                    RestoreCMD.CommandText = "Restore Database " + WarehouseName + " FROM DISK ='C:\\DBBackup\\" + AddressLine1 + ".bak'";
 
+                    RestoreCMD.ExecuteNonQuery();
+                }
+                // Change Database back to multi user
+                using (SqlCommand RestoreCMD = new SqlCommand())
+                {
+                    RestoreCMD.Connection = conn;
+                    RestoreCMD.CommandText = "ALTER DATABASE " + WarehouseName + " SET Multi_User";
+
+                    RestoreCMD.ExecuteNonQuery();
+                }
+            }
         }
         public int CheckDB()
         {

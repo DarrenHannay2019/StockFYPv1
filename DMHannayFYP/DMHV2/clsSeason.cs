@@ -5,8 +5,17 @@
     using System.Windows.Forms;
 
     public class clsSeason : clsUtils
-    {
+    { 
         public int SeasonID { get; set; }
+        public clsSeason()
+        {
+
+        }
+        ~clsSeason()
+        {
+
+        }
+       
         public void LoadNewSeasonForm()
         {
             frmSeason season = new frmSeason

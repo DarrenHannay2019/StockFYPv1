@@ -169,5 +169,18 @@ namespace DMHV2
             }
             return UpdateToDB;
         }
+        public bool DeleteEmployee()
+        {
+            try
+            {
+               
+            }
+            catch (SqlException ex)
+            {
+                DeleteFromDB = false;
+                throw;
+            }
+            return DeleteFromDB;
+        }
     }
 }

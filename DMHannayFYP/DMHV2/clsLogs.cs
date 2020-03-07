@@ -28,5 +28,9 @@ namespace DMHV2
         {
             return DeleteFromDB;
         }
+        public bool DeleteZeroQtyFromStockMovementsTable()
+        {
+            return DeleteFromDB;
+        }
     }
 }

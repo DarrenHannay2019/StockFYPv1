@@ -2,13 +2,14 @@
 {
     using System;
     using System.Data.SqlClient;
+    using System.Data;
     using System.Windows.Forms;
 
     public class clsStock : clsUtils
     {
         // Properties / fields for the class
         // started 09/02/2020
-        // completed 00/02/2020
+        // completed 00/03/2020
         public bool DeadCode;
         public bool ZeroQty;      
         public decimal AmountTaken;
@@ -16,7 +17,9 @@
         public decimal PCMarkUp;
         public clsStock()
         {
-
+            SaveToDB = false;
+            DeleteFromDB = false;
+            UpdateToDB = false;
         }
         public void LoadNewForm()
         {
@@ -113,14 +116,217 @@
         }
         public bool DeleteStockCode()
         {
+            DeleteFromDB = false;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand DeleteCmd = new SqlCommand())
+                    {
+                        DeleteCmd.Connection = conn;
+                        DeleteCmd.CommandType = CommandType.Text;
+                        DeleteCmd.CommandText = "DELETE FROM tblStock where StockCode = @StockCode";
+                        DeleteCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                        Result = (int)DeleteCmd.ExecuteNonQuery();
+                    }
+                }
+                if (Result == 1)
+                {
+                    DeleteFromDB = true;
+                }
+                else
+                {
+                    DeleteFromDB = false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
             return DeleteFromDB;
         }
         public bool UpdateAmountTaken()
         {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand UpdateCmd = new SqlCommand())
+                        {
+                            UpdateCmd.Connection = conn;
+                            UpdateCmd.CommandText = "UPDATE tblStock SET AmountTaken = SELECT SUM(tblSalesLine.LineAmount) FROM tblStock,tblSalesLine WHERE (tblStock.StockCode = tblSalesLine.StockCode)";
+                            UpdateCmd.CommandType = CommandType.Text;
+                            Result = (int)UpdateCmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                throw;
+            }
+
             return UpdateToDB;
         }
         public bool UpdateCostValue()
         {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand UpdateCmd = new SqlCommand())
+                        {
+                            UpdateCmd.Connection = conn;
+                            UpdateCmd.CommandText = "UPDATE tblStock SET CostValue = SELECT SUM(tblPurchaseOrderLine.LineAmount) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandType = CommandType.Text;
+                            Result = (int)UpdateCmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                throw;
+            }
+            return UpdateToDB;
+        }
+        public bool UpdateDeliveredQtyHangersValue()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand UpdateCmd = new SqlCommand())
+                        {
+                            UpdateCmd.Connection = conn;
+                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyHangers = SELECT SUM(tblPurchaseOrderLine.DeliveredQtyHangers) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandType = CommandType.Text;
+                            Result = (int)UpdateCmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                throw;
+            }
+            return UpdateToDB;
+        }
+        public bool UpdateDeliveredQtyBoxesValue()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand UpdateCmd = new SqlCommand())
+                        {
+                            UpdateCmd.Connection = conn;
+                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyBoxes = SELECT SUM(tblPurchaseOrderLine.DeliveredQtyBoxes) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandType = CommandType.Text;
+                            Result = (int)UpdateCmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                throw;
+            }
+            return UpdateToDB;
+        }
+        public bool UpdateDeliveredQtyGarmentsValue()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand UpdateCmd = new SqlCommand())
+                        {
+                            UpdateCmd.Connection = conn;
+                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyGarments = SELECT SUM(tblPurchaseOrderLine.DeliveredQtyGarments) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandType = CommandType.Text;
+                            Result = (int)UpdateCmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                throw;
+            }
             return UpdateToDB;
         }
         public bool CheckStockCodeSave()

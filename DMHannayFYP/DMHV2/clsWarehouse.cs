@@ -10,7 +10,7 @@
         // Properties / fields for the class
         // started 09/02/2020
         // completed 00/02/2020
-        public string WarehouseName;
+        //public string WarehouseName;
         private int Users;
         public string WarehouseType;
         public clsWarehouse(int User)

@@ -168,6 +168,7 @@
                     }
                     catch (SqlException ex)
                     {
+                        MessageBox.Show(ex.Message);
 
                         throw;
                     }
@@ -179,6 +180,7 @@
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
 
                 throw;
             }
@@ -205,6 +207,7 @@
                     }
                     catch (SqlException ex)
                     {
+                        MessageBox.Show(ex.Message);
 
                         throw;
                     }
@@ -216,6 +219,7 @@
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
 
                 throw;
             }
@@ -241,6 +245,7 @@
                     }
                     catch (SqlException ex)
                     {
+                        MessageBox.Show(ex.Message);
 
                         throw;
                     }
@@ -252,6 +257,7 @@
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
 
                 throw;
             }
@@ -277,6 +283,7 @@
                     }
                     catch (SqlException ex)
                     {
+                        MessageBox.Show(ex.Message);
 
                         throw;
                     }
@@ -288,6 +295,7 @@
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
 
                 throw;
             }
@@ -313,6 +321,7 @@
                     }
                     catch (SqlException ex)
                     {
+                        MessageBox.Show(ex.Message);
 
                         throw;
                     }
@@ -324,6 +333,7 @@
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
 
                 throw;
             }

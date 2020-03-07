@@ -157,9 +157,11 @@
             {
 
             }
-            catch (Exception)
+            catch (SqlException ex)
             {
                 UpdateToDB = false;
+                MessageBox.Show(ex.Message);
+
                 return UpdateToDB;
                 throw;
             }
@@ -174,6 +176,8 @@
             catch (SqlException ex)
             {
                 DeleteFromDB = false;
+                MessageBox.Show(ex.Message);
+
                 throw;
             }
             return DeleteFromDB;

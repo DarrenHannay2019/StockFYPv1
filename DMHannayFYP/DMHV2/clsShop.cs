@@ -11,7 +11,7 @@
         // started 09/02/2020
         // completed 00/02/2020
         public string ShopType;
-        public string ShopName;
+       // public string ShopName;
         public void LoadNewRecord()
         {
             frmShop shop = new frmShop

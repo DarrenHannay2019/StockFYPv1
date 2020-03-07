@@ -3,6 +3,7 @@
     using System;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Windows.Forms;
 
     public class clsWarehouseReturn : clsUtils
     {
@@ -86,6 +87,8 @@
                     catch (SqlException ex)
                     {
                         SaveToDB = false;
+                        MessageBox.Show(ex.Message);
+
                         throw;
                     }
                     finally
@@ -97,6 +100,8 @@
             catch (SqlException ex)
             {
                 SaveToDB = false;
+                MessageBox.Show(ex.Message);
+
                 throw;
             }
             if (Result == 1)
@@ -129,9 +134,11 @@
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
                     }
-                    catch (Exception)
+                    catch (SqlException ex)
                     {
                         UpdateToDB = false;
+                        MessageBox.Show(ex.Message);
+
                         throw;
                     }
                 }
@@ -139,6 +146,8 @@
             catch (SqlException ex)
             {
                 UpdateToDB = false;
+                MessageBox.Show(ex.Message);
+
                 throw;
             }
             if (Result == 1)
@@ -168,6 +177,8 @@
                     }
                     catch (SqlException ex)
                     {
+                        MessageBox.Show(ex.Message);
+
                         DeleteFromDB = false;
                         throw;
                     }
@@ -175,6 +186,8 @@
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
+
                 DeleteFromDB = false;
                 throw;
             }
@@ -212,12 +225,16 @@
                     catch (SqlException ex)
                     {
                         SaveToDB = false;
+                        MessageBox.Show(ex.Message);
+
                         throw;
                     }
                 }
             }
             catch (SqlException ex)
             {
+                MessageBox.Show(ex.Message);
+
                 SaveToDB = false;
                 throw;
             }
@@ -252,6 +269,8 @@
                     catch (SqlException ex)
                     {
                         UpdateToDB = false;
+                        MessageBox.Show(ex.Message);
+
                         throw;
                     }
                     finally
@@ -263,6 +282,8 @@
             catch (SqlException ex)
             {
                 UpdateToDB = false;
+                MessageBox.Show(ex.Message);
+
                 throw;
             }
             if (Result == 1)
@@ -293,6 +314,8 @@
                     catch (SqlException ex)
                     {
                         DeleteFromDB = false;
+                        MessageBox.Show(ex.Message);
+
                         throw;
                     }
                     finally
@@ -304,6 +327,8 @@
             catch (SqlException ex)
             {
                 DeleteFromDB = false;
+                MessageBox.Show(ex.Message);
+
                 throw;
             }
             if (Result == 1)

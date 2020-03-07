@@ -12,6 +12,7 @@ namespace DMHV2
 {
     public partial class frmWarehouseTransfer : Form
     {
+        public string FormMode { get; set; }
         public frmWarehouseTransfer()
         {
             InitializeComponent();

@@ -72,10 +72,10 @@
             this.txtQty.Enabled = false;
             this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQty.ForeColor = System.Drawing.Color.Red;
-            this.txtQty.Location = new System.Drawing.Point(234, 219);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(4);
+            this.txtQty.Location = new System.Drawing.Point(193, 240);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(115, 26);
+            this.txtQty.Size = new System.Drawing.Size(128, 22);
             this.txtQty.TabIndex = 53;
             // 
             // DataGridView1
@@ -88,11 +88,11 @@
             this.StockCodeDG,
             this.GarmentsDG,
             this.ValueCol});
-            this.DataGridView1.Location = new System.Drawing.Point(75, 286);
-            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.DataGridView1.Location = new System.Drawing.Point(13, 323);
+            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowHeadersWidth = 51;
-            this.DataGridView1.Size = new System.Drawing.Size(409, 252);
+            this.DataGridView1.Size = new System.Drawing.Size(460, 268);
             this.DataGridView1.TabIndex = 55;
             // 
             // StockCodeDG
@@ -117,22 +117,22 @@
             // ToolStripStatusLabel1
             // 
             this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(123, 20);
+            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(97, 17);
             this.ToolStripStatusLabel1.Text = "Delivery Lines :    ";
             // 
             // Deliverlabel
             // 
             this.Deliverlabel.Name = "Deliverlabel";
-            this.Deliverlabel.Size = new System.Drawing.Size(153, 20);
+            this.Deliverlabel.Size = new System.Drawing.Size(119, 17);
             this.Deliverlabel.Text = "ToolStripStatusLabel2";
             // 
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(230, 199);
+            this.Label8.Location = new System.Drawing.Point(187, 215);
             this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(107, 17);
+            this.Label8.Size = new System.Drawing.Size(119, 20);
             this.Label8.TabIndex = 52;
             this.Label8.Text = "Warehouse Qty";
             // 
@@ -142,10 +142,10 @@
             this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripStatusLabel1,
             this.Deliverlabel});
-            this.StatusStrip1.Location = new System.Drawing.Point(0, 688);
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 716);
             this.StatusStrip1.Name = "StatusStrip1";
-            this.StatusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.StatusStrip1.Size = new System.Drawing.Size(800, 26);
+            this.StatusStrip1.Padding = new System.Windows.Forms.Padding(3, 0, 24, 0);
+            this.StatusStrip1.Size = new System.Drawing.Size(491, 22);
             this.StatusStrip1.TabIndex = 59;
             this.StatusStrip1.Text = "StatusStrip1";
             // 
@@ -153,10 +153,10 @@
             // 
             this.Label21.AutoSize = true;
             this.Label21.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label21.Location = new System.Drawing.Point(75, 199);
+            this.Label21.Location = new System.Drawing.Point(13, 215);
             this.Label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label21.Name = "Label21";
-            this.Label21.Size = new System.Drawing.Size(80, 17);
+            this.Label21.Size = new System.Drawing.Size(92, 20);
             this.Label21.TabIndex = 51;
             this.Label21.Text = "Stock Code";
             // 
@@ -164,20 +164,20 @@
             // 
             this.Label22.AutoSize = true;
             this.Label22.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label22.Location = new System.Drawing.Point(356, 199);
+            this.Label22.Location = new System.Drawing.Point(329, 215);
             this.Label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label22.Name = "Label22";
-            this.Label22.Size = new System.Drawing.Size(85, 17);
+            this.Label22.Size = new System.Drawing.Size(92, 20);
             this.Label22.TabIndex = 54;
             this.Label22.Text = "Delivery Qty";
             // 
             // cmdClear
             // 
             this.cmdClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClear.Location = new System.Drawing.Point(428, 249);
-            this.cmdClear.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdClear.Location = new System.Drawing.Point(411, 277);
+            this.cmdClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdClear.Name = "cmdClear";
-            this.cmdClear.Size = new System.Drawing.Size(36, 28);
+            this.cmdClear.Size = new System.Drawing.Size(40, 35);
             this.cmdClear.TabIndex = 36;
             this.cmdClear.Text = "-";
             this.cmdClear.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -186,10 +186,10 @@
             // 
             // cmdClearForm
             // 
-            this.cmdClearForm.Location = new System.Drawing.Point(372, 596);
-            this.cmdClearForm.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdClearForm.Location = new System.Drawing.Point(347, 676);
+            this.cmdClearForm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdClearForm.Name = "cmdClearForm";
-            this.cmdClearForm.Size = new System.Drawing.Size(112, 28);
+            this.cmdClearForm.Size = new System.Drawing.Size(126, 35);
             this.cmdClearForm.TabIndex = 39;
             this.cmdClearForm.Text = "Clear";
             this.cmdClearForm.UseVisualStyleBackColor = true;
@@ -197,11 +197,11 @@
             // 
             // txtStockCode
             // 
-            this.txtStockCode.Location = new System.Drawing.Point(75, 219);
-            this.txtStockCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockCode.Location = new System.Drawing.Point(13, 240);
+            this.txtStockCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtStockCode.MaxLength = 30;
             this.txtStockCode.Name = "txtStockCode";
-            this.txtStockCode.Size = new System.Drawing.Size(149, 22);
+            this.txtStockCode.Size = new System.Drawing.Size(168, 26);
             this.txtStockCode.TabIndex = 33;
             this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
@@ -209,29 +209,29 @@
             // 
             this.Label16.AutoSize = true;
             this.Label16.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label16.Location = new System.Drawing.Point(72, 87);
+            this.Label16.Location = new System.Drawing.Point(10, 75);
             this.Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(71, 17);
+            this.Label16.Size = new System.Drawing.Size(81, 20);
             this.Label16.TabIndex = 42;
             this.Label16.Text = "Shop Ref:";
             // 
             // Label17
             // 
             this.Label17.AutoSize = true;
-            this.Label17.Location = new System.Drawing.Point(195, 87);
+            this.Label17.Location = new System.Drawing.Point(148, 75);
             this.Label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label17.Name = "Label17";
-            this.Label17.Size = new System.Drawing.Size(86, 17);
+            this.Label17.Size = new System.Drawing.Size(97, 20);
             this.Label17.TabIndex = 47;
             this.Label17.Text = "Shop Name:";
             // 
             // cmdAdd
             // 
-            this.cmdAdd.Location = new System.Drawing.Point(128, 596);
-            this.cmdAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdAdd.Location = new System.Drawing.Point(73, 676);
+            this.cmdAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdAdd.Name = "cmdAdd";
-            this.cmdAdd.Size = new System.Drawing.Size(112, 28);
+            this.cmdAdd.Size = new System.Drawing.Size(126, 35);
             this.cmdAdd.TabIndex = 37;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
@@ -240,19 +240,19 @@
             // txtWarehouseRef
             // 
             this.txtWarehouseRef.Enabled = false;
-            this.txtWarehouseRef.Location = new System.Drawing.Point(75, 155);
-            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseRef.Location = new System.Drawing.Point(13, 160);
+            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseRef.Name = "txtWarehouseRef";
-            this.txtWarehouseRef.Size = new System.Drawing.Size(84, 22);
+            this.txtWarehouseRef.Size = new System.Drawing.Size(94, 26);
             this.txtWarehouseRef.TabIndex = 44;
             this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // cmdAddItem
             // 
-            this.cmdAddItem.Location = new System.Drawing.Point(392, 249);
-            this.cmdAddItem.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdAddItem.Location = new System.Drawing.Point(370, 277);
+            this.cmdAddItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdAddItem.Name = "cmdAddItem";
-            this.cmdAddItem.Size = new System.Drawing.Size(36, 28);
+            this.cmdAddItem.Size = new System.Drawing.Size(40, 35);
             this.cmdAddItem.TabIndex = 35;
             this.cmdAddItem.Text = "+";
             this.cmdAddItem.UseVisualStyleBackColor = true;
@@ -260,18 +260,18 @@
             // 
             // txtQtyHangers
             // 
-            this.txtQtyHangers.Location = new System.Drawing.Point(360, 219);
-            this.txtQtyHangers.Margin = new System.Windows.Forms.Padding(4);
+            this.txtQtyHangers.Location = new System.Drawing.Point(334, 240);
+            this.txtQtyHangers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtQtyHangers.Name = "txtQtyHangers";
-            this.txtQtyHangers.Size = new System.Drawing.Size(103, 22);
+            this.txtQtyHangers.Size = new System.Drawing.Size(115, 26);
             this.txtQtyHangers.TabIndex = 34;
             // 
             // cmdCancel
             // 
-            this.cmdCancel.Location = new System.Drawing.Point(250, 596);
-            this.cmdCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdCancel.Location = new System.Drawing.Point(211, 676);
+            this.cmdCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(112, 28);
+            this.cmdCancel.Size = new System.Drawing.Size(126, 35);
             this.cmdCancel.TabIndex = 38;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
@@ -280,19 +280,19 @@
             // DateTimePicker1
             // 
             this.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePicker1.Location = new System.Drawing.Point(171, 59);
-            this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.DateTimePicker1.Location = new System.Drawing.Point(121, 40);
+            this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DateTimePicker1.Name = "DateTimePicker1";
-            this.DateTimePicker1.Size = new System.Drawing.Size(133, 22);
+            this.DateTimePicker1.Size = new System.Drawing.Size(150, 26);
             this.DateTimePicker1.TabIndex = 30;
             // 
             // txtShopRef
             // 
-            this.txtShopRef.Location = new System.Drawing.Point(78, 107);
-            this.txtShopRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtShopRef.Location = new System.Drawing.Point(16, 100);
+            this.txtShopRef.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtShopRef.MaxLength = 8;
             this.txtShopRef.Name = "txtShopRef";
-            this.txtShopRef.Size = new System.Drawing.Size(81, 22);
+            this.txtShopRef.Size = new System.Drawing.Size(91, 26);
             this.txtShopRef.TabIndex = 32;
             this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
@@ -301,39 +301,39 @@
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.Red;
-            this.Label4.Location = new System.Drawing.Point(227, 542);
+            this.Label4.Location = new System.Drawing.Point(184, 608);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(152, 25);
+            this.Label4.Size = new System.Drawing.Size(122, 20);
             this.Label4.TabIndex = 56;
             this.Label4.Text = "Delivery Total:";
             // 
             // txtShopName
             // 
-            this.txtShopName.Location = new System.Drawing.Point(167, 107);
-            this.txtShopName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtShopName.Location = new System.Drawing.Point(117, 100);
+            this.txtShopName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtShopName.Name = "txtShopName";
-            this.txtShopName.Size = new System.Drawing.Size(293, 22);
+            this.txtShopName.Size = new System.Drawing.Size(330, 26);
             this.txtShopName.TabIndex = 48;
             // 
             // Label18
             // 
             this.Label18.AutoSize = true;
             this.Label18.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label18.Location = new System.Drawing.Point(74, 135);
+            this.Label18.Location = new System.Drawing.Point(13, 135);
             this.Label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(111, 17);
+            this.Label18.Size = new System.Drawing.Size(125, 20);
             this.Label18.TabIndex = 43;
             this.Label18.Text = "Warehouse Ref:";
             // 
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(308, 39);
+            this.Label3.Location = new System.Drawing.Point(275, 15);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(119, 17);
+            this.Label3.Size = new System.Drawing.Size(130, 20);
             this.Label3.TabIndex = 46;
             this.Label3.Text = "Delivery Note No:";
             // 
@@ -341,84 +341,84 @@
             // 
             this.Label2.AutoSize = true;
             this.Label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label2.Location = new System.Drawing.Point(167, 35);
+            this.Label2.Location = new System.Drawing.Point(117, 9);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(97, 17);
+            this.Label2.Size = new System.Drawing.Size(107, 20);
             this.Label2.TabIndex = 45;
             this.Label2.Text = "Delivery Date:";
             // 
             // Label20
             // 
             this.Label20.AutoSize = true;
-            this.Label20.Location = new System.Drawing.Point(201, 135);
+            this.Label20.Location = new System.Drawing.Point(155, 135);
             this.Label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label20.Name = "Label20";
-            this.Label20.Size = new System.Drawing.Size(126, 17);
+            this.Label20.Size = new System.Drawing.Size(141, 20);
             this.Label20.TabIndex = 49;
             this.Label20.Text = "Warehouse Name:";
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(72, 39);
+            this.Label1.Location = new System.Drawing.Point(10, 15);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(80, 17);
+            this.Label1.Size = new System.Drawing.Size(89, 20);
             this.Label1.TabIndex = 40;
             this.Label1.Text = "Record No:";
             // 
             // txtTotalGarments
             // 
             this.txtTotalGarments.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txtTotalGarments.Location = new System.Drawing.Point(324, 566);
-            this.txtTotalGarments.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalGarments.Location = new System.Drawing.Point(293, 639);
+            this.txtTotalGarments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalGarments.Name = "txtTotalGarments";
-            this.txtTotalGarments.Size = new System.Drawing.Size(148, 22);
+            this.txtTotalGarments.Size = new System.Drawing.Size(166, 26);
             this.txtTotalGarments.TabIndex = 58;
             // 
             // txtDelNoteNumber
             // 
-            this.txtDelNoteNumber.Location = new System.Drawing.Point(75, 59);
-            this.txtDelNoteNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDelNoteNumber.Location = new System.Drawing.Point(13, 40);
+            this.txtDelNoteNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDelNoteNumber.Name = "txtDelNoteNumber";
-            this.txtDelNoteNumber.Size = new System.Drawing.Size(84, 22);
+            this.txtDelNoteNumber.Size = new System.Drawing.Size(94, 26);
             this.txtDelNoteNumber.TabIndex = 41;
             // 
             // txtReference
             // 
             this.txtReference.BackColor = System.Drawing.SystemColors.Window;
-            this.txtReference.Location = new System.Drawing.Point(312, 59);
-            this.txtReference.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReference.Location = new System.Drawing.Point(280, 40);
+            this.txtReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtReference.MaxLength = 90;
             this.txtReference.Name = "txtReference";
-            this.txtReference.Size = new System.Drawing.Size(148, 22);
+            this.txtReference.Size = new System.Drawing.Size(166, 26);
             this.txtReference.TabIndex = 31;
             // 
             // txtWarehouseName
             // 
             this.txtWarehouseName.Enabled = false;
-            this.txtWarehouseName.Location = new System.Drawing.Point(167, 155);
-            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseName.Location = new System.Drawing.Point(117, 160);
+            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(252, 22);
+            this.txtWarehouseName.Size = new System.Drawing.Size(283, 26);
             this.txtWarehouseName.TabIndex = 50;
             // 
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(120, 571);
+            this.Label5.Location = new System.Drawing.Point(64, 645);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(110, 17);
+            this.Label5.Size = new System.Drawing.Size(123, 20);
             this.Label5.TabIndex = 57;
             this.Label5.Text = "Total Garments:";
             // 
             // frmShopDelivery
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 714);
+            this.ClientSize = new System.Drawing.Size(491, 738);
             this.Controls.Add(this.txtQty);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.Label8);
@@ -449,6 +449,7 @@
             this.Controls.Add(this.txtReference);
             this.Controls.Add(this.txtWarehouseName);
             this.Controls.Add(this.Label5);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmShopDelivery";
             this.Text = "frmShopDelivery";
             this.Load += new System.EventHandler(this.frmShopDelivery_Load);

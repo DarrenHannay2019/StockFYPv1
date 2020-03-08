@@ -23,11 +23,11 @@ namespace DMHV2
             //Application.Run(new frmSupplier());
             //Application.Run(new frmStock());
             //Application.Run(new frmSeason());
-            //Application.Run(new frmShopDelivery());
+            Application.Run(new frmShopDelivery());
             //Application.Run(new frmWarehouseAdjustment());
             //Application.Run(new frmWarehouseTransfer());
             //Application.Run(new frmWarehouseReturn());
-            Application.Run(new frmShopAdjustment());
+            //Application.Run(new frmShopAdjustment());
             //Application.Run(new frmShopTransfer());
             //Application.Run(new frmShopSale());
             //Application.Run(new frmShopReturn());

@@ -40,7 +40,7 @@ namespace DMHV2
                         using (SqlCommand SelectCmd = new SqlCommand())
                         {
                             SelectCmd.Connection = conn;
-                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopSale";
+                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopSales";
                             Result = (int)SelectCmd.ExecuteScalar();
                         }
                     }
@@ -75,7 +75,7 @@ namespace DMHV2
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblSales (ShopRef, ShopName, Reference, TransactionDate, TotalQty, TotalValue, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Reference, @TransactionDate, @TotalQty, @TotalValue, @CreatedBy, @CreatedDate)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopSales (ShopRef, ShopName, Reference, TransactionDate, TotalQty, TotalValue, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Reference, @TransactionDate, @TotalQty, @TotalValue, @CreatedBy, @CreatedDate)";
                             InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                             InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
                             InsertCmd.Parameters.AddWithValue("@Reference", "0");
@@ -121,7 +121,7 @@ namespace DMHV2
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblSales SET ShopRef = @ShopRef, ShopName = @ShopName, Reference = @Reference, TransactionDate = @TransactionDate, TotalQty = @TotalQty, TotalValue = @TotalValue WHERE SalesID = @SalesID";
+                            UpdateCmd.CommandText = "UPDATE tblShopSales SET ShopRef = @ShopRef, ShopName = @ShopName, Reference = @Reference, TransactionDate = @TransactionDate, TotalQty = @TotalQty, TotalValue = @TotalValue WHERE SalesID = @SalesID";
                             UpdateCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                             UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
@@ -166,7 +166,7 @@ namespace DMHV2
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE from tblSales WHERE SalesID =@SalesID;";
+                            DeleteCmd.CommandText = "DELETE from tblShopSales WHERE SalesID =@SalesID;";
                             DeleteCmd.Parameters.AddWithValue("@SalesID", ID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
@@ -208,7 +208,7 @@ namespace DMHV2
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblSalesLines (SalesID, StockCode, CurrentQty, QtySold, SalesAmount, StockMovementID) VALUES (@SalesID, @StockCode, @CurrentQty, @QtySold, @SalesAmount, @StockMovementID)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopSalesLines (SalesID, StockCode, CurrentQty, QtySold, SalesAmount, StockMovementID) VALUES (@SalesID, @StockCode, @CurrentQty, @QtySold, @SalesAmount, @StockMovementID)";
                             InsertCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
@@ -252,7 +252,7 @@ namespace DMHV2
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblSalesLines SET CurrentQty = @CurrentQty, QtySold = @QtySold, SalesAmount = @SalesAmount, StockMovementID = @StockMovementID WHERE SalesID = @SalesID AND StockCode = @StockCode";
+                            UpdateCmd.CommandText = "UPDATE tblShopSalesLines SET CurrentQty = @CurrentQty, QtySold = @QtySold, SalesAmount = @SalesAmount, StockMovementID = @StockMovementID WHERE SalesID = @SalesID AND StockCode = @StockCode";
                             UpdateCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             UpdateCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
@@ -295,7 +295,7 @@ namespace DMHV2
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE from tblSalesLines WHERE SalesID = @SalesID;";
+                            DeleteCmd.CommandText = "DELETE from tblShopSalesLines WHERE SalesID = @SalesID;";
                             DeleteCmd.Parameters.AddWithValue("@SalesID", ID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
@@ -334,7 +334,7 @@ namespace DMHV2
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE from tblSalesLines WHERE SalesID = @SalesID AND QtySold = @QtySold AND SalesAmount = @SalesAmount;";
+                            DeleteCmd.CommandText = "DELETE from tblShopSalesLines WHERE SalesID = @SalesID AND QtySold = @QtySold AND SalesAmount = @SalesAmount;";
                             DeleteCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             DeleteCmd.Parameters.AddWithValue("@QtySold", "0");
                             DeleteCmd.Parameters.AddWithValue("@SalesAmount", "0.00");

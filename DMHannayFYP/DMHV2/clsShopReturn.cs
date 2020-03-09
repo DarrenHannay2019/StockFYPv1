@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.SqlClient;
-using System.Data;
-using System.Threading.Tasks;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Data.SqlClient;
+    using System.Data;
+
     public class clsShopReturn : clsUtils
     {
         public void LoadNewForm()
@@ -40,7 +36,7 @@ namespace DMHV2
                         using (SqlCommand SelectCmd = new SqlCommand())
                         {
                             SelectCmd.Connection = conn;
-                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopReturn";
+                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopReturns";
                             Result = (int)SelectCmd.ExecuteScalar();
                         }
                     }
@@ -75,7 +71,7 @@ namespace DMHV2
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblReturns(ShopRef, WarehouseRef, Reference, TotalItems, TransactionDate, CreatedBy, CreatedDate) VALUES (@ShopRef, @WarehouseRef, @Reference, @TotalItems, @TransactionDate, @CreatedBy, @CreatedDate)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopReturns (ShopRef, WarehouseRef, Reference, TotalItems, TransactionDate, CreatedBy, CreatedDate) VALUES (@ShopRef, @WarehouseRef, @Reference, @TotalItems, @TransactionDate, @CreatedBy, @CreatedDate)";
                             InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                             InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                             InsertCmd.Parameters.AddWithValue("@Reference", Reference);
@@ -117,7 +113,7 @@ namespace DMHV2
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblReturns SET ShopRef = @ShopRef, WarehouseRef = @WarehouseRef, Reference = @Reference, TotalItems = @TotalItems,TransactionDate = @TransactionDate WHERE ReturnsID = @ReturnsID";
+                            UpdateCmd.CommandText = "UPDATE tblShopReturns SET ShopRef = @ShopRef, WarehouseRef = @WarehouseRef, Reference = @Reference, TotalItems = @TotalItems,TransactionDate = @TransactionDate WHERE ReturnsID = @ReturnsID";
                             UpdateCmd.Parameters.AddWithValue("@ReturnsID", ID);
                             UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                             UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
@@ -161,7 +157,7 @@ namespace DMHV2
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE FROM tblReturns WHERE ReturnsID = @ReturnsID";
+                            DeleteCmd.CommandText = "DELETE FROM tblShopReturns WHERE ReturnsID = @ReturnsID";
                             DeleteCmd.Parameters.AddWithValue("@ReturnsID", ID);
                             DeleteCmd.ExecuteNonQuery();
                         }
@@ -203,7 +199,7 @@ namespace DMHV2
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblReturnLines (ReturnID, StockCode, Qty, Value) VALUES (@ReturnID, @StockCode, @Qty, @Value)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopReturnLines (ReturnID, StockCode, Qty, Value) VALUES (@ReturnID, @StockCode, @Qty, @Value)";
                             InsertCmd.Parameters.AddWithValue("@ReturnID", ID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@Qty", Qty);
@@ -245,7 +241,7 @@ namespace DMHV2
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblReturnLines SET Qty = @Qty,Value = @Value WHERE ReturnID = @ReturnID AND StockCode = @StockCode";
+                            UpdateCmd.CommandText = "UPDATE tblShopReturnLines SET Qty = @Qty,Value = @Value WHERE ReturnID = @ReturnID AND StockCode = @StockCode";
                             UpdateCmd.Parameters.AddWithValue("@ReturnID", ID);
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
@@ -287,7 +283,7 @@ namespace DMHV2
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE FROM tblReturnLines WHERE ReturnID = @ReturnID;";
+                            DeleteCmd.CommandText = "DELETE FROM tblShopReturnLines WHERE ReturnID = @ReturnID;";
                             DeleteCmd.Parameters.AddWithValue("@ReturnID", ID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }

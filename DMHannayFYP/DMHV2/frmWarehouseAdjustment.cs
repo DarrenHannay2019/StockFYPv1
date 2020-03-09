@@ -38,7 +38,15 @@
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
+            if (FormMode == "New")
+            {
 
+            }
+            else
+            {
+
+            }
+            this.Close();
         }
 
         private void CmdClear_Click(object sender, EventArgs e)

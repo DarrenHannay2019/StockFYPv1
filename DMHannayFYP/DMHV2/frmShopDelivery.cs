@@ -42,7 +42,14 @@ namespace DMHV2
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
+            if (FormMode == "New")
+            {
 
+            }
+            else
+            {
+
+            }
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)

@@ -76,7 +76,6 @@
                             else
                             {
                                 MessageBox.Show("Incorrect Username and Password \nPlease try again", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                             }
                         }
                     }
@@ -114,8 +113,7 @@
             return Result;
         }
         public bool SaveToEmployeeTable(int connID)
-        {
-           
+        {           
             SaveToDB = false;
             Guid usergiud = System.Guid.NewGuid();
             PasswordHashed = HashingSHA1(PasswordEntered + usergiud.ToString());
@@ -135,7 +133,6 @@
                         InsertCmd.Parameters.AddWithValue("@Password", PasswordHashed);
                         InsertCmd.Parameters.AddWithValue("@ProfileID", ProfileID);
                         InsertCmd.Parameters.AddWithValue("@UserGuid", usergiud);
-
                         Result = (int)InsertCmd.ExecuteNonQuery();
                     }
                 }
@@ -147,6 +144,10 @@
                 return SaveToDB;
                 throw;
             }
+            if (Result == 1)
+                SaveToDB = true;
+            else
+                SaveToDB = false;
             return SaveToDB;
         }
         public bool UpdateToEmployeeTable()
@@ -161,7 +162,6 @@
             {
                 UpdateToDB = false;
                 MessageBox.Show(ex.Message);
-
                 return UpdateToDB;
                 throw;
             }
@@ -177,7 +177,6 @@
             {
                 DeleteFromDB = false;
                 MessageBox.Show(ex.Message);
-
                 throw;
             }
             return DeleteFromDB;

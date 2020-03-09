@@ -91,7 +91,7 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblStock SET SupplierRef=@SupplierRef,DeadCode=@DeadCode,AmountTaken=@AmountTaken,DeliveredQtyHangers=@DeliveredQtyHangers,CostValue=@CostValue,PCMarkUp=@PCMarkUp,ZeroQty=@ZeroQty,Season =@Season WHERE StockCode = @StockCode";
+                        sqlCommand.CommandText = "UPDATE tblStock SET SupplierRef = @SupplierRef, DeadCode = @DeadCode, AmountTaken = @AmountTaken, DeliveredQtyHangers = @DeliveredQtyHangers, CostValue = @CostValue, PCMarkUp = @PCMarkUp, ZeroQty = @ZeroQty, Season = @Season WHERE StockCode = @StockCode";
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         sqlCommand.Parameters.AddWithValue("@Season", SeasonName);
@@ -347,7 +347,11 @@
         {
             return UpdateToDB;
         }
-        public int GetStockQty()
+        public int GetWarehouseStockQty()
+        {
+            return 0;
+        }
+        public int GetShopStockQty()
         {
             return 0;
         }

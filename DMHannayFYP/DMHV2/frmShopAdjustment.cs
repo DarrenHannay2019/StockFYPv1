@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DMHV2
+﻿namespace DMHV2
 {
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Windows.Forms;
+
     public partial class frmShopAdjustment : Form
     {
         public string FormMode { get; set; }
@@ -58,7 +52,17 @@ namespace DMHV2
         }
         private void CmdOK_Click(object sender, EventArgs e)
         {
+            clsShopAdjustmentHead adjustmentHead = new clsShopAdjustmentHead();
+            clsShopAdjustmentLine adjustmentLine = new clsShopAdjustmentLine();
+            if(FormMode == "New")
+            {
 
+            }
+            else
+            {
+
+            }
+            Close();
         }
 
         private void CmdClear_Click(object sender, EventArgs e)
@@ -73,7 +77,6 @@ namespace DMHV2
             txtWarehouseName.Clear();
             txtReference.Clear();
             DateTimePicker1.Value = clsUtils.GetSundayDate(DateTime.Now,1);
-
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)
@@ -142,6 +145,7 @@ namespace DMHV2
             {
                 CmdOK.Text = "Save";
                 this.Text = "New Shop Adjustment";
+                DateTimePicker1.Value = clsUtils.GetSundayDate(DateTime.Now, 1);
             }
             else
             {

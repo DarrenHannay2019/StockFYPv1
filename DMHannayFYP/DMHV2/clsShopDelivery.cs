@@ -227,7 +227,7 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopDeliveriesLines (DeliveriesID, StockCode, DeliveredQty) VALUES (@DeliveriesID, @StockCode, @DeliveredQty)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopDeliveryLines (DeliveriesID, StockCode, DeliveredQty) VALUES (@DeliveriesID, @StockCode, @DeliveredQty)";
                             InsertCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@DeliveredQty", Qty);
@@ -272,7 +272,7 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblShopDeliveriesLines SET DeliveredQty = @DeliveredQty WHERE DeliveriesID = @DeliveriesID AND StockCode = StockCode";
+                            UpdateCmd.CommandText = "UPDATE tblShopDeliveryLines SET DeliveredQty = @DeliveredQty WHERE DeliveriesID = @DeliveriesID AND StockCode = StockCode";
                             UpdateCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             UpdateCmd.Parameters.AddWithValue("@DeliveredQty", Qty);
@@ -317,7 +317,7 @@
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE from tblShopDeliveriesLines WHERE DeliveriesID = @DeliveriesID;";
+                            DeleteCmd.CommandText = "DELETE from tblShopDeliveryLines WHERE DeliveriesID = @DeliveriesID;";
                             DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }

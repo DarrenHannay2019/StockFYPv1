@@ -188,7 +188,7 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopAdjustmentsLines(ShopAdjustmentID, StockCode, MovementType, Qty, Value) VALUES (@ShopAdjustmentID, @StockCode, @MovementType, @Qty, @Value)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopAdjustmentLines(ShopAdjustmentID, StockCode, MovementType, Qty, Value) VALUES (@ShopAdjustmentID, @StockCode, @MovementType, @Qty, @Value)";
                             InsertCmd.Parameters.AddWithValue("@ShopAdjustmentID", ID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
@@ -231,7 +231,7 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblShopAdjustmentsLines SET MovementType = @MovementType, Qty = @Qty, Value = @Value WHERE ShopAdjustmentID = @ShopAdjustmentID AND StockCode = @StockCode";
+                            UpdateCmd.CommandText = "UPDATE tblShopAdjustmentLines SET MovementType = @MovementType, Qty = @Qty, Value = @Value WHERE ShopAdjustmentID = @ShopAdjustmentID AND StockCode = @StockCode";
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             UpdateCmd.Parameters.AddWithValue("@MovementType", MovementType);
                             UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
@@ -275,7 +275,7 @@
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE from tblShopAdjustmentsLines WHERE ShopAdjustmentID = @ShopAdjustmentID;";
+                            DeleteCmd.CommandText = "DELETE from tblShopAdjustmentLines WHERE ShopAdjustmentID = @ShopAdjustmentID;";
                             DeleteCmd.Parameters.AddWithValue("@ShopAdjustmentID", ID);
                            Result = (int)DeleteCmd.ExecuteNonQuery();
                         }

@@ -79,7 +79,7 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblWhTransfers (Reference, TransferDate, WharehouseRef, WarehouseName, ToWarehouseRef, ToWarehouseName, TotalQtyOut, TotalQtyIn, CreatedBy, CreatedDate) VALUES (@Reference, @TransferDate, @WarehouseRef, @WarehouseName, @ToWarehouseRef, @ToWarehouseName, @TotalQtyOut, @TotalQtyIn, @CreatedBy, @CreatedDate)";
+                            InsertCmd.CommandText = "INSERT INTO tblWarehouseTransfers (Reference, TransferDate, WharehouseRef, WarehouseName, ToWarehouseRef, ToWarehouseName, TotalQtyOut, TotalQtyIn, CreatedBy, CreatedDate) VALUES (@Reference, @TransferDate, @WarehouseRef, @WarehouseName, @ToWarehouseRef, @ToWarehouseName, @TotalQtyOut, @TotalQtyIn, @CreatedBy, @CreatedDate)";
                             InsertCmd.Parameters.AddWithValue("@Reference", Reference);
                             InsertCmd.Parameters.AddWithValue("@TransferDate", MovementDate);
                             InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
@@ -127,7 +127,7 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblWHTransfers SET Reference = @Reference, TransferDate = @TransferDate, WarehouseRef = @WarehouseRef, WarehouseName = @WarehouseName, ToWarehouseRef = @ToWarehouseRef, ToWarehouseName = @ToShopName, TotalQtyOut = @TotalQtyOut, TotalQtyOut = @TotalQtyOut WHERE TransferID = @TransferID";
+                            UpdateCmd.CommandText = "UPDATE tblWarehouseTransfers SET Reference = @Reference, TransferDate = @TransferDate, WarehouseRef = @WarehouseRef, WarehouseName = @WarehouseName, ToWarehouseRef = @ToWarehouseRef, ToWarehouseName = @ToShopName, TotalQtyOut = @TotalQtyOut, TotalQtyOut = @TotalQtyOut WHERE TransferID = @TransferID";
                             UpdateCmd.Parameters.AddWithValue("@TransferID", ID);
                             UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
                             UpdateCmd.Parameters.AddWithValue("@TransferDate", MovementDate);
@@ -219,7 +219,7 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblWHTransferLines (TransferID, SMTOID, SMTIID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@TransferID, @SMTOID, @SMTIID, @StockCode, @CurrentQty, @TOQty, @TIQty)";
+                            InsertCmd.CommandText = "INSERT INTO tblWarehouseTransferLines (TransferID, SMTOID, SMTIID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@TransferID, @SMTOID, @SMTIID, @StockCode, @CurrentQty, @TOQty, @TIQty)";
                             InsertCmd.Parameters.AddWithValue("@TransferID", ID);
                             InsertCmd.Parameters.AddWithValue("@SMTOID", smtoid);
                             InsertCmd.Parameters.AddWithValue("@SMTIID", smtiid);
@@ -268,7 +268,7 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblWHTransferLines SET SMTOID = @SMTOID, SMTIID = @SMTIID, CurrentQty = @CurrentQty, TOQty = @TOQty, TIQty = @TIQty WHERE TransferID = @TransferID AND StockCode = @StockCode";
+                            UpdateCmd.CommandText = "UPDATE tblWarehouseTransferLines SET SMTOID = @SMTOID, SMTIID = @SMTIID, CurrentQty = @CurrentQty, TOQty = @TOQty, TIQty = @TIQty WHERE TransferID = @TransferID AND StockCode = @StockCode";
                             UpdateCmd.Parameters.AddWithValue("@TransferID", ID);
                             UpdateCmd.Parameters.AddWithValue("@SMTOID", smtoid);
                             UpdateCmd.Parameters.AddWithValue("@SMTIID", smtiid);

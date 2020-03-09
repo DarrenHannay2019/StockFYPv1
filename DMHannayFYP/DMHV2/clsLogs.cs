@@ -9,11 +9,13 @@
         public int LocationType { get; set; }
         public clsLogs()
         {
-
+            SaveToDB = false;
+            DeleteFromDB = false;
         }
         ~clsLogs()
         {
-
+            SaveToDB = false;
+            DeleteFromDB = false;
         }
         public bool SaveToSysLogTable()
         {
@@ -41,21 +43,17 @@
                         InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
                         Result = (int)InsertCmd.ExecuteNonQuery();
                     }
-                }
-                if (Result != 1)
-                {
-                    SaveToDB = false;
-                }
-                else
-                {
-                    SaveToDB = true;
-                }
+                }               
             }
             catch (SqlException ex)
             {
                 SaveToDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
             }
+            if (Result != 1)
+                SaveToDB = false;
+            else
+                SaveToDB = true;
             return SaveToDB;
         }
         public bool SaveToStockMovementsTable()
@@ -91,21 +89,17 @@
                         InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                         Result = (int)InsertCmd.ExecuteNonQuery();
                     }
-                }
-                if (Result != 1)
-                {
-                    SaveToDB = false;
-                }
-                else
-                {
-                    SaveToDB = true;
-                }
+                }                
             }
             catch (SqlException ex)
             {
                 SaveToDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
             }
+            if (Result != 1)
+                SaveToDB = false;
+            else
+                SaveToDB = true
             return SaveToDB;
         }
         public bool DeleteFromStockMovemmentsTable()
@@ -128,21 +122,17 @@
                         DeleteCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
                         Result = (int)DeleteCmd.ExecuteNonQuery();
                     }
-                }
-                if (Result != 1)
-                {
-                    DeleteFromDB = false;
-                }
-                else
-                {
-                    DeleteFromDB = true;
-                }
+                }                
             }
             catch (SqlException ex)
             {
                 DeleteFromDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
             }
+            if (Result != 1)
+                DeleteFromDB = false;
+            else
+                DeleteFromDB = true;
             return DeleteFromDB;
         }
         public bool DeleteZeroQtyFromStockMovementsTable()
@@ -166,20 +156,16 @@
                         Result = (int)DeleteCmd.ExecuteNonQuery();
                     }
                 }
-                if (Result != 1)
-                {
-                    DeleteFromDB = false;
-                }
-                else
-                {
-                    DeleteFromDB = true;
-                }
             }
             catch (SqlException ex)
             {
                 DeleteFromDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
             }
+            if (Result != 1)
+                DeleteFromDB = false;
+            else
+                DeleteFromDB = true;
             return DeleteFromDB;
         }
     }

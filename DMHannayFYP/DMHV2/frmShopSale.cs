@@ -50,7 +50,15 @@ namespace DMHV2
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
+            if (FormMode == "New")
+            {
 
+            }
+            else
+            {
+
+            }
+            Close();
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)

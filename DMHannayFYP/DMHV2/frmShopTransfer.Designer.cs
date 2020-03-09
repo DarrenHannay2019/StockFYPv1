@@ -386,7 +386,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 728);
+            this.ClientSize = new System.Drawing.Size(583, 728);
             this.Controls.Add(this.Label9);
             this.Controls.Add(this.TxtTransferID);
             this.Controls.Add(this.DgvRecords);

@@ -46,7 +46,7 @@
             this.Label14 = new System.Windows.Forms.Label();
             this.Label13 = new System.Windows.Forms.Label();
             this.Label15 = new System.Windows.Forms.Label();
-            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgvRecords = new System.Windows.Forms.DataGridView();
             this.DateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtTotalDelivered = new System.Windows.Forms.TextBox();
             this.Label12 = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.Label4 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).BeginInit();
             this.SuspendLayout();
             // 
             // CheckBox1
@@ -81,6 +81,7 @@
             this.CheckBox1.TabIndex = 81;
             this.CheckBox1.Text = "Enter A Zero Stock";
             this.CheckBox1.UseVisualStyleBackColor = true;
+            this.CheckBox1.Visible = false;
             this.CheckBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // TxtStockCode
@@ -251,18 +252,18 @@
             this.Label15.TabIndex = 59;
             this.Label15.Text = "%";
             // 
-            // DataGridView1
+            // DgvRecords
             // 
-            this.DataGridView1.AllowUserToAddRows = false;
-            this.DataGridView1.AllowUserToDeleteRows = false;
-            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView1.Location = new System.Drawing.Point(363, 159);
-            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.DataGridView1.Name = "DataGridView1";
-            this.DataGridView1.RowHeadersVisible = false;
-            this.DataGridView1.RowHeadersWidth = 51;
-            this.DataGridView1.Size = new System.Drawing.Size(831, 329);
-            this.DataGridView1.TabIndex = 48;
+            this.DgvRecords.AllowUserToAddRows = false;
+            this.DgvRecords.AllowUserToDeleteRows = false;
+            this.DgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvRecords.Location = new System.Drawing.Point(363, 159);
+            this.DgvRecords.Margin = new System.Windows.Forms.Padding(4);
+            this.DgvRecords.Name = "DgvRecords";
+            this.DgvRecords.RowHeadersVisible = false;
+            this.DgvRecords.RowHeadersWidth = 51;
+            this.DgvRecords.Size = new System.Drawing.Size(831, 329);
+            this.DgvRecords.TabIndex = 48;
             // 
             // DateTimePicker1
             // 
@@ -503,7 +504,7 @@
             this.Controls.Add(this.Label14);
             this.Controls.Add(this.Label13);
             this.Controls.Add(this.Label15);
-            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.DgvRecords);
             this.Controls.Add(this.DateTimePicker1);
             this.Controls.Add(this.txtTotalDelivered);
             this.Controls.Add(this.Label12);
@@ -529,7 +530,7 @@
             this.Name = "frmShopSale";
             this.Text = "frmShopSale";
             this.Load += new System.EventHandler(this.frmShopSale_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,7 +556,7 @@
         internal System.Windows.Forms.Label Label14;
         internal System.Windows.Forms.Label Label13;
         internal System.Windows.Forms.Label Label15;
-        internal System.Windows.Forms.DataGridView DataGridView1;
+        internal System.Windows.Forms.DataGridView DgvRecords;
         internal System.Windows.Forms.DateTimePicker DateTimePicker1;
         internal System.Windows.Forms.TextBox txtTotalDelivered;
         internal System.Windows.Forms.Label Label12;

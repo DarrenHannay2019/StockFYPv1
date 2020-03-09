@@ -16,14 +16,14 @@ namespace DMHV2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.Run(new Form1());
             //Application.Run(new FrmWarehouse());
             //Application.Run(new frmPurchaseOrder());
             //Application.Run(new frmShop());
             //Application.Run(new frmSupplier());
             //Application.Run(new frmStock());
             //Application.Run(new frmSeason());
-            Application.Run(new frmShopDelivery());
+            //Application.Run(new frmShopDelivery());
             //Application.Run(new frmWarehouseAdjustment());
             //Application.Run(new frmWarehouseTransfer());
             //Application.Run(new frmWarehouseReturn());
@@ -31,7 +31,6 @@ namespace DMHV2
             //Application.Run(new frmShopTransfer());
             //Application.Run(new frmShopSale());
             //Application.Run(new frmShopReturn());
-
         }
     }
 }

@@ -34,7 +34,7 @@
             this.TxtTotalGain = new System.Windows.Forms.Label();
             this.LblTotalLoss = new System.Windows.Forms.Label();
             this.lblTotalGain = new System.Windows.Forms.Label();
-            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvItems = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +62,7 @@
             this.Label4 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
             this.TxtStockCode = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtRecordID
@@ -127,25 +127,25 @@
             this.lblTotalGain.TabIndex = 38;
             this.lblTotalGain.Text = "Total Gain:";
             // 
-            // DataGridView1
+            // dgvItems
             // 
-            this.DataGridView1.AllowUserToAddRows = false;
-            this.DataGridView1.AllowUserToDeleteRows = false;
-            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvItems.AllowUserToAddRows = false;
+            this.dgvItems.AllowUserToDeleteRows = false;
+            this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6});
-            this.DataGridView1.Location = new System.Drawing.Point(20, 133);
-            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.DataGridView1.Name = "DataGridView1";
-            this.DataGridView1.RowHeadersWidth = 51;
-            this.DataGridView1.Size = new System.Drawing.Size(665, 262);
-            this.DataGridView1.TabIndex = 46;
+            this.dgvItems.Location = new System.Drawing.Point(20, 133);
+            this.dgvItems.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvItems.Name = "dgvItems";
+            this.dgvItems.RowHeadersWidth = 51;
+            this.dgvItems.Size = new System.Drawing.Size(665, 262);
+            this.dgvItems.TabIndex = 46;
             // 
             // Column1
             // 
@@ -414,7 +414,7 @@
             this.Controls.Add(this.TxtTotalGain);
             this.Controls.Add(this.LblTotalLoss);
             this.Controls.Add(this.lblTotalGain);
-            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.CmdRemoveFromGrid);
             this.Controls.Add(this.CboType);
             this.Controls.Add(this.TxtAdjustHangers);
@@ -439,7 +439,7 @@
             this.Name = "frmWarehouseAdjustment";
             this.Text = "frmWarehouseAdjustment";
             this.Load += new System.EventHandler(this.frmWarehouseAdjustment_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,7 +453,7 @@
         internal System.Windows.Forms.Label TxtTotalGain;
         internal System.Windows.Forms.Label LblTotalLoss;
         internal System.Windows.Forms.Label lblTotalGain;
-        internal System.Windows.Forms.DataGridView DataGridView1;
+        internal System.Windows.Forms.DataGridView dgvItems;
         internal System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         internal System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         internal System.Windows.Forms.DataGridViewTextBoxColumn Column3;

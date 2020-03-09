@@ -89,11 +89,11 @@ namespace DMHV2
         private void txtWarehouseRef_Leave(object sender, EventArgs e)
         {
             txtWarehouseRef.Text = clsWarehouse.ChangeCase(txtWarehouseRef.Text, 1);
-            clsWarehouse warehouse = new clsWarehouse(0)
+            clsShop warehouse = new clsShop()
             {
                 WarehouseRef = txtWarehouseRef.Text.TrimEnd()
             };
-            txtWarehouseName.Text = warehouse.GetWarehouseName();
+            txtWarehouseName.Text = warehouse.GetShopName();
         }
         private void LoadShopsIntoForm()
         {
@@ -151,59 +151,59 @@ namespace DMHV2
         }
         private void LoadData()
         {
-            Using conn As New SqlConnection(ut.GetConnString())
-            Dim dt As New DataTable
-            Dim adp As New SqlDataAdapter With {
-                .SelectCommand = New SqlCommand("SELECT * from qryShopAdjustNew WHERE ID = '" + TxtSID.Text.ToString() + "'", conn)}
-            conn.Open()
-            adp.Fill(dt)
-            With Me
-                .CmdOK.Text = "OK"
-                .txtWarehouseRef.Text = dt.Rows(0).Item("ShopRef")
-                .txtReference.Text = dt.Rows(0).Item("Reference")
-                .txtWarehouseName.Text = dt.Rows(0).Item("ShopName")
-                .txtTotalGain.Text = dt.Rows(0).Item("TotalGainItems")
-                .txtTotalLoss.Text = dt.Rows(0).Item("TotalLossItems")
-                .DateTimePicker1.Value = dt.Rows(0).Item("MovementDate")
-            End With
-        End Using
-        With Me
-            .DataGridView1.Columns.Clear()
-            Using conn As New SqlConnection(ut.GetConnString())
-                Dim dgd As New SqlDataAdapter("SELECT * from tblShopAdjustmentsLines WHERE ShopAdjustID = '" + TxtSID.Text.ToString() + "'", conn)
-                Dim ds As New DataTable
-                dgd.Fill(ds)
-                With.DataGridView1
-                    .DataSource = ds
-                    .AutoGenerateColumns = True
-                    .EditMode = DataGridViewEditMode.EditOnF2
-                    .CellBorderStyle = DataGridViewCellBorderStyle.None
-                    .BackgroundColor = Color.LightCoral
-                    .DefaultCellStyle.SelectionBackColor = Color.Red
-                    .DefaultCellStyle.SelectionForeColor = Color.Yellow
-                    .ColumnHeadersDefaultCellStyle.BackColor = Color.Black
-                    .ColumnHeadersDefaultCellStyle.ForeColor = Color.White
-                    .DefaultCellStyle.WrapMode = DataGridViewTriState.[True]
-                    .SelectionMode = DataGridViewSelectionMode.FullRowSelect
-                    .AllowUserToResizeColumns = False
-                    .RowsDefaultCellStyle.BackColor = Color.LightSkyBlue
-                    .AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow
-                    With.Columns
-                        .Item(0).Visible = False
-                        .Item(1).Visible = False
-                        .Item(2).Visible = True
-                        .Item(2).HeaderText = "Stock Code"
-                        .Item(2).Width = 80
-                        .Item(3).Visible = True
-                        .Item(3).HeaderText = "Movement Type"
-                        .Item(4).Visible = True
-                        .Item(4).HeaderText = "Qty"
-                        .Item(4).Width = 80
-                        .Item(5).Visible = False
-                    End With
-                End With
-            End Using
-        End With
+        //    Using conn As New SqlConnection(ut.GetConnString())
+        //    Dim dt As New DataTable
+        //    Dim adp As New SqlDataAdapter With {
+        //        .SelectCommand = New SqlCommand("SELECT * from qryShopAdjustNew WHERE ID = '" + TxtSID.Text.ToString() + "'", conn)}
+        //    conn.Open()
+        //    adp.Fill(dt)
+        //    With Me
+        //        .CmdOK.Text = "OK"
+        //        .txtWarehouseRef.Text = dt.Rows(0).Item("ShopRef")
+        //        .txtReference.Text = dt.Rows(0).Item("Reference")
+        //        .txtWarehouseName.Text = dt.Rows(0).Item("ShopName")
+        //        .txtTotalGain.Text = dt.Rows(0).Item("TotalGainItems")
+        //        .txtTotalLoss.Text = dt.Rows(0).Item("TotalLossItems")
+        //        .DateTimePicker1.Value = dt.Rows(0).Item("MovementDate")
+        //    End With
+        //End Using
+        //With Me
+        //    .DataGridView1.Columns.Clear()
+        //    Using conn As New SqlConnection(ut.GetConnString())
+        //        Dim dgd As New SqlDataAdapter("SELECT * from tblShopAdjustmentsLines WHERE ShopAdjustID = '" + TxtSID.Text.ToString() + "'", conn)
+        //        Dim ds As New DataTable
+        //        dgd.Fill(ds)
+        //        With.DataGridView1
+        //            .DataSource = ds
+        //            .AutoGenerateColumns = True
+        //            .EditMode = DataGridViewEditMode.EditOnF2
+        //            .CellBorderStyle = DataGridViewCellBorderStyle.None
+        //            .BackgroundColor = Color.LightCoral
+        //            .DefaultCellStyle.SelectionBackColor = Color.Red
+        //            .DefaultCellStyle.SelectionForeColor = Color.Yellow
+        //            .ColumnHeadersDefaultCellStyle.BackColor = Color.Black
+        //            .ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        //            .DefaultCellStyle.WrapMode = DataGridViewTriState.[True]
+        //            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        //            .AllowUserToResizeColumns = False
+        //            .RowsDefaultCellStyle.BackColor = Color.LightSkyBlue
+        //            .AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow
+        //            With.Columns
+        //                .Item(0).Visible = False
+        //                .Item(1).Visible = False
+        //                .Item(2).Visible = True
+        //                .Item(2).HeaderText = "Stock Code"
+        //                .Item(2).Width = 80
+        //                .Item(3).Visible = True
+        //                .Item(3).HeaderText = "Movement Type"
+        //                .Item(4).Visible = True
+        //                .Item(4).HeaderText = "Qty"
+        //                .Item(4).Width = 80
+        //                .Item(5).Visible = False
+        //            End With
+        //        End With
+        //    End Using
+        //End With
         }
     }
 }

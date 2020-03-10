@@ -30,7 +30,7 @@
                     {
                         InsertCmd.Connection = conn;
                         InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblSysLog (StockCode, SupplierRef, LocationRef, Qty, MovementType, RecordType, MovementDate, TimeStamp, Reference, CreatedBy) VALUES (@StockCode, @SupplierRef, @LocationRef, @Qty, @MovementType, @RecordType, @MovementDate, @TimeStamp, @Reference, @CreatedBy)";
+                        InsertCmd.CommandText = "INSERT INTO tblSystemLog (StockCode, SupplierRef, LocationRef, Qty, MovementType, RecordType, MovementDate, TimeStamp, Reference, CreatedBy) VALUES (@StockCode, @SupplierRef, @LocationRef, @Qty, @MovementType, @RecordType, @MovementDate, @TimeStamp, @Reference, @CreatedBy)";
                         InsertCmd.Parameters.AddWithValue("StockCode", StockCode);
                         InsertCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         InsertCmd.Parameters.AddWithValue("@LocationRef", ShopRef);
@@ -79,7 +79,7 @@
                         InsertCmd.Parameters.AddWithValue("@LocationType", LocationType);
                         InsertCmd.Parameters.AddWithValue("@MovementQtyHangers", DeliveredQtyHangers);
                         InsertCmd.Parameters.AddWithValue("@MovementQtyBoxes", DeliveredQtyBoxes);
-                        InsertCmd.Parameters.AddWithValue("@MovementQtyGarments", DeliveredQtyBoxes);
+                        InsertCmd.Parameters.AddWithValue("@MovementQtyGarments", DeliveredQtyGarments);
                         InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
                         InsertCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
                         InsertCmd.Parameters.AddWithValue("@MovementValue", Value);
@@ -99,7 +99,7 @@
             if (Result != 1)
                 SaveToDB = false;
             else
-                SaveToDB = true
+                SaveToDB = true;
             return SaveToDB;
         }
         public bool DeleteFromStockMovemmentsTable()
@@ -115,10 +115,9 @@
                     {
                         DeleteCmd.Connection = conn;
                         DeleteCmd.CommandType = CommandType.Text;
-                        DeleteCmd.CommandText = "DELETE FROM tblStockMovements WHERE MovementType = @MovementType AND TransferReference = @TransferReference AND Reference = @Reference AND MovementDate = @MovementDate";
+                        DeleteCmd.CommandText = "DELETE FROM tblStockMovements WHERE MovementType = @MovementType AND TransferReference = @TransferReference AND MovementDate = @MovementDate";
                         DeleteCmd.Parameters.AddWithValue("@MovementType", MovementType);
-                        DeleteCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
-                        DeleteCmd.Parameters.AddWithValue("@Reference", Reference);
+                        DeleteCmd.Parameters.AddWithValue("@TransferReference", TransferReference);                        
                         DeleteCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
                         Result = (int)DeleteCmd.ExecuteNonQuery();
                     }

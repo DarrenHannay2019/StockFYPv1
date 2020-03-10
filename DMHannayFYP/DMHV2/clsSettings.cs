@@ -8,7 +8,7 @@ namespace DMHV2
     public class clsSettings : clsUtils
     {
         public string VATRegistration { get; set; }
-        public decimal VATRate { get; set; }
+      
         public clsSettings()
         {
 

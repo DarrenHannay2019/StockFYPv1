@@ -37,7 +37,7 @@
         public DateTime MovementDate;
         public int AdjustmentID;
         public int Qty;
-        public string MovementType;
+        public int MovementType;
         public decimal Value;
         public string WarehouseName;
         public string ShopName;
@@ -60,6 +60,7 @@
         public string Reference;
         public int ShopDelID;
         public int TransferReference;
+        public decimal VATRate;
         public static string GetConnString(int ID)
         {
             // Returns the correct Database connection string for the identity record.

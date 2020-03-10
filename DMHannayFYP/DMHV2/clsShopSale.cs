@@ -75,12 +75,12 @@ namespace DMHV2
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopSales (ShopRef, ShopName, Reference, TransactionDate, TotalQty, TotalValue, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @Reference, @TransactionDate, @TotalQty, @TotalValue, @CreatedBy, @CreatedDate)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopSales (ShopRef, ShopName, TransactionDate, TotalQty, TotalVAT, TotalValue, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @TransactionDate, @TotalQty, @TotalVAT, @TotalValue, @CreatedBy, @CreatedDate)";
                             InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                            InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
-                            InsertCmd.Parameters.AddWithValue("@Reference", "0");
+                            InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);                            
                             InsertCmd.Parameters.AddWithValue("@TransactionDate", MovementDate);
                             InsertCmd.Parameters.AddWithValue("@TotalQty", Qty);
+                            InsertCmd.Parameters.AddWithValue("@TotalVAT", VATRate);
                             InsertCmd.Parameters.AddWithValue("@TotalValue", Value);
                             InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
                             InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
@@ -121,11 +121,11 @@ namespace DMHV2
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblShopSales SET ShopRef = @ShopRef, ShopName = @ShopName, Reference = @Reference, TransactionDate = @TransactionDate, TotalQty = @TotalQty, TotalValue = @TotalValue WHERE SalesID = @SalesID";
+                            UpdateCmd.CommandText = "UPDATE tblShopSales SET ShopRef = @ShopRef, ShopName = @ShopName,  TransactionDate = @TransactionDate, TotalQty = @TotalQty, TotalVAT = @TotalVAT, TotalValue = @TotalValue WHERE SalesID = @SalesID";
                             UpdateCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
                             UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
-                            UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
+                            UpdateCmd.Parameters.AddWithValue("@TotalVAT", VATRate);
                             UpdateCmd.Parameters.AddWithValue("@TransactionDate", MovementDate);
                             UpdateCmd.Parameters.AddWithValue("@TotalQty", Qty);
                             UpdateCmd.Parameters.AddWithValue("@TotalValue", Value);
@@ -208,13 +208,14 @@ namespace DMHV2
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopSalesLines (SalesID, StockCode, CurrentQty, QtySold, SalesAmount, StockMovementID) VALUES (@SalesID, @StockCode, @CurrentQty, @QtySold, @SalesAmount, @StockMovementID)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopSalesLines (SalesID, DeliveredQty, StockCode, CurrentQty, TotalSold, QtySold, SalesAmount) VALUES (@SalesID, @StockCode, @DeliveredQty, @CurrentQty, @TotalSold, @QtySold, @SalesAmount)";
                             InsertCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                            InsertCmd.Parameters.AddWithValue("@DeliveredQty", DeliveredQtyGarments);
                             InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
+                            InsertCmd.Parameters.AddWithValue("@TotalSold", TotalItems);
                             InsertCmd.Parameters.AddWithValue("@QtySold", Qty);
-                            InsertCmd.Parameters.AddWithValue("@SalesAmount", SalesAmount);
-                            InsertCmd.Parameters.AddWithValue("@StockMovementID", smtoid);
+                            InsertCmd.Parameters.AddWithValue("@SalesAmount", SalesAmount);                            
                             Result = (int)InsertCmd.ExecuteNonQuery();
                         }
                     }

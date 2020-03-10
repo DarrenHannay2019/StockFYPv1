@@ -166,8 +166,8 @@
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE FROM tblShopTransfers WHERE TransferID = @TransferID";
-                            DeleteCmd.Parameters.AddWithValue("@TransferID", ID);
+                            DeleteCmd.CommandText = "DELETE FROM tblShopTransfers WHERE ShopTransferID = @ShopTransferID";
+                            DeleteCmd.Parameters.AddWithValue("@ShopTransferID", ID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }
@@ -207,10 +207,8 @@
                         InsertCmd.Connection = conn;
                         InsertCmd.Connection.Open();
                         InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblShopTransferLines (TransferID, SMTOID, SMTIID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@TransferID, @SMTOID, @SMTIID, @StockCode, @CurrentQty, @TOQty, @TIQty)";
-                        InsertCmd.Parameters.AddWithValue("@TransferID", ID);
-                        InsertCmd.Parameters.AddWithValue("@SMTOID", smtoid);
-                        InsertCmd.Parameters.AddWithValue("@SMTIID", smtiid);
+                        InsertCmd.CommandText = "INSERT INTO tblShopTransferLines (ShopTransferID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@ShopTransferID,  @StockCode, @CurrentQty, @TOQty, @TIQty)";
+                        InsertCmd.Parameters.AddWithValue("@TransferID", ID);                       
                         InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                         InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrQty);
                         InsertCmd.Parameters.AddWithValue("@TOQty", TOQty);
@@ -245,12 +243,9 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblShopTransferLines SET SMTOID = @SMTOID, SMTIID = @SMTIID, CurrentQty = @CurrentQty, TOQty = @TOQty, TIQty = @TIQty WHERE TransferID = @TransferID AND StockCode = @StockCode";
-                            UpdateCmd.Parameters.AddWithValue("@TransferID", ID);
-                            UpdateCmd.Parameters.AddWithValue("@SMTOID", smtoid);
-                            UpdateCmd.Parameters.AddWithValue("@SMTIID", smtiid);
+                            UpdateCmd.CommandText = "UPDATE tblShopTransferLines SET TOQty = @TOQty, TIQty = @TIQty WHERE ShopTransferID = @ShopTransferID AND StockCode = @StockCode";
+                            UpdateCmd.Parameters.AddWithValue("@ShopTransferID", ID);                           
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                            UpdateCmd.Parameters.AddWithValue("@CurrentQty", CurrQty);
                             UpdateCmd.Parameters.AddWithValue("@TOQty", TOQty);
                             UpdateCmd.Parameters.AddWithValue("@TIQty", TIQty);
                             Result = (int)UpdateCmd.ExecuteNonQuery();
@@ -290,8 +285,8 @@
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE FROM tblShopTransferLines WHERE TransferID = @TransferID;";
-                            DeleteCmd.Parameters.AddWithValue("@TransferID", ID);
+                            DeleteCmd.CommandText = "DELETE FROM tblShopTransferLines WHERE ShopTransferID = @ShopTransferID;";
+                            DeleteCmd.Parameters.AddWithValue("@ShopTransferID", ID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }

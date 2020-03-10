@@ -42,6 +42,9 @@ namespace DMHV2
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
+            clsShopTransferHead transferHead = new clsShopTransferHead();
+            clsShopTransferLine transferLine = new clsShopTransferLine();
+
             if (FormMode == "New")
             {
 

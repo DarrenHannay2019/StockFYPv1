@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace DMHV2
     public partial class frmPurchaseOrder : Form
     {
         public string FormMode { get; set; }
+        public int LoggedUser { get; set; }
         public frmPurchaseOrder()
         {
             InitializeComponent();
@@ -20,13 +22,78 @@ namespace DMHV2
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
+            clsPurchaseOrderHead orderHead = new clsPurchaseOrderHead(LoggedUser);
+            clsPurchaseOrderLine orderLine = new clsPurchaseOrderLine();
+            clsStock stock = new clsStock();
+            orderHead.OurRef = TxtOurRef.Text.TrimEnd();
+            orderHead.SupplierRef = TxtSupplierRef.Text.TrimEnd();           
+            orderHead.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
+            orderHead.TotalGarments = Convert.ToInt32(TxtTotalLooseItems.Text.TrimEnd());
+            orderHead.TotalBoxes = Convert.ToInt32(TxtTotalBoxes.Text.TrimEnd());
+            orderHead.TotalGarments = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());
+            orderHead.NetAmount = Convert.ToDecimal(TxtTotalNet.Text.TrimEnd());
+            orderHead.Commission = Convert.ToDecimal(TxtCommission.Text.TrimEnd());
+            orderHead.DeliveryCharge = Convert.ToDecimal(TxtDeliveryCharges.Text.TrimEnd());
+            orderHead.VATAmount = Convert.ToDecimal(TxtVATAmount.Text.TrimEnd());
+            orderHead.TotalAmount = Convert.ToDecimal(TxtTotalOrderPrice.Text.TrimEnd());
+            orderHead.DeliveryDate = dateTimePicker1.Value;
+            if (CheckBox1.Checked == true)
+                orderHead.DeliveryType = "Direct To Shop";
+            else
+                orderHead.DeliveryType = "Direct To Warehouse";
+            orderHead.SupplierInvoice = TxtSuppliersInvoiceNumber.Text.TrimEnd();
+            orderHead.SeasonName = CboSeasonName.Text.TrimEnd();
+            orderHead.Notes = TxtNotes.Text.TrimEnd();
+            orderHead.Shipper = TxtShipperName.Text.TrimEnd(); 
+            orderHead.ShipperInvoice = TxtShipperInvoiceNumber.Text.TrimEnd();
+            orderHead.SaveToPurchaseOrderHeadtbl();
+            orderHead.PurchaseOrderID = orderHead.GetLastPurchaseOrderHead();
             if (FormMode == "New")
             {
+                for (int i = 0; i< DgvItems.Rows.Count - 1;i++)
+                {
+                    orderLine.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();
+                    orderLine.DeliveredQtyGarments = Convert.ToInt32(DgvItems.Rows[i].Cells[1].Value);
+                    orderLine.DeliveredQtyBoxes = Convert.ToInt32(DgvItems.Rows[i].Cells[2].Value);
+                    orderLine.DeliveredQtyHangers = Convert.ToInt32(DgvItems.Rows[i].Cells[3].Value);
+                    orderLine.LineAmount = Convert.ToDecimal(DgvItems.Rows[i].Cells[4].Value);
+                    if(orderLine.SaveToPurchaseOrderLinetbl() == true)
+                    {
+                        stock.StockCode = orderLine.StockCode;
+                        if(stock.CheckStockCodeSave() == true)
+                        {
+                            stock.StockCode = orderLine.StockCode;
+                            stock.SupplierRef = orderHead.SupplierRef;
+                            stock.SeasonName = orderHead.SeasonName;
+                            stock.DeadCode = false;
+                            stock.CostValue = orderLine.LineAmount;
+                            stock.DeliveredQtyBoxes = orderLine.DeliveredQtyBoxes;
+                            stock.DeliveredQtyGarments = orderLine.DeliveredQtyGarments;
+                            stock.DeliveredQtyHangers = orderLine.DeliveredQtyHangers;
+                            stock.AmountTaken = 0.00m;
+                            stock.PCMarkUp = -1.00m;
+                            stock.ZeroQty = false;
+                            stock.UserID = LoggedUser;
+                            stock.SaveStockCode();
+                        }   
+                    }
+                    else
+                    {
 
+                    }                   
+                }
             }
             else
             {
-
+                for (int i = 0; i < DgvItems.Rows.Count - 1; i++)
+                {
+                    orderLine.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();
+                    orderLine.DeliveredQtyGarments = Convert.ToInt32(DgvItems.Rows[i].Cells[1].Value);
+                    orderLine.DeliveredQtyBoxes = Convert.ToInt32(DgvItems.Rows[i].Cells[2].Value);
+                    orderLine.DeliveredQtyHangers = Convert.ToInt32(DgvItems.Rows[i].Cells[3].Value);
+                    orderLine.LineAmount = Convert.ToDecimal(DgvItems.Rows[i].Cells[4].Value);
+                    orderLine.UpdateToPurchaseOrderLinetbl();
+                }
             }
         }
 
@@ -89,7 +156,6 @@ namespace DMHV2
             //TxtQtyLoose.Clear();
             //TxtNetCostLine.Clear();
             TotalCalc();
-
         }
         private void TotalCalc()
         {
@@ -97,8 +163,6 @@ namespace DMHV2
             int items = 0;
             int loose = 0;
             decimal NetCost = 0.0m;
-            
-
             decimal GrossAmount = 0.0m;
             for (int i = 0; i < DgvItems.Rows.Count; i++)
             {               
@@ -126,9 +190,11 @@ namespace DMHV2
 
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
+            GetAllSeasonData();
             if(FormMode == "New")
             {
                 cmdOK.Text = "Save";
+                dateTimePicker1.Value = clsUtils.GetSundayDate(DateTime.Now, 0);
             }
             else
             {
@@ -140,7 +206,28 @@ namespace DMHV2
         {
 
         }
-
+        private void GetAllSeasonData()
+        {
+            SqlConnection conn = new SqlConnection
+            {
+                ConnectionString = clsUtils.GetConnString(1)
+            };
+            conn.Open();
+            SqlCommand SelectCmd = new SqlCommand();
+            SelectCmd.CommandText = "SELECT SeasonName from tblSeasons";
+             SelectCmd.Connection = conn;
+            SqlDataReader dataReader;
+            dataReader = SelectCmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                for(int i = 0; i< dataReader.FieldCount;i++)
+                {
+                    CboSeasonName.Items.Add(dataReader.GetString(i));
+                }
+            }
+            dataReader.Close();
+            conn.Close();
+        }
         private void TxtDeliveryCharges_Leave(object sender, EventArgs e)
         {
             TotalCalc();
@@ -150,5 +237,6 @@ namespace DMHV2
         {
             TotalCalc();
         }
+
     }
 }

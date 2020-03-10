@@ -341,6 +341,29 @@
         }
         public bool CheckStockCodeSave()
         {
+            Result = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
+                    {
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandText = "SELECT StockCode FROM tblStock WHERE StockCode = @StockCode";
+                        SelectCmd.CommandType = CommandType.Text;
+                        SelectCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                        Result = (int)SelectCmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
             return UpdateToDB;
         }
         public bool UpdatePCMarkup()

@@ -10,9 +10,14 @@
         // started 09/02/2020
         // completed 00/02/2020
         public int PurchaseOrderID { get; set; }
-        public clsPurchaseOrder()
+        private int Users;
+        public clsPurchaseOrder() { }
+        public clsPurchaseOrder(int User)
         {
-            
+            SaveToDB = false;
+            UpdateToDB = false;
+            DeleteFromDB = false;
+            Users = User;
         }
         ~clsPurchaseOrder()
         {
@@ -21,6 +26,7 @@
         public void LoadNewPurchaseOrder()
         {
             frmPurchaseOrder oPurchaseOrder = new frmPurchaseOrder();
+            oPurchaseOrder.LoggedUser = Users;
             oPurchaseOrder.Show();
         }
         public void LoadSelectedPurchaseOrder()
@@ -33,13 +39,14 @@
     public class clsPurchaseOrderLine : clsPurchaseOrder
     {
         public decimal LineAmount;
-     
         public clsPurchaseOrderLine()
         {
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
+           
         }
+
         ~clsPurchaseOrderLine()
         {
             SaveToDB = false;
@@ -156,10 +163,11 @@
         public string ShipperInvoice;
         public string SupplierInvoice;
         public string Notes;
-        private int UserIDs;
-        public clsPurchaseOrderHead(int UserID)
+        public string OurRef;
+       
+        public clsPurchaseOrderHead(int U)
         {
-            UserIDs = UserID;
+            
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
@@ -183,7 +191,7 @@
                     {
                         sqlCommand.Connection = sqlConnection;
                         sqlCommand.CommandText = "INSERT INTO tblPurchaseOrders (OurRef, SupplierRef, LocationRef, TotalItems, TotalBoxes, TotalHangers, NetAmount, DeliveryCharge, Commission, VATAmount, TotalAmount, DeliveryDate, SeasonID, Notes, InvoiceNo, Shipper, ShipperInvoice, CreatedBy, CreatedDate) VALUES (@OurRef, @SupplierRef, @LocationRef, @TotalItems, @TotalBoxes, @TotalHangers, @NetAmount, @DeliveryCharge, @Commission, @VATAmount, @TotalAmount, @DeliveryDate, @SeasonID, @Notes, @InvoiceNo, @Shipper, @ShipperInvoice, @CreatedBy, @CreatedDate)";
-                        sqlCommand.Parameters.AddWithValue("@OurRef", StockCode);
+                        sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
                         sqlCommand.Parameters.AddWithValue("@TotalItems", TotalGarments);
@@ -200,7 +208,7 @@
                         sqlCommand.Parameters.AddWithValue("@Invoice", SupplierInvoice);
                         sqlCommand.Parameters.AddWithValue("@Shipper", Shipper);
                         sqlCommand.Parameters.AddWithValue("@ShipperInvoice", ShipperInvoice);
-                        sqlCommand.Parameters.AddWithValue("@CreatedBy", UserIDs);
+                        sqlCommand.Parameters.AddWithValue("@CreatedBy", UserID);
                         sqlCommand.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                         Result = (int)sqlCommand.ExecuteNonQuery();
                     }
@@ -235,7 +243,7 @@
                     {
                         sqlCommand.Connection = sqlConnection;
                         sqlCommand.CommandText = "UPDATE tblPurchaseOrders SET OurRef = @OurRef, SupplierRef = @SupplierRef, LocationRef = @LocationRef, TotalItems = @TotalItems, TotalBoxes = @TotalBoxes, TotalHangers = @TotalHangers, NetAmount = @NetAmount, DeliveryCharge = @DeliveryCharge, Commission = @Commission, VATAmount = @VATAmount, TotalAmount = @TotalAmount, DeliveryDate = @DeliveryDate, SeasonID = @SeasonID, Notes = @Notes, InvoiceNo = @InvoiceNo, Shipper = @Shipper, ShipperInvoice = @ShipperInvoice WHERE DeliveriesID = @DeliveriesID";
-                        sqlCommand.Parameters.AddWithValue("@OurRef", StockCode);
+                        sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
                         sqlCommand.Parameters.AddWithValue("@TotalItems", TotalGarments);

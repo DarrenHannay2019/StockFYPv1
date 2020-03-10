@@ -50,7 +50,7 @@ namespace DMHV2
             }
             if (FunctionID == 7)
             {
-                clsPurchaseOrder objPurchaseOrder = new clsPurchaseOrder();
+                clsPurchaseOrder objPurchaseOrder = new clsPurchaseOrder(UserID);
                 objPurchaseOrder.LoadNewPurchaseOrder();
             }
             if (FunctionID == 8)
@@ -144,7 +144,7 @@ namespace DMHV2
             }
             if (FunctionID == 7)
             {
-                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder
+                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder(UserID)
                 {
                     PurchaseOrderID = Convert.ToInt32(i)
                 };
@@ -298,7 +298,7 @@ namespace DMHV2
                 }
                 else
                 {
-                    clsPurchaseOrderLine orderLine = new clsPurchaseOrderLine
+                    ClsPurchaseOrderLine orderLine = new ClsPurchaseOrderLine
                     {
                         PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
                     };

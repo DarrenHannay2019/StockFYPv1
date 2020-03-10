@@ -10,6 +10,13 @@
         // Properties / fields for the class
         // started 09/02/2020
         // completed 00/03/2020
+        public int UserID { get; set; }       
+        public string StockCode;
+        public string SupplierRef;
+        public string SeasonName;
+        public int DeliveredQtyHangers;
+        public int DeliveredQtyBoxes;
+        public int DeliveredQtyGarments;      
         public bool DeadCode;
         public bool ZeroQty;      
         public decimal AmountTaken;

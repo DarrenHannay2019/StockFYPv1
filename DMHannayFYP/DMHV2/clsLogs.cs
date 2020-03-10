@@ -7,6 +7,23 @@
     public class clsLogs : clsUtils 
     {
         public int LocationType { get; set; }
+        public string StockCode { get; set; }
+        public string SupplierRef { get; set; }
+        public string LocationRef { get; set; }
+        public string StringMovementType { get; set; }
+        public int MovementType { get; set; }
+        public int Qty { get; set; }
+        public string RecordType { get; set; }
+        public DateTime MovementDate { get; set; }
+        public string Reference { get; set; }
+        public int UserID { get; set; }
+        public int DeliveredQtyHangers { get; set; }
+        public int DeliveredQtyBoxes { get; set; }
+        public int DeliveredQtyGarments { get; set; }
+        public decimal MovementValue { get; set; }
+        public int TransferReference { get; set; }
+
+
         public clsLogs()
         {
             SaveToDB = false;
@@ -33,10 +50,10 @@
                         InsertCmd.CommandText = "INSERT INTO tblSystemLog (StockCode, SupplierRef, LocationRef, Qty, MovementType, RecordType, MovementDate, TimeStamp, Reference, CreatedBy) VALUES (@StockCode, @SupplierRef, @LocationRef, @Qty, @MovementType, @RecordType, @MovementDate, @TimeStamp, @Reference, @CreatedBy)";
                         InsertCmd.Parameters.AddWithValue("StockCode", StockCode);
                         InsertCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        InsertCmd.Parameters.AddWithValue("@LocationRef", ShopRef);
+                        InsertCmd.Parameters.AddWithValue("@LocationRef", LocationRef);
                         InsertCmd.Parameters.AddWithValue("@Qty", Qty);
-                        InsertCmd.Parameters.AddWithValue("@MovementType", ShopName);
-                        InsertCmd.Parameters.AddWithValue("@RecordType", WarehouseName);
+                        InsertCmd.Parameters.AddWithValue("@MovementType", StringMovementType);
+                        InsertCmd.Parameters.AddWithValue("@RecordType", RecordType);
                         InsertCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
                         InsertCmd.Parameters.AddWithValue("@Timestamp", DateTime.Now);
                         InsertCmd.Parameters.AddWithValue("@Reference", Reference);
@@ -72,17 +89,14 @@
                         InsertCmd.CommandText = "INSERT INTO tblStockMovements (StockCode, SupplierRef, LocationRef, LocationType, MovementQtyHangers, MovementQtyBoxes, MovementType, MovementDate, MovementValue, Reference, TransferReference, CreatedBy, CreatedDate) VALUES (@StockCode, @SupplierRef, @LocationRef, @LocationType, @MovementQtyHangers, @MovementQtyBoxes, @MovementType, @MovementDate, @MovementValue, @Reference, @TransferReference, @CreatedBy, @CreatedDate)";
                         InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                         InsertCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        if(LocationType == 2)
-                            InsertCmd.Parameters.AddWithValue("@LocationRef", ShopRef);
-                        else
-                            InsertCmd.Parameters.AddWithValue("@LocationRef", WarehouseRef);
+                        InsertCmd.Parameters.AddWithValue("@LocationRef", LocationRef);
                         InsertCmd.Parameters.AddWithValue("@LocationType", LocationType);
                         InsertCmd.Parameters.AddWithValue("@MovementQtyHangers", DeliveredQtyHangers);
                         InsertCmd.Parameters.AddWithValue("@MovementQtyBoxes", DeliveredQtyBoxes);
                         InsertCmd.Parameters.AddWithValue("@MovementQtyGarments", DeliveredQtyGarments);
                         InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
                         InsertCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
-                        InsertCmd.Parameters.AddWithValue("@MovementValue", Value);
+                        InsertCmd.Parameters.AddWithValue("@MovementValue", MovementValue);
                         InsertCmd.Parameters.AddWithValue("@Reference", Reference);
                         InsertCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
                         InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);

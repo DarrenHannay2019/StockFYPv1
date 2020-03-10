@@ -5,7 +5,8 @@
     using System.Data;
 
     public class clsShopDelivery : clsUtils
-    {       
+    {
+        public int ID;
         public void LoadNewForm()
         {
             frmShopAdjustment shopAdjustment = new frmShopAdjustment
@@ -64,6 +65,16 @@
     }
     public class clsShopDeliveryHead : clsShopDelivery
     {
+        public string ShopRef;
+        public string ShopName;
+        public string WarehouseRef;
+        public string WarehouseName;
+        public string Reference;
+        public DateTime MovementDate;
+        public int UserID;
+        public int TotalItems;
+        public int ID;
+        public string ShopDelID;
         public bool SaveShopDeliveryHead()
         {
             try
@@ -213,6 +224,9 @@
     }
     public class clsShopDeliveryLine : clsShopDelivery
     {
+        public string StockCode;
+        public int Qty;
+        public string ShopDelID;
         public bool SaveShopDeliveryLine()
         {
             try

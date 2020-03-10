@@ -14,7 +14,19 @@ namespace DMHV2
         // Properties / fields for the class
         // started 09/02/2020
         // completed 00/02/2020
-       
+        public int UserID { get; set; }
+        public string AddressLine1;
+        public string AddressLine2;
+        public string AddressLine3;
+        public string AddressLine4;
+        public string PostCode;
+        public string Telephone;
+        public string ContactName;
+        public string Fax;
+        public string eMail;
+        public string WebsiteAddress;
+        public string Memo;      
+        public string SupplierRef;        
         public string SupplierName;
         private int user;
         public clsSupplier(int users)

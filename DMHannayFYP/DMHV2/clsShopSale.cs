@@ -61,6 +61,14 @@ namespace DMHV2
     }
     public class clsShopSaleHead : clsShopSale
     {
+        public string ShopRef;
+        public string ShopName;
+        public DateTime MovementDate;
+        public int Qty;
+        public decimal VATRate;
+        public decimal Value;
+        public int UserID;
+        public int SalesID;
         public bool SaveShopSaleHead()
         {
             try
@@ -167,7 +175,7 @@ namespace DMHV2
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE from tblShopSales WHERE SalesID =@SalesID;";
-                            DeleteCmd.Parameters.AddWithValue("@SalesID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }
@@ -194,6 +202,13 @@ namespace DMHV2
     }
     public class clsShopSaleLine : clsShopSale
     {
+        public int SalesID;
+        public string StockCode;
+        public int DeliveredQtyGarments;
+        public int CurrentQty;
+        public int TotalItems;
+        public int Qty;
+        public decimal SalesAmount;
         public bool SaveShopSaleLine()
         {
             try
@@ -259,7 +274,6 @@ namespace DMHV2
                             UpdateCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
                             UpdateCmd.Parameters.AddWithValue("@QtySold", Qty);
                             UpdateCmd.Parameters.AddWithValue("@SalesAmount", SalesAmount);
-                            UpdateCmd.Parameters.AddWithValue("@StockMovementID", smtoid);
                         }
                     }
                     catch (SqlException ex)
@@ -297,7 +311,7 @@ namespace DMHV2
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE from tblShopSalesLines WHERE SalesID = @SalesID;";
-                            DeleteCmd.Parameters.AddWithValue("@SalesID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }

@@ -10,6 +10,26 @@
         // started 09/02/2020
         // completed 00/02/2020
         public int PurchaseOrderID { get; set; }
+        public string SupplierRef { get; set; }
+        public string WarehouseRef { get; set; }
+        public string SeasonName { get; set; }
+        public int UserID;
+
+        public int TotalGarments;
+        public int TotalHangers;
+        public int TotalBoxes;
+        public decimal NetAmount;
+        public decimal DeliveryCharge;
+        public decimal Commission;
+        public decimal VATAmount;
+        public decimal TotalAmount;
+        public DateTime DeliveryDate;
+        public string DeliveryType;
+        public string Shipper;
+        public string ShipperInvoice;
+        public string SupplierInvoice;
+        public string Notes;
+        public string OurRef;
         private int Users;
         public clsPurchaseOrder() { }
         public clsPurchaseOrder(int User)
@@ -38,6 +58,10 @@
     }
     public class clsPurchaseOrderLine : clsPurchaseOrder
     {
+        public string StockCode;
+        public int DeliveredQtyGarments;
+        public int DeliveredQtyHangers;
+        public int DeliveredQtyBoxes;
         public decimal LineAmount;
         public clsPurchaseOrderLine()
         {
@@ -149,21 +173,7 @@
     }
     public class clsPurchaseOrderHead : clsPurchaseOrder
     {
-        public int TotalGarments;
-        public int TotalHangers;
-        public int TotalBoxes;       
-        public decimal NetAmount;
-        public decimal DeliveryCharge;
-        public decimal Commission;
-        public decimal VATAmount;
-        public decimal TotalAmount;
-        public DateTime DeliveryDate;
-        public string DeliveryType;
-        public string Shipper;
-        public string ShipperInvoice;
-        public string SupplierInvoice;
-        public string Notes;
-        public string OurRef;
+        
        
         public clsPurchaseOrderHead(int U)
         {

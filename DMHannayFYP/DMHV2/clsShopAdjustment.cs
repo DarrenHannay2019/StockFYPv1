@@ -6,7 +6,17 @@
 
     public class clsShopAdjustment : clsUtils
     {
-  
+        public int ID { get; set; }
+        public DateTime MovementDate { get; set; }
+        public string MovementType { get; set; }
+        public int Qty;
+        public string Reference;
+        public string ShopRef;
+        public string StockCode;
+        public int TotalGainItems;
+        public int TotalLossItems;
+        public int UserID;
+        public decimal Value;
         public void LoadNewForm()
         {
             frmShopAdjustment shopAdjustment = new frmShopAdjustment

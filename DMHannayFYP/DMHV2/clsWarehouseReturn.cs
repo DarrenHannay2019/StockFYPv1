@@ -7,6 +7,7 @@
 
     public class clsWarehouseReturn : clsUtils
     {
+        public string WarehouseReturnID { get; set; }
         public void LoadNewForm()
         {
             frmWarehouseReturn warehouseReturn = new frmWarehouseReturn()
@@ -21,7 +22,7 @@
             {
                 FormMode = "Old"
             };
-            warehouseReturn.txtReturnID.Text = ID.ToString();
+            warehouseReturn.txtReturnID.Text = WarehouseReturnID.ToString();
             warehouseReturn.Show();
         }
         public int GetLastWarehouseReturnHead()
@@ -59,6 +60,12 @@
     }
     public class clsWarehouseReturnHead : clsWarehouseReturn
     {
+        public string Reference;
+        public DateTime MovementDate;
+        public string SupplierRef;
+        public int TotalItems;
+        public string WarehouseRef;
+        public int UserID;
         public bool SaveWarehouseReturnHead()
         {
             try
@@ -125,7 +132,7 @@
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
                             UpdateCmd.CommandText = "UPDATE tblWarehouseReturns SET ToWarehouseRef = @ToWarehouseRef, WarehouseRef = @WarehouseRef, Reference = @Reference, TotalItems = @TotalItems, TransactionDate = @TransactionDate WHERE ReturnsID = @ReturnsID";
-                            UpdateCmd.Parameters.AddWithValue("@ReturnsID", ID);
+                            UpdateCmd.Parameters.AddWithValue("@ReturnsID", WarehouseReturnID);
                             UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                             UpdateCmd.Parameters.AddWithValue("@ToWarehouseRef", SupplierRef);
                             UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
@@ -171,7 +178,7 @@
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE FROM tblWarehouseReturns WHERE ReturnsID = @ReturnsID";
-                            DeleteCmd.Parameters.AddWithValue("@ReturnsID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@ReturnsID", WarehouseReturnID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }
@@ -200,6 +207,9 @@
     }
     public class clsWarehouseReturnLine : clsWarehouseReturn
     {
+        public string StockCode;
+        public int ReturnQty;
+        public int ReturnValue;
         public bool SaveWarehouseReturnLine()
         {
             try
@@ -215,10 +225,10 @@
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
                             InsertCmd.CommandText = "INSERT INTO tblWarehouseReturnLines (ReturnID, StockCode, Qty, Value) VALUES (@ReturnID, @StockCode, @Qty, @Value)";
-                            InsertCmd.Parameters.AddWithValue("@ReturnID", ID);
+                            InsertCmd.Parameters.AddWithValue("@ReturnID", WarehouseReturnID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                            InsertCmd.Parameters.AddWithValue("@Qty", Qty);
-                            InsertCmd.Parameters.AddWithValue("@Value", Value);
+                            InsertCmd.Parameters.AddWithValue("@Qty", ReturnQty);
+                            InsertCmd.Parameters.AddWithValue("@Value", ReturnValue);
                             Result = (int)InsertCmd.ExecuteNonQuery();
                         }
                     }
@@ -259,10 +269,10 @@
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
                             UpdateCmd.CommandText = "UPDATE tblWarehouseReturnLines SET Qty = @Qty,Value = @Value WHERE ReturnID = @ReturnID AND StockCode = @StockCode";
-                            UpdateCmd.Parameters.AddWithValue("@ReturnID", ID);
+                            UpdateCmd.Parameters.AddWithValue("@ReturnID", WarehouseReturnID);
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                            UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
-                            UpdateCmd.Parameters.AddWithValue("@Value", Value);
+                            UpdateCmd.Parameters.AddWithValue("@Qty", ReturnQty);
+                            UpdateCmd.Parameters.AddWithValue("@Value", ReturnValue);
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
                     }
@@ -307,7 +317,7 @@
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE FROM tblWarehouseReturnLines WHERE ReturnID = @ReturnID;";
-                            DeleteCmd.Parameters.AddWithValue("@ReturnID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@ReturnID", WarehouseReturnID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }

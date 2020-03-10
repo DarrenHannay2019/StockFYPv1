@@ -57,6 +57,13 @@
     }
     public class clsShopReturnHead : clsShopReturn
     {
+        public string ShopRef;
+        public string WarehouseRef;
+        public string Reference;
+        public int TotalItems;
+        public DateTime MovementDate;
+        public int UserID;
+        public int ID;
         public bool SaveShopReturnHead()
         {
             try
@@ -185,6 +192,10 @@
     }
     public class clsShopReturnLine : clsShopReturn
     {
+        public int ID;
+        public string StockCode;
+        public int Qty;
+        public decimal Value;
         public bool SaveShopReturnLine()
         {
             try

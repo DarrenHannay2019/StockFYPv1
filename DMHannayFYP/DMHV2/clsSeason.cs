@@ -7,6 +7,7 @@
     public class clsSeason : clsUtils
     { 
         public int SeasonID { get; set; }
+        public string SeasonName;
         public clsSeason()
         {
 

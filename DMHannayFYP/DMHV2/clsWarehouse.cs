@@ -12,6 +12,20 @@
         // completed 00/02/2020
         //public string WarehouseName;
         private int Users;
+        public int UserID { get; set; }
+        public string AddressLine1;
+        public string AddressLine2;
+        public string AddressLine3;
+        public string AddressLine4;
+        public string PostCode;
+        public string Telephone;
+        public string ContactName;
+        public string Fax;
+        public string eMail;
+        public string WebsiteAddress;
+        public string Memo;       
+        public string WarehouseRef;       
+        public string WarehouseName;
         public string WarehouseType;
         public clsWarehouse(int User)
         {

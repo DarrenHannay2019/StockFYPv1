@@ -6,6 +6,9 @@
 
     public class clsWarehouseAdjustment : clsUtils
     {
+        public int UserID { get; set; }
+       
+        
         public void LoadNewForm()
         {
             frmWarehouseAdjustment warehouseAdjustment = new frmWarehouseAdjustment
@@ -57,6 +60,15 @@
     }
     public class clsWarehouseAdjustmentHead : clsWarehouseAdjustment
     {
+        public string ShopRef;
+        public string WarehouseRef;
+        public string SupplierRef;
+        public DateTime MovementDate;
+        public int WarehouseAdjustmentID;
+        public int TotalLossItems;
+        public int TotalGainItems;
+        public string Reference;
+        public string WarehouseName;
         public bool SaveWarehouseAdjustmentHead()
         {
             try
@@ -121,7 +133,7 @@
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
                             UpdateCmd.CommandText = "UPDATE tblWarehouseAdjustments SET WarehouseRef = @WarehouseRef, Reference = @Reference, TotalLossItems = @TotalLossItems, TotalGainItems = @TotalGainItems, MovementDate = @MovementDate WHERE WarehouseAdjustmentID = @WarehouseAdjustmentID";
-                            UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", ID);
+                            UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", WarehouseAdjustmentID);
                             UpdateCmd.Parameters.AddWithValue("@WarehouseRef", ShopRef);
                             UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
                             UpdateCmd.Parameters.AddWithValue("@TotalLossItems", TotalLossItems);
@@ -169,7 +181,7 @@
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE from tblWarehouseAdjustments where WarehouseAdjustmentID = @WarehouseAdjustmentID;";
-                            DeleteCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", WarehouseAdjustmentID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }
@@ -200,6 +212,11 @@
     }
     public class clsWarehouseAdjustmentLine : clsWarehouseAdjustment
     {
+        public int WarehouseAdjustmentID;
+        public string StockCode;
+        public int Qty;
+        public int MovementType;
+        public decimal Value;
         public bool SaveWarehouseAdjustmentLine()
         {
             try
@@ -215,7 +232,7 @@
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
                             InsertCmd.CommandText = "INSERT INTO tblWarehouseAdjustmentsLines (WarehouseAdjustID, StockCode, MovementType, Qty, Value) VALUES (@WarehouseAdjustID, @StockCode, @MovementType, @Qty, @Value)";
-                            InsertCmd.Parameters.AddWithValue("@WarehouseAdjustID", ID);
+                            InsertCmd.Parameters.AddWithValue("@WarehouseAdjustID", WarehouseAdjustmentID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
                             InsertCmd.Parameters.AddWithValue("@Qty", Qty);
@@ -264,7 +281,7 @@
                             UpdateCmd.Parameters.AddWithValue("@MovementType", MovementType);
                             UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
                             UpdateCmd.Parameters.AddWithValue("@Value", Value);
-                            UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustID", ID);
+                            UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustID", WarehouseAdjustmentID);
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
                     }
@@ -306,7 +323,7 @@
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE from tblWarehouseAdjustmentsLines WHERE WarehouseAdjustmentID = @WarehouseAdjustmentID;";
-                            DeleteCmd.Parameters.AddWithValue("@WHAdjustID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@WHAdjustID", WarehouseAdjustmentID);
                             DeleteCmd.ExecuteNonQuery();
                         }
                     }

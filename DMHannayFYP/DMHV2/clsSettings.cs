@@ -7,8 +7,22 @@ namespace DMHV2
 {
     public class clsSettings : clsUtils
     {
+        public string CompanyName;
         public string VATRegistration { get; set; }
-      
+        public string AddressLine1;
+        public string AddressLine2;
+        public string AddressLine3;
+        public string AddressLine4;
+        public string PostCode;
+        public string Telephone;
+        public string ContactName;
+        public string Fax;
+        public string eMail;
+        public string WebsiteAddress;
+        public decimal VATRate;
+        public int ID;
+        public string Reference;
+
         public clsSettings()
         {
 
@@ -60,7 +74,7 @@ namespace DMHV2
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
                             InsertCmd.CommandText = "INSERT INTO tblCompanyDetails (CompanyName, Address1, Address2, Address3, Address4, PostCode, Telephone, Fax, VATRegistrationNo, Email, Website, VATRate) VALUES (@CompanyName, @Address1, @Address2, @Address3, @Address4, @PostCode, @Telephone, @Fax, @VATRegistrationNo, @Email, @Website, @VATRate)";
-                            InsertCmd.Parameters.AddWithValue("@CompanyName", WarehouseName);
+                            InsertCmd.Parameters.AddWithValue("@CompanyName", CompanyName);
                             InsertCmd.Parameters.AddWithValue("@Address1", AddressLine1);
                             InsertCmd.Parameters.AddWithValue("@Address2", AddressLine2);
                             InsertCmd.Parameters.AddWithValue("@Address3", AddressLine3);
@@ -115,7 +129,7 @@ namespace DMHV2
                             UpdateCmd.CommandType = CommandType.Text;
                             UpdateCmd.CommandText = "UPDATE tblCompanyDetails SET CompanyName =  @CompanyName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, Telephone = @Telephone, Fax = @Fax, VATRegistrationNo = @VATRegistrationNo, Email = @Email, Website = @Website, VATRate = @VATRate WHERE CompanyID = @CompanyID";
                             UpdateCmd.Parameters.AddWithValue("@CompanyID", ID);
-                            UpdateCmd.Parameters.AddWithValue("@CompanyName", WarehouseName);
+                            UpdateCmd.Parameters.AddWithValue("@CompanyName", CompanyName);
                             UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);
                             UpdateCmd.Parameters.AddWithValue("@Address2", AddressLine2);
                             UpdateCmd.Parameters.AddWithValue("@Address3", AddressLine3);

@@ -5,7 +5,7 @@
     using System.Data.SqlClient;
 
     public class clsShopTransfer : clsUtils
-    {
+    {        
         public void LoadNewForm()
         {
             frmShopTransfer shopTransfer = new frmShopTransfer()
@@ -55,8 +55,17 @@
             return Result;
         }
     }
-    public class clsShopTransferHead : clsUtils
+    public class clsShopTransferHead : clsShopTransfer
     {
+        public string ShopRef;
+        public string ToShopRef;
+        public DateTime MovementDate { get; set; }
+        public string Reference;
+        public string ShopName;
+        public string ToShopName;
+        public int Qty;
+        public int UserID;
+        public int ID;
         public bool SaveShopTransferHead()
         {
             try
@@ -195,6 +204,11 @@
     }
     public class clsShopTransferLine : clsUtils
     {
+        public int ID;
+        public string StockCode;
+        public int CurrQty;
+        public int TOQty;
+        public int TIQty;
         public bool SaveShopTransferLine()
         {
             using (SqlConnection conn = new SqlConnection())

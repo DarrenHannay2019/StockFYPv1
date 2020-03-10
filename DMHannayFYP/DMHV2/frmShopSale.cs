@@ -75,26 +75,26 @@ namespace DMHV2
                     saleLine.Qty = Convert.ToInt32(DgvRecords.Rows[a].Cells[4].Value.ToString());
                     saleLine.SalesAmount = Convert.ToDecimal(DgvRecords.Rows[a].Cells[5].Value.ToString());
                     saleLine.SaveShopSaleLine();    // Save to database
-                    logs.ShopRef = saleHead.ShopRef;
+                    logs.LocationRef = saleHead.ShopRef;
                     logs.MovementDate = saleHead.MovementDate;
                     logs.StockCode = saleLine.StockCode;
                     logs.Qty = saleLine.Qty;
-                    logs.ShopName = "Shop Sale";
-                    logs.WarehouseName = "Sale Record [" + logs.StockCode + "]";
+                    logs.StringMovementType = "Shop Sale Add";
+                    logs.RecordType = "Sale Record [" + logs.StockCode + "]";
                     logs.MovementDate = saleHead.MovementDate;
                     logs.UserID = saleHead.UserID;
                     logs.MovementType = 5;
                     logs.LocationType = 2;
-                    logs.Reference = logs.WarehouseName;
+                    logs.Reference = logs.Reference;
                     logs.TransferReference = saleLine.SalesID;
                     logs.DeliveredQtyGarments = logs.Qty;
                     logs.DeliveredQtyBoxes = 0;
                     logs.DeliveredQtyHangers = logs.DeliveredQtyBoxes;
                     logs.SupplierRef = "";  // Add function to clsStock to get the supplier Ref from the table.
                     logs.SaveToSysLogTable();
-                    logs.SaveToStockMovementsTable();
-                    logs.DeleteZeroQtyFromStockMovementsTable();
-                }
+                    logs.SaveToStockMovementsTable();                  
+                } 
+                logs.DeleteZeroQtyFromStockMovementsTable();
             }
             else
             {
@@ -111,17 +111,17 @@ namespace DMHV2
                     saleLine.Qty = Convert.ToInt32(DgvRecords.Rows[a].Cells[4].Value.ToString());
                     saleLine.SalesAmount = Convert.ToDecimal(DgvRecords.Rows[a].Cells[5].Value.ToString());
                     saleLine.UpdateShopSaleLine();    // Save to database
-                    logs.ShopRef = saleHead.ShopRef;
+                    logs.LocationRef = saleHead.ShopRef;
                     logs.MovementDate = saleHead.MovementDate;
                     logs.StockCode = saleLine.StockCode;
                     logs.Qty = saleLine.Qty;
-                    logs.ShopName = "Shop Sale";
-                    logs.WarehouseName = "Sale Record [" + logs.StockCode + "]";
+                    logs.StringMovementType = "Shop Sale Update";
+                    logs.RecordType = "Sale Record [" + logs.StockCode + "]";
                     logs.MovementDate = saleHead.MovementDate;
                     logs.UserID = saleHead.UserID;
                     logs.MovementType = 5;
                     logs.LocationType = 2;
-                    logs.Reference = logs.WarehouseName;
+                    logs.Reference = "Sale-Add-Item";
                     logs.TransferReference = saleLine.SalesID;
                     logs.DeliveredQtyGarments = logs.Qty;
                     logs.DeliveredQtyBoxes = 0;

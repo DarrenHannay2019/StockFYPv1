@@ -46,10 +46,10 @@ namespace DMHV2
             orderHead.Notes = TxtNotes.Text.TrimEnd();
             orderHead.Shipper = TxtShipperName.Text.TrimEnd(); 
             orderHead.ShipperInvoice = TxtShipperInvoiceNumber.Text.TrimEnd();
-            orderHead.SaveToPurchaseOrderHeadtbl();
-            orderHead.PurchaseOrderID = orderHead.GetLastPurchaseOrderHead();
             if (FormMode == "New")
             {
+                orderHead.SaveToPurchaseOrderHeadtbl();
+                orderHead.PurchaseOrderID = orderHead.GetLastPurchaseOrderHead();
                 for (int i = 0; i< DgvItems.Rows.Count - 1;i++)
                 {
                     orderLine.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();
@@ -85,6 +85,8 @@ namespace DMHV2
             }
             else
             {
+                orderHead.PurchaseOrderID = Convert.ToInt32(TxtOrderID.Text.TrimEnd());
+                orderHead.UpdateToPurchaseOrderHeadtbl();
                 for (int i = 0; i < DgvItems.Rows.Count - 1; i++)
                 {
                     orderLine.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();

@@ -94,7 +94,7 @@
             txtWarehouseRef.Text = clsWarehouse.ChangeCase(txtWarehouseRef.Text, 1);
             clsShop warehouse = new clsShop()
             {
-                WarehouseRef = txtWarehouseRef.Text.TrimEnd()
+                ShopRef = txtWarehouseRef.Text.TrimEnd()
             };
             txtWarehouseName.Text = warehouse.GetShopName();
         }

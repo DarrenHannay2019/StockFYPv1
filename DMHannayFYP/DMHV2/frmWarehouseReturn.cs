@@ -68,11 +68,11 @@
         private void txtShopRef_Leave(object sender, EventArgs e)
         {
             txtShopRef.Text = clsShop.ChangeCase(txtWarehouseRef.Text, 1);
-            clsWarehouse Shop = new clsWarehouse(0)
+            clsWarehouse warehouse = new clsWarehouse(0)
             {
-                ShopRef = txtShopRef.Text.TrimEnd()
+                WarehouseRef = txtShopRef.Text.TrimEnd()
             };
-            txtShopName.Text = Shop.GetWarehouseName();
+            txtShopName.Text = warehouse.GetWarehouseName();
         }
 
         private void txtStockCode_Leave(object sender, EventArgs e)

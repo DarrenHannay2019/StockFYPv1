@@ -54,7 +54,27 @@
         {
             clsShopAdjustmentHead adjustmentHead = new clsShopAdjustmentHead();
             clsShopAdjustmentLine adjustmentLine = new clsShopAdjustmentLine();
-            if(FormMode == "New")
+            clsLogs logs = new clsLogs();
+            // Header of both adjustments and log file
+            if (FormMode == "New")
+            {
+
+            }
+            else
+            {
+
+            }
+            // Body and lines
+            if (FormMode == "New")
+            {
+
+            }
+            else
+            {
+
+            }
+            // End of Saving
+            if (FormMode == "New")
             {
 
             }

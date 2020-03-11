@@ -42,6 +42,28 @@ namespace DMHV2
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
+            clsShopDeliveryHead deliveryHead = new clsShopDeliveryHead();
+            clsShopDeliveryLine deliveryLine = new clsShopDeliveryLine();
+            clsLogs logs = new clsLogs();
+            // Header of both adjustments and log file
+            if (FormMode == "New")
+            {
+
+            }
+            else
+            {
+
+            }
+            // Body and lines
+            if (FormMode == "New")
+            {
+
+            }
+            else
+            {
+
+            }
+            // End of Saving
             if (FormMode == "New")
             {
 

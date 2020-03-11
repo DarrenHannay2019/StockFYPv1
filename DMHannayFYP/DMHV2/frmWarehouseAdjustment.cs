@@ -38,6 +38,28 @@
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
+            clsWarehouseAdjustmentHead adjustmentHead = new clsWarehouseAdjustmentHead();
+            clsWarehouseAdjustmentLine adjustmentLine = new clsWarehouseAdjustmentLine();
+            clsLogs logs = new clsLogs();
+            // Header of both adjustments and log file
+            if (FormMode == "New")
+            {
+
+            }
+            else
+            {
+
+            }
+            // Body and lines
+            if (FormMode == "New")
+            {
+
+            }
+            else
+            {
+
+            }
+            // End of Saving
             if (FormMode == "New")
             {
 

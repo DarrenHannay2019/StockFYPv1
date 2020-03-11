@@ -64,6 +64,16 @@ namespace DMHV2
             saleHead.VATRate = Convert.ToDecimal(txtVAT.Text);
             saleHead.UserID = LoggedInUser;
             saleLine.SalesID = saleHead.GetLastShopSaleHead();
+            logs.StockCode = "ALL";
+            logs.SupplierRef = "ALL";
+            logs.LocationRef = saleHead.ShopRef;
+            logs.Qty = saleHead.Qty;
+            logs.RecordType = "Sales Add-Start";
+            logs.MovementDate = saleHead.MovementDate;
+            logs.StringMovementType = "Sales Add";
+            logs.UserID = saleHead.UserID;
+            logs.Reference = "Sales ID: [" + saleHead.SalesID.ToString() + "]";
+            logs.SaveToSysLogTable();
             if (FormMode == "New")
             {
                 for (int a = 0; a< DgvRecords.Rows.Count-1; a++)
@@ -79,7 +89,7 @@ namespace DMHV2
                     logs.MovementDate = saleHead.MovementDate;
                     logs.StockCode = saleLine.StockCode;
                     logs.Qty = saleLine.Qty;
-                    logs.StringMovementType = "Shop Sale Add";
+                    logs.StringMovementType = "Shop Sale Add-Item";
                     logs.RecordType = "Sale Record [" + logs.StockCode + "]";
                     logs.MovementDate = saleHead.MovementDate;
                     logs.UserID = saleHead.UserID;
@@ -95,6 +105,16 @@ namespace DMHV2
                     logs.SaveToStockMovementsTable();                  
                 } 
                 logs.DeleteZeroQtyFromStockMovementsTable();
+                logs.StockCode = "ALL";
+                logs.SupplierRef = "ALL";
+                logs.LocationRef = saleHead.ShopRef;
+                logs.Qty = saleHead.Qty;
+                logs.RecordType = "Sales Add-End";
+                logs.MovementDate = saleHead.MovementDate;
+                logs.StringMovementType = "Sales Add";
+                logs.UserID = saleHead.UserID;
+                logs.Reference = "Sales ID: [" + saleHead.SalesID.ToString() + "]";
+                logs.SaveToSysLogTable();
             }
             else
             {
@@ -102,6 +122,16 @@ namespace DMHV2
                 logs.TransferReference = Convert.ToInt32(txtSalesID.Text.TrimEnd());
                 logs.MovementDate = OldDate;
                 logs.DeleteFromStockMovemmentsTable();
+                logs.StockCode = "ALL";
+                logs.SupplierRef = "ALL";
+                logs.LocationRef = saleHead.ShopRef;
+                logs.Qty = saleHead.Qty;
+                logs.RecordType = "Sales Update-Start";
+                logs.MovementDate = saleHead.MovementDate;
+                logs.StringMovementType = "Sales Update";
+                logs.UserID = saleHead.UserID;
+                logs.Reference = "Sales ID: [" + saleHead.SalesID.ToString() + "]";
+                logs.SaveToSysLogTable();
                 for (int a = 0; a < DgvRecords.Rows.Count - 1; a++)
                 {
                     saleLine.StockCode = DgvRecords.Rows[a].Cells[0].Value.ToString();
@@ -121,7 +151,7 @@ namespace DMHV2
                     logs.UserID = saleHead.UserID;
                     logs.MovementType = 5;
                     logs.LocationType = 2;
-                    logs.Reference = "Sale-Add-Item";
+                    logs.Reference = "Sale-Update-Item";
                     logs.TransferReference = saleLine.SalesID;
                     logs.DeliveredQtyGarments = logs.Qty;
                     logs.DeliveredQtyBoxes = 0;
@@ -130,6 +160,16 @@ namespace DMHV2
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();
                 }
+                logs.StockCode = "ALL";
+                logs.SupplierRef = "ALL";
+                logs.LocationRef = saleHead.ShopRef;
+                logs.Qty = saleHead.Qty;
+                logs.RecordType = "Sales Update-End";
+                logs.MovementDate = saleHead.MovementDate;
+                logs.StringMovementType = "Sales Update";
+                logs.UserID = saleHead.UserID;
+                logs.Reference = "Sales ID: [" + saleHead.SalesID.ToString() + "]";
+                logs.SaveToSysLogTable();
             }
             Close();
         }

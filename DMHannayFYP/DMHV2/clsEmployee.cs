@@ -7,6 +7,7 @@
 
     class clsEmployee : clsUtils
     {
+        public int UserID;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string LoginCode { get; set; }

@@ -18,6 +18,8 @@ namespace DMHV2
         public string ContactName;
         public string Fax;
         public string eMail;
+        public string Memo;
+        public decimal Value;
         public string WebsiteAddress;
         public decimal VATRate;
         public int ID;

@@ -81,11 +81,13 @@ namespace DMHV2
             orderHead.Notes = TxtNotes.Text.TrimEnd();
             orderHead.Shipper = TxtShipperName.Text.TrimEnd(); 
             orderHead.ShipperInvoice = TxtShipperInvoiceNumber.Text.TrimEnd();
+            orderHead.UserID = LoggedUser;
             if (FormMode == "New")
             {
                 orderHead.SaveToPurchaseOrderHeadtbl();
                 orderHead.PurchaseOrderID = orderHead.GetLastPurchaseOrderHead();
                 logs.TransferReference = orderHead.PurchaseOrderID;
+                orderLine.PurchaseOrderID = orderHead.PurchaseOrderID;
                 for (int i = 0; i< DgvItems.Rows.Count - 1;i++)
                 {
                     orderLine.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();
@@ -93,17 +95,17 @@ namespace DMHV2
                     orderLine.DeliveredQtyBoxes = Convert.ToInt32(DgvItems.Rows[i].Cells[2].Value);
                     orderLine.DeliveredQtyHangers = Convert.ToInt32(DgvItems.Rows[i].Cells[3].Value);
                     orderLine.LineAmount = Convert.ToDecimal(DgvItems.Rows[i].Cells[4].Value);
-                    logs.StockCode = orderLine.StockCode;
-                    logs.DeliveredQtyBoxes = orderLine.DeliveredQtyBoxes;
-                    logs.DeliveredQtyGarments = orderLine.DeliveredQtyGarments;
-                    logs.DeliveredQtyHangers = orderLine.DeliveredQtyHangers;
-                    logs.MovementValue = orderLine.LineAmount;
+                    logs.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();
+                    logs.DeliveredQtyBoxes = Convert.ToInt32(DgvItems.Rows[i].Cells[2].Value.ToString());
+                    logs.DeliveredQtyGarments =Convert.ToInt32( DgvItems.Rows[i].Cells[1].Value.ToString());
+                    logs.DeliveredQtyHangers = Convert.ToInt32( DgvItems.Rows[i].Cells[3].Value.ToString());
+                    logs.MovementValue = Convert.ToDecimal(DgvItems.Rows[i].Cells[4].Value);
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();
                     if(orderLine.SaveToPurchaseOrderLinetbl() == true)
                     {
                         stock.StockCode = orderLine.StockCode;
-                        if(stock.CheckStockCodeSave() == true)
+                        if(stock.CheckStockCodeSave() == false)
                         {
                             stock.StockCode = orderLine.StockCode;
                             stock.SupplierRef = orderHead.SupplierRef;
@@ -216,6 +218,7 @@ namespace DMHV2
         {
             TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text.TrimEnd(), 1);
             clsStock stock = new clsStock();
+            stock.StockCode = TxtStockCode.Text.TrimEnd();
             if(stock.CheckStockCodeSave() == true)
             {
                 MessageBox.Show("Already StockCode in Database");

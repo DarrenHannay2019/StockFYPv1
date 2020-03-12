@@ -8,6 +8,7 @@
     public partial class frmShopAdjustment : Form
     {
         public string FormMode { get; set; }
+        public int LoggedUser { get; set; }
         public frmShopAdjustment()
         {
             InitializeComponent();
@@ -55,14 +56,34 @@
             clsShopAdjustmentHead adjustmentHead = new clsShopAdjustmentHead();
             clsShopAdjustmentLine adjustmentLine = new clsShopAdjustmentLine();
             clsLogs logs = new clsLogs();
+            int Total;
+            Total = Convert.ToInt32(txtTotalGain.Text.TrimEnd()) + Convert.ToInt32(txtTotalLoss.Text.TrimEnd());
             // Header of both adjustments and log file
             if (FormMode == "New")
             {
-
+                logs.StockCode = "ALL";
+                logs.SupplierRef = "";
+                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
+                logs.Qty = Total;
+                logs.StringMovementType = "New Shop Adjustment";
+                logs.RecordType = "Add-New-Item-Start";
+                logs.MovementDate = DateTimePicker1.Value;
+                logs.Reference = "Add New Shop Adjustment";
+                logs.UserID = LoggedUser;
+                logs.SaveToSysLogTable();
             }
             else
             {
-
+                logs.StockCode = "ALL";
+                logs.SupplierRef = "";
+                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
+                logs.Qty = Total;
+                logs.StringMovementType = "Update Shop Adjustment";
+                logs.RecordType = "Update-Item-Start";
+                logs.MovementDate = DateTimePicker1.Value;
+                logs.Reference = "Update Shop Adjustment";
+                logs.UserID = LoggedUser;
+                logs.SaveToSysLogTable();
             }
             // Body and lines
             if (FormMode == "New")
@@ -76,11 +97,29 @@
             // End of Saving
             if (FormMode == "New")
             {
-
+                logs.StockCode = "ALL";
+                logs.SupplierRef = "";
+                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
+                logs.Qty = Total;
+                logs.StringMovementType = "New Shop Adjustment";
+                logs.RecordType = "Add-New-Item-End\\";
+                logs.MovementDate = DateTimePicker1.Value;
+                logs.Reference = "Add New Shop Adjustment";
+                logs.UserID = LoggedUser;
+                logs.SaveToSysLogTable();
             }
             else
             {
-
+                logs.StockCode = "ALL";
+                logs.SupplierRef = "";
+                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
+                logs.Qty = Total;
+                logs.StringMovementType = "Update Shop Adjustment";
+                logs.RecordType = "Update-Item-End";
+                logs.MovementDate = DateTimePicker1.Value;
+                logs.Reference = "Update Shop Adjustment";
+                logs.UserID = LoggedUser;
+                logs.SaveToSysLogTable();
             }
             Close();
         }

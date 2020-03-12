@@ -358,7 +358,7 @@
                     using (SqlCommand SelectCmd = new SqlCommand())
                     {
                         SelectCmd.Connection = conn;
-                        SelectCmd.CommandText = "SELECT StockCode FROM tblStock WHERE StockCode = @StockCode";
+                        SelectCmd.CommandText = "SELECT COUNT(*) AS Records FROM tblStock WHERE StockCode = @StockCode";
                         SelectCmd.CommandType = CommandType.Text;
                         SelectCmd.Parameters.AddWithValue("@StockCode", StockCode);
                         Result = (int)SelectCmd.ExecuteNonQuery();

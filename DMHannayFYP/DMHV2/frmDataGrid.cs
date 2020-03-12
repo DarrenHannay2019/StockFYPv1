@@ -298,7 +298,7 @@ namespace DMHV2
                 }
                 else
                 {
-                    ClsPurchaseOrderLine orderLine = new ClsPurchaseOrderLine
+                    clsPurchaseOrderLine orderLine = new clsPurchaseOrderLine
                     {
                         PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
                     };

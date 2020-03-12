@@ -86,7 +86,7 @@
                     {
                         InsertCmd.Connection = conn;
                         InsertCmd.CommandType = CommandType.Text;
-                        InsertCmd.CommandText = "INSERT INTO tblStockMovements (StockCode, SupplierRef, LocationRef, LocationType, MovementQtyHangers, MovementQtyBoxes, MovementType, MovementDate, MovementValue, Reference, TransferReference, CreatedBy, CreatedDate) VALUES (@StockCode, @SupplierRef, @LocationRef, @LocationType, @MovementQtyHangers, @MovementQtyBoxes, @MovementType, @MovementDate, @MovementValue, @Reference, @TransferReference, @CreatedBy, @CreatedDate)";
+                        InsertCmd.CommandText = "INSERT INTO tblStockMovements (StockCode, LocationRef, LocationType, SupplierRef, MovementQtyHangers, MovementQtyBoxes, MovementQtyGarments, MovementType, MovementDate, MovementValue, MovementReference, TransferReference, CreatedBy, CreatedDate) VALUES (@StockCode, @LocationRef, @LocationType, @SupplierRef, @MovementQtyHangers, @MovementQtyBoxes, @MovementQtyGarments, @MovementType, @MovementDate, @MovementValue, @MovementReference, @TransferReference, @CreatedBy, @CreatedDate)";
                         InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                         InsertCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         InsertCmd.Parameters.AddWithValue("@LocationRef", LocationRef);
@@ -97,7 +97,7 @@
                         InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
                         InsertCmd.Parameters.AddWithValue("@MovementDate", MovementDate);
                         InsertCmd.Parameters.AddWithValue("@MovementValue", MovementValue);
-                        InsertCmd.Parameters.AddWithValue("@Reference", Reference);
+                        InsertCmd.Parameters.AddWithValue("@MovementReference", Reference);
                         InsertCmd.Parameters.AddWithValue("@TransferReference", TransferReference);
                         InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
                         InsertCmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);

@@ -57,6 +57,7 @@ namespace DMHV2
             {
                 FormMode = "Old"
             };
+            objSupplier.TxtSupplierRef.Text = SupplierRef;
             objSupplier.ShowDialog();
         }
         public bool DeleteSupplierRecord()

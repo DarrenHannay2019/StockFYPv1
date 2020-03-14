@@ -26,40 +26,37 @@ namespace DMHV2
             clsPurchaseOrderLine orderLine = new clsPurchaseOrderLine();
             clsStock stock = new clsStock();
             clsLogs logs = new clsLogs();
+            logs.StockCode = TxtOurRef.Text.TrimEnd();
+            logs.SupplierRef = TxtSupplierRef.Text.TrimEnd();
+            logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
+            logs.Qty = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());
+            logs.MovementDate = dateTimePicker1.Value; 
+            logs.UserID = LoggedUser;
             if (FormMode == "New")
-            {
-                logs.StockCode = TxtOurRef.Text.TrimEnd();
-                logs.SupplierRef = TxtSupplierRef.Text.TrimEnd();
-                logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());
+            {                
                 logs.StringMovementType = "New Purchase Order";
-                logs.RecordType = "Add-New-Item-Start";
-                logs.MovementDate = dateTimePicker1.Value;
-                logs.Reference = "Add New Purchase Order";
-                logs.UserID = LoggedUser;
-                logs.SaveToSysLogTable();
+                logs.RecordType = "Add-New-Item-Start";               
+                logs.Reference = "Add New Purchase Order"; 
             }
+            else
+            {               
+                logs.StringMovementType = "Update Purchase Order";
+                logs.RecordType = "Update-Item-Start";              
+                logs.Reference = "Update Purchase Order";
+            } 
+            logs.SaveToSysLogTable();
+            if (CheckBox1.Checked == true)
+            {
+                logs.LocationType = 2;
+                logs.MovementType = 3;
+                orderHead.DeliveryType = "Direct To Shop";
+            }                
             else
             {
-                logs.StockCode = TxtOurRef.Text.TrimEnd();
-                logs.SupplierRef = TxtSupplierRef.Text.TrimEnd();
-                logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());
-                logs.StringMovementType = "Update Purchase Order";
-                logs.RecordType = "Update-Item-Start";
-                logs.MovementDate = dateTimePicker1.Value;
-                logs.Reference = "Update Purchase Order";
-                logs.UserID = LoggedUser;
-                logs.SaveToSysLogTable();
-            }
-            if (CheckBox1.Checked == true)
-                logs.LocationType = 2;
-            else
                 logs.LocationType = 1;
-            if (CheckBox1.Checked == true)
-                logs.MovementType = 3;
-            else
                 logs.MovementType = 1;
+                orderHead.DeliveryType = "Direct To Warehouse";
+            }
             orderHead.OurRef = TxtOurRef.Text.TrimEnd();
             orderHead.SupplierRef = TxtSupplierRef.Text.TrimEnd();           
             orderHead.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
@@ -71,11 +68,7 @@ namespace DMHV2
             orderHead.DeliveryCharge = Convert.ToDecimal(TxtDeliveryCharges.Text.TrimEnd());
             orderHead.VATAmount = Convert.ToDecimal(TxtVATAmount.Text.TrimEnd());
             orderHead.TotalAmount = Convert.ToDecimal(TxtTotalOrderPrice.Text.TrimEnd());
-            orderHead.DeliveryDate = dateTimePicker1.Value;
-            if (CheckBox1.Checked == true)
-                orderHead.DeliveryType = "Direct To Shop";
-            else
-                orderHead.DeliveryType = "Direct To Warehouse";
+            orderHead.DeliveryDate = dateTimePicker1.Value;               
             orderHead.SupplierInvoice = TxtSuppliersInvoiceNumber.Text.TrimEnd();
             orderHead.SeasonName = CboSeasonName.Text.TrimEnd();
             orderHead.Notes = TxtNotes.Text.TrimEnd();
@@ -149,32 +142,23 @@ namespace DMHV2
                     logs.SaveToStockMovementsTable();
                 }
             }
+            logs.StockCode = TxtOurRef.Text.TrimEnd();
+            logs.SupplierRef = TxtSupplierRef.Text.TrimEnd();
+            logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
+            logs.Qty = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());           
             if (FormMode == "New")
-            {
-                logs.StockCode = TxtOurRef.Text.TrimEnd();
-                logs.SupplierRef = TxtSupplierRef.Text.TrimEnd();
-                logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());
+            {               
                 logs.StringMovementType = "New Purchase Order";
-                logs.RecordType = "Add-New-Item-Start";
-                logs.MovementDate = dateTimePicker1.Value;
-                logs.Reference = "Add New Purchase Order";
-                logs.UserID = LoggedUser;
-                logs.SaveToSysLogTable();
+                logs.RecordType = "Add-New-Item-Start";                
+                logs.Reference = "Add New Purchase Order"; 
             }
             else
-            {
-                logs.StockCode = TxtOurRef.Text.TrimEnd();
-                logs.SupplierRef = TxtSupplierRef.Text.TrimEnd();
-                logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());
+            {                
                 logs.StringMovementType = "Update Purchase Order";
-                logs.RecordType = "Update-Item-Start";
-                logs.MovementDate = dateTimePicker1.Value;
+                logs.RecordType = "Update-Item-Start";               
                 logs.Reference = "Update Purchase Order";
-                logs.UserID = LoggedUser;
-                logs.SaveToSysLogTable();
             }
+            logs.SaveToSysLogTable();
             Close();
         }
 
@@ -238,11 +222,11 @@ namespace DMHV2
             decimal tempvalues;
             tempvalues = Convert.ToDecimal(TxtNetCostLine.Text.TrimEnd());
             DgvItems.Rows[rownum].Cells[4].Value = tempvalues.ToString();
-            //TxtQtyBoxes.Clear();
-            //TxtQtyItems.Clear();
-            //TxtStockCode.Clear();
-            //TxtQtyLoose.Clear();
-            //TxtNetCostLine.Clear();
+            TxtQtyBoxes.Clear();
+            TxtQtyItems.Clear();
+            TxtStockCode.Clear();
+            TxtQtyLoose.Clear();
+            TxtNetCostLine.Clear();
             TotalCalc();
         }
         private void TotalCalc()

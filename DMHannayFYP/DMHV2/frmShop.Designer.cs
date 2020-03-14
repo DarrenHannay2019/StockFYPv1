@@ -581,9 +581,9 @@
         internal System.Windows.Forms.TextBox TxtAddress1;
         internal System.Windows.Forms.TextBox TxtContactName;
         internal System.Windows.Forms.TextBox TxtShopName;
-        internal System.Windows.Forms.TextBox TxtShopRef;
         internal System.Windows.Forms.TabPage TabPage4;
         internal System.Windows.Forms.TextBox TxtMemo;
         private System.Windows.Forms.DataGridView gridStocks;
+        public System.Windows.Forms.TextBox TxtShopRef;
     }
 }

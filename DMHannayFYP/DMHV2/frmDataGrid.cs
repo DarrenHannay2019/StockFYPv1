@@ -93,7 +93,7 @@ namespace DMHV2
             int selectid;
             selectid = DataGridView1.CurrentRow.Index;
             string i;
-            i = DataGridView1[0, selectid].Value.ToString();
+            i = DataGridView1.Rows[selectid].Cells[0].Value.ToString();
             if (FunctionID == 1)
             {
                 clsWarehouse oWarehouse = new clsWarehouse(UserID)

@@ -40,6 +40,7 @@
             {
                 FormMode = "Old"
             };
+            shop.TxtShopRef.Text = ShopRef;
             shop.ShowDialog();
         }
         public string GetShopName()

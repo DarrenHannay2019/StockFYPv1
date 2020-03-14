@@ -449,7 +449,6 @@
         private System.Windows.Forms.TextBox TxtAddressLine1;
         private System.Windows.Forms.TextBox TxtContactName;
         private System.Windows.Forms.TextBox TxtSupplierName;
-        private System.Windows.Forms.TextBox TxtSupplierRef;
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.Label Label10;
         internal System.Windows.Forms.Label Label2;
@@ -466,5 +465,6 @@
         internal System.Windows.Forms.Button CmdClear;
         internal System.Windows.Forms.Button CmdCancel;
         internal System.Windows.Forms.Button CmdOK;
+        public System.Windows.Forms.TextBox TxtSupplierRef;
     }
 }

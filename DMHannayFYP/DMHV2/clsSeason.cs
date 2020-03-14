@@ -21,18 +21,20 @@
         {
             frmSeason season = new frmSeason
             {
-                ModeOfForm = "New"
+                ModeOfForm = "New",
+                Text = "New Season"
             };
             season.ShowDialog();
         }
         public void LoadSelectedSeasonForm()
         {
-            frmSeason frm = new frmSeason()
+            frmSeason season = new frmSeason()
             {
                 ModeOfForm = "Old",
+                Text = "Update Season",
                 SeasonIDs = SeasonID
-            };
-            frm.ShowDialog();
+            };            
+            season.ShowDialog();
         }
         public bool DeleteSeasonName()
         {

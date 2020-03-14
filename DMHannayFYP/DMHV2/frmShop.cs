@@ -134,7 +134,6 @@
         {
             int QtyInStock = 0;
             decimal ValueInStock = 0.0m;
-
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -196,7 +195,6 @@
                 gridStocks.Columns[2].HeaderText = "Value";
                 gridStocks.Columns[2].DefaultCellStyle.Format = "C2";
             }
-
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -238,7 +236,6 @@
             TxtTotalItems.Text = QtyInStock.ToString();
             TxtTotalValue.Text = ValueInStock.ToString("C2");
         }
-
         private void TxteMail_Leave(object sender, EventArgs e)
         {
             if (clsUtils.IsValidEmail(TxteMail.Text))

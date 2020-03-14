@@ -628,6 +628,8 @@ namespace DMHV2
             }
             if(FunctionID == 4)
             {
+
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P";
                 TSSLFunction.Text = "Current Stock";
             }
             if(FunctionID == 5)

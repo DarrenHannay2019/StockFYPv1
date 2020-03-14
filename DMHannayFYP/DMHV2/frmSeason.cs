@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,7 @@ namespace DMHV2
             }
             else
             {
+                season.SeasonID = Convert.ToInt32(LblSeasonID.Text.TrimEnd());
                 season.SeasonName = TxtSeasonName.Text.TrimEnd();
                 season.UpdateSeasonName();
                 this.Close();   // close form
@@ -51,7 +53,42 @@ namespace DMHV2
             else
             {
                 BtnOK.Text = "Ok";
+                LblSeasonID.Text = SeasonIDs.ToString();
+                TxtSeasonName.Text = LoadData();
             }
+        }
+        private string LoadData()
+        {
+            string SName = "";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = clsUtils.GetConnString(1);
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand SelectCmd = new SqlCommand())
+                        {
+                            SelectCmd.Connection = conn;
+                            SelectCmd.CommandText = "SELECT SeasonName from tblSeasons WHERE SeasonID = @SeasonID";
+                            SelectCmd.Parameters.AddWithValue("@SeasonID", SeasonIDs);
+                            SName = (string)SelectCmd.ExecuteScalar();
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        conn.Close();
+                        conn.Dispose();
+                        throw;
+                    }
+                }
+            }
+            finally
+            {
+                //SName = "Unable to Get Data";
+            }
+            return SName;
         }
     }
 }

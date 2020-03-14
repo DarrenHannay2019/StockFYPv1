@@ -38,10 +38,10 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(298, 70);
-            this.BtnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnCancel.Location = new System.Drawing.Point(372, 96);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(67, 18);
+            this.BtnCancel.Size = new System.Drawing.Size(84, 31);
             this.BtnCancel.TabIndex = 11;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -49,44 +49,47 @@
             // 
             // TxtSeasonName
             // 
-            this.TxtSeasonName.Location = new System.Drawing.Point(108, 46);
-            this.TxtSeasonName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtSeasonName.Location = new System.Drawing.Point(149, 61);
+            this.TxtSeasonName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtSeasonName.Name = "TxtSeasonName";
-            this.TxtSeasonName.Size = new System.Drawing.Size(259, 22);
+            this.TxtSeasonName.Size = new System.Drawing.Size(323, 28);
             this.TxtSeasonName.TabIndex = 10;
             // 
             // LblSeasonID
             // 
             this.LblSeasonID.BackColor = System.Drawing.Color.MistyRose;
-            this.LblSeasonID.Location = new System.Drawing.Point(108, 16);
+            this.LblSeasonID.Location = new System.Drawing.Point(145, 17);
+            this.LblSeasonID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblSeasonID.Name = "LblSeasonID";
-            this.LblSeasonID.Size = new System.Drawing.Size(83, 23);
+            this.LblSeasonID.Size = new System.Drawing.Size(104, 32);
             this.LblSeasonID.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 46);
+            this.label2.Location = new System.Drawing.Point(2, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 17);
+            this.label2.Size = new System.Drawing.Size(135, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Season Name:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 21);
+            this.label1.Location = new System.Drawing.Point(36, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 17);
+            this.label1.Size = new System.Drawing.Size(101, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "Season ID:";
             // 
             // BtnOK
             // 
-            this.BtnOK.Location = new System.Drawing.Point(228, 69);
-            this.BtnOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnOK.Location = new System.Drawing.Point(285, 95);
+            this.BtnOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnOK.Name = "BtnOK";
-            this.BtnOK.Size = new System.Drawing.Size(67, 18);
+            this.BtnOK.Size = new System.Drawing.Size(84, 32);
             this.BtnOK.TabIndex = 6;
             this.BtnOK.Text = "OK";
             this.BtnOK.UseVisualStyleBackColor = true;
@@ -94,16 +97,17 @@
             // 
             // frmSeason
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 111);
+            this.ClientSize = new System.Drawing.Size(488, 153);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.TxtSeasonName);
             this.Controls.Add(this.LblSeasonID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnOK);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmSeason";
             this.Text = "frmSeason";
             this.Load += new System.EventHandler(this.frmSeason_Load);

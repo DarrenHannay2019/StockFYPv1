@@ -91,7 +91,7 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrderLines (PurchaseOrderID, StockCode, DeliveredQtyGarments, DeliveredQtyBoxes, DeliveredQtyHangers,  LineAmount) VALUES (@PurchaseOrderID, @StockCode, @DeliveredQtyGarments, @DeliveredQtyBoxes, @DeliveredQtyHangers, @LineAmount)";
+                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrderLines (PurchaseOrderID, StockCode, DeliveredQtyGarments, DeliveredQtyBoxes, DeliveredQtyHangers, LineAmount) VALUES (@PurchaseOrderID, @StockCode, @DeliveredQtyGarments, @DeliveredQtyBoxes, @DeliveredQtyHangers, @LineAmount)";
                         sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
@@ -130,7 +130,7 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblPurchaseOrderLines SET TotalItems = @TotalItems,TotalBoxes = @TotalBoxes,TotalLooseItems = @TotalLooseItems,LineAmount = @LineAmount,LineVAT = @LineVAT WHERE PurchaseOrderID = @PurchaseOrderID AND StockCode = @StockCode";
+                        sqlCommand.CommandText = "UPDATE tblPurchaseOrderLines SET DeliveredQtyGarments = @DeliveredQtyGarments, DeliveredQtyBoxes = @DeliveredQtyBoxes, DeliveredQtyHangers = @DeliveredQtyHangers, LineAmount = @LineAmount,LineVAT = @LineVAT WHERE PurchaseOrderID = @PurchaseOrderID AND StockCode = @StockCode";
                         sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
@@ -202,7 +202,7 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrders (OurRef, SupplierRef, LocationRef, TotalItems, TotalBoxes, TotalLoose, NetAmount, DeliveryCharge, Commission, VATAmount, TotalAmount, DeliveryDate, SeasonName, Notes, InvoiceNumber, ShipperName, ShipperInvoice, CreatedBy, CreatedDate) VALUES (@OurRef, @SupplierRef, @LocationRef, @TotalItems, @TotalBoxes, @TotalLoose, @NetAmount, @DeliveryCharge, @Commission, @VATAmount, @TotalAmount, @DeliveryDate, @SeasonName, @Notes, @InvoiceNumber, @ShipperName, @ShipperInvoice, @CreatedBy, @CreatedDate)";
+                        sqlCommand.CommandText = "INSERT INTO tblPurchaseOrders (OurRef, SupplierRef, LocationRef, TotalItems, TotalBoxes, TotalLoose, NetAmount, DeliveryCharge, Commission, VATAmount, TotalAmount, DeliveryDate, DeliveryType, SeasonName, Notes, InvoiceNumber, ShipperName, ShipperInvoice, CreatedBy, CreatedDate) VALUES (@OurRef, @SupplierRef, @LocationRef, @TotalItems, @TotalBoxes, @TotalLoose, @NetAmount, @DeliveryCharge, @Commission, @VATAmount, @TotalAmount, @DeliveryDate, @DeliveryType, @SeasonName, @Notes, @InvoiceNumber, @ShipperName, @ShipperInvoice, @CreatedBy, @CreatedDate)";
                         sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
@@ -215,6 +215,7 @@
                         sqlCommand.Parameters.AddWithValue("@VATAmount", VATAmount);
                         sqlCommand.Parameters.AddWithValue("@TotalAmount", TotalAmount);
                         sqlCommand.Parameters.AddWithValue("@DeliveryDate", DeliveryDate);
+                        sqlCommand.Parameters.AddWithValue("@DeliveryType", DeliveryType);
                         sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
                         sqlCommand.Parameters.AddWithValue("@Notes", Notes);
                         sqlCommand.Parameters.AddWithValue("@InvoiceNumber", SupplierInvoice);

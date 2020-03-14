@@ -63,7 +63,7 @@ namespace DMHV2
             orderHead.OurRef = TxtOurRef.Text.TrimEnd();
             orderHead.SupplierRef = TxtSupplierRef.Text.TrimEnd();           
             orderHead.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
-            orderHead.TotalGarments = Convert.ToInt32(TxtTotalLooseItems.Text.TrimEnd());
+            orderHead.TotalHangers = Convert.ToInt32(TxtTotalLooseItems.Text.TrimEnd());
             orderHead.TotalBoxes = Convert.ToInt32(TxtTotalBoxes.Text.TrimEnd());
             orderHead.TotalGarments = Convert.ToInt32(TxtTotalGarments.Text.TrimEnd());
             orderHead.NetAmount = Convert.ToDecimal(TxtTotalNet.Text.TrimEnd());

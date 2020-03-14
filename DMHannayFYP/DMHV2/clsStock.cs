@@ -52,15 +52,15 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "INSERT INTO tblStock (StockCode, SupplierRef, Season, DeadCode, AmountTaken, DeliveredQtyItems, DeliveredQtyBoxes, DeliveredQtyLoose, CostValue, PCMarkUp, ZeroQty, CreatedBy, CreatedDate) VALUES (@StockCode, @SupplierRef, @Season, @DeadCode, @AmountTaken, @DeliveredQtyItems, @DeliveredQtyBoxes, @DeliveredQtyLoose, @CostValue, @PCMarkUp, @ZeroQty, @CreatedBy, @CreatedDate)";
+                        sqlCommand.CommandText = "INSERT INTO tblStock (StockCode, SupplierRef, SeasonName, DeadCode, AmountTaken, DeliveredQtyGarments, DeliveredQtyBoxes, DeliveredQtyHangers, CostValue, PCMarkUp, ZeroQty, CreatedBy, CreatedDate) VALUES (@StockCode, @SupplierRef, @SeasonName, @DeadCode, @AmountTaken, @DeliveredQtyGarments, @DeliveredQtyBoxes, @DeliveredQtyHangers, @CostValue, @PCMarkUp, @ZeroQty, @CreatedBy, @CreatedDate)";
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        sqlCommand.Parameters.AddWithValue("@Season", SeasonName);
+                        sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
                         sqlCommand.Parameters.AddWithValue("@DeadCode", DeadCode);
                         sqlCommand.Parameters.AddWithValue("@AmountTaken", AmountTaken);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyItem", DeliveredQtyGarments);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
                         sqlCommand.Parameters.AddWithValue("@DeliveredQtyBoxes", DeliveredQtyBoxes);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyLoose", DeliveredQtyHangers);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyHangers", DeliveredQtyHangers);
                         sqlCommand.Parameters.AddWithValue("@CostValue", CostValue);
                         sqlCommand.Parameters.AddWithValue("@PCMarkUp", PCMarkUp);
                         sqlCommand.Parameters.AddWithValue("@ZeroQty", ZeroQty);
@@ -98,10 +98,10 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblStock SET SupplierRef = @SupplierRef, DeadCode = @DeadCode, AmountTaken = @AmountTaken, DeliveredQtyHangers = @DeliveredQtyHangers, CostValue = @CostValue, PCMarkUp = @PCMarkUp, ZeroQty = @ZeroQty, Season = @Season WHERE StockCode = @StockCode";
+                        sqlCommand.CommandText = "UPDATE tblStock SET SupplierRef = @SupplierRef, DeadCode = @DeadCode, AmountTaken = @AmountTaken, DeliveredQtyHangers = @DeliveredQtyHangers, CostValue = @CostValue, PCMarkUp = @PCMarkUp, ZeroQty = @ZeroQty, SeasonName = @SeasonName WHERE StockCode = @StockCode";
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
-                        sqlCommand.Parameters.AddWithValue("@Season", SeasonName);
+                        sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
                         sqlCommand.Parameters.AddWithValue("@DeadCode", DeadCode);
                         sqlCommand.Parameters.AddWithValue("@AmountTaken", AmountTaken);
                         sqlCommand.Parameters.AddWithValue("@DeliveredQtyItem", DeliveredQtyGarments);

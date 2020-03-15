@@ -22,6 +22,25 @@ namespace DMHV2
         private void CmdOK_Click(object sender, EventArgs e)
         {
             clsWarehouse objWarehouse = new clsWarehouse(UserIDs);
+            clsLogs logs = new clsLogs();
+            logs.StockCode = "NULL";
+            logs.SupplierRef = "NULL";
+            logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
+            logs.Qty = 0;
+            logs.MovementDate =DateTime.Today;
+            logs.UserID = UserIDs;
+            if (Modeform == "New")
+            {
+                logs.StringMovementType = "New Warehouse";
+                logs.RecordType = "New Warehouse Record";
+                logs.Reference = "New Waerhouse Record";
+            }
+            else
+            {
+                logs.StringMovementType = "Update Warehouse";
+                logs.RecordType = "Update-Item-Warehouse";
+                logs.Reference = "Update Warehouse Record";
+            }
             if (Modeform == "New")
             {
                 objWarehouse.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
@@ -58,6 +77,7 @@ namespace DMHV2
                 objWarehouse.WebsiteAddress = TxtWebsite.Text.TrimEnd();
                 objWarehouse.UpdateWarehouseToDB();
             }
+            logs.SaveToSysLogTable();
             this.Close();
         }
 

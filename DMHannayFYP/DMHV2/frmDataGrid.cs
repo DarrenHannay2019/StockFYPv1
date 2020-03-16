@@ -26,6 +26,7 @@ namespace DMHV2
             if(FunctionID == 2)
             {
                 clsShop objShop = new clsShop();
+                objShop.UserID = UserID;
                 objShop.LoadNewRecord();                
             }
             if (FunctionID == 3)

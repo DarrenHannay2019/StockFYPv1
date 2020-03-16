@@ -9,6 +9,7 @@
     public partial class frmShop : Form
     {
         clsShop objShop = new clsShop();
+        public int UserIDs;
         public string FormMode { get; set; }
         public frmShop()
         {
@@ -19,6 +20,25 @@
         {
             if (TxteMail.Text != "Please Try Again")
             {
+                clsLogs logs = new clsLogs();
+                logs.StockCode = "NULL";
+                logs.SupplierRef = "NULL";
+                logs.LocationRef = TxtShopRef.Text.TrimEnd();
+                logs.Qty = 0;
+                logs.MovementDate = DateTime.Today;
+                logs.UserID = UserIDs;
+                if (FormMode == "New")
+                {
+                    logs.StringMovementType = "New Shop";
+                    logs.RecordType = "New Shop Record";
+                    logs.Reference = "New Shop Record";
+                }
+                else
+                {
+                    logs.StringMovementType = "Update Shop";
+                    logs.RecordType = "Update-Item-Shop";
+                    logs.Reference = "Update Shop Record";
+                }
                 objShop.ShopRef = TxtShopRef.Text.TrimEnd();
                 objShop.ShopName = TxtShopName.Text.TrimEnd();
                 objShop.AddressLine1 = TxtAddress1.Text.TrimEnd();

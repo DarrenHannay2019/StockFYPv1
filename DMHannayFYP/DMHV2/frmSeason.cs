@@ -23,6 +23,25 @@ namespace DMHV2
         private void BtnOK_Click(object sender, EventArgs e)
         {
             clsSeason season = new clsSeason();
+             clsLogs logs = new clsLogs();
+            logs.StockCode = "NULL";
+            logs.SupplierRef = "NULL";
+            logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
+            logs.Qty = 0;
+            logs.MovementDate =DateTime.Today;
+            logs.UserID = UserIDs;
+            if (Modeform == "New")
+            {
+                logs.StringMovementType = "New Warehouse";
+                logs.RecordType = "New Warehouse Record";
+                logs.Reference = "New Waerhouse Record";
+            }
+            else
+            {
+                logs.StringMovementType = "Update Warehouse";
+                logs.RecordType = "Update-Item-Warehouse";
+                logs.Reference = "Update Warehouse Record";
+            }
             if(ModeOfForm == "New")
             {
                 // Save to the database                

@@ -40,6 +40,7 @@
             {
                 FormMode = "Old"
             };
+            shop.UserIDs = UserID;
             shop.TxtShopRef.Text = ShopRef;
             shop.ShowDialog();
         }

@@ -217,7 +217,7 @@ namespace DMHV2
             if (FunctionID == 11)
             {
                 clsShopDelivery oShopDelivery = new clsShopDelivery();
-                oShopDelivery.ID = Convert.ToInt32(i);
+                oShopDelivery.ShopDelID = Convert.ToInt32(i);
                 oShopDelivery.UserID = UserID;
             }
             if (FunctionID == 12)

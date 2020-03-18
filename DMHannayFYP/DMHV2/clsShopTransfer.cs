@@ -204,7 +204,7 @@
             return DeleteFromDB;
         }
     }
-    public class clsShopTransferLine : clsUtils
+    public class clsShopTransferLine : clsShopTransfer
     {
         public int ID;
         public string StockCode;

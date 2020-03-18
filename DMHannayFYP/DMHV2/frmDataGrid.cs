@@ -387,59 +387,161 @@ namespace DMHV2
             }
             if (FunctionID == 8)
             {
-                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
+                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment
+                {
+                    WarehouseAdjustmentID = Convert.ToInt32(selectid)
+                };
                 if (NoRecords != 0)
                 {
                     MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                   
+                    clsWarehouseAdjustmentHead adjustmentHead = new clsWarehouseAdjustmentHead
+                    {
+                        WarehouseAdjustmentID = oWarehouseAdjustment.WarehouseAdjustmentID
+                    };
+                    clsWarehouseAdjustmentLine adjustmentLine = new clsWarehouseAdjustmentLine
+                    {
+                        WarehouseAdjustmentID = oWarehouseAdjustment.WarehouseAdjustmentID
+                    };
+                    adjustmentLine.DeleteWarehouseAdjustmentLine();
+                    adjustmentHead.DeleteWarehouseAdjustmentHead();
                 }
             }
             if (FunctionID == 9)
             {
-                clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer();
+                clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer
+                {
+                    WarehouseTransferID = Convert.ToInt32(selectid)
+                };
                 if (NoRecords != 0)
                 {
                     MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    
+                    clsWarehouseTransferHead transferHead = new clsWarehouseTransferHead
+                    {
+                        WarehouseTransferID = oWarehouseTransfer.WarehouseTransferID
+                    };
+                    clsWarehouseTransferLine transferLine = new clsWarehouseTransferLine
+                    {
+                        WarehouseTransferID = oWarehouseTransfer.WarehouseTransferID
+                    };
+                    transferLine.DeleteWarehouseTransferLine();
+                    transferHead.DeleteWarehouseTransferHead();
                 }
             }
             if (FunctionID == 10)
             {
-                clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn();
+                clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn
+                {
+                    WarehouseReturnID = Convert.ToInt32(selectid)
+                };
                 if (NoRecords != 0)
                 {
                     MessageBox.Show("Unable to remove Warehouse Record from the database!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    
+                    clsWarehouseReturnHead returnHead = new clsWarehouseReturnHead
+                    {
+                        WarehouseReturnID = oWarehouseReturn.WarehouseReturnID
+                    };
+                    clsWarehouseReturnLine returnLine = new clsWarehouseReturnLine
+                    {
+                        WarehouseReturnID = oWarehouseReturn.WarehouseReturnID
+                    };
+                    returnLine.DeleteWarehouseReturnLine();
+                    returnHead.DeleteWarehouseReturnHead();
                 }
             }
             if (FunctionID == 11)
             {
-                clsShopDelivery oShopDelivery = new clsShopDelivery();
+                clsShopDelivery oShopDelivery = new clsShopDelivery
+                {
+                    ShopDelID = Convert.ToInt32(selectid)
+                };
+                clsShopDeliveryHead deliveryHead = new clsShopDeliveryHead
+                { 
+                    ShopDelID = oShopDelivery.ShopDelID
+                };
+                clsShopDeliveryLine deliveryLine = new clsShopDeliveryLine
+                {
+                    ShopDelID = oShopDelivery.ShopDelID
+                };
+                deliveryLine.DeleteShopDeliveryLine();
+                deliveryHead.DeleteShopDeliveryHead();
             }
             if (FunctionID == 12)
             {
-                clsShopAdjustment oShopAdjustment = new clsShopAdjustment();
+                clsShopAdjustment oShopAdjustment = new clsShopAdjustment
+                {
+                    ID = Convert.ToInt32(selectid)
+                };
+                clsShopAdjustmentHead adjustmentHead = new clsShopAdjustmentHead
+                {
+                    ID = oShopAdjustment.ID
+                };
+                clsShopAdjustmentLine adjustmentLine = new clsShopAdjustmentLine
+                {
+                    ID = oShopAdjustment.ID
+                };
+                adjustmentLine.DeleteShopAdjustLine();
+                adjustmentHead.DeleteShopAdjustHead();
+
             }
             if (FunctionID == 13)
             {
-                clsShopTransfer oShopTransfer = new clsShopTransfer();
+                clsShopTransfer oShopTransfer = new clsShopTransfer
+                {
+                    ShopTransferID = Convert.ToInt32(selectid)
+                };
+                clsShopTransferHead transferHead = new clsShopTransferHead
+                {
+                    ShopTransferID = oShopTransfer.ShopTransferID
+                };
+                clsShopTransferLine transferLine = new clsShopTransferLine
+                {
+                    ShopTransferID = oShopTransfer.ShopTransferID
+                };
+                transferLine.DeleteShopTransferLine();
+                transferHead.DeleteShopTransferHead();
             }
             if (FunctionID == 14)
             {
-                clsShopSale oShopSale = new clsShopSale();
+                clsShopSale oShopSale = new clsShopSale
+                {
+                    SalesID = Convert.ToInt32(selectid)
+                };
+                clsShopSaleHead saleHead = new clsShopSaleHead
+                {
+                    SalesID = oShopSale.SalesID
+                };
+                clsShopSaleLine saleLine = new clsShopSaleLine
+                {
+                    SalesID = oShopSale.SalesID
+                };
+                saleLine.DeleteShopSaleLine();
+                saleHead.DeleteShopSaleHead();
             }
             if (FunctionID == 15)
             {
-                clsShopReturn oShopReturn = new clsShopReturn();
+                clsShopReturn oShopReturn = new clsShopReturn
+                {
+                    ShopReturnID = Convert.ToInt32(selectid)
+                };
+                clsShopReturnHead returnHead = new clsShopReturnHead
+                {
+                    ShopReturnID = oShopReturn.ShopReturnID
+                };
+                clsShopReturnLine returnLine = new clsShopReturnLine
+                {
+                    ShopReturnID = oShopReturn.ShopReturnID
+                };
+                returnLine.DeleteShopReturnLine();
+                returnHead.DeleteShopReturnHead();
             }
             if (NoRecords != 0)
             {

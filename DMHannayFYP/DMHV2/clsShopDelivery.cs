@@ -6,7 +6,7 @@
 
     public class clsShopDelivery : clsUtils
     {
-        public int ID;
+        public int ShopDelID;
         public int UserID;
         public void LoadNewForm()
         {
@@ -72,10 +72,10 @@
         public string WarehouseName;
         public string Reference;
         public DateTime MovementDate;
-        public int UserID;
+      //  public int UserID;
         public int TotalItems;
-        public int ID;
-        public string ShopDelID;
+      //  public int ID;
+       // public int ShopDelID;
         public bool SaveShopDeliveryHead()
         {
             try
@@ -194,7 +194,7 @@
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE from tblShopDeliveries where DeliveriesID = @DeliveriesID;";
-                            DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }
@@ -227,7 +227,7 @@
     {
         public string StockCode;
         public int Qty;
-        public string ShopDelID;
+      //  public string ShopDelID;
         public bool SaveShopDeliveryLine()
         {
             try
@@ -333,7 +333,7 @@
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
                             DeleteCmd.CommandText = "DELETE from tblShopDeliveryLines WHERE DeliveriesID = @DeliveriesID;";
-                            DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ID);
+                            DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }

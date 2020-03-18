@@ -7,7 +7,8 @@
 
     public class clsWarehouseReturn : clsUtils
     {
-        public string WarehouseReturnID { get; set; }
+        public int WarehouseReturnID { get; set; }
+        public int UserID;
         public void LoadNewForm()
         {
             frmWarehouseReturn warehouseReturn = new frmWarehouseReturn()
@@ -65,7 +66,7 @@
         public string SupplierRef;
         public int TotalItems;
         public string WarehouseRef;
-        public int UserID;
+       
         public bool SaveWarehouseReturnHead()
         {
             try

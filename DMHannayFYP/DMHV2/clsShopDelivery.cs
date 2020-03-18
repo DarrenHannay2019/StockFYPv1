@@ -7,6 +7,7 @@
     public class clsShopDelivery : clsUtils
     {
         public int ID;
+        public int UserID;
         public void LoadNewForm()
         {
             frmShopAdjustment shopAdjustment = new frmShopAdjustment

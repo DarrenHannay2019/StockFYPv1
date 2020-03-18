@@ -7,7 +7,7 @@
     public class clsWarehouseAdjustment : clsUtils
     {
         public int UserID { get; set; }
-       
+       public int WarehouseAdjustmentID { get; set; }
         
         public void LoadNewForm()
         {
@@ -64,7 +64,7 @@
         public string WarehouseRef;
         public string SupplierRef;
         public DateTime MovementDate;
-        public int WarehouseAdjustmentID;
+        //public int WarehouseAdjustmentID;
         public int TotalLossItems;
         public int TotalGainItems;
         public string Reference;
@@ -212,7 +212,7 @@
     }
     public class clsWarehouseAdjustmentLine : clsWarehouseAdjustment
     {
-        public int WarehouseAdjustmentID;
+     //   public int WarehouseAdjustmentID;
         public string StockCode;
         public int Qty;
         public int MovementType;

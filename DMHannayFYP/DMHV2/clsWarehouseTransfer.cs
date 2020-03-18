@@ -7,6 +7,7 @@
     public class clsWarehouseTransfer : clsUtils
     {
         public int WarehouseTransferID;
+        public int UserID;
         public string ToWarehouseRef { get; set; }
         public string ToWarehouseName { get; set; }
         public void LoadNewForm()
@@ -71,7 +72,7 @@
         public string WarehouseName;
         public int Qty;
         public DateTime MovementDate;
-        public int UserID;
+       
        
         public bool SaveWarehouseTransferHead()
         {

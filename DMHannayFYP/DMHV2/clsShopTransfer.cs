@@ -5,7 +5,9 @@
     using System.Data.SqlClient;
 
     public class clsShopTransfer : clsUtils
-    {        
+    {
+        public int UserID { get; set; }
+        public int ShopTransferID { get; set; }
         public void LoadNewForm()
         {
             frmShopTransfer shopTransfer = new frmShopTransfer()

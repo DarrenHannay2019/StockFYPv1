@@ -10,6 +10,8 @@ namespace DMHV2
 {
     public class clsShopSale : clsUtils
     {
+        public int UserID { get; set; }
+        public int SalesID { get; set; }
         public void LoadNewForm()
         {
             frmShopSale shopSale = new frmShopSale()
@@ -67,8 +69,8 @@ namespace DMHV2
         public int Qty;
         public decimal VATRate;
         public decimal Value;
-        public int UserID;
-        public int SalesID;
+      //  public int UserID;
+     //   public int SalesID;
         public bool SaveShopSaleHead()
         {
             try
@@ -202,7 +204,7 @@ namespace DMHV2
     }
     public class clsShopSaleLine : clsShopSale
     {
-        public int SalesID;
+     //   public int SalesID;
         public string StockCode;
         public int DeliveredQtyGarments;
         public int CurrentQty;

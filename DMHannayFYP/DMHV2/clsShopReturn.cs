@@ -6,6 +6,8 @@
 
     public class clsShopReturn : clsUtils
     {
+        public int ShopReturnID { get; set; }
+        public int UserID { get; set; }
         public void LoadNewForm()
         {
             frmShopReturn shopReturn = new frmShopReturn()
@@ -62,7 +64,7 @@
         public string Reference;
         public int TotalItems;
         public DateTime MovementDate;
-        public int UserID;
+       // public int UserID;
         public int ID;
         public bool SaveShopReturnHead()
         {

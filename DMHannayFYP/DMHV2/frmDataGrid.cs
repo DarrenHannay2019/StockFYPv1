@@ -810,6 +810,14 @@ namespace DMHV2
             }
             if(FunctionID == 5)
             {
+                // Stock Code
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 50;
+                // SupplierRef
+                // SeasonName
+                // DeadCode
+                // AmountTaken
+                //
                 TSSLFunction.Text = "All Stock";
             }
             if (FunctionID == 6)

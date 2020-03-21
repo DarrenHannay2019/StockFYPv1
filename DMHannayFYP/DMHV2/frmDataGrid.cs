@@ -933,93 +933,93 @@ namespace DMHV2
             if (FunctionID == 7)
             {
                 // Purchase Order ID
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].HeaderText = "Order ID";
                 DataGridView1.Columns[0].Width = 150;
                 DataGridView1.Columns[0].Visible = true;
                 DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
                 // Our Ref
-                DataGridView1.Columns[1].HeaderText = "Stock Code";
+                DataGridView1.Columns[1].HeaderText = "Our Ref";
                 DataGridView1.Columns[1].Width = 150;
                 DataGridView1.Columns[1].Visible = true;
                 // Supplier Ref
-                DataGridView1.Columns[2].HeaderText = "Stock Code";
+                DataGridView1.Columns[2].HeaderText = "Supplier Ref";
                 DataGridView1.Columns[2].Width = 150;
                 DataGridView1.Columns[2].Visible = true;
                 // Location Ref
-                DataGridView1.Columns[3].HeaderText = "Stock Code";
+                DataGridView1.Columns[3].HeaderText = "Location Ref";
                 DataGridView1.Columns[3].Width = 150;
                 DataGridView1.Columns[3].Visible = true;
                 // Season Name
-                DataGridView1.Columns[4].HeaderText = "Stock Code";
+                DataGridView1.Columns[4].HeaderText = "Season Name";
                 DataGridView1.Columns[4].Width = 150;
                 DataGridView1.Columns[4].Visible = true;
                 // Total Items
-                DataGridView1.Columns[5].HeaderText = "Stock Code";
+                DataGridView1.Columns[5].HeaderText = "Total Items";
                 DataGridView1.Columns[5].Width = 150;
                 DataGridView1.Columns[5].Visible = true;
                 // Total Boxes
-                DataGridView1.Columns[6].HeaderText = "Stock Code";
+                DataGridView1.Columns[6].HeaderText = "Total Boxes";
                 DataGridView1.Columns[6].Width = 150;
                 DataGridView1.Columns[6].Visible = true;
                 // Total Loose
-                DataGridView1.Columns[7].HeaderText = "Stock Code";
+                DataGridView1.Columns[7].HeaderText = "Total Loose";
                 DataGridView1.Columns[7].Width = 150;
                 DataGridView1.Columns[7].Visible = true;
                 // Net Amount
-                DataGridView1.Columns[8].HeaderText = "Stock Code";
+                DataGridView1.Columns[8].HeaderText = "Net Amount";
                 DataGridView1.Columns[8].Width = 150;
                 DataGridView1.Columns[8].Visible = true;
                 DataGridView1.Columns[8].DefaultCellStyle.Format = "C2";
                 // Delivery Charage
-                DataGridView1.Columns[9].HeaderText = "Stock Code";
+                DataGridView1.Columns[9].HeaderText = "Delivery Charge";
                 DataGridView1.Columns[9].Width = 150;
                 DataGridView1.Columns[9].Visible = true;
                 DataGridView1.Columns[9].DefaultCellStyle.Format = "C2";
                 // Commission
-                DataGridView1.Columns[10].HeaderText = "Stock Code";
+                DataGridView1.Columns[10].HeaderText = "Commission";
                 DataGridView1.Columns[10].Width = 150;
                 DataGridView1.Columns[10].Visible = true;
                 DataGridView1.Columns[10].DefaultCellStyle.Format = "C2";
                 // VAT Amount
-                DataGridView1.Columns[11].HeaderText = "Stock Code";
+                DataGridView1.Columns[11].HeaderText = "VAT Amount";
                 DataGridView1.Columns[11].Width = 150;
                 DataGridView1.Columns[11].Visible = true;
                 DataGridView1.Columns[11].DefaultCellStyle.Format = "C2";
                 // Total Amount
-                DataGridView1.Columns[12].HeaderText = "Stock Code";
+                DataGridView1.Columns[12].HeaderText = "Total Amount";
                 DataGridView1.Columns[12].Width = 150;
                 DataGridView1.Columns[12].Visible = true;
                 DataGridView1.Columns[12].DefaultCellStyle.Format = "C2";
                 // Delivery Date
-                DataGridView1.Columns[13].HeaderText = "Stock Code";
+                DataGridView1.Columns[13].HeaderText = "Delivery Date";
                 DataGridView1.Columns[13].Width = 150;
                 DataGridView1.Columns[13].Visible = true;
                 // Delivery Type
-                DataGridView1.Columns[14].HeaderText = "Stock Code";
+                DataGridView1.Columns[14].HeaderText = "Delivery Type";
                 DataGridView1.Columns[14].Width = 150;
                 DataGridView1.Columns[14].Visible = true;
                 // Notes
-                DataGridView1.Columns[15].HeaderText = "Stock Code";
+                DataGridView1.Columns[15].HeaderText = "Notes";
                 DataGridView1.Columns[15].Width = 150;
                 DataGridView1.Columns[15].Visible = true;
                 // Invoice Number
-                DataGridView1.Columns[16].HeaderText = "Stock Code";
+                DataGridView1.Columns[16].HeaderText = "Invoice";
                 DataGridView1.Columns[16].Width = 150;
                 DataGridView1.Columns[16].Visible = true;
                 // Shipper Name
-                DataGridView1.Columns[17].HeaderText = "Stock Code";
+                DataGridView1.Columns[17].HeaderText = "Shipper";
                 DataGridView1.Columns[17].Width = 150;
                 DataGridView1.Columns[17].Visible = true;
                 // Shipper Invoice
-                DataGridView1.Columns[18].HeaderText = "Stock Code";
+                DataGridView1.Columns[18].HeaderText = "Shipper Invoice";
                 DataGridView1.Columns[18].Width = 150;
                 DataGridView1.Columns[18].Visible = true;
                 // Created By
-                DataGridView1.Columns[19].HeaderText = "Stock Code";
+                DataGridView1.Columns[19].HeaderText = "Created By";
                 DataGridView1.Columns[19].Width = 150;
                 DataGridView1.Columns[19].Visible = true;
                 // Created Date
-                DataGridView1.Columns[20].HeaderText = "Stock Code";
+                DataGridView1.Columns[20].HeaderText = "Created Date";
                 DataGridView1.Columns[20].Width = 150;
                 DataGridView1.Columns[20].Visible = true;
                 TSSLFunction.Text = "Purchase Orders";
@@ -1027,79 +1027,79 @@ namespace DMHV2
             if (FunctionID == 8)
             {
                 // Warehouse Adjustment ID
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].HeaderText = "WH Adjust ID";
                 DataGridView1.Columns[0].Width = 150;
                 DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
                 // Warehouse Reference
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[1].HeaderText = "Warehouse Reference";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
                 // Reference
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[2].HeaderText = "Transaction Reference";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
                 // Total Loss Items
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[3].HeaderText = "Total Loss Items";
+                DataGridView1.Columns[3].Width = 150;
+                DataGridView1.Columns[3].Visible = true;
                 // Total Gain Items
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[4].HeaderText = "Total Gain Items";
+                DataGridView1.Columns[4].Width = 150;
+                DataGridView1.Columns[4].Visible = true;
                 // Movement Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[5].HeaderText = "Transaction Date";
+                DataGridView1.Columns[5].Width = 150;
+                DataGridView1.Columns[5].Visible = true;
                 // Created By
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[6].HeaderText = "Created By";
+                DataGridView1.Columns[6].Width = 150;
+                DataGridView1.Columns[6].Visible = true;
                 // Created Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[7].HeaderText = "Created Date";
+                DataGridView1.Columns[7].Width = 150;
+                DataGridView1.Columns[7].Visible = true;
                 TSSLFunction.Text = "Warehouse Adjustments";
             }
             if (FunctionID == 9)
             {
                 // Warehouse Transfer ID
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].HeaderText = "WH Transfer ID";
                 DataGridView1.Columns[0].Width = 150;
                 DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
                 // Reference 
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[1].HeaderText = "Reference";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
                 // Transfer Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[2].HeaderText = "Transfer Date";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
                 // From Warehouse Ref
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[3].HeaderText = "From Warehouse";
+                DataGridView1.Columns[3].Width = 150;
+                DataGridView1.Columns[3].Visible = true;
                 // To Warehouse Ref
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[4].HeaderText = "To Warehouse";
+                DataGridView1.Columns[4].Width = 150;
+                DataGridView1.Columns[4].Visible = true;
                 // Total Qty In
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[5].HeaderText = "Qty In";
+                DataGridView1.Columns[5].Width = 150;
+                DataGridView1.Columns[5].Visible = true;
                 // Total Qty Out
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[6].HeaderText = "Qty Out";
+                DataGridView1.Columns[6].Width = 150;
+                DataGridView1.Columns[6].Visible = true;
                 // Created By
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[7].HeaderText = "Created By";
+                DataGridView1.Columns[7].Width = 150;
+                DataGridView1.Columns[7].Visible = true;
                 // Created Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[8].HeaderText = "Created Date";
+                DataGridView1.Columns[8].Width = 150;
+                DataGridView1.Columns[8].Visible = true;
                 TSSLFunction.Text = "Warehouse Transfers";
             }
             if (FunctionID == 10)

@@ -1191,38 +1191,38 @@ namespace DMHV2
             if (FunctionID == 12)
             {
                 // Shop Adjustment ID
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].HeaderText = "Shop Adjustment ID";
                 DataGridView1.Columns[0].Width = 150;
                 DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
                 // Shop Reference
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[1].HeaderText = "Shop Ref";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
                 // Reference
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[2].HeaderText = "Reference";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
                 // Total Loss Items
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[3].HeaderText = "Total Loss";
+                DataGridView1.Columns[3].Width = 150;
+                DataGridView1.Columns[3].Visible = true;
                 // Total Gain Items
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[4].HeaderText = "Total Gain";
+                DataGridView1.Columns[4].Width = 150;
+                DataGridView1.Columns[4].Visible = true;
                 // Movement Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[5].HeaderText = "Movement Date";
+                DataGridView1.Columns[5].Width = 150;
+                DataGridView1.Columns[5].Visible = true;
                 // Created By
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[6].HeaderText = "Created By";
+                DataGridView1.Columns[6].Width = 150;
+                DataGridView1.Columns[6].Visible = true;
                 // Created Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[7].HeaderText = "Created Date";
+                DataGridView1.Columns[7].Width = 150;
+                DataGridView1.Columns[7].Visible = true;
                 TSSLFunction.Text = "Shop Adjustments";
             }
             if (FunctionID == 13)

@@ -922,48 +922,436 @@ namespace DMHV2
             }
             if (FunctionID == 6)
             {
-                // WarehouseRef
+                // Season ID
                 DataGridView1.Columns[0].Width = 70;
                 DataGridView1.Columns[0].HeaderText = "Season ID";
-                // WarehouseName
+                // Season Name
                 DataGridView1.Columns[1].Width = 220;
                 DataGridView1.Columns[1].HeaderText = "Season Name";
                 TSSLFunction.Text = "Seasons";
             }
             if (FunctionID == 7)
             {
+                // Purchase Order ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
+                // Our Ref
+                DataGridView1.Columns[1].HeaderText = "Stock Code";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
+                // Supplier Ref
+                DataGridView1.Columns[2].HeaderText = "Stock Code";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
+                // Location Ref
+                DataGridView1.Columns[3].HeaderText = "Stock Code";
+                DataGridView1.Columns[3].Width = 150;
+                DataGridView1.Columns[3].Visible = true;
+                // Season Name
+                DataGridView1.Columns[4].HeaderText = "Stock Code";
+                DataGridView1.Columns[4].Width = 150;
+                DataGridView1.Columns[4].Visible = true;
+                // Total Items
+                DataGridView1.Columns[5].HeaderText = "Stock Code";
+                DataGridView1.Columns[5].Width = 150;
+                DataGridView1.Columns[5].Visible = true;
+                // Total Boxes
+                DataGridView1.Columns[6].HeaderText = "Stock Code";
+                DataGridView1.Columns[6].Width = 150;
+                DataGridView1.Columns[6].Visible = true;
+                // Total Loose
+                DataGridView1.Columns[7].HeaderText = "Stock Code";
+                DataGridView1.Columns[7].Width = 150;
+                DataGridView1.Columns[7].Visible = true;
+                // Net Amount
+                DataGridView1.Columns[8].HeaderText = "Stock Code";
+                DataGridView1.Columns[8].Width = 150;
+                DataGridView1.Columns[8].Visible = true;
+                DataGridView1.Columns[8].DefaultCellStyle.Format = "C2";
+                // Delivery Charage
+                DataGridView1.Columns[9].HeaderText = "Stock Code";
+                DataGridView1.Columns[9].Width = 150;
+                DataGridView1.Columns[9].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "C2";
+                // Commission
+                DataGridView1.Columns[10].HeaderText = "Stock Code";
+                DataGridView1.Columns[10].Width = 150;
+                DataGridView1.Columns[10].Visible = true;
+                DataGridView1.Columns[10].DefaultCellStyle.Format = "C2";
+                // VAT Amount
+                DataGridView1.Columns[11].HeaderText = "Stock Code";
+                DataGridView1.Columns[11].Width = 150;
+                DataGridView1.Columns[11].Visible = true;
+                DataGridView1.Columns[11].DefaultCellStyle.Format = "C2";
+                // Total Amount
+                DataGridView1.Columns[12].HeaderText = "Stock Code";
+                DataGridView1.Columns[12].Width = 150;
+                DataGridView1.Columns[12].Visible = true;
+                DataGridView1.Columns[12].DefaultCellStyle.Format = "C2";
+                // Delivery Date
+                DataGridView1.Columns[13].HeaderText = "Stock Code";
+                DataGridView1.Columns[13].Width = 150;
+                DataGridView1.Columns[13].Visible = true;
+                // Delivery Type
+                DataGridView1.Columns[14].HeaderText = "Stock Code";
+                DataGridView1.Columns[14].Width = 150;
+                DataGridView1.Columns[14].Visible = true;
+                // Notes
+                DataGridView1.Columns[15].HeaderText = "Stock Code";
+                DataGridView1.Columns[15].Width = 150;
+                DataGridView1.Columns[15].Visible = true;
+                // Invoice Number
+                DataGridView1.Columns[16].HeaderText = "Stock Code";
+                DataGridView1.Columns[16].Width = 150;
+                DataGridView1.Columns[16].Visible = true;
+                // Shipper Name
+                DataGridView1.Columns[17].HeaderText = "Stock Code";
+                DataGridView1.Columns[17].Width = 150;
+                DataGridView1.Columns[17].Visible = true;
+                // Shipper Invoice
+                DataGridView1.Columns[18].HeaderText = "Stock Code";
+                DataGridView1.Columns[18].Width = 150;
+                DataGridView1.Columns[18].Visible = true;
+                // Created By
+                DataGridView1.Columns[19].HeaderText = "Stock Code";
+                DataGridView1.Columns[19].Width = 150;
+                DataGridView1.Columns[19].Visible = true;
+                // Created Date
+                DataGridView1.Columns[20].HeaderText = "Stock Code";
+                DataGridView1.Columns[20].Width = 150;
+                DataGridView1.Columns[20].Visible = true;
                 TSSLFunction.Text = "Purchase Orders";
             }
             if (FunctionID == 8)
             {
+                // Warehouse Adjustment ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Warehouse Reference
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Reference
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Loss Items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Gain Items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Movement Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Warehouse Adjustments";
             }
             if (FunctionID == 9)
             {
+                // Warehouse Transfer ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Reference 
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Transfer Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // From Warehouse Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // To Warehouse Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Qty In
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Qty Out
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Warehouse Transfers";
             }
             if (FunctionID == 10)
             {
+                // Warehouse Returns ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Warehouse Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Supplier Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Reference
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Transaction Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Warehouse Returns";
             }
             if (FunctionID == 11)
             {
+                // Shop Deliveries ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Shop Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Warehouse Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Reference
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Delivery Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Delivery Type
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Confirmed Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Notes
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Shop Deliveries";
             }
             if (FunctionID == 12)
             {
+                // Shop Adjustment ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Shop Reference
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Reference
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Loss Items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Gain Items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Movement Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Shop Adjustments";
             }
             if (FunctionID == 13)
             {
+                // Shop Transfer ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Reference 
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Transfer Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // From Shop Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // From Shop Name
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // To Shop Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // To Shop Name
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Qty In
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Qty Out
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Shop Transfers";
             }
             if (FunctionID == 14)
             {
+                // Sales ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Shop Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Shop Name
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Transaction Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total VAT
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Total Value
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Shop Sales";
             }
             if (FunctionID == 15)
             {
+                // Shop Returns ID
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // Shop Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Warehouse Ref
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Reference
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Total Items
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Transaction Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created By
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // Created Date
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 TSSLFunction.Text = "Shop Returns";
             }
         }

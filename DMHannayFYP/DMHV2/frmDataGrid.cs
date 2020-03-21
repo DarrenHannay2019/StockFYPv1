@@ -8,6 +8,7 @@ namespace DMHV2
 {
     public partial class frmDataGrid : Form
     {
+        #region Functions
         public int UserID;
         public int FunctionID { get; set; }
         private string SqlCmdString { get; set; }
@@ -715,6 +716,7 @@ namespace DMHV2
             SetupStyleGrid();
             CustomiseDataGrid();
         }
+        #endregion Function
         #region CustomiseDataGrid
         private void SetupStyleGrid()
         {
@@ -773,7 +775,7 @@ namespace DMHV2
                 DataGridView1.Columns[2].HeaderText = "Warehouse Type";
                 TSSLFunction.Text = "Warehouses";
             }
-            if(FunctionID == 2)
+            if (FunctionID == 2)
             {
                 // ShopRef
                 DataGridView1.Columns[0].Width = 70;
@@ -786,7 +788,7 @@ namespace DMHV2
                 DataGridView1.Columns[2].HeaderText = "Shop Type";
                 TSSLFunction.Text = "Shops";
             }
-            if(FunctionID == 3)
+            if (FunctionID == 3)
             {
                 // SupplierRef
                 DataGridView1.Columns[0].Width = 70;
@@ -802,7 +804,7 @@ namespace DMHV2
                 DataGridView1.Columns[3].HeaderText = "Telephone Number";
                 TSSLFunction.Text = "Suppliers";
             }
-            if(FunctionID == 4)
+            if (FunctionID == 4)
             {
                 // Stock Code
                 DataGridView1.Columns[0].HeaderText = "Stock Code";
@@ -861,7 +863,7 @@ namespace DMHV2
                 DataGridView1.Columns[12].Visible = true;
                 TSSLFunction.Text = "Current Stock";
             }
-            if(FunctionID == 5)
+            if (FunctionID == 5)
             {
                 // Stock Code
                 DataGridView1.Columns[0].HeaderText = "Stock Code";
@@ -1277,44 +1279,44 @@ namespace DMHV2
             if (FunctionID == 14)
             {
                 // Sales ID
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].HeaderText = "Sales ID";
                 DataGridView1.Columns[0].Width = 150;
                 DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
                 // Shop Ref
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[1].HeaderText = "Shop Ref";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
                 // Shop Name
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[2].HeaderText = "Shop Name";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
                 // Transaction Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[3].HeaderText = "Sales Date";
+                DataGridView1.Columns[3].Width = 150;
+                DataGridView1.Columns[3].Visible = true;
                 // Total Items
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[4].HeaderText = "Total Items";
+                DataGridView1.Columns[4].Width = 150;
+                DataGridView1.Columns[4].Visible = true;
                 // Total VAT
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[5].HeaderText = "Total VAT";
+                DataGridView1.Columns[5].Width = 150;
+                DataGridView1.Columns[5].Visible = true;
+                DataGridView1.Columns[5].DefaultCellStyle.Format = "P2";
                 // Total Value
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[6].HeaderText = "Total Value";
+                DataGridView1.Columns[6].Width = 150;
+                DataGridView1.Columns[6].Visible = true;
+                DataGridView1.Columns[6].DefaultCellStyle.Format = "P2";
                 // Created By
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[7].HeaderText = "Created By";
+                DataGridView1.Columns[7].Width = 150;
+                DataGridView1.Columns[7].Visible = true;
                 // Created Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[8].HeaderText = "Created Date";
+                DataGridView1.Columns[8].Width = 150;
+                DataGridView1.Columns[8].Visible = true;
                 TSSLFunction.Text = "Shop Sales";
             }
             if (FunctionID == 15)

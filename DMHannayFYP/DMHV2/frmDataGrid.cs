@@ -1228,50 +1228,50 @@ namespace DMHV2
             if (FunctionID == 13)
             {
                 // Shop Transfer ID
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].HeaderText = "SH Transfer ID";
                 DataGridView1.Columns[0].Width = 150;
                 DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
                 // Reference 
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[1].HeaderText = "Reference";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
                 // Transfer Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[2].HeaderText = "Transfer Date";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
                 // From Shop Ref
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[3].HeaderText = "From Shop Ref";
+                DataGridView1.Columns[3].Width = 150;
+                DataGridView1.Columns[3].Visible = true;
                 // From Shop Name
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[4].HeaderText = "From Shop Name";
+                DataGridView1.Columns[4].Width = 150;
+                DataGridView1.Columns[4].Visible = true;
                 // To Shop Ref
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[5].HeaderText = "To Shop Ref";
+                DataGridView1.Columns[5].Width = 150;
+                DataGridView1.Columns[5].Visible = true;
                 // To Shop Name
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[6].HeaderText = "To Shop Name";
+                DataGridView1.Columns[6].Width = 150;
+                DataGridView1.Columns[6].Visible = true;
                 // Total Qty In
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[7].HeaderText = "Qty In";
+                DataGridView1.Columns[7].Width = 150;
+                DataGridView1.Columns[7].Visible = true;
                 // Total Qty Out
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[8].HeaderText = "Qty Out";
+                DataGridView1.Columns[8].Width = 150;
+                DataGridView1.Columns[8].Visible = true;
                 // Created By
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[9].HeaderText = "Created By";
+                DataGridView1.Columns[9].Width = 150;
+                DataGridView1.Columns[9].Visible = true;
                 // Created Date
-                DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 150;
-                DataGridView1.Columns[0].Visible = true;
+                DataGridView1.Columns[10].HeaderText = "Created Date";
+                DataGridView1.Columns[10].Width = 150;
+                DataGridView1.Columns[10].Visible = true;
                 TSSLFunction.Text = "Shop Transfers";
             }
             if (FunctionID == 14)

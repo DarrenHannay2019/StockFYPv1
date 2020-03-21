@@ -22,7 +22,7 @@
             {
                 FormMode = "New"                
             };
-            shopAdjustment.TxtSID.Text = ID.ToString();
+            shopAdjustment.TxtSID.Text = ShopDelID.ToString();
             shopAdjustment.Show();
         }
         public int GetLastShopDelivery()

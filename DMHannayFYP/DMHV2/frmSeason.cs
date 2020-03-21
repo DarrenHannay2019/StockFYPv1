@@ -15,6 +15,7 @@ namespace DMHV2
     {
         public string ModeOfForm { get; set; }
         public int SeasonIDs { get; set; }
+        private int UserIDs;
         public frmSeason()
         {
             InitializeComponent();
@@ -26,11 +27,11 @@ namespace DMHV2
              clsLogs logs = new clsLogs();
             logs.StockCode = "NULL";
             logs.SupplierRef = "NULL";
-            logs.LocationRef = TxtWarehouseRef.Text.TrimEnd();
+            logs.LocationRef = "NULL";
             logs.Qty = 0;
             logs.MovementDate =DateTime.Today;
             logs.UserID = UserIDs;
-            if (Modeform == "New")
+            if (ModeOfForm == "New")
             {
                 logs.StringMovementType = "New Warehouse";
                 logs.RecordType = "New Warehouse Record";

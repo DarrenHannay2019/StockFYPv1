@@ -804,20 +804,120 @@ namespace DMHV2
             }
             if(FunctionID == 4)
             {
-
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "P";
+                // Stock Code
+                DataGridView1.Columns[0].HeaderText = "Stock Code";
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
+                // SupplierRef
+                DataGridView1.Columns[1].HeaderText = "Supplier Ref";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
+                // SeasonName
+                DataGridView1.Columns[2].HeaderText = "Season Name";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
+                // DeadCode
+                DataGridView1.Columns[3].HeaderText = "Dead Code";
+                DataGridView1.Columns[3].Width = 50;
+                DataGridView1.Columns[3].Visible = true;
+                // AmountTaken
+                DataGridView1.Columns[4].HeaderText = "Sales Amount";
+                DataGridView1.Columns[4].Width = 100;
+                DataGridView1.Columns[4].Visible = true;
+                DataGridView1.Columns[4].DefaultCellStyle.Format = "C2";
+                // DeliveredQtyHangers
+                DataGridView1.Columns[5].HeaderText = "Qty Hangers";
+                DataGridView1.Columns[5].Width = 50;
+                DataGridView1.Columns[5].Visible = true;
+                // DeliveredQtyBoxes
+                DataGridView1.Columns[6].HeaderText = "Qty Boxes";
+                DataGridView1.Columns[6].Width = 80;
+                DataGridView1.Columns[6].Visible = true;
+                // DeliveredQtyGarments
+                DataGridView1.Columns[7].HeaderText = "Qty Garments";
+                DataGridView1.Columns[7].Width = 80;
+                DataGridView1.Columns[7].Visible = true;
+                // CostValue
+                DataGridView1.Columns[8].HeaderText = "Purchase Value";
+                DataGridView1.Columns[8].Width = 100;
+                DataGridView1.Columns[8].Visible = true;
+                DataGridView1.Columns[8].DefaultCellStyle.Format = "C2";
+                // PCMarkup
+                DataGridView1.Columns[9].HeaderText = "Profit";
+                DataGridView1.Columns[9].Width = 100;
+                DataGridView1.Columns[9].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // ZeroQty
+                DataGridView1.Columns[10].HeaderText = "Zero Qty";
+                DataGridView1.Columns[10].Width = 50;
+                DataGridView1.Columns[10].Visible = true;
+                // CreatedBy
+                DataGridView1.Columns[11].HeaderText = "Created By";
+                DataGridView1.Columns[11].Width = 80;
+                DataGridView1.Columns[11].Visible = true;
+                // CreatedDate
+                DataGridView1.Columns[12].HeaderText = "Created Date";
+                DataGridView1.Columns[12].Width = 100;
+                DataGridView1.Columns[12].Visible = true;
                 TSSLFunction.Text = "Current Stock";
             }
             if(FunctionID == 5)
             {
                 // Stock Code
                 DataGridView1.Columns[0].HeaderText = "Stock Code";
-                DataGridView1.Columns[0].Width = 50;
+                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Visible = true;
                 // SupplierRef
+                DataGridView1.Columns[1].HeaderText = "Supplier Ref";
+                DataGridView1.Columns[1].Width = 150;
+                DataGridView1.Columns[1].Visible = true;
                 // SeasonName
+                DataGridView1.Columns[2].HeaderText = "Season Name";
+                DataGridView1.Columns[2].Width = 150;
+                DataGridView1.Columns[2].Visible = true;
                 // DeadCode
+                DataGridView1.Columns[3].HeaderText = "Dead Code";
+                DataGridView1.Columns[3].Width = 50;
+                DataGridView1.Columns[3].Visible = true;
                 // AmountTaken
-                //
+                DataGridView1.Columns[4].HeaderText = "Sales Amount";
+                DataGridView1.Columns[4].Width = 100;
+                DataGridView1.Columns[4].Visible = true;
+                DataGridView1.Columns[4].DefaultCellStyle.Format = "C2";
+                // DeliveredQtyHangers
+                DataGridView1.Columns[5].HeaderText = "Qty Hangers";
+                DataGridView1.Columns[5].Width = 50;
+                DataGridView1.Columns[5].Visible = true;
+                // DeliveredQtyBoxes
+                DataGridView1.Columns[6].HeaderText = "Qty Boxes";
+                DataGridView1.Columns[6].Width = 80;
+                DataGridView1.Columns[6].Visible = true;
+                // DeliveredQtyGarments
+                DataGridView1.Columns[7].HeaderText = "Qty Garments";
+                DataGridView1.Columns[7].Width = 80;
+                DataGridView1.Columns[7].Visible = true;
+                // CostValue
+                DataGridView1.Columns[8].HeaderText = "Purchase Value";
+                DataGridView1.Columns[8].Width = 100;
+                DataGridView1.Columns[8].Visible = true;
+                DataGridView1.Columns[8].DefaultCellStyle.Format = "C2";
+                // PCMarkup
+                DataGridView1.Columns[9].HeaderText = "Profit";
+                DataGridView1.Columns[9].Width = 100;
+                DataGridView1.Columns[9].Visible = true;
+                DataGridView1.Columns[9].DefaultCellStyle.Format = "P2";
+                // ZeroQty
+                DataGridView1.Columns[10].HeaderText = "Zero Qty";
+                DataGridView1.Columns[10].Width = 50;
+                DataGridView1.Columns[10].Visible = true;
+                // CreatedBy
+                DataGridView1.Columns[11].HeaderText = "Created By";
+                DataGridView1.Columns[11].Width = 80;
+                DataGridView1.Columns[11].Visible = true;
+                // CreatedDate
+                DataGridView1.Columns[12].HeaderText = "Created Date";
+                DataGridView1.Columns[12].Width = 100;
+                DataGridView1.Columns[12].Visible = true;
                 TSSLFunction.Text = "All Stock";
             }
             if (FunctionID == 6)

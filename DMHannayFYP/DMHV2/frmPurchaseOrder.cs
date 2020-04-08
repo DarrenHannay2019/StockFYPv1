@@ -312,7 +312,7 @@ namespace DMHV2
 
         private void TxtShipperName_Leave(object sender, EventArgs e)
         {
-
+            TxtShipperName.Text = clsUtils.ChangeCase(TxtShipperName.Text.TrimEnd(), 0);
         }
 
         private void TxtVATAmount_Leave(object sender, EventArgs e)

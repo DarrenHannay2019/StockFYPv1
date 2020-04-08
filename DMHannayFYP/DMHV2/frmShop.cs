@@ -168,19 +168,19 @@
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dtk);
                 }
-                TxtShopRef.Text = dtk.Rows[0][1].ToString();
-                TxtShopName.Text = dtk.Rows[0][2].ToString();
-                TxtContactName.Text = dtk.Rows[0][2].ToString();
+                TxtShopRef.Text = dtk.Rows[0][0].ToString();
+                TxtShopName.Text = dtk.Rows[0][1].ToString();
+                TxtContactName.Text = dtk.Rows[0][12].ToString();
                 TxtAddress1.Text = dtk.Rows[0][2].ToString();
-                TxtAddress2.Text = dtk.Rows[0][2].ToString();
-                TxtAddress3.Text = dtk.Rows[0][2].ToString();
-                TxtAddress4.Text = dtk.Rows[0][2].ToString();
-                TxtPostCode.Text = dtk.Rows[0][2].ToString();
-                TxtTelephone1.Text = dtk.Rows[0][2].ToString();
-                TxtFax.Text = dtk.Rows[0][2].ToString();
-                TxteMail.Text = dtk.Rows[0][2].ToString();
-                TxtMemo.Text = dtk.Rows[0][2].ToString();
-                cboWType.Text = dtk.Rows[0][2].ToString();
+                TxtAddress2.Text = dtk.Rows[0][3].ToString();
+                TxtAddress3.Text = dtk.Rows[0][4].ToString();
+                TxtAddress4.Text = dtk.Rows[0][5].ToString();
+                TxtPostCode.Text = dtk.Rows[0][6].ToString();
+                TxtTelephone1.Text = dtk.Rows[0][7].ToString();
+                TxtFax.Text = dtk.Rows[0][8].ToString();
+                TxteMail.Text = dtk.Rows[0][9].ToString();
+                TxtMemo.Text = dtk.Rows[0][11].ToString();
+                cboWType.Text = dtk.Rows[0][10].ToString();
                 this.Text = "Shop Details for [" + TxtShopRef.Text.TrimEnd() + "] " + TxtShopName.Text.TrimEnd();
             }
             using (SqlConnection conn = new SqlConnection())
@@ -192,7 +192,8 @@
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode, QtyHangers, Value From QryShopStockDisplay Where LocationRef = @LocationRef AND QtyHangers <> '0' ORDER BY StockCode";
+                    SelectCmd.CommandText = "SELECT StockCode, QtyHangers, Value From QryShopStock Where LocationRef = @LocationRef AND QtyHangers <> '0' ORDER BY StockCode";
+                    SelectCmd.Parameters.AddWithValue("@LocationRef", TxtShopRef.Text.TrimEnd());
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dt);
                 }
@@ -224,8 +225,8 @@
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode, MovementType, MovementQtyHangers, MovementDate, Reference from tblStockMovements where LocationRef= @LocationRef And LocationType='Shop' Order By MovementDate";
-                    SelectCmd.Parameters.AddWithValue("@ShopRef", TxtShopRef.Text.TrimEnd());
+                    SelectCmd.CommandText = "SELECT StockCode, MovementType, MovementQtyHangers, MovementDate, MovementReference from tblStockMovements where LocationRef = @LocationRef And LocationType = 2 Order By MovementDate";
+                    SelectCmd.Parameters.AddWithValue("@LocationRef", TxtShopRef.Text.TrimEnd());
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dt);
                 }

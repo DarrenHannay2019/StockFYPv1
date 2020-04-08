@@ -117,6 +117,7 @@ namespace DMHV2
             TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text, 1);
             clsStock stock = new clsStock();
             stock.StockCode = TxtStockCode.Text.TrimEnd();
+            stock.SupplierRef = TxtFromWarehouseRef.Text.TrimEnd();
             TxtCurrentQty.Text = stock.GetWarehouseStockQty().ToString();
         }
         private void LoadData()

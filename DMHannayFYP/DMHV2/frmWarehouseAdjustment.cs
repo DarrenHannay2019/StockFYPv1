@@ -95,6 +95,7 @@
             TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text, 1);
             clsStock stock = new clsStock();
             stock.StockCode = TxtStockCode.Text.TrimEnd();
+            stock.SupplierRef = TxtWarehouseRef.Text.TrimEnd();
             TxtCurrentHangers.Text = stock.GetWarehouseStockQty().ToString();
         }
 

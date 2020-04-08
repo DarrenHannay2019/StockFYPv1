@@ -154,7 +154,7 @@
             // 
             // TxtQtyBoxes
             // 
-            this.TxtQtyBoxes.Location = new System.Drawing.Point(291, 44);
+            this.TxtQtyBoxes.Location = new System.Drawing.Point(290, 44);
             this.TxtQtyBoxes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtQtyBoxes.Name = "TxtQtyBoxes";
             this.TxtQtyBoxes.Size = new System.Drawing.Size(55, 30);
@@ -189,7 +189,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(291, 0);
+            this.label1.Location = new System.Drawing.Point(290, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 25);
@@ -206,7 +206,7 @@
             // 
             // TxtQtyLoose
             // 
-            this.TxtQtyLoose.Location = new System.Drawing.Point(412, 44);
+            this.TxtQtyLoose.Location = new System.Drawing.Point(411, 44);
             this.TxtQtyLoose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtQtyLoose.Name = "TxtQtyLoose";
             this.TxtQtyLoose.Size = new System.Drawing.Size(67, 30);
@@ -214,7 +214,7 @@
             // 
             // TxtNetCostLine
             // 
-            this.TxtNetCostLine.Location = new System.Drawing.Point(530, 44);
+            this.TxtNetCostLine.Location = new System.Drawing.Point(529, 44);
             this.TxtNetCostLine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtNetCostLine.Name = "TxtNetCostLine";
             this.TxtNetCostLine.Size = new System.Drawing.Size(84, 30);
@@ -548,7 +548,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.31034F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel3.Controls.Add(this.TxtStockCode, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.TxtQtyBoxes, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.TxtQtyItems, 1, 1);
@@ -572,7 +572,7 @@
             // 
             this.Label22.AutoSize = true;
             this.Label22.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label22.Location = new System.Drawing.Point(412, 0);
+            this.Label22.Location = new System.Drawing.Point(411, 0);
             this.Label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label22.Name = "Label22";
             this.Label22.Size = new System.Drawing.Size(102, 25);
@@ -594,7 +594,7 @@
             // 
             this.Label25.AutoSize = true;
             this.Label25.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label25.Location = new System.Drawing.Point(530, 0);
+            this.Label25.Location = new System.Drawing.Point(529, 0);
             this.Label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label25.Name = "Label25";
             this.Label25.Size = new System.Drawing.Size(88, 25);
@@ -754,6 +754,7 @@
             this.CheckBox1.TabIndex = 168;
             this.CheckBox1.Text = "Direct To Shop";
             this.CheckBox1.UseVisualStyleBackColor = true;
+            this.CheckBox1.Visible = false;
             // 
             // Label17
             // 
@@ -911,7 +912,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 658);
+            this.ClientSize = new System.Drawing.Size(1202, 565);
             this.Controls.Add(this.TxtOurRef);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.CboSeasonName);

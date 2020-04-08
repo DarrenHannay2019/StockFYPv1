@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -263,6 +264,8 @@ namespace DMHV2
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
             GetAllSeasonData();
+            LoadWarehousesIntoForm();
+            LoadStockIntoForm();
             if(FormMode == "New")
             {
                 cmdOK.Text = "Save";
@@ -276,7 +279,136 @@ namespace DMHV2
         }
         private void LoadData()
         {
+            TxtTotalNet.Clear();
+            TxtCommission.Clear();
+            TxtDeliveryCharges.Clear();
+            TxtTotalOrderPrice.Clear();
+            DgvItems.Columns.Clear();
+            int PurchaseID;
+            PurchaseID = Convert.ToInt32(TxtOrderID.Text.TrimEnd());  
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable PurchaseHead = new DataTable();
+                SqlDataAdapter PurchaseDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblPurchaseOrders WHERE PurchaseOrderID = @PurchaseOrderID";
+                    SelectCmd.Parameters.AddWithValue("@PurchaseOrderID", PurchaseID);
+                    PurchaseDataAdapter.SelectCommand = SelectCmd;
+                    PurchaseDataAdapter.Fill(PurchaseHead);
+                }
+                TxtOurRef.Text = PurchaseHead.Rows[0][1].ToString();
+                TxtSupplierRef.Text = PurchaseHead.Rows[0][2].ToString();
+                clsSupplier supplier = new clsSupplier(LoggedUser);
+                supplier.SupplierRef = TxtSupplierRef.Text;
+                TxtSupplierName.Text = supplier.GetSupplierName();
+                clsWarehouse warehouse = new clsWarehouse(LoggedUser);
+                TxtWarehouseRef.Text = PurchaseHead.Rows[0][3].ToString();
+                warehouse.WarehouseRef = TxtWarehouseRef.Text;
+                TxtWarehouseName.Text = warehouse.GetWarehouseName();
+                CboSeasonName.Text = PurchaseHead.Rows[0][4].ToString();
+                TxtTotalGarments.Text = PurchaseHead.Rows[0][5].ToString();
+                TxtTotalBoxes.Text = PurchaseHead.Rows[0][6].ToString();
+                TxtTotalLooseItems.Text = PurchaseHead.Rows[0][7].ToString();
+                decimal TotalNet = Convert.ToDecimal(PurchaseHead.Rows[0][8]);                
+                decimal DelCharge = Convert.ToDecimal(PurchaseHead.Rows[0][9]);
+                decimal CommissionCharge = Convert.ToDecimal(PurchaseHead.Rows[0][10]);
+                decimal VatAmount = Convert.ToDecimal(PurchaseHead.Rows[0][11]);
+                decimal TotalOrder = Convert.ToDecimal(PurchaseHead.Rows[0][12]);
+                string TotalNetString = TotalNet.ToString("C");
+                string CommissionString = CommissionCharge.ToString("C");
+                string DeliveryString = DelCharge.ToString("C");
+                string VatString = VatAmount.ToString("C");
+                string OrderString = TotalOrder.ToString("C");
+                TxtTotalNet.Text = TotalNetString;
+                TxtCommission.Text = CommissionString;
+                TxtDeliveryCharges.Text = DeliveryString;
+                TxtVATAmount.Text = VatString;
+                TxtTotalOrderPrice.Text = OrderString;
+                dateTimePicker1.Value = Convert.ToDateTime(PurchaseHead.Rows[0][13].ToString());
+                //deliveryType not on form [14]               
+                TxtNotes.Text = PurchaseHead.Rows[0][15].ToString();
+                TxtSuppliersInvoiceNumber.Text = PurchaseHead.Rows[0][16].ToString();
+                TxtShipperName.Text = PurchaseHead.Rows[0][17].ToString();
+                TxtShipperInvoiceNumber.Text = PurchaseHead.Rows[0][18].ToString();
+            }
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable PurchaseLines = new DataTable();
+                SqlDataAdapter PurchaseLinesDA = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode,DeliveredQtyGarments,DeliveredQtyBoxes,DeliveredQtyHangers,LineAmount FROM tblPurchaseOrderLines WHERE PurchaseOrderID = @PurchaseOrderID";
+                    SelectCmd.Parameters.AddWithValue("@PurchaseOrderID", PurchaseID);
+                    PurchaseLinesDA.SelectCommand = SelectCmd;
+                    PurchaseLinesDA.Fill(PurchaseLines);
+                }
+                DgvItems.DataSource = PurchaseLines;
+                DgvItems.AutoGenerateColumns = true;
+                DgvItems.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                DgvItems.BackgroundColor = Color.LightCoral;
+                DgvItems.DefaultCellStyle.SelectionBackColor = Color.Red;
+                DgvItems.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                DgvItems.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                DgvItems.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                DgvItems.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                DgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                DgvItems.AllowUserToResizeColumns = false;
+                DgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                DgvItems.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                DgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                DgvItems.Columns[0].HeaderText = "Stock Code";
+                DgvItems.Columns[1].HeaderText = "Garments";
+                DgvItems.Columns[2].HeaderText = "Boxes";
+                DgvItems.Columns[3].HeaderText = "Hangers";
+                DgvItems.Columns[4].HeaderText = "Value";
+                DgvItems.Columns[4].DefaultCellStyle.Format = "C2";
+            }
+        }
+        private void LoadWarehousesIntoForm()
+        {
+            AutoCompleteStringCollection ACSC = new AutoCompleteStringCollection();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                adp.SelectCommand = new SqlCommand("SELECT WarehouseRef from tblWarehouses", conn);
+                adp.Fill(dt);
 
+                foreach (DataRow row in dt.Rows)
+                {
+                    ACSC.Add(Convert.ToString(row[0]));
+                }
+            }
+            TxtWarehouseRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            TxtWarehouseRef.AutoCompleteCustomSource = ACSC;
+            TxtWarehouseRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        }
+        private void LoadStockIntoForm()
+        {
+            AutoCompleteStringCollection ACSC = new AutoCompleteStringCollection();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                adp.SelectCommand = new SqlCommand("SELECT StockCode from tblStock", conn);
+                adp.Fill(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    ACSC.Add(Convert.ToString(row[0]));
+                }
+            }
+            TxtStockCode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            TxtStockCode.AutoCompleteCustomSource = ACSC;
+            TxtStockCode.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
         private void GetAllSeasonData()
         {
@@ -285,9 +417,11 @@ namespace DMHV2
                 ConnectionString = clsUtils.GetConnString(1)
             };
             conn.Open();
-            SqlCommand SelectCmd = new SqlCommand();
-            SelectCmd.CommandText = "SELECT SeasonName from tblSeasons";
-             SelectCmd.Connection = conn;
+            SqlCommand SelectCmd = new SqlCommand
+            {
+                CommandText = "SELECT SeasonName from tblSeasons",
+                Connection = conn
+            };
             SqlDataReader dataReader;
             dataReader = SelectCmd.ExecuteReader();
             while (dataReader.Read())

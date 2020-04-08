@@ -375,15 +375,64 @@
         }
         public bool UpdatePCMarkup()
         {
+            // Due to restrictions unable to complete this section of code.
             return UpdateToDB;
         }
         public int GetWarehouseStockQty()
         {
-            return 0;
+            Result = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
+                    {
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandText = "SELECT QtyHangers FROM qryWarehouseStock WHERE StockCode = @StockCode AND LocationRef = @LocationRef";
+                        SelectCmd.CommandType = CommandType.Text;
+                        SelectCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                        SelectCmd.Parameters.AddWithValue("@LocationRef", SupplierRef);
+                        Result = (int)SelectCmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            return Result;
         }
         public int GetShopStockQty()
         {
-            return 0;
+            Result = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = GetConnString(1);
+                    conn.Open();
+                    using (SqlCommand SelectCmd = new SqlCommand())
+                    {
+                        SelectCmd.Connection = conn;
+                        SelectCmd.CommandText = "SELECT QtyHangers FROM qryShopStock WHERE StockCode = @StockCode AND LocationRef = @LocationRef";
+                        SelectCmd.CommandType = CommandType.Text;
+                        SelectCmd.Parameters.AddWithValue("@StockCode", StockCode);
+                        SelectCmd.Parameters.AddWithValue("@LocationRef", SupplierRef);
+                        Result = (int)SelectCmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            return Result;
         }
     }
 }

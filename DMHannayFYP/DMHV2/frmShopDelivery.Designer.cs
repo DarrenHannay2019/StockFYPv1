@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtQty = new System.Windows.Forms.TextBox();
-            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgvRecords = new System.Windows.Forms.DataGridView();
             this.StockCodeDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GarmentsDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValueCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +63,7 @@
             this.txtReference = new System.Windows.Forms.TextBox();
             this.txtWarehouseName = new System.Windows.Forms.TextBox();
             this.Label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).BeginInit();
             this.StatusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,25 +75,25 @@
             this.txtQty.Location = new System.Drawing.Point(193, 240);
             this.txtQty.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(128, 22);
+            this.txtQty.Size = new System.Drawing.Size(128, 26);
             this.txtQty.TabIndex = 53;
             // 
-            // DataGridView1
+            // DgvRecords
             // 
-            this.DataGridView1.AllowUserToAddRows = false;
-            this.DataGridView1.AllowUserToDeleteRows = false;
-            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvRecords.AllowUserToAddRows = false;
+            this.DgvRecords.AllowUserToDeleteRows = false;
+            this.DgvRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvRecords.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockCodeDG,
             this.GarmentsDG,
             this.ValueCol});
-            this.DataGridView1.Location = new System.Drawing.Point(13, 323);
-            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DataGridView1.Name = "DataGridView1";
-            this.DataGridView1.RowHeadersWidth = 51;
-            this.DataGridView1.Size = new System.Drawing.Size(460, 268);
-            this.DataGridView1.TabIndex = 55;
+            this.DgvRecords.Location = new System.Drawing.Point(13, 323);
+            this.DgvRecords.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DgvRecords.Name = "DgvRecords";
+            this.DgvRecords.RowHeadersWidth = 51;
+            this.DgvRecords.Size = new System.Drawing.Size(460, 268);
+            this.DgvRecords.TabIndex = 55;
             // 
             // StockCodeDG
             // 
@@ -117,13 +117,13 @@
             // ToolStripStatusLabel1
             // 
             this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(97, 17);
+            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(123, 20);
             this.ToolStripStatusLabel1.Text = "Delivery Lines :    ";
             // 
             // Deliverlabel
             // 
             this.Deliverlabel.Name = "Deliverlabel";
-            this.Deliverlabel.Size = new System.Drawing.Size(119, 17);
+            this.Deliverlabel.Size = new System.Drawing.Size(153, 20);
             this.Deliverlabel.Text = "ToolStripStatusLabel2";
             // 
             // Label8
@@ -132,7 +132,7 @@
             this.Label8.Location = new System.Drawing.Point(187, 215);
             this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(119, 20);
+            this.Label8.Size = new System.Drawing.Size(150, 25);
             this.Label8.TabIndex = 52;
             this.Label8.Text = "Warehouse Qty";
             // 
@@ -142,10 +142,10 @@
             this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripStatusLabel1,
             this.Deliverlabel});
-            this.StatusStrip1.Location = new System.Drawing.Point(0, 716);
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 712);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(3, 0, 24, 0);
-            this.StatusStrip1.Size = new System.Drawing.Size(491, 22);
+            this.StatusStrip1.Size = new System.Drawing.Size(491, 26);
             this.StatusStrip1.TabIndex = 59;
             this.StatusStrip1.Text = "StatusStrip1";
             // 
@@ -156,7 +156,7 @@
             this.Label21.Location = new System.Drawing.Point(13, 215);
             this.Label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label21.Name = "Label21";
-            this.Label21.Size = new System.Drawing.Size(92, 20);
+            this.Label21.Size = new System.Drawing.Size(115, 25);
             this.Label21.TabIndex = 51;
             this.Label21.Text = "Stock Code";
             // 
@@ -167,7 +167,7 @@
             this.Label22.Location = new System.Drawing.Point(329, 215);
             this.Label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label22.Name = "Label22";
-            this.Label22.Size = new System.Drawing.Size(92, 20);
+            this.Label22.Size = new System.Drawing.Size(118, 25);
             this.Label22.TabIndex = 54;
             this.Label22.Text = "Delivery Qty";
             // 
@@ -201,7 +201,7 @@
             this.txtStockCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtStockCode.MaxLength = 30;
             this.txtStockCode.Name = "txtStockCode";
-            this.txtStockCode.Size = new System.Drawing.Size(168, 26);
+            this.txtStockCode.Size = new System.Drawing.Size(168, 30);
             this.txtStockCode.TabIndex = 33;
             this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
@@ -212,7 +212,7 @@
             this.Label16.Location = new System.Drawing.Point(10, 75);
             this.Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(81, 20);
+            this.Label16.Size = new System.Drawing.Size(99, 25);
             this.Label16.TabIndex = 42;
             this.Label16.Text = "Shop Ref:";
             // 
@@ -222,7 +222,7 @@
             this.Label17.Location = new System.Drawing.Point(148, 75);
             this.Label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label17.Name = "Label17";
-            this.Label17.Size = new System.Drawing.Size(97, 20);
+            this.Label17.Size = new System.Drawing.Size(122, 25);
             this.Label17.TabIndex = 47;
             this.Label17.Text = "Shop Name:";
             // 
@@ -243,7 +243,7 @@
             this.txtWarehouseRef.Location = new System.Drawing.Point(13, 160);
             this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseRef.Name = "txtWarehouseRef";
-            this.txtWarehouseRef.Size = new System.Drawing.Size(94, 26);
+            this.txtWarehouseRef.Size = new System.Drawing.Size(94, 30);
             this.txtWarehouseRef.TabIndex = 44;
             this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
@@ -263,7 +263,7 @@
             this.txtQtyHangers.Location = new System.Drawing.Point(334, 240);
             this.txtQtyHangers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtQtyHangers.Name = "txtQtyHangers";
-            this.txtQtyHangers.Size = new System.Drawing.Size(115, 26);
+            this.txtQtyHangers.Size = new System.Drawing.Size(115, 30);
             this.txtQtyHangers.TabIndex = 34;
             // 
             // cmdCancel
@@ -283,7 +283,7 @@
             this.DateTimePicker1.Location = new System.Drawing.Point(121, 40);
             this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DateTimePicker1.Name = "DateTimePicker1";
-            this.DateTimePicker1.Size = new System.Drawing.Size(150, 26);
+            this.DateTimePicker1.Size = new System.Drawing.Size(150, 30);
             this.DateTimePicker1.TabIndex = 30;
             // 
             // txtShopRef
@@ -292,7 +292,7 @@
             this.txtShopRef.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtShopRef.MaxLength = 8;
             this.txtShopRef.Name = "txtShopRef";
-            this.txtShopRef.Size = new System.Drawing.Size(91, 26);
+            this.txtShopRef.Size = new System.Drawing.Size(91, 30);
             this.txtShopRef.TabIndex = 32;
             this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
@@ -304,7 +304,7 @@
             this.Label4.Location = new System.Drawing.Point(184, 608);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(122, 20);
+            this.Label4.Size = new System.Drawing.Size(152, 25);
             this.Label4.TabIndex = 56;
             this.Label4.Text = "Delivery Total:";
             // 
@@ -313,7 +313,7 @@
             this.txtShopName.Location = new System.Drawing.Point(117, 100);
             this.txtShopName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtShopName.Name = "txtShopName";
-            this.txtShopName.Size = new System.Drawing.Size(330, 26);
+            this.txtShopName.Size = new System.Drawing.Size(330, 30);
             this.txtShopName.TabIndex = 48;
             // 
             // Label18
@@ -323,7 +323,7 @@
             this.Label18.Location = new System.Drawing.Point(13, 135);
             this.Label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(125, 20);
+            this.Label18.Size = new System.Drawing.Size(154, 25);
             this.Label18.TabIndex = 43;
             this.Label18.Text = "Warehouse Ref:";
             // 
@@ -333,7 +333,7 @@
             this.Label3.Location = new System.Drawing.Point(275, 15);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(130, 20);
+            this.Label3.Size = new System.Drawing.Size(164, 25);
             this.Label3.TabIndex = 46;
             this.Label3.Text = "Delivery Note No:";
             // 
@@ -344,7 +344,7 @@
             this.Label2.Location = new System.Drawing.Point(117, 9);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(107, 20);
+            this.Label2.Size = new System.Drawing.Size(134, 25);
             this.Label2.TabIndex = 45;
             this.Label2.Text = "Delivery Date:";
             // 
@@ -354,7 +354,7 @@
             this.Label20.Location = new System.Drawing.Point(155, 135);
             this.Label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label20.Name = "Label20";
-            this.Label20.Size = new System.Drawing.Size(141, 20);
+            this.Label20.Size = new System.Drawing.Size(177, 25);
             this.Label20.TabIndex = 49;
             this.Label20.Text = "Warehouse Name:";
             // 
@@ -364,7 +364,7 @@
             this.Label1.Location = new System.Drawing.Point(10, 15);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(89, 20);
+            this.Label1.Size = new System.Drawing.Size(110, 25);
             this.Label1.TabIndex = 40;
             this.Label1.Text = "Record No:";
             // 
@@ -374,7 +374,7 @@
             this.txtTotalGarments.Location = new System.Drawing.Point(293, 639);
             this.txtTotalGarments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalGarments.Name = "txtTotalGarments";
-            this.txtTotalGarments.Size = new System.Drawing.Size(166, 26);
+            this.txtTotalGarments.Size = new System.Drawing.Size(166, 30);
             this.txtTotalGarments.TabIndex = 58;
             // 
             // txtDelNoteNumber
@@ -382,7 +382,7 @@
             this.txtDelNoteNumber.Location = new System.Drawing.Point(13, 40);
             this.txtDelNoteNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDelNoteNumber.Name = "txtDelNoteNumber";
-            this.txtDelNoteNumber.Size = new System.Drawing.Size(94, 26);
+            this.txtDelNoteNumber.Size = new System.Drawing.Size(94, 30);
             this.txtDelNoteNumber.TabIndex = 41;
             // 
             // txtReference
@@ -392,7 +392,7 @@
             this.txtReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtReference.MaxLength = 90;
             this.txtReference.Name = "txtReference";
-            this.txtReference.Size = new System.Drawing.Size(166, 26);
+            this.txtReference.Size = new System.Drawing.Size(166, 30);
             this.txtReference.TabIndex = 31;
             // 
             // txtWarehouseName
@@ -401,7 +401,7 @@
             this.txtWarehouseName.Location = new System.Drawing.Point(117, 160);
             this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(283, 26);
+            this.txtWarehouseName.Size = new System.Drawing.Size(283, 30);
             this.txtWarehouseName.TabIndex = 50;
             // 
             // Label5
@@ -410,17 +410,17 @@
             this.Label5.Location = new System.Drawing.Point(64, 645);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(123, 20);
+            this.Label5.Size = new System.Drawing.Size(152, 25);
             this.Label5.TabIndex = 57;
             this.Label5.Text = "Total Garments:";
             // 
             // frmShopDelivery
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 738);
             this.Controls.Add(this.txtQty);
-            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.DgvRecords);
             this.Controls.Add(this.Label8);
             this.Controls.Add(this.StatusStrip1);
             this.Controls.Add(this.Label21);
@@ -453,7 +453,7 @@
             this.Name = "frmShopDelivery";
             this.Text = "frmShopDelivery";
             this.Load += new System.EventHandler(this.frmShopDelivery_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).EndInit();
             this.StatusStrip1.ResumeLayout(false);
             this.StatusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -464,7 +464,7 @@
         #endregion
 
         internal System.Windows.Forms.TextBox txtQty;
-        internal System.Windows.Forms.DataGridView DataGridView1;
+        internal System.Windows.Forms.DataGridView DgvRecords;
         internal System.Windows.Forms.DataGridViewTextBoxColumn StockCodeDG;
         internal System.Windows.Forms.DataGridViewTextBoxColumn GarmentsDG;
         internal System.Windows.Forms.DataGridViewTextBoxColumn ValueCol;

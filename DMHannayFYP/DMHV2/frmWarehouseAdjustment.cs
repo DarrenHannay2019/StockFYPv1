@@ -92,7 +92,10 @@
 
         private void TxtStockCode_Leave(object sender, EventArgs e)
         {
-
+            TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text, 1);
+            clsStock stock = new clsStock();
+            stock.StockCode = TxtStockCode.Text.TrimEnd();
+            TxtCurrentHangers.Text = stock.GetWarehouseStockQty().ToString();
         }
 
         private void TxtWarehouseRef_Leave(object sender, EventArgs e)

@@ -310,5 +310,14 @@ namespace DMHV2
             TotalCalc();
         }
 
+        private void TxtShipperName_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtVATAmount_Leave(object sender, EventArgs e)
+        {
+            TotalCalc();
+        }
     }
 }

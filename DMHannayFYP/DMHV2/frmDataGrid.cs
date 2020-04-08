@@ -1385,7 +1385,7 @@ namespace DMHV2
             }
             else if (FunctionID == 7)
             {
-                SqlCmdString = "SELECT * from tblPurchaseOrders";
+                SqlCmdString = "SELECT * from qryPurchaseOrders";
             }
             if (FunctionID == 8)
             {

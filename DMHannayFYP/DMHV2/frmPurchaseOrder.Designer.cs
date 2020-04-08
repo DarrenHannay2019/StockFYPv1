@@ -154,7 +154,7 @@
             // 
             // TxtQtyBoxes
             // 
-            this.TxtQtyBoxes.Location = new System.Drawing.Point(290, 44);
+            this.TxtQtyBoxes.Location = new System.Drawing.Point(289, 44);
             this.TxtQtyBoxes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtQtyBoxes.Name = "TxtQtyBoxes";
             this.TxtQtyBoxes.Size = new System.Drawing.Size(55, 30);
@@ -179,7 +179,7 @@
             // 
             // TxtQtyItems
             // 
-            this.TxtQtyItems.Location = new System.Drawing.Point(178, 44);
+            this.TxtQtyItems.Location = new System.Drawing.Point(177, 44);
             this.TxtQtyItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtQtyItems.Name = "TxtQtyItems";
             this.TxtQtyItems.Size = new System.Drawing.Size(56, 30);
@@ -189,7 +189,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(290, 0);
+            this.label1.Location = new System.Drawing.Point(289, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 25);
@@ -206,7 +206,7 @@
             // 
             // TxtQtyLoose
             // 
-            this.TxtQtyLoose.Location = new System.Drawing.Point(411, 44);
+            this.TxtQtyLoose.Location = new System.Drawing.Point(410, 44);
             this.TxtQtyLoose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtQtyLoose.Name = "TxtQtyLoose";
             this.TxtQtyLoose.Size = new System.Drawing.Size(67, 30);
@@ -214,7 +214,7 @@
             // 
             // TxtNetCostLine
             // 
-            this.TxtNetCostLine.Location = new System.Drawing.Point(529, 44);
+            this.TxtNetCostLine.Location = new System.Drawing.Point(528, 44);
             this.TxtNetCostLine.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtNetCostLine.Name = "TxtNetCostLine";
             this.TxtNetCostLine.Size = new System.Drawing.Size(84, 30);
@@ -248,7 +248,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label11.Location = new System.Drawing.Point(178, 0);
+            this.label11.Location = new System.Drawing.Point(177, 0);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 25);
@@ -548,7 +548,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.31034F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.tableLayoutPanel3.Controls.Add(this.TxtStockCode, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.TxtQtyBoxes, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.TxtQtyItems, 1, 1);
@@ -572,7 +572,7 @@
             // 
             this.Label22.AutoSize = true;
             this.Label22.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label22.Location = new System.Drawing.Point(411, 0);
+            this.Label22.Location = new System.Drawing.Point(410, 0);
             this.Label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label22.Name = "Label22";
             this.Label22.Size = new System.Drawing.Size(102, 25);
@@ -594,7 +594,7 @@
             // 
             this.Label25.AutoSize = true;
             this.Label25.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label25.Location = new System.Drawing.Point(529, 0);
+            this.Label25.Location = new System.Drawing.Point(528, 0);
             this.Label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label25.Name = "Label25";
             this.Label25.Size = new System.Drawing.Size(88, 25);

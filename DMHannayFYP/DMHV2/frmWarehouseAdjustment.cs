@@ -3,11 +3,13 @@
     using System;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Drawing;
     using System.Windows.Forms;
 
     public partial class frmWarehouseAdjustment : Form
     {
         public string FormMode { get; set; }
+        public DateTime olddate { get; set; }
         public frmWarehouseAdjustment()
         {
             InitializeComponent();
@@ -181,7 +183,64 @@
         }
         private void LoadData()
         {
-
+            int WarehouseAdjustID = Convert.ToInt32(TxtRecordID.Text.TrimEnd());
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable WarehouseAdjustHead = new DataTable();
+                SqlDataAdapter WarehouseAdjustDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblWarehouseAdjustments WHERE WarehouseAdjustmentID = @WarehouseAdjustmentID";
+                    SelectCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", WarehouseAdjustID);
+                    WarehouseAdjustDataAdapter.SelectCommand = SelectCmd;
+                    WarehouseAdjustDataAdapter.Fill(WarehouseAdjustHead);
+                }
+                TxtWarehouseRef.Text = WarehouseAdjustHead.Rows[0][1].ToString();
+                clsWarehouse warehouse = new clsWarehouse(0);
+                warehouse.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
+                TxtWarehouseName.Text = warehouse.GetWarehouseName();
+                TxtReference.Text = WarehouseAdjustHead.Rows[0][2].ToString();
+                TxtTotalGain.Text = WarehouseAdjustHead.Rows[0][4].ToString();
+                TxtTotalLoss.Text = WarehouseAdjustHead.Rows[0][3].ToString();
+                DateTimePicker1.Value = Convert.ToDateTime(WarehouseAdjustHead.Rows[0][5]);
+                olddate = DateTimePicker1.Value;
+            }
+            dgvItems.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable WarehouseAdjustLine = new DataTable();
+                SqlDataAdapter WarehouseAdjustLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode,MovementType,Qty from tblWarehouseAdjustmentsLines WHERE WarehouseAdjustmentID = @WarehouseAdjustmentID";
+                    SelectCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", WarehouseAdjustID);
+                    WarehouseAdjustLineDataAdapter.SelectCommand = SelectCmd;
+                    WarehouseAdjustLineDataAdapter.Fill(WarehouseAdjustLine);
+                    dgvItems.DataSource = WarehouseAdjustLine;
+                    dgvItems.AutoGenerateColumns = true;
+                    dgvItems.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    dgvItems.BackgroundColor = Color.LightCoral;
+                    dgvItems.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    dgvItems.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    dgvItems.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    dgvItems.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    dgvItems.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dgvItems.AllowUserToResizeColumns = false;
+                    dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvItems.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    dgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    dgvItems.Columns[0].HeaderText = "Stock Code";
+                    dgvItems.Columns[1].HeaderText = "Movement Type";
+                    dgvItems.Columns[2].HeaderText = "Qty";                    
+                }                
+            }
         }
     }
 }

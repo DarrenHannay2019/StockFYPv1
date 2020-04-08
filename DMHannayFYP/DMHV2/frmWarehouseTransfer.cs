@@ -14,6 +14,7 @@ namespace DMHV2
     public partial class frmWarehouseTransfer : Form
     {
         public string FormMode { get; set; }
+        public DateTime oldDate { get; set; }
         public frmWarehouseTransfer()
         {
             InitializeComponent();
@@ -122,7 +123,66 @@ namespace DMHV2
         }
         private void LoadData()
         {
-
+            int WarehouseTransferID = Convert.ToInt32(TxtTransferID.Text.TrimEnd());
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable WarehouseTransferHead = new DataTable();
+                SqlDataAdapter WarehouseTransferDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblWarehouseTransfers WHERE WarehouseTransferID = @WarehouseTransferID";
+                    SelectCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);
+                    WarehouseTransferDataAdapter.SelectCommand = SelectCmd;
+                    WarehouseTransferDataAdapter.Fill(WarehouseTransferHead);
+                }
+                TxtTFNote.Text = WarehouseTransferHead.Rows[0][1].ToString();
+                DtpDate.Value = Convert.ToDateTime(WarehouseTransferHead.Rows[0][2]);
+                oldDate = DtpDate.Value;
+                TxtFromWarehouseRef.Text = WarehouseTransferHead.Rows[0][3].ToString();
+                clsWarehouse warehouse = new clsWarehouse(0);
+                warehouse.WarehouseRef = TxtFromWarehouseRef.Text.TrimEnd();
+                txtFromShopName.Text = warehouse.GetWarehouseName();
+                TxtToWarehouseRef.Text = WarehouseTransferHead.Rows[0][4].ToString();
+                warehouse.WarehouseRef = TxtToWarehouseRef.Text.TrimEnd();
+                txtToShopName.Text = warehouse.GetWarehouseName();
+                txtTotalTransferTo.Text = WarehouseTransferHead.Rows[0][6].ToString();
+            }
+            DgvRecords.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable WarehouseAdjustLine = new DataTable();
+                SqlDataAdapter WarehouseAdjustLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode,CurrentQty,Qty from tblWarehouseTranferLines WHERE WarehouseTransferID = @WarehouseTransferID";
+                    SelectCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);
+                    WarehouseAdjustLineDataAdapter.SelectCommand = SelectCmd;
+                    WarehouseAdjustLineDataAdapter.Fill(WarehouseAdjustLine);
+                    DgvRecords.DataSource = WarehouseAdjustLine;
+                    DgvRecords.AutoGenerateColumns = true;
+                    DgvRecords.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    DgvRecords.BackgroundColor = Color.LightCoral;
+                    DgvRecords.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    DgvRecords.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    DgvRecords.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DgvRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    DgvRecords.AllowUserToResizeColumns = false;
+                    DgvRecords.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    DgvRecords.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    DgvRecords.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    DgvRecords.Columns[0].HeaderText = "Stock Code";
+                    DgvRecords.Columns[1].HeaderText = "Current Qty";
+                    DgvRecords.Columns[2].HeaderText = "Transfer Qty";
+                }
+            }
         }
 
         private void TxtToWarehouseRef_Leave(object sender, EventArgs e)

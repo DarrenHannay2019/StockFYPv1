@@ -271,12 +271,37 @@ namespace DMHV2
         }
         public void Totals()
         {
-            int lngqtyhangers = 0;
-
+            // 0 = StockCode
+            // 1 = Delivered
+            // 2 = Sold
+            // 3 = CurrentQty
+            // 4 = QtySold
+            // 5 = SalesAmount
+            int Delivered = 0;
+            int Sold = 0;
+            int CurrentQty = 0;
+            int QtySold = 0;
+            double SalesAmount = 0.0;   
             for (int i = 0; i < DgvRecords.Rows.Count; i++)
             {
-                lngqtyhangers += Convert.ToInt32(DgvRecords.Rows[i].Cells[1].Value);
+                Delivered += Convert.ToInt32(DgvRecords.Rows[i].Cells[1].Value);
+                Sold += Convert.ToInt32(DgvRecords.Rows[i].Cells[2].Value);
+                CurrentQty += Convert.ToInt32(DgvRecords.Rows[i].Cells[3].Value);
+                QtySold += Convert.ToInt32(DgvRecords.Rows[i].Cells[4].Value);
+                SalesAmount += Convert.ToDouble(DgvRecords.Rows[i].Cells[5].Value);
+                DgvRecords.Columns[5].DefaultCellStyle.Format = "C2";
             }
+            txtTotalDelivered.Text = Delivered.ToString();
+            txtTotalSold.Text = Sold.ToString();
+            txtTotalCurrQty.Text = CurrentQty.ToString();
+            txtTotalGarments.Text = QtySold.ToString();
+            double VATAMount = 0.0;
+            VATAMount = SalesAmount / 5;
+            double PreVAT = 0.0;
+            PreVAT = SalesAmount - VATAMount;
+            txtNetSale.Text = PreVAT.ToString("C");
+            txtVAT.Text = VATAMount.ToString("C");
+            txtTotal.Text = SalesAmount.ToString("C");
             //txtTotalItems.Text = lngqtyhangers.ToString();
 
 

@@ -118,9 +118,9 @@
 
         private void frmWarehouseReturn_Load(object sender, EventArgs e)
         {
-            LoadShopsIntoForm();
-            LoadStockIntoForm();
             LoadWarehouseIntoForm();
+            LoadStockIntoForm();
+            LoadSupplierIntoForm();
             if (FormMode == "New")
             {
                 cmdAdd.Text = "Save";
@@ -133,7 +133,7 @@
                 LoadData();
             }
         }
-        private void LoadWarehouseIntoForm()
+        private void LoadSupplierIntoForm()
         {
             AutoCompleteStringCollection ACSC = new AutoCompleteStringCollection();
             using (SqlConnection conn = new SqlConnection())
@@ -153,7 +153,7 @@
             txtWarehouseRef.AutoCompleteCustomSource = ACSC;
             txtWarehouseRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
-        private void LoadShopsIntoForm()
+        private void LoadWarehouseIntoForm()
         {
             AutoCompleteStringCollection ACSC = new AutoCompleteStringCollection();
             using (SqlConnection conn = new SqlConnection())

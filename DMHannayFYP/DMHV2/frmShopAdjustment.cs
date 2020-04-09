@@ -3,12 +3,14 @@
     using System;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Drawing;
     using System.Windows.Forms;
 
     public partial class frmShopAdjustment : Form
     {
         public string FormMode { get; set; }
         public int LoggedUser { get; set; }
+        public DateTime oldDate { get; set; }
         public frmShopAdjustment()
         {
             InitializeComponent();
@@ -218,59 +220,64 @@
         }
         private void LoadData()
         {
-        //    Using conn As New SqlConnection(ut.GetConnString())
-        //    Dim dt As New DataTable
-        //    Dim adp As New SqlDataAdapter With {
-        //        .SelectCommand = New SqlCommand("SELECT * from qryShopAdjustNew WHERE ID = '" + TxtSID.Text.ToString() + "'", conn)}
-        //    conn.Open()
-        //    adp.Fill(dt)
-        //    With Me
-        //        .CmdOK.Text = "OK"
-        //        .txtWarehouseRef.Text = dt.Rows(0).Item("ShopRef")
-        //        .txtReference.Text = dt.Rows(0).Item("Reference")
-        //        .txtWarehouseName.Text = dt.Rows(0).Item("ShopName")
-        //        .txtTotalGain.Text = dt.Rows(0).Item("TotalGainItems")
-        //        .txtTotalLoss.Text = dt.Rows(0).Item("TotalLossItems")
-        //        .DateTimePicker1.Value = dt.Rows(0).Item("MovementDate")
-        //    End With
-        //End Using
-        //With Me
-        //    .DataGridView1.Columns.Clear()
-        //    Using conn As New SqlConnection(ut.GetConnString())
-        //        Dim dgd As New SqlDataAdapter("SELECT * from tblShopAdjustmentsLines WHERE ShopAdjustID = '" + TxtSID.Text.ToString() + "'", conn)
-        //        Dim ds As New DataTable
-        //        dgd.Fill(ds)
-        //        With.DataGridView1
-        //            .DataSource = ds
-        //            .AutoGenerateColumns = True
-        //            .EditMode = DataGridViewEditMode.EditOnF2
-        //            .CellBorderStyle = DataGridViewCellBorderStyle.None
-        //            .BackgroundColor = Color.LightCoral
-        //            .DefaultCellStyle.SelectionBackColor = Color.Red
-        //            .DefaultCellStyle.SelectionForeColor = Color.Yellow
-        //            .ColumnHeadersDefaultCellStyle.BackColor = Color.Black
-        //            .ColumnHeadersDefaultCellStyle.ForeColor = Color.White
-        //            .DefaultCellStyle.WrapMode = DataGridViewTriState.[True]
-        //            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        //            .AllowUserToResizeColumns = False
-        //            .RowsDefaultCellStyle.BackColor = Color.LightSkyBlue
-        //            .AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow
-        //            With.Columns
-        //                .Item(0).Visible = False
-        //                .Item(1).Visible = False
-        //                .Item(2).Visible = True
-        //                .Item(2).HeaderText = "Stock Code"
-        //                .Item(2).Width = 80
-        //                .Item(3).Visible = True
-        //                .Item(3).HeaderText = "Movement Type"
-        //                .Item(4).Visible = True
-        //                .Item(4).HeaderText = "Qty"
-        //                .Item(4).Width = 80
-        //                .Item(5).Visible = False
-        //            End With
-        //        End With
-        //    End Using
-        //End With
+            int ShopAdjustID = Convert.ToInt32(TxtSID.Text);
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopAdjustHead = new DataTable();
+                SqlDataAdapter ShopAdjustDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblShopAdjustments WHERE ShopAdjustmentID = @ShopAdjustmentID";
+                    SelectCmd.Parameters.AddWithValue("@ShopAdjustmentID", ShopAdjustID);
+                    ShopAdjustDataAdapter.SelectCommand = SelectCmd;
+                    ShopAdjustDataAdapter.Fill(ShopAdjustHead);
+                }
+                txtWarehouseRef.Text = ShopAdjustHead.Rows[0][1].ToString();
+                clsShop Shop = new clsShop();
+                Shop.ShopRef = txtWarehouseRef.Text.TrimEnd();
+                txtWarehouseName.Text = Shop.GetShopName();
+                txtReference.Text = ShopAdjustHead.Rows[0][2].ToString();
+                txtTotalGain.Text = ShopAdjustHead.Rows[0][4].ToString();
+                txtTotalLoss.Text = ShopAdjustHead.Rows[0][3].ToString();
+                DateTimePicker1.Value = Convert.ToDateTime(ShopAdjustHead.Rows[0][5]);
+                oldDate = DateTimePicker1.Value;
+            }
+            dgvItems.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopAdjustLine = new DataTable();
+                SqlDataAdapter ShopAdjustLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode,MovementType,Qty from tblShopAdjustmentsLines WHERE ShopAdjustmentID = @ShopAdjustmentID";
+                    SelectCmd.Parameters.AddWithValue("@ShopAdjustmentID", ShopAdjustID);
+                    ShopAdjustLineDataAdapter.SelectCommand = SelectCmd;
+                    ShopAdjustLineDataAdapter.Fill(ShopAdjustLine);
+                    dgvItems.DataSource = ShopAdjustLine;
+                    dgvItems.AutoGenerateColumns = true;
+                    dgvItems.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    dgvItems.BackgroundColor = Color.LightCoral;
+                    dgvItems.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    dgvItems.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    dgvItems.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    dgvItems.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    dgvItems.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dgvItems.AllowUserToResizeColumns = false;
+                    dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvItems.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    dgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    dgvItems.Columns[0].HeaderText = "Stock Code";
+                    dgvItems.Columns[1].HeaderText = "Movement Type";
+                    dgvItems.Columns[2].HeaderText = "Qty";
+                }
+            }
         }
     }
 }

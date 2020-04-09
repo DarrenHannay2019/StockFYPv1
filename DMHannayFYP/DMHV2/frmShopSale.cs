@@ -198,7 +198,21 @@ namespace DMHV2
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if(CheckBox1.Checked == false)
+            {
+                txtCurrentQty.Enabled = false;
+                TxtStockCode.Enabled = false;
+                txtDelivered.Enabled = false;
+                txtSoldToDate.Enabled = false;
+                txtNetSale.Enabled = false;
+                txtQty.Enabled = false;
+            }
+            else
+            {
+                TxtStockCode.Enabled = true;
+                txtNetSale.Enabled = true;
+                txtQty.Enabled = true;
+            }
         }
 
         private void frmShopSale_Load(object sender, EventArgs e)

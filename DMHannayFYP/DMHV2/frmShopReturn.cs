@@ -14,6 +14,7 @@ namespace DMHV2
     public partial class frmShopReturn : Form
     {
         public string FormMode { get; set; }
+        public DateTime oldDate { get; set; }
         public frmShopReturn()
         {
             InitializeComponent();
@@ -140,7 +141,67 @@ namespace DMHV2
         }
         private void LoadData()
         {
-
+            int ShopReturnID = Convert.ToInt32(txtReturnID.Text.TrimEnd());
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopReturnHead = new DataTable();
+                SqlDataAdapter ShopReturnDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblShopReturns WHERE ShopReturnsID = @ShopReturnsID";
+                    SelectCmd.Parameters.AddWithValue("@ShopReturnsID", ShopReturnID);
+                    ShopReturnDataAdapter.SelectCommand = SelectCmd;
+                    ShopReturnDataAdapter.Fill(ShopReturnHead);
+                }
+                txtShopRef.Text = ShopReturnHead.Rows[0][1].ToString();
+                clsShop Shop = new clsShop();
+                Shop.ShopRef = txtShopRef.Text;
+                txtShopName.Text = Shop.GetShopName();
+                txtWarehouseRef.Text = ShopReturnHead.Rows[0][2].ToString();
+                clsWarehouse warehouse = new clsWarehouse(0);
+                warehouse.WarehouseRef = txtWarehouseRef.Text.TrimEnd();
+                txtWarehouseName.Text = warehouse.GetWarehouseName();
+                txtReference.Text = ShopReturnHead.Rows[0][3].ToString();
+                txtTotalItems.Text = ShopReturnHead.Rows[0][4].ToString();
+                DtpDate.Value = Convert.ToDateTime(ShopReturnHead.Rows[0][5]);
+                oldDate = DtpDate.Value;
+            }
+            DgvRecords.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopReturnLine = new DataTable();
+                SqlDataAdapter ShopReturnLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode,Qty from tblShopReturnLines WHERE ShopReturnID = @ShopReturnID";
+                    SelectCmd.Parameters.AddWithValue("@ShopReturnID", ShopReturnID);
+                    ShopReturnLineDataAdapter.SelectCommand = SelectCmd;
+                    ShopReturnLineDataAdapter.Fill(ShopReturnLine);
+                    DgvRecords.DataSource = ShopReturnLine;
+                    DgvRecords.AutoGenerateColumns = true;
+                    DgvRecords.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    DgvRecords.BackgroundColor = Color.LightCoral;
+                    DgvRecords.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    DgvRecords.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    DgvRecords.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DgvRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    DgvRecords.AllowUserToResizeColumns = false;
+                    DgvRecords.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    DgvRecords.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    DgvRecords.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    DgvRecords.Columns[0].HeaderText = "Stock Code";
+                    DgvRecords.Columns[1].HeaderText = "Qty";
+                }
+                Totals();
+            }
         }
         private void LoadWarehouseIntoForm()
         {

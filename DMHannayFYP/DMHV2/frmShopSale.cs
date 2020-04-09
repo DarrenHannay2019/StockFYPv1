@@ -192,7 +192,8 @@ namespace DMHV2
 
         private void TxtStockCode_Leave(object sender, EventArgs e)
         {
-
+            TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text, 1);
+            txtQty.Select();
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)

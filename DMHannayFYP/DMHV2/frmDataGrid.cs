@@ -1389,35 +1389,35 @@ namespace DMHV2
             }
             if (FunctionID == 8)
             {
-
+                SqlCmdString = "SELECT * from qryWarehouseAdjustments";
             }
             if (FunctionID == 9)
             {
-
+                SqlCmdString = "SELECT * from qryWarehouseTransfers";
             }
             if (FunctionID == 10)
             {
-
+                SqlCmdString = "SELECT * from qryWarehouseReturns";
             }
             if (FunctionID == 11)
             {
-
+                SqlCmdString = "SELECT * from qryShopDeliveries";
             }
             if (FunctionID == 12)
             {
-
+                SqlCmdString = "SELECT * from qryShopAdjustments";
             }
             if (FunctionID == 13)
             {
-
+                SqlCmdString = "SELECT * from qryShopTransfers";
             }
             if (FunctionID == 14)
             {
-
+                SqlCmdString = "SELECT * from qryShopSales";
             }
             if (FunctionID == 15)
             {
-
+                SqlCmdString = "SELECT * from qryShopReturns";
             }
             return SqlCmdString;
         }

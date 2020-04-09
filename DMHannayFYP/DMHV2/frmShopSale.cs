@@ -301,14 +301,75 @@ namespace DMHV2
             PreVAT = SalesAmount - VATAMount;
             txtNetSale.Text = PreVAT.ToString("C");
             txtVAT.Text = VATAMount.ToString("C");
-            txtTotal.Text = SalesAmount.ToString("C");
-            //txtTotalItems.Text = lngqtyhangers.ToString();
-
-
+            txtTotal.Text = SalesAmount.ToString("C");         
         }
         private void LoadData()
         {
-
+            int ShopSalesID = Convert.ToInt32(txtSalesID.Text);
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopSalesHead = new DataTable();
+                SqlDataAdapter ShopSalesDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblShopSales WHERE SalesId = @SalesId";
+                    SelectCmd.Parameters.AddWithValue("@SalesId", ShopSalesID);
+                    ShopSalesDataAdapter.SelectCommand = SelectCmd;
+                    ShopSalesDataAdapter.Fill(ShopSalesHead);
+                }
+                txtShopRef.Text = ShopSalesHead.Rows[0][1].ToString();
+                lblShopName.Text = ShopSalesHead.Rows[0][2].ToString(); 
+                DateTimePicker1.Value = Convert.ToDateTime(ShopSalesHead.Rows[0][3]);
+                OldDate = DateTimePicker1.Value;
+                txtTotalSold.Text = ShopSalesHead.Rows[0][4].ToString();
+                decimal convert = 0.0m;
+                convert = Convert.ToDecimal(ShopSalesHead.Rows[0][6]);
+                txtTotal.Text = convert.ToString("C");
+                decimal VatConvert = 0.0m;
+                VatConvert = Convert.ToDecimal(ShopSalesHead.Rows[0][5]);
+                txtVAT.Text = VatConvert.ToString("C");
+            }
+            DgvRecords.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopSalesLine = new DataTable();
+                SqlDataAdapter ShopSalesLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode, DeliveredQty, CurrentQty, TotalSoldQty, QtySold, SalesAmount from tblShopSalesLines WHERE SalesID = @SalesID";
+                    SelectCmd.Parameters.AddWithValue("@SalesID", ShopSalesID);
+                    ShopSalesLineDataAdapter.SelectCommand = SelectCmd;
+                    ShopSalesLineDataAdapter.Fill(ShopSalesLine);
+                    DgvRecords.DataSource = ShopSalesLine;
+                    DgvRecords.AutoGenerateColumns = true;
+                    DgvRecords.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    DgvRecords.BackgroundColor = Color.LightCoral;
+                    DgvRecords.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    DgvRecords.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    DgvRecords.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DgvRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    DgvRecords.AllowUserToResizeColumns = false;
+                    DgvRecords.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    DgvRecords.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    DgvRecords.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    DgvRecords.Columns[0].HeaderText = "Stock Code";
+                    DgvRecords.Columns[1].HeaderText = "Delivered Qty";
+                    DgvRecords.Columns[2].HeaderText = "Current Qty";
+                    DgvRecords.Columns[3].HeaderText = "Total Sold Qty";
+                    DgvRecords.Columns[4].HeaderText = "Qty";
+                    DgvRecords.Columns[5].HeaderText = "Sales Amount";
+                    
+                }
+            }
+            Totals();
         }
         private void LoadSalesGrid()
         {

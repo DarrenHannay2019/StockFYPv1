@@ -3,11 +3,13 @@
     using System;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Drawing;
     using System.Windows.Forms;
 
     public partial class frmWarehouseReturn : Form
     {
         public string FormMode { get; set; }
+        public DateTime oldDate { get; set; }
         public frmWarehouseReturn()
         {
             InitializeComponent();
@@ -192,8 +194,68 @@
             txtTotalItems.Text = lngqtyhangers.ToString();
         }
         private void LoadData()
-        {
-
+        {            
+            int WarehouseReturnID = Convert.ToInt32(txtReturnID.Text.TrimEnd());
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable WarehouseReturnHead = new DataTable();
+                SqlDataAdapter WarehouseReturnDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblWarehouseReturns WHERE WarehouseReturnsID = @WarehouseReturnsID";
+                    SelectCmd.Parameters.AddWithValue("@WarehouseReturnsID", WarehouseReturnID);
+                    WarehouseReturnDataAdapter.SelectCommand = SelectCmd;
+                    WarehouseReturnDataAdapter.Fill(WarehouseReturnHead);
+                }
+                txtWarehouseRef.Text = WarehouseReturnHead.Rows[0][1].ToString();
+                clsWarehouse warehouse = new clsWarehouse(0);
+                warehouse.WarehouseRef = txtWarehouseRef.Text;
+                txtWarehouseName.Text = warehouse.GetWarehouseName();
+                txtSupplierRef.Text = WarehouseReturnHead.Rows[0][2].ToString();
+                clsSupplier supplier = new clsSupplier(0);
+                supplier.SupplierRef = txtSupplierRef.Text.TrimEnd();
+                txtSupplierName.Text = supplier.GetSupplierName();
+                txtReference.Text = WarehouseReturnHead.Rows[0][3].ToString();
+                txtTotalItems.Text = WarehouseReturnHead.Rows[0][4].ToString();
+                DtpDate.Value = Convert.ToDateTime(WarehouseReturnHead.Rows[0][5]);
+                oldDate = DtpDate.Value;
+            }
+            DgvRecords.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable WarehouseReturnLine = new DataTable();
+                SqlDataAdapter WarehouseReturnLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode,Qty from tblWarehouseReturnLines WHERE WarehouseReturnID = @WarehouseReturnID";
+                    SelectCmd.Parameters.AddWithValue("@WarehouseReturnID", WarehouseReturnID);
+                    WarehouseReturnLineDataAdapter.SelectCommand = SelectCmd;
+                    WarehouseReturnLineDataAdapter.Fill(WarehouseReturnLine);
+                    DgvRecords.DataSource = WarehouseReturnLine;
+                    DgvRecords.AutoGenerateColumns = true;
+                    DgvRecords.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    DgvRecords.BackgroundColor = Color.LightCoral;
+                    DgvRecords.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    DgvRecords.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    DgvRecords.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DgvRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    DgvRecords.AllowUserToResizeColumns = false;
+                    DgvRecords.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    DgvRecords.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    DgvRecords.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    DgvRecords.Columns[0].HeaderText = "Stock Code";
+                    DgvRecords.Columns[1].HeaderText = "Qty";
+                }
+                Totals();
+            }
         }
 
         private void txtSupplierRef_Leave(object sender, EventArgs e)

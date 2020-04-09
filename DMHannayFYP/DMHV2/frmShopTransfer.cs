@@ -198,7 +198,11 @@ namespace DMHV2
 
         private void TxtStockCode_Leave(object sender, EventArgs e)
         {
-
+            TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text, 1);
+            clsStock stock = new clsStock();
+            stock.StockCode = TxtStockCode.Text.TrimEnd();
+            stock.SupplierRef = TxtFromShopRef.Text.TrimEnd();
+            TxtCurrentQty.Text = stock.GetWarehouseStockQty().ToString();
         }
         public void Totals()
         {

@@ -14,6 +14,7 @@ namespace DMHV2
     public partial class frmShopTransfer : Form
     {
         public string FormMode { get; set; }
+        public DateTime olddate { get; set; }
         public frmShopTransfer()
         {
             InitializeComponent();
@@ -172,7 +173,66 @@ namespace DMHV2
 
         private void LoadData()
         {
-
+            int ShopTransferID = Convert.ToInt32(TxtTransferID.Text.TrimEnd());
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopTransferHead = new DataTable();
+                SqlDataAdapter ShopTransferDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT * from tblShopTransfers WHERE ShopTransferID = @ShopTransferID";
+                    SelectCmd.Parameters.AddWithValue("@ShopTransferID", ShopTransferID);
+                    ShopTransferDataAdapter.SelectCommand = SelectCmd;
+                    ShopTransferDataAdapter.Fill(ShopTransferHead);
+                }
+                TxtTFNote.Text = ShopTransferHead.Rows[0][1].ToString();
+                DtpDate.Value = Convert.ToDateTime(ShopTransferHead.Rows[0][2]);
+                olddate = DtpDate.Value;
+                TxtFromShopRef.Text = ShopTransferHead.Rows[0][3].ToString();
+                clsShop shop = new clsShop();
+                shop.ShopRef = TxtFromShopRef.Text.TrimEnd();
+                txtFromShopName.Text = shop.GetShopName();
+                TxtToShopRef.Text = ShopTransferHead.Rows[0][4].ToString();
+                shop.ShopRef = TxtToShopRef.Text.TrimEnd();
+                txtToShopName.Text = shop.GetShopName();
+                txtTotalTransferTo.Text = ShopTransferHead.Rows[0][6].ToString();
+            }
+            DgvRecords.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopAdjustLine = new DataTable();
+                SqlDataAdapter ShopAdjustLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode,CurrentQty,Qty from tblShopTranferLines WHERE ShopTransferID = @ShopTransferID";
+                    SelectCmd.Parameters.AddWithValue("@ShopTransferID", ShopTransferID);
+                    ShopAdjustLineDataAdapter.SelectCommand = SelectCmd;
+                    ShopAdjustLineDataAdapter.Fill(ShopAdjustLine);
+                    DgvRecords.DataSource = ShopAdjustLine;
+                    DgvRecords.AutoGenerateColumns = true;
+                    DgvRecords.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    DgvRecords.BackgroundColor = Color.LightCoral;
+                    DgvRecords.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    DgvRecords.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    DgvRecords.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DgvRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    DgvRecords.AllowUserToResizeColumns = false;
+                    DgvRecords.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    DgvRecords.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    DgvRecords.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    DgvRecords.Columns[0].HeaderText = "Stock Code";
+                    DgvRecords.Columns[1].HeaderText = "Current Qty";
+                    DgvRecords.Columns[2].HeaderText = "Transfer Qty";
+                }
+            }
         }
 
         private void TxtFromShopRef_Leave(object sender, EventArgs e)

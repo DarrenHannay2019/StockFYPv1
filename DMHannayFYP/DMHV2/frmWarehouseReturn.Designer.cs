@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtWarehouseName = new System.Windows.Forms.TextBox();
+            this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.Label8 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
             this.DgvRecords = new System.Windows.Forms.DataGridView();
@@ -42,14 +42,14 @@
             this.CheckBox1 = new System.Windows.Forms.CheckBox();
             this.Label9 = new System.Windows.Forms.Label();
             this.DtpDate = new System.Windows.Forms.DateTimePicker();
-            this.txtShopName = new System.Windows.Forms.TextBox();
+            this.txtWarehouseName = new System.Windows.Forms.TextBox();
             this.txtCurrentQty = new System.Windows.Forms.TextBox();
             this.txtStockCode = new System.Windows.Forms.TextBox();
-            this.txtShopRef = new System.Windows.Forms.TextBox();
+            this.txtWarehouseRef = new System.Windows.Forms.TextBox();
             this.txtReference = new System.Windows.Forms.TextBox();
             this.Label5 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
-            this.txtWarehouseRef = new System.Windows.Forms.TextBox();
+            this.txtSupplierRef = new System.Windows.Forms.TextBox();
             this.cmdClear = new System.Windows.Forms.Button();
             this.Label3 = new System.Windows.Forms.Label();
             this.cmdClearGrid = new System.Windows.Forms.Button();
@@ -69,14 +69,14 @@
             this.GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtWarehouseName
+            // txtSupplierName
             // 
-            this.txtWarehouseName.Location = new System.Drawing.Point(150, 52);
-            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(439, 22);
-            this.txtWarehouseName.TabIndex = 7;
-            this.txtWarehouseName.TabStop = false;
+            this.txtSupplierName.Location = new System.Drawing.Point(150, 52);
+            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.Size = new System.Drawing.Size(439, 22);
+            this.txtSupplierName.TabIndex = 7;
+            this.txtSupplierName.TabStop = false;
             // 
             // Label8
             // 
@@ -204,14 +204,14 @@
             this.DtpDate.TabIndex = 0;
             this.DtpDate.Value = new System.DateTime(2016, 2, 7, 0, 0, 0, 0);
             // 
-            // txtShopName
+            // txtWarehouseName
             // 
-            this.txtShopName.Location = new System.Drawing.Point(342, 76);
-            this.txtShopName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtShopName.Name = "txtShopName";
-            this.txtShopName.Size = new System.Drawing.Size(274, 22);
-            this.txtShopName.TabIndex = 12;
-            this.txtShopName.TabStop = false;
+            this.txtWarehouseName.Location = new System.Drawing.Point(342, 76);
+            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseName.Name = "txtWarehouseName";
+            this.txtWarehouseName.Size = new System.Drawing.Size(274, 22);
+            this.txtWarehouseName.TabIndex = 12;
+            this.txtWarehouseName.TabStop = false;
             // 
             // txtCurrentQty
             // 
@@ -232,16 +232,16 @@
             this.txtStockCode.TabIndex = 4;
             this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
-            // txtShopRef
+            // txtWarehouseRef
             // 
-            this.txtShopRef.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtShopRef.Location = new System.Drawing.Point(126, 76);
-            this.txtShopRef.Margin = new System.Windows.Forms.Padding(4);
-            this.txtShopRef.MaxLength = 8;
-            this.txtShopRef.Name = "txtShopRef";
-            this.txtShopRef.Size = new System.Drawing.Size(148, 22);
-            this.txtShopRef.TabIndex = 2;
-            this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
+            this.txtWarehouseRef.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtWarehouseRef.Location = new System.Drawing.Point(126, 76);
+            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseRef.MaxLength = 8;
+            this.txtWarehouseRef.Name = "txtWarehouseRef";
+            this.txtWarehouseRef.Size = new System.Drawing.Size(148, 22);
+            this.txtWarehouseRef.TabIndex = 2;
+            this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // txtReference
             // 
@@ -272,15 +272,15 @@
             this.Label4.TabIndex = 9;
             this.Label4.Text = "Current Qty:";
             // 
-            // txtWarehouseRef
+            // txtSupplierRef
             // 
-            this.txtWarehouseRef.Location = new System.Drawing.Point(14, 52);
-            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
-            this.txtWarehouseRef.MaxLength = 8;
-            this.txtWarehouseRef.Name = "txtWarehouseRef";
-            this.txtWarehouseRef.Size = new System.Drawing.Size(92, 22);
-            this.txtWarehouseRef.TabIndex = 6;
-            this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
+            this.txtSupplierRef.Location = new System.Drawing.Point(14, 52);
+            this.txtSupplierRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSupplierRef.MaxLength = 8;
+            this.txtSupplierRef.Name = "txtSupplierRef";
+            this.txtSupplierRef.Size = new System.Drawing.Size(92, 22);
+            this.txtSupplierRef.TabIndex = 6;
+            this.txtSupplierRef.Leave += new System.EventHandler(this.txtSupplierRef_Leave);
             // 
             // cmdClear
             // 
@@ -332,8 +332,8 @@
             this.GroupBox2.Controls.Add(this.Label10);
             this.GroupBox2.Controls.Add(this.cmdAdd);
             this.GroupBox2.Controls.Add(this.txtTransferQty);
-            this.GroupBox2.Controls.Add(this.txtWarehouseName);
-            this.GroupBox2.Controls.Add(this.txtWarehouseRef);
+            this.GroupBox2.Controls.Add(this.txtSupplierName);
+            this.GroupBox2.Controls.Add(this.txtSupplierRef);
             this.GroupBox2.Controls.Add(this.Label8);
             this.GroupBox2.Controls.Add(this.Label7);
             this.GroupBox2.Controls.Add(this.DgvRecords);
@@ -379,19 +379,19 @@
             this.Label6.Location = new System.Drawing.Point(9, 23);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(111, 17);
+            this.Label6.Size = new System.Drawing.Size(90, 17);
             this.Label6.TabIndex = 3;
-            this.Label6.Text = "Warehouse Ref:";
+            this.Label6.Text = "Supplier Ref:";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(34, 80);
+            this.Label2.Location = new System.Drawing.Point(12, 80);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(71, 17);
+            this.Label2.Size = new System.Drawing.Size(111, 17);
             this.Label2.TabIndex = 7;
-            this.Label2.Text = "Shop Ref:";
+            this.Label2.Text = "Warehouse Ref:";
             // 
             // Label1
             // 
@@ -432,10 +432,10 @@
             this.GroupBox1.Controls.Add(this.CheckBox1);
             this.GroupBox1.Controls.Add(this.Label9);
             this.GroupBox1.Controls.Add(this.DtpDate);
-            this.GroupBox1.Controls.Add(this.txtShopName);
+            this.GroupBox1.Controls.Add(this.txtWarehouseName);
             this.GroupBox1.Controls.Add(this.txtCurrentQty);
             this.GroupBox1.Controls.Add(this.txtStockCode);
-            this.GroupBox1.Controls.Add(this.txtShopRef);
+            this.GroupBox1.Controls.Add(this.txtWarehouseRef);
             this.GroupBox1.Controls.Add(this.txtReference);
             this.GroupBox1.Controls.Add(this.Label5);
             this.GroupBox1.Controls.Add(this.Label4);
@@ -475,7 +475,7 @@
 
         #endregion
 
-        internal System.Windows.Forms.TextBox txtWarehouseName;
+        internal System.Windows.Forms.TextBox txtSupplierName;
         internal System.Windows.Forms.Label Label8;
         internal System.Windows.Forms.Label Label7;
         internal System.Windows.Forms.DataGridView DgvRecords;
@@ -489,14 +489,14 @@
         internal System.Windows.Forms.CheckBox CheckBox1;
         internal System.Windows.Forms.Label Label9;
         internal System.Windows.Forms.DateTimePicker DtpDate;
-        internal System.Windows.Forms.TextBox txtShopName;
+        internal System.Windows.Forms.TextBox txtWarehouseName;
         internal System.Windows.Forms.TextBox txtCurrentQty;
         internal System.Windows.Forms.TextBox txtStockCode;
-        internal System.Windows.Forms.TextBox txtShopRef;
+        internal System.Windows.Forms.TextBox txtWarehouseRef;
         internal System.Windows.Forms.TextBox txtReference;
         internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.Label Label4;
-        internal System.Windows.Forms.TextBox txtWarehouseRef;
+        internal System.Windows.Forms.TextBox txtSupplierRef;
         internal System.Windows.Forms.Button cmdClear;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Button cmdClearGrid;

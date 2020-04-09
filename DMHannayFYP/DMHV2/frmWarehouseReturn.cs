@@ -79,22 +79,12 @@
             txtTotalItems.Clear();
             txtStockCode.Clear();
             DgvRecords.Rows.Clear();
+            txtSupplierRef.Clear();
+            txtSupplierName.Clear();
             txtWarehouseRef.Clear();
             txtWarehouseName.Clear();
-            txtShopRef.Clear();
-            txtShopName.Clear();
             txtReference.Clear();
             DtpDate.Value = clsUtils.GetSundayDate(DateTime.Now, 1);
-        }
-
-        private void txtShopRef_Leave(object sender, EventArgs e)
-        {
-            txtShopRef.Text = clsShop.ChangeCase(txtWarehouseRef.Text, 1);
-            clsWarehouse warehouse = new clsWarehouse(0)
-            {
-                WarehouseRef = txtShopRef.Text.TrimEnd()
-            };
-            txtShopName.Text = warehouse.GetWarehouseName();
         }
 
         private void txtStockCode_Leave(object sender, EventArgs e)
@@ -108,12 +98,12 @@
 
         private void txtWarehouseRef_Leave(object sender, EventArgs e)
         {
-            txtWarehouseRef.Text = clsWarehouse.ChangeCase(txtWarehouseRef.Text, 1);
-            clsSupplier warehouse = new clsSupplier(0)
+            txtWarehouseRef.Text = clsWarehouse.ChangeCase(txtSupplierRef.Text, 1);
+            clsWarehouse warehouse = new clsWarehouse(0)
             {
-                SupplierRef = txtWarehouseRef.Text.TrimEnd()
+                WarehouseRef = txtWarehouseRef.Text.TrimEnd()
             };
-            txtWarehouseName.Text = warehouse.GetSupplierName();
+            txtWarehouseName.Text = warehouse.GetWarehouseName();
         }
 
         private void frmWarehouseReturn_Load(object sender, EventArgs e)
@@ -149,9 +139,9 @@
                     ACSC.Add(Convert.ToString(row[0]));
                 }
             }
-            txtWarehouseRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtWarehouseRef.AutoCompleteCustomSource = ACSC;
-            txtWarehouseRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtSupplierRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtSupplierRef.AutoCompleteCustomSource = ACSC;
+            txtSupplierRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
         private void LoadWarehouseIntoForm()
         {
@@ -169,9 +159,9 @@
                     ACSC.Add(Convert.ToString(row[0]));
                 }
             }
-            txtWarehouseRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtWarehouseRef.AutoCompleteCustomSource = ACSC;
-            txtWarehouseRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtSupplierRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtSupplierRef.AutoCompleteCustomSource = ACSC;
+            txtSupplierRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
         private void LoadStockIntoForm()
         {
@@ -204,6 +194,16 @@
         private void LoadData()
         {
 
+        }
+
+        private void txtSupplierRef_Leave(object sender, EventArgs e)
+        {
+            txtSupplierRef.Text = clsSupplier.ChangeCase(txtSupplierRef.Text, 1);
+            clsSupplier warehouse = new clsSupplier(0)
+            {
+                SupplierRef = txtSupplierRef.Text.TrimEnd()
+            };
+            txtSupplierName.Text = warehouse.GetSupplierName();
         }
     }
 }

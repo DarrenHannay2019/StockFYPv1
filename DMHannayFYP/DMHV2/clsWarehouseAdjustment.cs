@@ -215,7 +215,7 @@
      //   public int WarehouseAdjustmentID;
         public string StockCode;
         public int Qty;
-        public int MovementType;
+        public string MovementType;
         public decimal Value;
         public bool SaveWarehouseAdjustmentLine()
         {

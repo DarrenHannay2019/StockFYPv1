@@ -9,6 +9,7 @@
     public partial class frmWarehouseAdjustment : Form
     {
         public string FormMode { get; set; }
+        private int LoggedInUser { get; set; }
         public DateTime olddate { get; set; }
         public frmWarehouseAdjustment()
         {
@@ -20,9 +21,9 @@
             int rownum;
             rownum = (int)dgvItems.Rows.Add();
             dgvItems.Rows[rownum].Cells[0].Value = TxtStockCode.Text.TrimEnd();
-            dgvItems.Rows[rownum].Cells[1].Value = TxtCurrentHangers.Text.TrimEnd();
-            dgvItems.Rows[rownum].Cells[2].Value = CboType.Text.TrimEnd();
-            dgvItems.Rows[rownum].Cells[3].Value = TxtAdjustHangers.Text.TrimEnd();
+            dgvItems.Rows[rownum].Cells[3].Value = TxtCurrentHangers.Text.TrimEnd();
+            dgvItems.Rows[rownum].Cells[1].Value = CboType.Text.TrimEnd();
+            dgvItems.Rows[rownum].Cells[2].Value = TxtAdjustHangers.Text.TrimEnd();
             Totals();
             TxtAdjustHangers.Clear();
             TxtCurrentHangers.Clear();
@@ -43,19 +44,47 @@
             clsWarehouseAdjustmentHead adjustmentHead = new clsWarehouseAdjustmentHead();
             clsWarehouseAdjustmentLine adjustmentLine = new clsWarehouseAdjustmentLine();
             clsLogs logs = new clsLogs();
+            int SavedID = 0;
             // Header of both adjustments and log file
+            adjustmentHead.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
+            adjustmentHead.Reference = TxtReference.Text.TrimEnd();
+            adjustmentHead.TotalGainItems = Convert.ToInt32(TxtTotalGain.Text.TrimEnd());
+            adjustmentHead.TotalLossItems = Convert.ToInt32(TxtTotalLoss.Text.TrimEnd());
+            adjustmentHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value);
+            adjustmentHead.UserID = LoggedInUser;
             if (FormMode == "New")
             {
-
+                adjustmentHead.SaveWarehouseAdjustmentHead();
+                SavedID = adjustmentHead.GetLastWarehouseAdjustmentHead();
             }
             else
             {
-
+                adjustmentHead.WarehouseAdjustmentID = Convert.ToInt32(TxtRecordID.Text.TrimEnd());
+                adjustmentHead.UpdateWarehouseAdjustmentHead();
             }
             // Body and lines
             if (FormMode == "New")
             {
-
+                logs.TransferReference = SavedID;
+                adjustmentLine.WarehouseAdjustmentID = SavedID;
+                for(int index = 0; index < dgvItems.Rows.Count - 1;index++)
+                {
+                    logs.StockCode = dgvItems.Rows[index].Cells[0].Value.ToString();
+                    adjustmentLine.StockCode = logs.StockCode;
+                    adjustmentLine.MovementType = dgvItems.Rows[index].Cells[1].ToString();
+                    logs.StringMovementType = "WarehouseAdjustment-" + adjustmentLine.MovementType;
+                    logs.RecordType = "WarehouseAdjustment-Item";
+                    if (adjustmentLine.MovementType == "Loss")
+                        logs.MovementType = 7;
+                    else
+                        logs.MovementType = 6;
+                    if (adjustmentLine.MovementType == "Loss")
+                        logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2]) * -1;
+                    else
+                        logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2]);
+                    logs.DeliveredQtyGarments = 0;
+                    logs.DeliveredQtyBoxes = 0;
+                }
             }
             else
             {

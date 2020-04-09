@@ -105,7 +105,11 @@ namespace DMHV2
 
         private void txtStockCode_Leave(object sender, EventArgs e)
         {
-
+            txtStockCode.Text = clsUtils.ChangeCase(txtStockCode.Text, 1);
+            clsStock stock = new clsStock();
+            stock.StockCode = txtStockCode.Text.TrimEnd();
+            stock.SupplierRef = txtShopRef.Text.TrimEnd();
+            txtCurrentQty.Text = stock.GetShopStockQty().ToString();
         }
 
         private void txtWarehouseRef_Leave(object sender, EventArgs e)

@@ -15,6 +15,7 @@ namespace DMHV2
     {
         public string FormMode { get; set; }
         public DateTime oldDate { get; set; }
+        public int LogggedInUser { get; set; }
         public frmWarehouseTransfer()
         {
             InitializeComponent();
@@ -43,35 +44,74 @@ namespace DMHV2
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
-            clsWarehouseTransferHead transferHead = new clsWarehouseTransferHead();
+            clsWarehouseTransferHead transferHead = new clsWarehouseTransferHead();            
+            int SavedID = 0;
+            transferHead.WarehouseRef = TxtFromWarehouseRef.Text.TrimEnd();
+            transferHead.ToWarehouseRef = TxtToWarehouseRef.Text.TrimEnd();
+            
+            transferHead.Qty = Convert.ToInt32(txtTotalTransferTo.Text.TrimEnd());
+            transferHead.UserID = LogggedInUser;
+            transferHead.Reference = TxtTFNote.Text.TrimEnd();
+            // Saving / updating the master table into the database
+            if (FormMode == "New")
+            {
+                transferHead.SaveWarehouseTransferHead();
+                SavedID = transferHead.GetLastWarehouseTransferHead();
+            }
+            else
+            {
+                clsLogs Dlogs = new clsLogs();  // Delete old StockMovements details for current transfer
+                Dlogs.TransferReference = SavedID;
+                Dlogs.MovementDate = oldDate;
+                Dlogs.MovementType = 2;
+                Dlogs.DeleteFromStockMovemmentsTable();
+                transferHead.WarehouseTransferID = Convert.ToInt32(TxtTransferID.Text.TrimEnd());
+                transferHead.UpdateWarehouseTransferHead();
+            }
             clsWarehouseTransferLine transferLine = new clsWarehouseTransferLine();
             clsLogs logs = new clsLogs();
-            // Header of both adjustments and log file
-            if (FormMode == "New")
+            logs.TransferReference = SavedID;
+            transferLine.WarehouseTransferID = SavedID;
+            logs.MovementDate = transferHead.MovementDate;
+            logs.LocationType = 1;
+            logs.MovementType = 2;
+            logs.DeliveredQtyGarments = 0;
+            logs.DeliveredQtyBoxes = 0;
+            logs.SupplierRef = "N/A";
+            logs.Reference = transferHead.Reference;
+            logs.UserID = transferHead.UserID;
+            logs.StringMovementType = "WarehouseTransfer";
+            logs.RecordType = "WarehouseTransfer-Item";
+            for (int index = 0; index < DgvRecords.Rows.Count - 1;index++)
             {
-
-            }
-            else
-            {
-
-            }
-            // Body and lines
-            if (FormMode == "New")
-            {
-
-            }
-            else
-            {
-
-            }
-            // End of Saving
-            if (FormMode == "New")
-            {
-
-            }
-            else
-            {
-
+                transferLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
+                transferLine.CurrentQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);
+                transferLine.TOQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]) * -1;
+                transferLine.TIQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]);
+               if(FormMode == "New")
+                {
+                    logs.Qty = transferLine.TOQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    transferLine.SaveWarehouseTransferLine();
+                    logs.Qty = transferLine.TIQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
+               else
+                {
+                    logs.Qty = transferLine.TOQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    transferLine.UpdateWarehouseTransferLine();
+                    logs.Qty = transferLine.TIQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
             }
             this.Close();
         }

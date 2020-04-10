@@ -14,6 +14,7 @@ namespace DMHV2
     public partial class frmShopTransfer : Form
     {
         public string FormMode { get; set; }
+        public int LogggedInUser { get; set; }
         public DateTime olddate { get; set; }
         public frmShopTransfer()
         {
@@ -45,35 +46,76 @@ namespace DMHV2
         {
             clsShopTransferHead transferHead = new clsShopTransferHead();
             clsShopTransferLine transferLine = new clsShopTransferLine();
+           
+            int SavedID = 0;
+            transferHead.ShopRef = TxtFromShopRef.Text.TrimEnd();
+            transferHead.ToShopRef = TxtToShopRef.Text.TrimEnd();
+
+            transferHead.Qty = Convert.ToInt32(txtTotalTransferTo.Text.TrimEnd());
+            transferHead.UserID = LogggedInUser;
+            transferHead.Reference = TxtTFNote.Text.TrimEnd();
+            // Saving / updating the master table into the database
+            if (FormMode == "New")
+            {
+                transferHead.SaveShopTransferHead();
+                SavedID = transferHead.GetLastShopTransferHead();
+            }
+            else
+            {
+                clsLogs Dlogs = new clsLogs();  // Delete old StockMovements details for current transfer
+                Dlogs.TransferReference = SavedID;
+                Dlogs.MovementDate = olddate;
+                Dlogs.MovementType = 2;
+                Dlogs.DeleteFromStockMovemmentsTable();
+                transferHead.ShopTransferID = Convert.ToInt32(TxtTransferID.Text.TrimEnd());
+                transferHead.UpdateShopTransferHead();
+            }
+           
             clsLogs logs = new clsLogs();
-            // Header of both adjustments and log file
-            if (FormMode == "New")
+            logs.TransferReference = SavedID;
+            transferLine.ShopTransferID = SavedID;
+            logs.MovementDate = transferHead.MovementDate;
+            logs.LocationType = 2;
+            logs.MovementType = 4;
+            logs.DeliveredQtyGarments = 0;
+            logs.DeliveredQtyBoxes = 0;
+            logs.SupplierRef = "N/A";
+            logs.Reference = transferHead.Reference;
+            logs.UserID = transferHead.UserID;
+            logs.StringMovementType = "WarehouseTransfer";
+            logs.RecordType = "WarehouseTransfer-Item";
+            for (int index = 0; index < DgvRecords.Rows.Count - 1; index++)
             {
-
+                transferLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
+                transferLine.CurrQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);
+                transferLine.TOQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]) * -1;
+                transferLine.TIQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]);
+                if (FormMode == "New")
+                {
+                    logs.Qty = transferLine.TOQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    transferLine.SaveShopTransferLine();
+                    logs.Qty = transferLine.TIQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
+                else
+                {
+                    logs.Qty = transferLine.TOQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    transferLine.UpdateShopTransferLine();
+                    logs.Qty = transferLine.TIQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
             }
-            else
-            {
-
-            }
-            // Body and lines
-            if (FormMode == "New")
-            {
-
-            }
-            else
-            {
-
-            }
-            // End of Saving
-            if (FormMode == "New")
-            {
-
-            }
-            else
-            {
-
-            }
-            this.Close();
+            this.Close();           
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)

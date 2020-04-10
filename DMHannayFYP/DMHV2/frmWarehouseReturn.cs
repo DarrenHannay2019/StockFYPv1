@@ -10,6 +10,7 @@
     {
         public string FormMode { get; set; }
         public DateTime oldDate { get; set; }
+        public int LoggedInUser { get; set; }
         public frmWarehouseReturn()
         {
             InitializeComponent();
@@ -41,32 +42,67 @@
             clsWarehouseReturnHead returnHead = new clsWarehouseReturnHead();
             clsWarehouseReturnLine returnLine = new clsWarehouseReturnLine();
             clsLogs logs = new clsLogs();
+            int SavedID = 0;
             // Header of both adjustments and log file
+            returnHead.WarehouseRef = txtWarehouseRef.Text.TrimEnd();
+            returnHead.Reference = txtReference.Text.TrimEnd();
+            returnHead.SupplierRef = txtSupplierRef.Text.TrimEnd();
+            returnHead.TotalItems = Convert.ToInt32(txtTotalItems.Text.TrimEnd());
+            returnHead.MovementDate = Convert.ToDateTime(DtpDate.Value);
+            returnHead.UserID = LoggedInUser;
             if (FormMode == "New")
             {
-
+                returnHead.SaveWarehouseReturnHead();
+                SavedID = returnHead.GetLastWarehouseReturnHead();
             }
             else
             {
-
+                clsLogs Dlogs = new clsLogs();  // Delete old StockMovements Data from Table
+                Dlogs.TransferReference = Convert.ToInt32(txtReturnID.Text.TrimEnd());
+                Dlogs.MovementDate = oldDate;
+                Dlogs.MovementType = 9;
+                Dlogs.DeleteFromStockMovemmentsTable();
+                returnHead.WarehouseReturnID = Convert.ToInt32(txtReturnID.Text.TrimEnd());
+                returnHead.UpdateWarehouseReturnHead();
             }
-            // Body and lines
-            if (FormMode == "New")
+            logs.TransferReference = SavedID;
+            returnLine.WarehouseReturnID = SavedID;
+            logs.LocationType = 1;
+            logs.MovementType = 9;
+            logs.StringMovementType = "Warehouse Return Item";
+            for (int index = 0; index < DgvRecords.Rows.Count - 1; index++)
             {
-
-            }
-            else
-            {
-
-            }
-            // End of Saving
-            if (FormMode == "New")
-            {
-
-            }
-            else
-            {
-
+                logs.LocationRef = returnHead.WarehouseRef;
+                returnLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();                
+                returnLine.ReturnQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);               
+                if (FormMode == "New")
+                {
+                    logs.LocationRef = returnHead.WarehouseRef;
+                    logs.Qty = returnLine.ReturnQty * -1;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    returnLine.SaveWarehouseReturnLine();
+                    logs.LocationRef = returnHead.SupplierRef;
+                    logs.Qty = returnLine.ReturnQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
+                else
+                {
+                    logs.LocationRef = returnHead.WarehouseRef;
+                    logs.Qty = returnLine.ReturnQty * -1;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    returnLine.UpdateWarehouseReturnLine();
+                    logs.LocationRef = returnHead.SupplierRef;
+                    logs.Qty = returnLine.ReturnQty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
             }
             this.Close();
         }

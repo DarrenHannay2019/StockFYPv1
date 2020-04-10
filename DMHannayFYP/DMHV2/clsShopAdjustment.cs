@@ -53,7 +53,7 @@
     }
     public class clsShopAdjustmentHead : clsShopAdjustment
     {
-        public bool SaveShopAdjustHead()
+        public bool SaveShopAdjustmentHead()
         {
             try
             {
@@ -98,7 +98,7 @@
             }           
             return SaveToDB;
         }
-        public bool UpdateShopAdjustHead()
+        public bool UpdateShopAdjustmentHead()
         {
             try
             {
@@ -184,7 +184,7 @@
     }
     public class clsShopAdjustmentLine : clsShopAdjustment
     {
-        public bool SaveShopAdjustLine()
+        public bool SaveShopAdjustmentLine()
         {
             try
             {
@@ -227,7 +227,7 @@
             }            
             return SaveToDB;
         }
-        public bool UpdateShopAdjustLine()
+        public bool UpdateShopAdjustmentLine()
         {
             try
             {

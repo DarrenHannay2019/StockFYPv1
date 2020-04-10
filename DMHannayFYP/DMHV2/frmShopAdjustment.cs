@@ -9,7 +9,7 @@
     public partial class frmShopAdjustment : Form
     {
         public string FormMode { get; set; }
-        public int LoggedUser { get; set; }
+        public int LoggedInUser { get; set; }
         public DateTime oldDate { get; set; }
         public frmShopAdjustment()
         {
@@ -60,68 +60,70 @@
             clsLogs logs = new clsLogs();
             int Total;
             Total = Convert.ToInt32(txtTotalGain.Text.TrimEnd()) + Convert.ToInt32(txtTotalLoss.Text.TrimEnd());
+         
+            int SavedID = 0;
             // Header of both adjustments and log file
+            adjustmentHead.ShopRef = txtWarehouseRef.Text.TrimEnd();
+            adjustmentHead.Reference = txtReference.Text.TrimEnd();
+            adjustmentHead.TotalGainItems = Convert.ToInt32(txtTotalGain.Text.TrimEnd());
+            adjustmentHead.TotalLossItems = Convert.ToInt32(txtTotalLoss.Text.TrimEnd());
+            adjustmentHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value);
+            adjustmentHead.UserID = LoggedInUser;
             if (FormMode == "New")
             {
-                logs.StockCode = "ALL";
-                logs.SupplierRef = "";
-                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Total;
-                logs.StringMovementType = "New Shop Adjustment";
-                logs.RecordType = "Add-New-Item-Start";
-                logs.MovementDate = DateTimePicker1.Value;
-                logs.Reference = "Add New Shop Adjustment";
-                logs.UserID = LoggedUser;
-                logs.SaveToSysLogTable();
+                adjustmentHead.SaveShopAdjustmentHead();
+                SavedID = adjustmentHead.GetLastShopAdjustmentHead();
             }
             else
             {
-                logs.StockCode = "ALL";
-                logs.SupplierRef = "";
-                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Total;
-                logs.StringMovementType = "Update Shop Adjustment";
-                logs.RecordType = "Update-Item-Start";
-                logs.MovementDate = DateTimePicker1.Value;
-                logs.Reference = "Update Shop Adjustment";
-                logs.UserID = LoggedUser;
+                clsLogs Dlogs = new clsLogs();  // Delete old StockMovements Data from Table
+                Dlogs.TransferReference = Convert.ToInt32(TxtSID.Text.TrimEnd());
+                Dlogs.MovementDate = oldDate;
+                Dlogs.MovementType = 6;
+                Dlogs.DeleteFromStockMovemmentsTable();
+                Dlogs.MovementType = 7;
+                Dlogs.DeleteFromStockMovemmentsTable();
+                adjustmentHead.ID = Convert.ToInt32(TxtSID.Text.TrimEnd());
+                
+                adjustmentHead.UpdateShopAdjustmentHead();
+            }           
+            logs.TransferReference = SavedID;
+            adjustmentLine.ID = SavedID;
+            logs.LocationRef = adjustmentHead.ShopRef;
+            for (int index = 0; index < dgvItems.Rows.Count - 1; index++)
+            {
+                // Saving details to tblWarehouseAdjustmentLines Table
+                adjustmentLine.StockCode = dgvItems.Rows[index].Cells[0].Value.ToString();
+                adjustmentLine.MovementType = dgvItems.Rows[index].Cells[1].ToString();
+                adjustmentLine.Qty = Convert.ToInt32(dgvItems.Rows[index].Cells[2]);
+                adjustmentLine.Value = Convert.ToDecimal(dgvItems.Rows[index].Cells[3]);
+                // Saving details to tblStockMovements Table
+                logs.StockCode = adjustmentLine.StockCode;
+                logs.LocationRef = adjustmentHead.ShopRef;
+                logs.LocationType = 1;
+                logs.SupplierRef = "N/A";
+                if (adjustmentLine.MovementType == "Loss")
+                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2]) * -1;
+                else
+                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2]);
+                logs.DeliveredQtyGarments = 0;
+                logs.DeliveredQtyBoxes = 0;
+                if (adjustmentLine.MovementType == "Loss")
+                    logs.MovementType = 7;
+                else
+                    logs.MovementType = 6;
+                logs.MovementDate = adjustmentHead.MovementDate;
+                logs.Reference = adjustmentHead.Reference;
+                logs.StringMovementType = "WarehouseAdjustment-" + adjustmentLine.MovementType;
+                logs.RecordType = "WarehouseAdjustment-Item";
+                logs.UserID = LoggedInUser;
+                // Save to the relevent data tables on each itteration of the Datagridview control
                 logs.SaveToSysLogTable();
-            }
-            // Body and lines
-            if (FormMode == "New")
-            {
-
-            }
-            else
-            {
-
-            }
-            // End of Saving
-            if (FormMode == "New")
-            {
-                logs.StockCode = "ALL";
-                logs.SupplierRef = "";
-                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Total;
-                logs.StringMovementType = "New Shop Adjustment";
-                logs.RecordType = "Add-New-Item-End\\";
-                logs.MovementDate = DateTimePicker1.Value;
-                logs.Reference = "Add New Shop Adjustment";
-                logs.UserID = LoggedUser;
-                logs.SaveToSysLogTable();
-            }
-            else
-            {
-                logs.StockCode = "ALL";
-                logs.SupplierRef = "";
-                logs.LocationRef = txtWarehouseRef.Text.TrimEnd();
-                logs.Qty = Total;
-                logs.StringMovementType = "Update Shop Adjustment";
-                logs.RecordType = "Update-Item-End";
-                logs.MovementDate = DateTimePicker1.Value;
-                logs.Reference = "Update Shop Adjustment";
-                logs.UserID = LoggedUser;
-                logs.SaveToSysLogTable();
+                logs.SaveToStockMovementsTable();
+                if (FormMode == "New")
+                    adjustmentLine.SaveShopAdjustmentLine();
+                else
+                    adjustmentLine.UpdateShopAdjustmentLine();
             }
             Close();
         }

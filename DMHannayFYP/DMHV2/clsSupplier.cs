@@ -47,7 +47,8 @@ namespace DMHV2
         {
             frmSupplier objSupplier = new frmSupplier
             {
-                FormMode = "New"
+                FormMode = "New",
+                UserIDs = UserID
             };
             objSupplier.ShowDialog();
         }
@@ -55,7 +56,7 @@ namespace DMHV2
         {
             frmSupplier objSupplier = new frmSupplier
             {
-                FormMode = "Old"
+                FormMode = "Old"               
             };
             objSupplier.TxtSupplierRef.Text = SupplierRef;
             objSupplier.ShowDialog();

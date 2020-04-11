@@ -40,14 +40,20 @@
         }
         public void LoadNewRecord()
         {
-            FrmWarehouse oWarehouse = new FrmWarehouse();
-            oWarehouse.UserIDs = Users;
-            oWarehouse.Modeform = "New";
+            FrmWarehouse oWarehouse = new FrmWarehouse
+            {
+                UserIDs = Users,
+                Modeform = "New"
+            };
             oWarehouse.ShowDialog();
         }
         public void LoadSelectedRecord()
         {
-            FrmWarehouse oWarehouse = new FrmWarehouse();
+            FrmWarehouse oWarehouse = new FrmWarehouse
+            {
+                UserIDs = Users,
+                Modeform = "Old"
+            };
             oWarehouse.TxtWarehouseRef.Text = WarehouseRef;
             oWarehouse.ShowDialog();
         }

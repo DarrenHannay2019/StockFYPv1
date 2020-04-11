@@ -62,7 +62,7 @@ namespace DMHV2
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT * from tblStock Where StockCode = @StockCoce";
+                    SelectCmd.CommandText = "SELECT * from tblStock Where StockCode = @StockCode";
                     SelectCmd.Parameters.AddWithValue("@StockCode", TxtStockCode.Text.TrimEnd());
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dtk);
@@ -91,7 +91,7 @@ namespace DMHV2
                 {
                     SelectCmd.Connection = conn;
                     SelectCmd.CommandText = "SELECT StockCode, MovementType, MovementQtyHangers, MovementDate, MovementReference from tblStockMovements where SupplierRef = @SupplierRef And LocationType = 1 Order By MovementDate";
-                    SelectCmd.Parameters.AddWithValue("@LocationRef", TxtSupplierRef.Text.TrimEnd());
+                    SelectCmd.Parameters.AddWithValue("@SupplierRef", TxtSupplierRef.Text.TrimEnd());
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dt);
                 }

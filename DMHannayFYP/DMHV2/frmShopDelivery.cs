@@ -15,6 +15,7 @@ namespace DMHV2
     {
         public string FormMode { get; set; }
         public DateTime oldDate { get; set; }
+        public int LoggedInUser { get; set; }
         public frmShopDelivery()
         {
             InitializeComponent();
@@ -46,32 +47,75 @@ namespace DMHV2
             clsShopDeliveryHead deliveryHead = new clsShopDeliveryHead();
             clsShopDeliveryLine deliveryLine = new clsShopDeliveryLine();
             clsLogs logs = new clsLogs();
+            int SavedID = 0;
             // Header of both adjustments and log file
+            deliveryHead.WarehouseRef = txtWarehouseRef.Text.TrimEnd();
+            deliveryHead.Reference = txtReference.Text.TrimEnd();
+            deliveryHead.ShopRef = txtShopRef.Text.TrimEnd();
+            deliveryHead.TotalItems = Convert.ToInt32(txtTotalGarments.Text.TrimEnd());
+            deliveryHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value);
+            deliveryHead.UserID = LoggedInUser;
             if (FormMode == "New")
             {
-
+                deliveryHead.SaveShopDeliveryHead();
+                SavedID = deliveryHead.GetLastShopDelivery();
             }
             else
             {
-
+                clsLogs Dlogs = new clsLogs();  // Delete old StockMovements Data from Table
+                Dlogs.TransferReference = Convert.ToInt32(txtDelNoteNumber.Text.TrimEnd());
+                Dlogs.MovementDate = oldDate;
+                Dlogs.MovementType = 3;
+                Dlogs.DeleteFromStockMovemmentsTable();
+                deliveryHead.ShopDelID = Convert.ToInt32(txtDelNoteNumber.Text.TrimEnd());
+                deliveryHead.UpdateShopDeliveryHead();
             }
-            // Body and lines
-            if (FormMode == "New")
+            logs.TransferReference = SavedID;
+            deliveryLine.ShopDelID = SavedID;
+            
+            logs.StringMovementType = "Shop Return Item";
+            for (int index = 0; index < DgvRecords.Rows.Count - 1; index++)
             {
-
-            }
-            else
-            {
-
-            }
-            // End of Saving
-            if (FormMode == "New")
-            {
-
-            }
-            else
-            {
-
+               
+               
+                deliveryLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
+                deliveryLine.Qty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);
+                if (FormMode == "New")
+                {
+                    logs.LocationRef = deliveryHead.WarehouseRef;
+                    logs.LocationType = 1;
+                    logs.MovementType = 3;
+                    logs.Qty = deliveryLine.Qty * -1;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    deliveryLine.SaveShopDeliveryLine();
+                    logs.LocationType = 2;
+                    logs.MovementType = 3;
+                    logs.LocationRef = deliveryHead.ShopRef;
+                    logs.Qty = deliveryLine.Qty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
+                else
+                {
+                    logs.LocationRef = deliveryHead.WarehouseRef;
+                    logs.LocationType = 1;
+                    logs.MovementType = 3;
+                    logs.Qty = deliveryLine.Qty * -1;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                    deliveryLine.UpdateShopDeliveryLine();
+                    logs.LocationType = 2;
+                    logs.MovementType = 3;
+                    logs.LocationRef = deliveryHead.ShopRef;
+                    logs.Qty = deliveryLine.Qty;
+                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.SaveToSysLogTable();
+                    logs.SaveToStockMovementsTable();
+                }
             }
         }
 

@@ -82,7 +82,7 @@ namespace DMHV2
                 orderHead.PurchaseOrderID = orderHead.GetLastPurchaseOrderHead();
                 logs.TransferReference = orderHead.PurchaseOrderID;
                 orderLine.PurchaseOrderID = orderHead.PurchaseOrderID;
-                for (int i = 0; i< DgvItems.Rows.Count - 1;i++)
+                for (int i = 0; i< DgvItems.Rows.Count;i++)
                 {
                     orderLine.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();
                     orderLine.DeliveredQtyGarments = Convert.ToInt32(DgvItems.Rows[i].Cells[1].Value);
@@ -126,7 +126,7 @@ namespace DMHV2
                 orderHead.PurchaseOrderID = Convert.ToInt32(TxtOrderID.Text.TrimEnd());
                 logs.TransferReference = orderHead.PurchaseOrderID;
                 orderHead.UpdateToPurchaseOrderHeadtbl();
-                for (int i = 0; i < DgvItems.Rows.Count - 1; i++)
+                for (int i = 0; i < DgvItems.Rows.Count; i++)
                 {
                     orderLine.StockCode = DgvItems.Rows[i].Cells[0].Value.ToString();
                     orderLine.DeliveredQtyGarments = Convert.ToInt32(DgvItems.Rows[i].Cells[1].Value);

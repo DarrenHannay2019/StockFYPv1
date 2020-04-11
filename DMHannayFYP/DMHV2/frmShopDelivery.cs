@@ -74,7 +74,7 @@ namespace DMHV2
             deliveryLine.ShopDelID = SavedID;
             
             logs.StringMovementType = "Shop Return Item";
-            for (int index = 0; index < DgvRecords.Rows.Count - 1; index++)
+            for (int index = 0; index < DgvRecords.Rows.Count; index++)
             {
                
                

@@ -76,7 +76,7 @@ namespace DMHV2
             logs.SaveToSysLogTable();
             if (FormMode == "New")
             {
-                for (int a = 0; a< DgvRecords.Rows.Count-1; a++)
+                for (int a = 0; a< DgvRecords.Rows.Count; a++)
                 {
                     saleLine.StockCode = DgvRecords.Rows[a].Cells[0].Value.ToString();
                     saleLine.DeliveredQtyGarments = Convert.ToInt32(DgvRecords.Rows[a].Cells[1].Value.ToString());

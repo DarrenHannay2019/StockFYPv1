@@ -130,7 +130,7 @@ namespace DMHV2
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode, MovementType, MovementQtyHangers, MovementDate, MovementReference from tblStockMovements where SupplierRef = @SupplierRef And LocationType = 1 Order By MovementDate";
+                    SelectCmd.CommandText = "SELECT StockCode, MovementType, MovementQtyHangers, MovementDate, MovementReference, LocationRef from qrySupplierTransactions where SupplierRef = @SupplierRef Order By MovementDate";
                     SelectCmd.Parameters.AddWithValue("@SupplierRef", TxtSupplierRef.Text.TrimEnd());
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dt);
@@ -146,14 +146,16 @@ namespace DMHV2
                 gridTrans.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 gridTrans.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 gridTrans.AllowUserToResizeColumns = false;
-                gridTrans.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                gridTrans.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
                 gridTrans.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
                 gridTrans.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
                 gridTrans.Columns[0].HeaderText = "Stock Code";
                 gridTrans.Columns[1].HeaderText = "Type";
                 gridTrans.Columns[2].HeaderText = "Qty";
+                
                 gridTrans.Columns[3].HeaderText = "Date";
                 gridTrans.Columns[4].HeaderText = "Reference";
+                gridTrans.Columns[5].HeaderText = "Location";
                 this.Text = "Supplier Details for [" + TxtSupplierRef.Text.TrimEnd() + "] " + TxtSupplierName.Text.TrimEnd();
             }
         }

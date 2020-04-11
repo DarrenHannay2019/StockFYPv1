@@ -113,7 +113,7 @@
                     {
                         UpdateCmd.Connection = conn;
                         UpdateCmd.CommandType = CommandType.Text;
-                        UpdateCmd.CommandText = "UPDATE tblWarehouses SET WarehouseName = @WarehouseName, Street = @Street, Area = @Area, Town = @Town, County = @County, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, WebSite = @WebSite, Fax = @Fax, eMail = @eMail, Memo = @Memo, WarehouseType = @WarehouseType WHERE WarehouseRef = @WarehouseRef";
+                        UpdateCmd.CommandText = "UPDATE tblWarehouses SET WarehouseName = @WarehouseName, Address1 = @Address1, Address2 = @Address2, Address3 = @Address3, Address4 = @Address4, PostCode = @PostCode, ContactName = @ContactName, Telephone = Telephone, WebSite = @WebSite, Fax = @Fax, eMail = @eMail, Memo = @Memo, WarehouseType = @WarehouseType WHERE WarehouseRef = @WarehouseRef";
                         UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                         UpdateCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
                         UpdateCmd.Parameters.AddWithValue("@Address1", AddressLine1);

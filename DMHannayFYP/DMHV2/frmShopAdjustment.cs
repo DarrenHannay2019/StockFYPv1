@@ -90,7 +90,7 @@
             logs.TransferReference = SavedID;
             adjustmentLine.ID = SavedID;
             logs.LocationRef = adjustmentHead.ShopRef;
-            for (int index = 0; index < dgvItems.Rows.Count - 1; index++)
+            for (int index = 0; index < dgvItems.Rows.Count; index++)
             {
                 // Saving details to tblWarehouseAdjustmentLines Table
                 adjustmentLine.StockCode = dgvItems.Rows[index].Cells[0].Value.ToString();

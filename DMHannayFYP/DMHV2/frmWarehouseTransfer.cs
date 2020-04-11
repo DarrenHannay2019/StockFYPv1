@@ -82,7 +82,7 @@ namespace DMHV2
             logs.UserID = transferHead.UserID;
             logs.StringMovementType = "WarehouseTransfer";
             logs.RecordType = "WarehouseTransfer-Item";
-            for (int index = 0; index < DgvRecords.Rows.Count - 1;index++)
+            for (int index = 0; index < DgvRecords.Rows.Count;index++)
             {
                 transferLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
                 transferLine.CurrentQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);

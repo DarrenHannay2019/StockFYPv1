@@ -70,7 +70,7 @@
             logs.LocationType = 1;
             logs.MovementType = 9;
             logs.StringMovementType = "Warehouse Return Item";
-            for (int index = 0; index < DgvRecords.Rows.Count - 1; index++)
+            for (int index = 0; index < DgvRecords.Rows.Count; index++)
             {
                 logs.LocationRef = returnHead.WarehouseRef;
                 returnLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();                

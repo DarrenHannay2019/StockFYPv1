@@ -75,7 +75,7 @@ namespace DMHV2
             logs.LocationType = 2;
             logs.MovementType = 8;
             logs.StringMovementType = "Shop Return Item";
-            for (int index = 0; index < DgvRecords.Rows.Count - 1; index++)
+            for (int index = 0; index < DgvRecords.Rows.Count; index++)
             {
                 logs.LocationRef = returnHead.WarehouseRef;
                 returnLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();

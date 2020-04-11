@@ -193,6 +193,9 @@ namespace DMHV2
         private void TxtStockCode_Leave(object sender, EventArgs e)
         {
             TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text, 1);
+            txtCurrentQty.Text = "0";
+            txtSoldToDate.Text = "0";
+            txtDelivered.Text = "0";
             txtQty.Select();
         }
 

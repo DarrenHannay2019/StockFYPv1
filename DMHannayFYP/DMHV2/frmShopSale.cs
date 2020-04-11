@@ -373,7 +373,44 @@ namespace DMHV2
         }
         private void LoadSalesGrid()
         {
+            DgvRecords.Columns.Clear();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                conn.Open();
+                DataTable ShopSalesLine = new DataTable();
+                SqlDataAdapter ShopSalesLineDataAdapter = new SqlDataAdapter();
+                using (SqlCommand SelectCmd = new SqlCommand())
+                {
+                    SelectCmd.Connection = conn;
+                    SelectCmd.CommandText = "SELECT StockCode, Delivered,TotalSold, CurrentQty, QtySold, SalesAmount from qrySalesGrid WHERE LocationRef = @LocationRef";
+                    SelectCmd.Parameters.AddWithValue("@LocationRef", txtShopRef.Text.TrimEnd());
+                    ShopSalesLineDataAdapter.SelectCommand = SelectCmd;
+                    ShopSalesLineDataAdapter.Fill(ShopSalesLine);
+                    DgvRecords.DataSource = ShopSalesLine;
+                    DgvRecords.AutoGenerateColumns = true;
+                    DgvRecords.CellBorderStyle = DataGridViewCellBorderStyle.None;
+                    DgvRecords.BackgroundColor = Color.LightCoral;
+                    DgvRecords.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    DgvRecords.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+                    DgvRecords.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    DgvRecords.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DgvRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    DgvRecords.AllowUserToResizeColumns = false;
+                    DgvRecords.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    DgvRecords.RowsDefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    DgvRecords.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+                    DgvRecords.Columns[0].HeaderText = "Stock Code";
+                    DgvRecords.Columns[1].HeaderText = "Delivered Qty";
+                    DgvRecords.Columns[3].HeaderText = "Current Qty";
+                    DgvRecords.Columns[2].HeaderText = "Total Sold Qty";
+                    DgvRecords.Columns[4].HeaderText = "Qty";
+                    DgvRecords.Columns[5].HeaderText = "Sales Amount";
 
+                }
+            }
+            Totals();
         }
     }
 }

@@ -1422,5 +1422,16 @@ namespace DMHV2
             return SqlCmdString;
         }
         #endregion
+               
+
+        private void TSBBalances_Click(object sender, EventArgs e)
+        {
+            // Function not implemented.
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TsbRecord.PerformClick();
+        }
     }
 }

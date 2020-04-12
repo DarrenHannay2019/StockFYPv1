@@ -38,16 +38,22 @@
         }
         public static string HashingSHA1(string ValueToHash)
         {
-            var sha1 = System.Security.Cryptography.SHA512.Create();    // Create the Highest Hash Value
+            // Create The Highest Hash Value
+            var sha1 = System.Security.Cryptography.SHA512.Create();
+            // Encode the string passed in to a hash (7-bit)
             var inputValueToHash = Encoding.ASCII.GetBytes(ValueToHash);
+            // Create the hash based on the encoded value
             var hashing = sha1.ComputeHash(inputValueToHash);
+            // destroy the cryptography when not needed
             sha1.Dispose();
+            // create a new string
             var stringbuilder = new StringBuilder();
             for (var a = 0; a < hashing.Length; a++)
             {
+                // add the computed hash to a string value
                 stringbuilder.Append(hashing[a].ToString("X2"));
             }
-            return stringbuilder.ToString();
+            return stringbuilder.ToString(); // return back to the calling function
         }
         public int GetLoginUserID(string LoginName, string Password)
         {

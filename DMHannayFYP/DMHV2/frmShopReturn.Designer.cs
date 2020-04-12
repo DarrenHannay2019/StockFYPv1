@@ -71,27 +71,30 @@
             // 
             // txtWarehouseName
             // 
-            this.txtWarehouseName.Location = new System.Drawing.Point(112, 42);
+            this.txtWarehouseName.Location = new System.Drawing.Point(186, 72);
+            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(330, 20);
+            this.txtWarehouseName.Size = new System.Drawing.Size(548, 28);
             this.txtWarehouseName.TabIndex = 7;
             this.txtWarehouseName.TabStop = false;
             // 
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(7, 71);
+            this.Label8.Location = new System.Drawing.Point(11, 120);
+            this.Label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(68, 13);
+            this.Label8.Size = new System.Drawing.Size(117, 24);
             this.Label8.TabIndex = 5;
             this.Label8.Text = "Transfer Qty:";
             // 
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.Location = new System.Drawing.Point(110, 19);
+            this.Label7.Location = new System.Drawing.Point(184, 32);
+            this.Label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(38, 13);
+            this.Label7.Size = new System.Drawing.Size(66, 24);
             this.Label7.TabIndex = 4;
             this.Label7.Text = "Name:";
             // 
@@ -106,10 +109,11 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.DgvRecords.Location = new System.Drawing.Point(6, 97);
+            this.DgvRecords.Location = new System.Drawing.Point(10, 164);
+            this.DgvRecords.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.DgvRecords.Name = "DgvRecords";
             this.DgvRecords.RowHeadersWidth = 51;
-            this.DgvRecords.Size = new System.Drawing.Size(285, 132);
+            this.DgvRecords.Size = new System.Drawing.Size(475, 223);
             this.DgvRecords.TabIndex = 5;
             // 
             // Column1
@@ -153,26 +157,29 @@
             // txtReturnID
             // 
             this.txtReturnID.Enabled = false;
-            this.txtReturnID.Location = new System.Drawing.Point(94, 10);
+            this.txtReturnID.Location = new System.Drawing.Point(156, 16);
+            this.txtReturnID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtReturnID.Name = "txtReturnID";
-            this.txtReturnID.Size = new System.Drawing.Size(112, 20);
+            this.txtReturnID.Size = new System.Drawing.Size(184, 28);
             this.txtReturnID.TabIndex = 14;
             // 
             // Label11
             // 
             this.Label11.AutoSize = true;
-            this.Label11.Location = new System.Drawing.Point(32, 17);
+            this.Label11.Location = new System.Drawing.Point(54, 29);
+            this.Label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label11.Name = "Label11";
-            this.Label11.Size = new System.Drawing.Size(50, 13);
+            this.Label11.Size = new System.Drawing.Size(83, 24);
             this.Label11.TabIndex = 13;
             this.Label11.Text = "ReturnID";
             // 
             // CheckBox1
             // 
             this.CheckBox1.AutoSize = true;
-            this.CheckBox1.Location = new System.Drawing.Point(256, 38);
+            this.CheckBox1.Location = new System.Drawing.Point(426, 65);
+            this.CheckBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.CheckBox1.Name = "CheckBox1";
-            this.CheckBox1.Size = new System.Drawing.Size(115, 17);
+            this.CheckBox1.Size = new System.Drawing.Size(191, 28);
             this.CheckBox1.TabIndex = 3;
             this.CheckBox1.Text = "Return To Supplier";
             this.CheckBox1.UseVisualStyleBackColor = true;
@@ -180,96 +187,107 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(213, 13);
+            this.Label9.Location = new System.Drawing.Point(355, 22);
+            this.Label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(33, 13);
+            this.Label9.Size = new System.Drawing.Size(53, 24);
             this.Label9.TabIndex = 11;
             this.Label9.Text = "Date:";
             // 
             // DtpDate
             // 
             this.DtpDate.CustomFormat = "dd-MM-yyyy";
-            this.DtpDate.Location = new System.Drawing.Point(256, 10);
+            this.DtpDate.Location = new System.Drawing.Point(426, 16);
+            this.DtpDate.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.DtpDate.Name = "DtpDate";
-            this.DtpDate.Size = new System.Drawing.Size(151, 20);
+            this.DtpDate.Size = new System.Drawing.Size(249, 28);
             this.DtpDate.TabIndex = 0;
             this.DtpDate.Value = new System.DateTime(2016, 2, 7, 0, 0, 0, 0);
             // 
             // txtShopName
             // 
-            this.txtShopName.Location = new System.Drawing.Point(256, 62);
+            this.txtShopName.Location = new System.Drawing.Point(426, 104);
+            this.txtShopName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtShopName.Name = "txtShopName";
-            this.txtShopName.Size = new System.Drawing.Size(206, 20);
+            this.txtShopName.Size = new System.Drawing.Size(340, 28);
             this.txtShopName.TabIndex = 12;
             this.txtShopName.TabStop = false;
             // 
             // txtCurrentQty
             // 
-            this.txtCurrentQty.Location = new System.Drawing.Point(94, 114);
+            this.txtCurrentQty.Location = new System.Drawing.Point(156, 192);
+            this.txtCurrentQty.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtCurrentQty.Name = "txtCurrentQty";
-            this.txtCurrentQty.Size = new System.Drawing.Size(112, 20);
+            this.txtCurrentQty.Size = new System.Drawing.Size(184, 28);
             this.txtCurrentQty.TabIndex = 5;
             // 
             // txtStockCode
             // 
             this.txtStockCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtStockCode.Location = new System.Drawing.Point(94, 88);
+            this.txtStockCode.Location = new System.Drawing.Point(156, 148);
+            this.txtStockCode.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtStockCode.MaxLength = 30;
             this.txtStockCode.Name = "txtStockCode";
-            this.txtStockCode.Size = new System.Drawing.Size(112, 20);
+            this.txtStockCode.Size = new System.Drawing.Size(184, 28);
             this.txtStockCode.TabIndex = 4;
             this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // txtShopRef
             // 
             this.txtShopRef.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtShopRef.Location = new System.Drawing.Point(94, 62);
+            this.txtShopRef.Location = new System.Drawing.Point(156, 104);
+            this.txtShopRef.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtShopRef.MaxLength = 8;
             this.txtShopRef.Name = "txtShopRef";
-            this.txtShopRef.Size = new System.Drawing.Size(112, 20);
+            this.txtShopRef.Size = new System.Drawing.Size(184, 28);
             this.txtShopRef.TabIndex = 2;
             this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
             // txtReference
             // 
-            this.txtReference.Location = new System.Drawing.Point(94, 36);
+            this.txtReference.Location = new System.Drawing.Point(156, 60);
+            this.txtReference.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtReference.MaxLength = 50;
             this.txtReference.Name = "txtReference";
-            this.txtReference.Size = new System.Drawing.Size(112, 20);
+            this.txtReference.Size = new System.Drawing.Size(184, 28);
             this.txtReference.TabIndex = 1;
             // 
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(209, 65);
+            this.Label5.Location = new System.Drawing.Point(349, 110);
+            this.Label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(38, 13);
+            this.Label5.Size = new System.Drawing.Size(66, 24);
             this.Label5.TabIndex = 10;
             this.Label5.Text = "Name:";
             // 
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(16, 117);
+            this.Label4.Location = new System.Drawing.Point(26, 198);
+            this.Label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(63, 13);
+            this.Label4.Size = new System.Drawing.Size(110, 24);
             this.Label4.TabIndex = 9;
             this.Label4.Text = "Current Qty:";
             // 
             // txtWarehouseRef
             // 
-            this.txtWarehouseRef.Location = new System.Drawing.Point(10, 42);
+            this.txtWarehouseRef.Location = new System.Drawing.Point(16, 72);
+            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtWarehouseRef.MaxLength = 8;
             this.txtWarehouseRef.Name = "txtWarehouseRef";
-            this.txtWarehouseRef.Size = new System.Drawing.Size(70, 20);
+            this.txtWarehouseRef.Size = new System.Drawing.Size(114, 28);
             this.txtWarehouseRef.TabIndex = 6;
             this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // cmdClear
             // 
-            this.cmdClear.Location = new System.Drawing.Point(389, 419);
+            this.cmdClear.Location = new System.Drawing.Point(672, 699);
+            this.cmdClear.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdClear.Name = "cmdClear";
-            this.cmdClear.Size = new System.Drawing.Size(84, 23);
+            this.cmdClear.Size = new System.Drawing.Size(140, 38);
             this.cmdClear.TabIndex = 9;
             this.cmdClear.Text = "Clear";
             this.cmdClear.UseVisualStyleBackColor = true;
@@ -278,17 +296,19 @@
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(14, 91);
+            this.Label3.Location = new System.Drawing.Point(24, 154);
+            this.Label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(66, 13);
+            this.Label3.Size = new System.Drawing.Size(112, 24);
             this.Label3.TabIndex = 8;
             this.Label3.Text = "Stock Code:";
             // 
             // cmdClearGrid
             // 
-            this.cmdClearGrid.Location = new System.Drawing.Point(322, 68);
+            this.cmdClearGrid.Location = new System.Drawing.Point(536, 116);
+            this.cmdClearGrid.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdClearGrid.Name = "cmdClearGrid";
-            this.cmdClearGrid.Size = new System.Drawing.Size(84, 23);
+            this.cmdClearGrid.Size = new System.Drawing.Size(140, 38);
             this.cmdClearGrid.TabIndex = 2;
             this.cmdClearGrid.Text = "Delete All";
             this.cmdClearGrid.UseVisualStyleBackColor = true;
@@ -296,9 +316,10 @@
             // 
             // cmdAdd
             // 
-            this.cmdAdd.Location = new System.Drawing.Point(232, 68);
+            this.cmdAdd.Location = new System.Drawing.Point(386, 116);
+            this.cmdAdd.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdAdd.Name = "cmdAdd";
-            this.cmdAdd.Size = new System.Drawing.Size(84, 23);
+            this.cmdAdd.Size = new System.Drawing.Size(140, 38);
             this.cmdAdd.TabIndex = 1;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
@@ -317,68 +338,77 @@
             this.GroupBox2.Controls.Add(this.Label7);
             this.GroupBox2.Controls.Add(this.DgvRecords);
             this.GroupBox2.Controls.Add(this.Label6);
-            this.GroupBox2.Location = new System.Drawing.Point(10, 168);
+            this.GroupBox2.Location = new System.Drawing.Point(16, 272);
+            this.GroupBox2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(479, 245);
+            this.GroupBox2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.GroupBox2.Size = new System.Drawing.Size(799, 415);
             this.GroupBox2.TabIndex = 6;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Return To:";
             // 
             // txtTotalItems
             // 
-            this.txtTotalItems.Location = new System.Drawing.Point(306, 206);
+            this.txtTotalItems.Location = new System.Drawing.Point(510, 349);
+            this.txtTotalItems.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTotalItems.Name = "txtTotalItems";
-            this.txtTotalItems.Size = new System.Drawing.Size(66, 20);
+            this.txtTotalItems.Size = new System.Drawing.Size(108, 28);
             this.txtTotalItems.TabIndex = 7;
             // 
             // Label10
             // 
             this.Label10.AutoSize = true;
-            this.Label10.Location = new System.Drawing.Point(303, 190);
+            this.Label10.Location = new System.Drawing.Point(505, 322);
+            this.Label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(62, 13);
+            this.Label10.Size = new System.Drawing.Size(105, 24);
             this.Label10.TabIndex = 6;
             this.Label10.Text = "Total Items:";
             // 
             // txtTransferQty
             // 
-            this.txtTransferQty.Location = new System.Drawing.Point(112, 68);
+            this.txtTransferQty.Location = new System.Drawing.Point(186, 116);
+            this.txtTransferQty.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTransferQty.Name = "txtTransferQty";
-            this.txtTransferQty.Size = new System.Drawing.Size(112, 20);
+            this.txtTransferQty.Size = new System.Drawing.Size(184, 28);
             this.txtTransferQty.TabIndex = 0;
             // 
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(7, 19);
+            this.Label6.Location = new System.Drawing.Point(11, 32);
+            this.Label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(85, 13);
+            this.Label6.Size = new System.Drawing.Size(146, 24);
             this.Label6.TabIndex = 3;
             this.Label6.Text = "Warehouse Ref:";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(26, 65);
+            this.Label2.Location = new System.Drawing.Point(44, 110);
+            this.Label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(55, 13);
+            this.Label2.Size = new System.Drawing.Size(93, 24);
             this.Label2.TabIndex = 7;
             this.Label2.Text = "Shop Ref:";
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(20, 39);
+            this.Label1.Location = new System.Drawing.Point(34, 66);
+            this.Label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(60, 13);
+            this.Label1.Size = new System.Drawing.Size(103, 24);
             this.Label1.TabIndex = 6;
             this.Label1.Text = "Reference:";
             // 
             // cmdOK
             // 
-            this.cmdOK.Location = new System.Drawing.Point(206, 419);
+            this.cmdOK.Location = new System.Drawing.Point(372, 699);
+            this.cmdOK.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdOK.Name = "cmdOK";
-            this.cmdOK.Size = new System.Drawing.Size(84, 23);
+            this.cmdOK.Size = new System.Drawing.Size(140, 38);
             this.cmdOK.TabIndex = 7;
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
@@ -386,9 +416,10 @@
             // 
             // cmdCancel
             // 
-            this.cmdCancel.Location = new System.Drawing.Point(298, 419);
+            this.cmdCancel.Location = new System.Drawing.Point(522, 699);
+            this.cmdCancel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(84, 23);
+            this.cmdCancel.Size = new System.Drawing.Size(140, 38);
             this.cmdCancel.TabIndex = 8;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
@@ -411,24 +442,27 @@
             this.GroupBox1.Controls.Add(this.Label3);
             this.GroupBox1.Controls.Add(this.Label2);
             this.GroupBox1.Controls.Add(this.Label1);
-            this.GroupBox1.Location = new System.Drawing.Point(10, 20);
+            this.GroupBox1.Location = new System.Drawing.Point(16, 15);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(479, 145);
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.GroupBox1.Size = new System.Drawing.Size(799, 245);
             this.GroupBox1.TabIndex = 5;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Current";
             // 
             // frmShopReturn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 611);
+            this.ClientSize = new System.Drawing.Size(826, 754);
             this.Controls.Add(this.cmdClear);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.GroupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmShopReturn";
             this.Text = "frmShopReturn";
             this.Load += new System.EventHandler(this.frmShopReturn_Load);

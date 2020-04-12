@@ -128,134 +128,145 @@ namespace DMHV2
 
         private void TsbRecord_Click(object sender, EventArgs e)
         {
-            int selectid;
-            selectid = DataGridView1.CurrentRow.Index;
-            string i;
-            i = DataGridView1.Rows[selectid].Cells[0].Value.ToString();
-            if (FunctionID == 1)
+            int selectid = 0;
+            int RowCount = DataGridView1.Rows.Count;
+            if (RowCount != 0)
+                selectid = DataGridView1.CurrentRow.Index;
+            else
             {
-                clsWarehouse oWarehouse = new clsWarehouse(UserID)
-                {
-                    WarehouseRef = i
-                };
-                oWarehouse.LoadSelectedRecord();
+                MessageBox.Show("No Records", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (FunctionID == 2)
+            if (selectid == 0)
+                MessageBox.Show("Unable to show record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                clsShop oShop = new clsShop
+                string i;
+                i = DataGridView1.Rows[selectid].Cells[0].Value.ToString();
+                if (FunctionID == 1)
                 {
-                    ShopRef = i
-                };
-                oShop.LoadSelectedRecord();
-            }
-            if (FunctionID == 3)
-            {
-                clsSupplier oSupplier = new clsSupplier(UserID)
+                    clsWarehouse oWarehouse = new clsWarehouse(UserID)
+                    {
+                        WarehouseRef = i
+                    };
+                    oWarehouse.LoadSelectedRecord();
+                }
+                if (FunctionID == 2)
                 {
-                    SupplierRef = i
-                };
-                oSupplier.LoadSelectedRecord();
-            }
-            if (FunctionID == 4)
-            {
-                clsStock oStock = new clsStock
+                    clsShop oShop = new clsShop
+                    {
+                        ShopRef = i
+                    };
+                    oShop.LoadSelectedRecord();
+                }
+                if (FunctionID == 3)
                 {
-                    StockCode = i
-                };
-                oStock.LoadSelectedForm();
-            }
-            if (FunctionID == 5)
-            {
-                clsStock oStock = new clsStock
+                    clsSupplier oSupplier = new clsSupplier(UserID)
+                    {
+                        SupplierRef = i
+                    };
+                    oSupplier.LoadSelectedRecord();
+                }
+                if (FunctionID == 4)
                 {
-                    StockCode = i
-                };
-                oStock.LoadSelectedForm();
-            }
-            if (FunctionID == 6)
-            {
-                clsSeason oSeason = new clsSeason
+                    clsStock oStock = new clsStock
+                    {
+                        StockCode = i
+                    };
+                    oStock.LoadSelectedForm();
+                }
+                if (FunctionID == 5)
                 {
-                    SeasonID = Convert.ToInt32(i)
-                };
-                oSeason.LoadSelectedSeasonForm();
-            }
-            if (FunctionID == 7)
-            {
-                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder(UserID)
+                    clsStock oStock = new clsStock
+                    {
+                        StockCode = i
+                    };
+                    oStock.LoadSelectedForm();
+                }
+                if (FunctionID == 6)
                 {
-                    PurchaseOrderID = Convert.ToInt32(i)
-                };
-                oPurchaseOrder.LoadSelectedPurchaseOrder();               
-            }
-            if (FunctionID == 8)
-            {
-                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment
+                    clsSeason oSeason = new clsSeason
+                    {
+                        SeasonID = Convert.ToInt32(i)
+                    };
+                    oSeason.LoadSelectedSeasonForm();
+                }
+                if (FunctionID == 7)
                 {
-                    UserID = UserID,
-                    WarehouseAdjustmentID = Convert.ToInt32(i)
-                };
-                oWarehouseAdjustment.LoadSelectedForm();
+                    clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder(UserID)
+                    {
+                        PurchaseOrderID = Convert.ToInt32(i)
+                    };
+                    oPurchaseOrder.LoadSelectedPurchaseOrder();
+                }
+                if (FunctionID == 8)
+                {
+                    clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment
+                    {
+                        UserID = UserID,
+                        WarehouseAdjustmentID = Convert.ToInt32(i)
+                    };
+                    oWarehouseAdjustment.LoadSelectedForm();
 
-            }
-            if (FunctionID == 9)
-            {
-                clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer
+                }
+                if (FunctionID == 9)
                 {
-                    WarehouseTransferID = Convert.ToInt32(i),
-                    UserID = UserID
-                };
-                oWarehouseTransfer.LoadSelectedForm();
-            }
-            if (FunctionID == 10)
-            {
-                clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn
+                    clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer
+                    {
+                        WarehouseTransferID = Convert.ToInt32(i),
+                        UserID = UserID
+                    };
+                    oWarehouseTransfer.LoadSelectedForm();
+                }
+                if (FunctionID == 10)
                 {
-                    WarehouseReturnID = Convert.ToInt32(i),
-                    UserID = UserID
-                };
-            }
-            if (FunctionID == 11)
-            {
-                clsShopDelivery oShopDelivery = new clsShopDelivery();
-                oShopDelivery.ShopDelID = Convert.ToInt32(i);
-                oShopDelivery.UserID = UserID;
-            }
-            if (FunctionID == 12)
-            {
-                clsShopAdjustment oShopAdjustment = new clsShopAdjustment
+                    clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn
+                    {
+                        WarehouseReturnID = Convert.ToInt32(i),
+                        UserID = UserID
+                    };
+                }
+                if (FunctionID == 11)
                 {
-                    UserID = UserID,
-                    ID = Convert.ToInt32(i)
-                };
-                oShopAdjustment.LoadSelectedForm();
-            }
-            if (FunctionID == 13)
-            {
-                clsShopTransfer oShopTransfer = new clsShopTransfer
+                    clsShopDelivery oShopDelivery = new clsShopDelivery();
+                    oShopDelivery.ShopDelID = Convert.ToInt32(i);
+                    oShopDelivery.UserID = UserID;
+                }
+                if (FunctionID == 12)
                 {
-                    UserID = UserID,
-                    ShopTransferID = Convert.ToInt32(i)
-                };
-                oShopTransfer.LoadSelectedForm();
-            }
-            if (FunctionID == 14)
-            {
-                clsShopSale oShopSale = new clsShopSale
+                    clsShopAdjustment oShopAdjustment = new clsShopAdjustment
+                    {
+                        UserID = UserID,
+                        ID = Convert.ToInt32(i)
+                    };
+                    oShopAdjustment.LoadSelectedForm();
+                }
+                if (FunctionID == 13)
                 {
-                    SalesID = Convert.ToInt32(i),
-                    UserID = UserID
-                };
-                oShopSale.LoadSelectedForm();
-            }
-            if (FunctionID == 15)
-            {
-                clsShopReturn oShopReturn = new clsShopReturn
+                    clsShopTransfer oShopTransfer = new clsShopTransfer
+                    {
+                        UserID = UserID,
+                        ShopTransferID = Convert.ToInt32(i)
+                    };
+                    oShopTransfer.LoadSelectedForm();
+                }
+                if (FunctionID == 14)
                 {
-                    ShopReturnID = Convert.ToInt32(i),
-                    UserID = UserID
-                };
-                oShopReturn.LoadSelectedForm();
+                    clsShopSale oShopSale = new clsShopSale
+                    {
+                        SalesID = Convert.ToInt32(i),
+                        UserID = UserID
+                    };
+                    oShopSale.LoadSelectedForm();
+                }
+                if (FunctionID == 15)
+                {
+                    clsShopReturn oShopReturn = new clsShopReturn
+                    {
+                        ShopReturnID = Convert.ToInt32(i),
+                        UserID = UserID
+                    };
+                    oShopReturn.LoadSelectedForm();
+                }
             }
             TsbRefresh.PerformClick();
         }

@@ -35,6 +35,10 @@
             this.LblTotalLoss = new System.Windows.Forms.Label();
             this.lblTotalGain = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmdRemoveFromGrid = new System.Windows.Forms.Button();
             this.CboType = new System.Windows.Forms.ComboBox();
             this.TxtAdjustHangers = new System.Windows.Forms.TextBox();
@@ -56,10 +60,6 @@
             this.Label4 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
             this.TxtStockCode = new System.Windows.Forms.TextBox();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,6 +142,31 @@
             this.dgvItems.RowHeadersWidth = 51;
             this.dgvItems.Size = new System.Drawing.Size(665, 262);
             this.dgvItems.TabIndex = 46;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "StockCode";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Movement Type";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Qty";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Value";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
             // 
             // CmdRemoveFromGrid
             // 
@@ -292,7 +317,6 @@
             // 
             // TxtWarehouseRef
             // 
-            this.TxtWarehouseRef.Enabled = false;
             this.TxtWarehouseRef.Location = new System.Drawing.Point(151, 43);
             this.TxtWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
             this.TxtWarehouseRef.MaxLength = 8;
@@ -359,31 +383,6 @@
             this.TxtStockCode.Size = new System.Drawing.Size(128, 22);
             this.TxtStockCode.TabIndex = 30;
             this.TxtStockCode.Leave += new System.EventHandler(this.TxtStockCode_Leave);
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "StockCode";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Movement Type";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Qty";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Value";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
             // 
             // frmWarehouseAdjustment
             // 

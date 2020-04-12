@@ -71,30 +71,30 @@
             // 
             // txtSupplierName
             // 
-            this.txtSupplierName.Location = new System.Drawing.Point(150, 52);
-            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSupplierName.Location = new System.Drawing.Point(188, 72);
+            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtSupplierName.Name = "txtSupplierName";
-            this.txtSupplierName.Size = new System.Drawing.Size(439, 22);
+            this.txtSupplierName.Size = new System.Drawing.Size(548, 28);
             this.txtSupplierName.TabIndex = 7;
             this.txtSupplierName.TabStop = false;
             // 
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(9, 87);
-            this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label8.Location = new System.Drawing.Point(11, 120);
+            this.Label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(92, 17);
+            this.Label8.Size = new System.Drawing.Size(117, 24);
             this.Label8.TabIndex = 5;
             this.Label8.Text = "Transfer Qty:";
             // 
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.Location = new System.Drawing.Point(146, 23);
-            this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label7.Location = new System.Drawing.Point(182, 32);
+            this.Label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(49, 17);
+            this.Label7.Size = new System.Drawing.Size(66, 24);
             this.Label7.TabIndex = 4;
             this.Label7.Text = "Name:";
             // 
@@ -109,11 +109,11 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.DgvRecords.Location = new System.Drawing.Point(15, 119);
-            this.DgvRecords.Margin = new System.Windows.Forms.Padding(4);
+            this.DgvRecords.Location = new System.Drawing.Point(19, 164);
+            this.DgvRecords.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.DgvRecords.Name = "DgvRecords";
             this.DgvRecords.RowHeadersWidth = 51;
-            this.DgvRecords.Size = new System.Drawing.Size(380, 162);
+            this.DgvRecords.Size = new System.Drawing.Size(475, 223);
             this.DgvRecords.TabIndex = 5;
             // 
             // Column1
@@ -157,29 +157,29 @@
             // txtReturnID
             // 
             this.txtReturnID.Enabled = false;
-            this.txtReturnID.Location = new System.Drawing.Point(126, 12);
-            this.txtReturnID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReturnID.Location = new System.Drawing.Point(158, 16);
+            this.txtReturnID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtReturnID.Name = "txtReturnID";
-            this.txtReturnID.Size = new System.Drawing.Size(148, 22);
+            this.txtReturnID.Size = new System.Drawing.Size(184, 28);
             this.txtReturnID.TabIndex = 14;
             // 
             // Label11
             // 
             this.Label11.AutoSize = true;
-            this.Label11.Location = new System.Drawing.Point(42, 21);
-            this.Label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label11.Location = new System.Drawing.Point(52, 29);
+            this.Label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label11.Name = "Label11";
-            this.Label11.Size = new System.Drawing.Size(64, 17);
+            this.Label11.Size = new System.Drawing.Size(83, 24);
             this.Label11.TabIndex = 13;
             this.Label11.Text = "ReturnID";
             // 
             // CheckBox1
             // 
             this.CheckBox1.AutoSize = true;
-            this.CheckBox1.Location = new System.Drawing.Point(342, 47);
-            this.CheckBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.CheckBox1.Location = new System.Drawing.Point(428, 65);
+            this.CheckBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.CheckBox1.Name = "CheckBox1";
-            this.CheckBox1.Size = new System.Drawing.Size(150, 21);
+            this.CheckBox1.Size = new System.Drawing.Size(191, 28);
             this.CheckBox1.TabIndex = 3;
             this.CheckBox1.Text = "Return To Supplier";
             this.CheckBox1.UseVisualStyleBackColor = true;
@@ -187,107 +187,107 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(284, 16);
-            this.Label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label9.Location = new System.Drawing.Point(355, 22);
+            this.Label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(42, 17);
+            this.Label9.Size = new System.Drawing.Size(53, 24);
             this.Label9.TabIndex = 11;
             this.Label9.Text = "Date:";
             // 
             // DtpDate
             // 
             this.DtpDate.CustomFormat = "dd-MM-yyyy";
-            this.DtpDate.Location = new System.Drawing.Point(342, 12);
-            this.DtpDate.Margin = new System.Windows.Forms.Padding(4);
+            this.DtpDate.Location = new System.Drawing.Point(428, 16);
+            this.DtpDate.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.DtpDate.Name = "DtpDate";
-            this.DtpDate.Size = new System.Drawing.Size(200, 22);
+            this.DtpDate.Size = new System.Drawing.Size(249, 28);
             this.DtpDate.TabIndex = 0;
             this.DtpDate.Value = new System.DateTime(2016, 2, 7, 0, 0, 0, 0);
             // 
             // txtWarehouseName
             // 
-            this.txtWarehouseName.Location = new System.Drawing.Point(342, 76);
-            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseName.Location = new System.Drawing.Point(428, 104);
+            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(274, 22);
+            this.txtWarehouseName.Size = new System.Drawing.Size(342, 28);
             this.txtWarehouseName.TabIndex = 12;
             this.txtWarehouseName.TabStop = false;
             // 
             // txtCurrentQty
             // 
-            this.txtCurrentQty.Location = new System.Drawing.Point(126, 140);
-            this.txtCurrentQty.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCurrentQty.Location = new System.Drawing.Point(158, 192);
+            this.txtCurrentQty.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtCurrentQty.Name = "txtCurrentQty";
-            this.txtCurrentQty.Size = new System.Drawing.Size(148, 22);
+            this.txtCurrentQty.Size = new System.Drawing.Size(184, 28);
             this.txtCurrentQty.TabIndex = 5;
             // 
             // txtStockCode
             // 
             this.txtStockCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtStockCode.Location = new System.Drawing.Point(126, 108);
-            this.txtStockCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockCode.Location = new System.Drawing.Point(158, 148);
+            this.txtStockCode.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtStockCode.MaxLength = 30;
             this.txtStockCode.Name = "txtStockCode";
-            this.txtStockCode.Size = new System.Drawing.Size(148, 22);
+            this.txtStockCode.Size = new System.Drawing.Size(184, 28);
             this.txtStockCode.TabIndex = 4;
             this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // txtWarehouseRef
             // 
             this.txtWarehouseRef.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWarehouseRef.Location = new System.Drawing.Point(126, 76);
-            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseRef.Location = new System.Drawing.Point(158, 104);
+            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtWarehouseRef.MaxLength = 8;
             this.txtWarehouseRef.Name = "txtWarehouseRef";
-            this.txtWarehouseRef.Size = new System.Drawing.Size(148, 22);
+            this.txtWarehouseRef.Size = new System.Drawing.Size(184, 28);
             this.txtWarehouseRef.TabIndex = 2;
             this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // txtReference
             // 
-            this.txtReference.Location = new System.Drawing.Point(126, 44);
-            this.txtReference.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReference.Location = new System.Drawing.Point(158, 60);
+            this.txtReference.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtReference.MaxLength = 50;
             this.txtReference.Name = "txtReference";
-            this.txtReference.Size = new System.Drawing.Size(148, 22);
+            this.txtReference.Size = new System.Drawing.Size(184, 28);
             this.txtReference.TabIndex = 1;
             // 
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(279, 80);
-            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label5.Location = new System.Drawing.Point(349, 110);
+            this.Label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(49, 17);
+            this.Label5.Size = new System.Drawing.Size(66, 24);
             this.Label5.TabIndex = 10;
             this.Label5.Text = "Name:";
             // 
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(22, 144);
-            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label4.Location = new System.Drawing.Point(28, 198);
+            this.Label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(85, 17);
+            this.Label4.Size = new System.Drawing.Size(110, 24);
             this.Label4.TabIndex = 9;
             this.Label4.Text = "Current Qty:";
             // 
             // txtSupplierRef
             // 
-            this.txtSupplierRef.Location = new System.Drawing.Point(14, 52);
-            this.txtSupplierRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSupplierRef.Location = new System.Drawing.Point(18, 72);
+            this.txtSupplierRef.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtSupplierRef.MaxLength = 8;
             this.txtSupplierRef.Name = "txtSupplierRef";
-            this.txtSupplierRef.Size = new System.Drawing.Size(92, 22);
+            this.txtSupplierRef.Size = new System.Drawing.Size(114, 28);
             this.txtSupplierRef.TabIndex = 6;
             this.txtSupplierRef.Leave += new System.EventHandler(this.txtSupplierRef_Leave);
             // 
             // cmdClear
             // 
-            this.cmdClear.Location = new System.Drawing.Point(519, 504);
-            this.cmdClear.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdClear.Location = new System.Drawing.Point(649, 693);
+            this.cmdClear.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdClear.Name = "cmdClear";
-            this.cmdClear.Size = new System.Drawing.Size(112, 28);
+            this.cmdClear.Size = new System.Drawing.Size(140, 38);
             this.cmdClear.TabIndex = 9;
             this.cmdClear.Text = "Clear";
             this.cmdClear.UseVisualStyleBackColor = true;
@@ -296,19 +296,19 @@
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(18, 112);
-            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label3.Location = new System.Drawing.Point(22, 154);
+            this.Label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(84, 17);
+            this.Label3.Size = new System.Drawing.Size(112, 24);
             this.Label3.TabIndex = 8;
             this.Label3.Text = "Stock Code:";
             // 
             // cmdClearGrid
             // 
-            this.cmdClearGrid.Location = new System.Drawing.Point(430, 84);
-            this.cmdClearGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdClearGrid.Location = new System.Drawing.Point(538, 116);
+            this.cmdClearGrid.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdClearGrid.Name = "cmdClearGrid";
-            this.cmdClearGrid.Size = new System.Drawing.Size(112, 28);
+            this.cmdClearGrid.Size = new System.Drawing.Size(140, 38);
             this.cmdClearGrid.TabIndex = 2;
             this.cmdClearGrid.Text = "Delete All";
             this.cmdClearGrid.UseVisualStyleBackColor = true;
@@ -316,10 +316,10 @@
             // 
             // cmdAdd
             // 
-            this.cmdAdd.Location = new System.Drawing.Point(309, 84);
-            this.cmdAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdAdd.Location = new System.Drawing.Point(386, 116);
+            this.cmdAdd.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdAdd.Name = "cmdAdd";
-            this.cmdAdd.Size = new System.Drawing.Size(112, 28);
+            this.cmdAdd.Size = new System.Drawing.Size(140, 38);
             this.cmdAdd.TabIndex = 1;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
@@ -338,77 +338,77 @@
             this.GroupBox2.Controls.Add(this.Label7);
             this.GroupBox2.Controls.Add(this.DgvRecords);
             this.GroupBox2.Controls.Add(this.Label6);
-            this.GroupBox2.Location = new System.Drawing.Point(13, 195);
-            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupBox2.Location = new System.Drawing.Point(16, 268);
+            this.GroupBox2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.GroupBox2.Size = new System.Drawing.Size(639, 302);
+            this.GroupBox2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.GroupBox2.Size = new System.Drawing.Size(799, 415);
             this.GroupBox2.TabIndex = 6;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Return To:";
             // 
             // txtTotalItems
             // 
-            this.txtTotalItems.Location = new System.Drawing.Point(408, 254);
-            this.txtTotalItems.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalItems.Location = new System.Drawing.Point(510, 349);
+            this.txtTotalItems.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTotalItems.Name = "txtTotalItems";
-            this.txtTotalItems.Size = new System.Drawing.Size(86, 22);
+            this.txtTotalItems.Size = new System.Drawing.Size(106, 28);
             this.txtTotalItems.TabIndex = 7;
             // 
             // Label10
             // 
             this.Label10.AutoSize = true;
-            this.Label10.Location = new System.Drawing.Point(404, 234);
-            this.Label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label10.Location = new System.Drawing.Point(505, 322);
+            this.Label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(81, 17);
+            this.Label10.Size = new System.Drawing.Size(105, 24);
             this.Label10.TabIndex = 6;
             this.Label10.Text = "Total Items:";
             // 
             // txtTransferQty
             // 
-            this.txtTransferQty.Location = new System.Drawing.Point(150, 84);
-            this.txtTransferQty.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTransferQty.Location = new System.Drawing.Point(188, 116);
+            this.txtTransferQty.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTransferQty.Name = "txtTransferQty";
-            this.txtTransferQty.Size = new System.Drawing.Size(148, 22);
+            this.txtTransferQty.Size = new System.Drawing.Size(184, 28);
             this.txtTransferQty.TabIndex = 0;
             // 
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(9, 23);
-            this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label6.Location = new System.Drawing.Point(11, 32);
+            this.Label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(90, 17);
+            this.Label6.Size = new System.Drawing.Size(118, 24);
             this.Label6.TabIndex = 3;
             this.Label6.Text = "Supplier Ref:";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(12, 80);
-            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label2.Location = new System.Drawing.Point(15, 110);
+            this.Label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(111, 17);
+            this.Label2.Size = new System.Drawing.Size(146, 24);
             this.Label2.TabIndex = 7;
             this.Label2.Text = "Warehouse Ref:";
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(27, 48);
-            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label1.Location = new System.Drawing.Point(34, 66);
+            this.Label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(78, 17);
+            this.Label1.Size = new System.Drawing.Size(103, 24);
             this.Label1.TabIndex = 6;
             this.Label1.Text = "Reference:";
             // 
             // cmdOK
             // 
-            this.cmdOK.Location = new System.Drawing.Point(275, 504);
-            this.cmdOK.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdOK.Location = new System.Drawing.Point(344, 693);
+            this.cmdOK.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdOK.Name = "cmdOK";
-            this.cmdOK.Size = new System.Drawing.Size(112, 28);
+            this.cmdOK.Size = new System.Drawing.Size(140, 38);
             this.cmdOK.TabIndex = 7;
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
@@ -416,10 +416,10 @@
             // 
             // cmdCancel
             // 
-            this.cmdCancel.Location = new System.Drawing.Point(397, 504);
-            this.cmdCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdCancel.Location = new System.Drawing.Point(496, 693);
+            this.cmdCancel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(112, 28);
+            this.cmdCancel.Size = new System.Drawing.Size(140, 38);
             this.cmdCancel.TabIndex = 8;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
@@ -442,25 +442,27 @@
             this.GroupBox1.Controls.Add(this.Label3);
             this.GroupBox1.Controls.Add(this.Label2);
             this.GroupBox1.Controls.Add(this.Label1);
-            this.GroupBox1.Location = new System.Drawing.Point(13, 13);
-            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupBox1.Location = new System.Drawing.Point(16, 18);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.GroupBox1.Size = new System.Drawing.Size(639, 178);
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.GroupBox1.Size = new System.Drawing.Size(799, 245);
             this.GroupBox1.TabIndex = 5;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Current";
             // 
             // frmWarehouseReturn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 723);
+            this.ClientSize = new System.Drawing.Size(835, 752);
             this.Controls.Add(this.cmdClear);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.GroupBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmWarehouseReturn";
             this.Text = "frmWarehouseReturn";
             this.Load += new System.EventHandler(this.frmWarehouseReturn_Load);

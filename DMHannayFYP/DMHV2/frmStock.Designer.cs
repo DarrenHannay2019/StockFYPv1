@@ -53,6 +53,7 @@
             this.CmdCancel = new System.Windows.Forms.Button();
             this.CmdOK = new System.Windows.Forms.Button();
             this.DeadCodeCheckBox = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             StockCodeLabel = new System.Windows.Forms.Label();
             SupplierRefLabel = new System.Windows.Forms.Label();
             DeadCodeLabel = new System.Windows.Forms.Label();
@@ -65,170 +66,173 @@
             // StockCodeLabel
             // 
             StockCodeLabel.AutoSize = true;
-            StockCodeLabel.Location = new System.Drawing.Point(49, 17);
-            StockCodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            StockCodeLabel.Location = new System.Drawing.Point(71, 19);
+            StockCodeLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             StockCodeLabel.Name = "StockCodeLabel";
-            StockCodeLabel.Size = new System.Drawing.Size(84, 17);
+            StockCodeLabel.Size = new System.Drawing.Size(112, 24);
             StockCodeLabel.TabIndex = 47;
             StockCodeLabel.Text = "Stock Code:";
             // 
             // SupplierRefLabel
             // 
             SupplierRefLabel.AutoSize = true;
-            SupplierRefLabel.Location = new System.Drawing.Point(47, 34);
-            SupplierRefLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            SupplierRefLabel.Location = new System.Drawing.Point(64, 58);
+            SupplierRefLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             SupplierRefLabel.Name = "SupplierRefLabel";
-            SupplierRefLabel.Size = new System.Drawing.Size(90, 17);
+            SupplierRefLabel.Size = new System.Drawing.Size(118, 24);
             SupplierRefLabel.TabIndex = 48;
             SupplierRefLabel.Text = "Supplier Ref:";
             // 
             // DeadCodeLabel
             // 
             DeadCodeLabel.AutoSize = true;
-            DeadCodeLabel.Location = new System.Drawing.Point(51, 83);
-            DeadCodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            DeadCodeLabel.Location = new System.Drawing.Point(72, 131);
+            DeadCodeLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             DeadCodeLabel.Name = "DeadCodeLabel";
-            DeadCodeLabel.Size = new System.Drawing.Size(83, 17);
+            DeadCodeLabel.Size = new System.Drawing.Size(111, 24);
             DeadCodeLabel.TabIndex = 49;
             DeadCodeLabel.Text = "Dead Code:";
             // 
             // AmountTakenLabel
             // 
             AmountTakenLabel.AutoSize = true;
-            AmountTakenLabel.Location = new System.Drawing.Point(36, 112);
-            AmountTakenLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            AmountTakenLabel.Location = new System.Drawing.Point(46, 209);
+            AmountTakenLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             AmountTakenLabel.Name = "AmountTakenLabel";
-            AmountTakenLabel.Size = new System.Drawing.Size(104, 17);
+            AmountTakenLabel.Size = new System.Drawing.Size(139, 24);
             AmountTakenLabel.TabIndex = 50;
             AmountTakenLabel.Text = "Amount Taken:";
             // 
             // CostValueLabel
             // 
             CostValueLabel.AutoSize = true;
-            CostValueLabel.Location = new System.Drawing.Point(368, 107);
-            CostValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            CostValueLabel.Location = new System.Drawing.Point(76, 170);
+            CostValueLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             CostValueLabel.Name = "CostValueLabel";
-            CostValueLabel.Size = new System.Drawing.Size(80, 17);
+            CostValueLabel.Size = new System.Drawing.Size(106, 24);
             CostValueLabel.TabIndex = 51;
             CostValueLabel.Text = "Cost Value:";
             // 
             // PCMarkUpLabel
             // 
             PCMarkUpLabel.AutoSize = true;
-            PCMarkUpLabel.Location = new System.Drawing.Point(50, 134);
-            PCMarkUpLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            PCMarkUpLabel.Location = new System.Drawing.Point(72, 245);
+            PCMarkUpLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             PCMarkUpLabel.Name = "PCMarkUpLabel";
-            PCMarkUpLabel.Size = new System.Drawing.Size(83, 17);
+            PCMarkUpLabel.Size = new System.Drawing.Size(110, 24);
             PCMarkUpLabel.TabIndex = 52;
             PCMarkUpLabel.Text = "PCMark Up:";
             // 
             // gridTrans
             // 
             this.gridTrans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridTrans.Location = new System.Drawing.Point(39, 287);
-            this.gridTrans.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridTrans.Location = new System.Drawing.Point(15, 305);
+            this.gridTrans.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gridTrans.Name = "gridTrans";
             this.gridTrans.RowHeadersWidth = 62;
-            this.gridTrans.Size = new System.Drawing.Size(380, 94);
+            this.gridTrans.Size = new System.Drawing.Size(548, 129);
             this.gridTrans.TabIndex = 68;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(174, 234);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox8.Location = new System.Drawing.Point(451, 166);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(89, 22);
+            this.textBox8.Size = new System.Drawing.Size(110, 28);
             this.textBox8.TabIndex = 67;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(174, 197);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox7.Location = new System.Drawing.Point(450, 236);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(89, 22);
+            this.textBox7.Size = new System.Drawing.Size(110, 28);
             this.textBox7.TabIndex = 66;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(174, 160);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox6.Location = new System.Drawing.Point(451, 201);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(89, 22);
+            this.textBox6.Size = new System.Drawing.Size(110, 28);
             this.textBox6.TabIndex = 65;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(174, 134);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox5.Location = new System.Drawing.Point(185, 238);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(62, 22);
+            this.textBox5.Size = new System.Drawing.Size(110, 28);
             this.textBox5.TabIndex = 64;
             // 
             // TxtCostValue
             // 
-            this.TxtCostValue.Location = new System.Drawing.Point(465, 107);
-            this.TxtCostValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtCostValue.Location = new System.Drawing.Point(185, 166);
+            this.TxtCostValue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtCostValue.Name = "TxtCostValue";
-            this.TxtCostValue.Size = new System.Drawing.Size(89, 22);
+            this.TxtCostValue.Size = new System.Drawing.Size(110, 28);
             this.TxtCostValue.TabIndex = 63;
             // 
             // TxtAmountTaken
             // 
-            this.TxtAmountTaken.Location = new System.Drawing.Point(174, 107);
-            this.TxtAmountTaken.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtAmountTaken.Location = new System.Drawing.Point(185, 202);
+            this.TxtAmountTaken.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtAmountTaken.Name = "TxtAmountTaken";
-            this.TxtAmountTaken.Size = new System.Drawing.Size(62, 22);
+            this.TxtAmountTaken.Size = new System.Drawing.Size(110, 28);
             this.TxtAmountTaken.TabIndex = 62;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 202);
+            this.label5.Location = new System.Drawing.Point(319, 243);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 17);
+            this.label5.Size = new System.Drawing.Size(130, 24);
             this.label5.TabIndex = 61;
             this.label5.Text = "Items In Stock:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 180);
+            this.label4.Location = new System.Drawing.Point(360, 208);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 17);
+            this.label4.Size = new System.Drawing.Size(86, 24);
             this.label4.TabIndex = 60;
             this.label4.Text = "Sold Qty:";
             // 
             // CboSeason
             // 
             this.CboSeason.FormattingEnabled = true;
-            this.CboSeason.Location = new System.Drawing.Point(396, 63);
-            this.CboSeason.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CboSeason.Location = new System.Drawing.Point(185, 87);
+            this.CboSeason.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CboSeason.Name = "CboSeason";
-            this.CboSeason.Size = new System.Drawing.Size(149, 24);
+            this.CboSeason.Size = new System.Drawing.Size(185, 30);
             this.CboSeason.TabIndex = 59;
             // 
             // TxtSupplierRef
             // 
-            this.TxtSupplierRef.Location = new System.Drawing.Point(396, 37);
-            this.TxtSupplierRef.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtSupplierRef.Location = new System.Drawing.Point(185, 51);
+            this.TxtSupplierRef.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtSupplierRef.Name = "TxtSupplierRef";
-            this.TxtSupplierRef.Size = new System.Drawing.Size(130, 22);
+            this.TxtSupplierRef.Size = new System.Drawing.Size(162, 28);
             this.TxtSupplierRef.TabIndex = 58;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(157, 83);
+            this.label3.Location = new System.Drawing.Point(229, 131);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.Size = new System.Drawing.Size(88, 24);
             this.label3.TabIndex = 57;
             this.label3.Text = "Zero Qty:";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(218, 83);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBox1.Location = new System.Drawing.Point(322, 132);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(18, 17);
             this.checkBox1.TabIndex = 56;
@@ -237,35 +241,37 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 158);
+            this.label2.Location = new System.Drawing.Point(320, 166);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 17);
+            this.label2.Size = new System.Drawing.Size(128, 24);
             this.label2.TabIndex = 55;
             this.label2.Text = "Delivered Qty:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 55);
+            this.label1.Location = new System.Drawing.Point(101, 91);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.Size = new System.Drawing.Size(79, 24);
             this.label1.TabIndex = 54;
             this.label1.Text = "Season:";
             // 
             // TxtStockCode
             // 
-            this.TxtStockCode.Location = new System.Drawing.Point(396, 11);
-            this.TxtStockCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtStockCode.Location = new System.Drawing.Point(185, 15);
+            this.TxtStockCode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtStockCode.Name = "TxtStockCode";
-            this.TxtStockCode.Size = new System.Drawing.Size(130, 22);
+            this.TxtStockCode.Size = new System.Drawing.Size(162, 28);
             this.TxtStockCode.TabIndex = 53;
             // 
             // CmdCancel
             // 
-            this.CmdCancel.Location = new System.Drawing.Point(325, 453);
-            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.CmdCancel.Location = new System.Drawing.Point(436, 441);
+            this.CmdCancel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdCancel.Name = "CmdCancel";
-            this.CmdCancel.Size = new System.Drawing.Size(100, 22);
+            this.CmdCancel.Size = new System.Drawing.Size(125, 30);
             this.CmdCancel.TabIndex = 46;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
@@ -273,10 +279,10 @@
             // 
             // CmdOK
             // 
-            this.CmdOK.Location = new System.Drawing.Point(218, 453);
-            this.CmdOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.CmdOK.Location = new System.Drawing.Point(306, 441);
+            this.CmdOK.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdOK.Name = "CmdOK";
-            this.CmdOK.Size = new System.Drawing.Size(100, 22);
+            this.CmdOK.Size = new System.Drawing.Size(125, 30);
             this.CmdOK.TabIndex = 45;
             this.CmdOK.Text = "Button1";
             this.CmdOK.UseVisualStyleBackColor = true;
@@ -284,18 +290,29 @@
             // 
             // DeadCodeCheckBox
             // 
-            this.DeadCodeCheckBox.Location = new System.Drawing.Point(115, 77);
-            this.DeadCodeCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DeadCodeCheckBox.Location = new System.Drawing.Point(185, 126);
+            this.DeadCodeCheckBox.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.DeadCodeCheckBox.Name = "DeadCodeCheckBox";
-            this.DeadCodeCheckBox.Size = new System.Drawing.Size(28, 24);
+            this.DeadCodeCheckBox.Size = new System.Drawing.Size(35, 33);
             this.DeadCodeCheckBox.TabIndex = 44;
             this.DeadCodeCheckBox.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(240, 279);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(191, 24);
+            this.label6.TabIndex = 69;
+            this.label6.Text = "Location Stock Levels";
+            // 
             // frmStock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 513);
+            this.ClientSize = new System.Drawing.Size(592, 488);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.gridTrans);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
@@ -321,7 +338,8 @@
             this.Controls.Add(AmountTakenLabel);
             this.Controls.Add(CostValueLabel);
             this.Controls.Add(PCMarkUpLabel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmStock";
             this.Text = "frmStock";
             this.Load += new System.EventHandler(this.frmStock_Load);
@@ -352,5 +370,6 @@
         internal System.Windows.Forms.Button CmdCancel;
         internal System.Windows.Forms.Button CmdOK;
         internal System.Windows.Forms.CheckBox DeadCodeCheckBox;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -67,19 +67,19 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(184, 13);
-            this.Label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label9.Location = new System.Drawing.Point(32, 19);
+            this.Label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(108, 17);
+            this.Label9.Size = new System.Drawing.Size(148, 25);
             this.Label9.TabIndex = 37;
             this.Label9.Text = "Record Number";
             // 
             // TxtTransferID
             // 
-            this.TxtTransferID.Location = new System.Drawing.Point(334, 10);
-            this.TxtTransferID.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtTransferID.Location = new System.Drawing.Point(192, 14);
+            this.TxtTransferID.Margin = new System.Windows.Forms.Padding(6);
             this.TxtTransferID.Name = "TxtTransferID";
-            this.TxtTransferID.Size = new System.Drawing.Size(148, 22);
+            this.TxtTransferID.Size = new System.Drawing.Size(220, 30);
             this.TxtTransferID.TabIndex = 39;
             // 
             // DgvRecords
@@ -97,11 +97,11 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            this.DgvRecords.Location = new System.Drawing.Point(210, 253);
-            this.DgvRecords.Margin = new System.Windows.Forms.Padding(4);
+            this.DgvRecords.Location = new System.Drawing.Point(37, 361);
+            this.DgvRecords.Margin = new System.Windows.Forms.Padding(6);
             this.DgvRecords.Name = "DgvRecords";
             this.DgvRecords.RowHeadersWidth = 51;
-            this.DgvRecords.Size = new System.Drawing.Size(414, 231);
+            this.DgvRecords.Size = new System.Drawing.Size(569, 238);
             this.DgvRecords.TabIndex = 33;
             // 
             // Column1
@@ -163,10 +163,10 @@
             // CmdDeleteFromGrid
             // 
             this.CmdDeleteFromGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdDeleteFromGrid.Location = new System.Drawing.Point(548, 217);
-            this.CmdDeleteFromGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdDeleteFromGrid.Location = new System.Drawing.Point(494, 294);
+            this.CmdDeleteFromGrid.Margin = new System.Windows.Forms.Padding(6);
             this.CmdDeleteFromGrid.Name = "CmdDeleteFromGrid";
-            this.CmdDeleteFromGrid.Size = new System.Drawing.Size(40, 28);
+            this.CmdDeleteFromGrid.Size = new System.Drawing.Size(60, 44);
             this.CmdDeleteFromGrid.TabIndex = 32;
             this.CmdDeleteFromGrid.Text = "-";
             this.CmdDeleteFromGrid.UseVisualStyleBackColor = true;
@@ -175,10 +175,10 @@
             // CmdAddToGrid
             // 
             this.CmdAddToGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAddToGrid.Location = new System.Drawing.Point(490, 217);
-            this.CmdAddToGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdAddToGrid.Location = new System.Drawing.Point(407, 294);
+            this.CmdAddToGrid.Margin = new System.Windows.Forms.Padding(6);
             this.CmdAddToGrid.Name = "CmdAddToGrid";
-            this.CmdAddToGrid.Size = new System.Drawing.Size(50, 28);
+            this.CmdAddToGrid.Size = new System.Drawing.Size(75, 44);
             this.CmdAddToGrid.TabIndex = 31;
             this.CmdAddToGrid.Text = "+";
             this.CmdAddToGrid.UseVisualStyleBackColor = true;
@@ -186,91 +186,91 @@
             // 
             // txtTotalTransferTo
             // 
-            this.txtTotalTransferTo.Location = new System.Drawing.Point(552, 492);
-            this.txtTotalTransferTo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalTransferTo.Location = new System.Drawing.Point(500, 611);
+            this.txtTotalTransferTo.Margin = new System.Windows.Forms.Padding(6);
             this.txtTotalTransferTo.Name = "txtTotalTransferTo";
-            this.txtTotalTransferTo.Size = new System.Drawing.Size(72, 22);
+            this.txtTotalTransferTo.Size = new System.Drawing.Size(106, 30);
             this.txtTotalTransferTo.TabIndex = 49;
             // 
             // TxtTransferFromQty
             // 
-            this.TxtTransferFromQty.Location = new System.Drawing.Point(334, 220);
-            this.TxtTransferFromQty.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtTransferFromQty.Location = new System.Drawing.Point(192, 308);
+            this.TxtTransferFromQty.Margin = new System.Windows.Forms.Padding(6);
             this.TxtTransferFromQty.Name = "TxtTransferFromQty";
-            this.TxtTransferFromQty.Size = new System.Drawing.Size(148, 22);
+            this.TxtTransferFromQty.Size = new System.Drawing.Size(203, 30);
             this.TxtTransferFromQty.TabIndex = 30;
             // 
             // TxtCurrentQty
             // 
-            this.TxtCurrentQty.Location = new System.Drawing.Point(334, 190);
-            this.TxtCurrentQty.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtCurrentQty.Location = new System.Drawing.Point(192, 266);
+            this.TxtCurrentQty.Margin = new System.Windows.Forms.Padding(6);
             this.TxtCurrentQty.Name = "TxtCurrentQty";
-            this.TxtCurrentQty.Size = new System.Drawing.Size(148, 22);
+            this.TxtCurrentQty.Size = new System.Drawing.Size(203, 30);
             this.TxtCurrentQty.TabIndex = 47;
             // 
             // TxtStockCode
             // 
-            this.TxtStockCode.Location = new System.Drawing.Point(334, 160);
-            this.TxtStockCode.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtStockCode.Location = new System.Drawing.Point(192, 224);
+            this.TxtStockCode.Margin = new System.Windows.Forms.Padding(6);
             this.TxtStockCode.MaxLength = 30;
             this.TxtStockCode.Name = "TxtStockCode";
-            this.TxtStockCode.Size = new System.Drawing.Size(148, 22);
+            this.TxtStockCode.Size = new System.Drawing.Size(203, 30);
             this.TxtStockCode.TabIndex = 29;
             this.TxtStockCode.Leave += new System.EventHandler(this.TxtStockCode_Leave);
             // 
             // txtToShopName
             // 
-            this.txtToShopName.Location = new System.Drawing.Point(410, 130);
-            this.txtToShopName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtToShopName.Location = new System.Drawing.Point(304, 182);
+            this.txtToShopName.Margin = new System.Windows.Forms.Padding(6);
             this.txtToShopName.Name = "txtToShopName";
-            this.txtToShopName.Size = new System.Drawing.Size(230, 22);
+            this.txtToShopName.Size = new System.Drawing.Size(278, 30);
             this.txtToShopName.TabIndex = 42;
             this.txtToShopName.TabStop = false;
             // 
             // TxtToWarehouseRef
             // 
-            this.TxtToWarehouseRef.Location = new System.Drawing.Point(334, 130);
-            this.TxtToWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtToWarehouseRef.Location = new System.Drawing.Point(192, 182);
+            this.TxtToWarehouseRef.Margin = new System.Windows.Forms.Padding(6);
             this.TxtToWarehouseRef.MaxLength = 8;
             this.TxtToWarehouseRef.Name = "TxtToWarehouseRef";
-            this.TxtToWarehouseRef.Size = new System.Drawing.Size(68, 22);
+            this.TxtToWarehouseRef.Size = new System.Drawing.Size(100, 30);
             this.TxtToWarehouseRef.TabIndex = 28;
             this.TxtToWarehouseRef.Leave += new System.EventHandler(this.TxtToWarehouseRef_Leave);
             // 
             // txtFromShopName
             // 
-            this.txtFromShopName.Location = new System.Drawing.Point(410, 100);
-            this.txtFromShopName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFromShopName.Location = new System.Drawing.Point(304, 140);
+            this.txtFromShopName.Margin = new System.Windows.Forms.Padding(6);
             this.txtFromShopName.Name = "txtFromShopName";
-            this.txtFromShopName.Size = new System.Drawing.Size(230, 22);
+            this.txtFromShopName.Size = new System.Drawing.Size(278, 30);
             this.txtFromShopName.TabIndex = 41;
             this.txtFromShopName.TabStop = false;
             // 
             // TxtFromWarehouseRef
             // 
-            this.TxtFromWarehouseRef.Location = new System.Drawing.Point(334, 100);
-            this.TxtFromWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtFromWarehouseRef.Location = new System.Drawing.Point(192, 140);
+            this.TxtFromWarehouseRef.Margin = new System.Windows.Forms.Padding(6);
             this.TxtFromWarehouseRef.MaxLength = 8;
             this.TxtFromWarehouseRef.Name = "TxtFromWarehouseRef";
-            this.TxtFromWarehouseRef.Size = new System.Drawing.Size(68, 22);
+            this.TxtFromWarehouseRef.Size = new System.Drawing.Size(100, 30);
             this.TxtFromWarehouseRef.TabIndex = 27;
             this.TxtFromWarehouseRef.Leave += new System.EventHandler(this.TxtFromWarehouseRef_Leave);
             // 
             // TxtTFNote
             // 
-            this.TxtTFNote.Location = new System.Drawing.Point(334, 70);
-            this.TxtTFNote.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtTFNote.Location = new System.Drawing.Point(192, 98);
+            this.TxtTFNote.Margin = new System.Windows.Forms.Padding(6);
             this.TxtTFNote.MaxLength = 30;
             this.TxtTFNote.Name = "TxtTFNote";
-            this.TxtTFNote.Size = new System.Drawing.Size(148, 22);
+            this.TxtTFNote.Size = new System.Drawing.Size(220, 30);
             this.TxtTFNote.TabIndex = 26;
             // 
             // CmdClear
             // 
-            this.CmdClear.Location = new System.Drawing.Point(512, 522);
-            this.CmdClear.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdClear.Location = new System.Drawing.Point(438, 653);
+            this.CmdClear.Margin = new System.Windows.Forms.Padding(6);
             this.CmdClear.Name = "CmdClear";
-            this.CmdClear.Size = new System.Drawing.Size(112, 28);
+            this.CmdClear.Size = new System.Drawing.Size(168, 44);
             this.CmdClear.TabIndex = 36;
             this.CmdClear.Text = "Clear";
             this.CmdClear.UseVisualStyleBackColor = true;
@@ -278,10 +278,10 @@
             // 
             // CmdOK
             // 
-            this.CmdOK.Location = new System.Drawing.Point(268, 522);
-            this.CmdOK.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdOK.Location = new System.Drawing.Point(78, 653);
+            this.CmdOK.Margin = new System.Windows.Forms.Padding(6);
             this.CmdOK.Name = "CmdOK";
-            this.CmdOK.Size = new System.Drawing.Size(112, 28);
+            this.CmdOK.Size = new System.Drawing.Size(168, 44);
             this.CmdOK.TabIndex = 34;
             this.CmdOK.Text = "Ok";
             this.CmdOK.UseVisualStyleBackColor = true;
@@ -289,10 +289,10 @@
             // 
             // CmdCancel
             // 
-            this.CmdCancel.Location = new System.Drawing.Point(390, 522);
-            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdCancel.Location = new System.Drawing.Point(258, 653);
+            this.CmdCancel.Margin = new System.Windows.Forms.Padding(6);
             this.CmdCancel.Name = "CmdCancel";
-            this.CmdCancel.Size = new System.Drawing.Size(112, 28);
+            this.CmdCancel.Size = new System.Drawing.Size(168, 44);
             this.CmdCancel.TabIndex = 35;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
@@ -300,10 +300,10 @@
             // 
             // DtpDate
             // 
-            this.DtpDate.Location = new System.Drawing.Point(334, 40);
-            this.DtpDate.Margin = new System.Windows.Forms.Padding(4);
+            this.DtpDate.Location = new System.Drawing.Point(192, 56);
+            this.DtpDate.Margin = new System.Windows.Forms.Padding(6);
             this.DtpDate.Name = "DtpDate";
-            this.DtpDate.Size = new System.Drawing.Size(290, 22);
+            this.DtpDate.Size = new System.Drawing.Size(390, 30);
             this.DtpDate.TabIndex = 25;
             this.DtpDate.Value = new System.DateTime(2017, 9, 1, 0, 0, 0, 0);
             // 
@@ -311,20 +311,20 @@
             // 
             this.Label7.AutoSize = true;
             this.Label7.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label7.Location = new System.Drawing.Point(204, 223);
-            this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label7.Location = new System.Drawing.Point(36, 314);
+            this.Label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(92, 17);
+            this.Label7.Size = new System.Drawing.Size(127, 25);
             this.Label7.TabIndex = 48;
             this.Label7.Text = "Transfer Qty:";
             // 
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(213, 193);
-            this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label6.Location = new System.Drawing.Point(44, 271);
+            this.Label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(85, 17);
+            this.Label6.Size = new System.Drawing.Size(119, 25);
             this.Label6.TabIndex = 46;
             this.Label6.Text = "Current Qty:";
             // 
@@ -332,10 +332,10 @@
             // 
             this.Label5.AutoSize = true;
             this.Label5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label5.Location = new System.Drawing.Point(209, 166);
-            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label5.Location = new System.Drawing.Point(42, 227);
+            this.Label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(84, 17);
+            this.Label5.Size = new System.Drawing.Size(121, 25);
             this.Label5.TabIndex = 45;
             this.Label5.Text = "Stock Code:";
             // 
@@ -343,10 +343,10 @@
             // 
             this.Label4.AutoSize = true;
             this.Label4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label4.Location = new System.Drawing.Point(256, 40);
-            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label4.Location = new System.Drawing.Point(126, 59);
+            this.Label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(42, 17);
+            this.Label4.Size = new System.Drawing.Size(59, 25);
             this.Label4.TabIndex = 40;
             this.Label4.Text = "Date:";
             // 
@@ -354,39 +354,39 @@
             // 
             this.Label3.AutoSize = true;
             this.Label3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label3.Location = new System.Drawing.Point(230, 133);
-            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label3.Location = new System.Drawing.Point(36, 182);
+            this.Label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(66, 17);
+            this.Label3.Size = new System.Drawing.Size(149, 25);
             this.Label3.TabIndex = 44;
-            this.Label3.Text = "To Shop:";
+            this.Label3.Text = "To Warehouse:";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
             this.Label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Label2.Location = new System.Drawing.Point(218, 103);
-            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label2.Location = new System.Drawing.Point(15, 140);
+            this.Label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(77, 17);
+            this.Label2.Size = new System.Drawing.Size(170, 25);
             this.Label2.TabIndex = 43;
-            this.Label2.Text = "From Shop";
+            this.Label2.Text = "From Warehouse:";
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(209, 70);
-            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label1.Location = new System.Drawing.Point(66, 95);
+            this.Label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(85, 17);
+            this.Label1.Size = new System.Drawing.Size(119, 25);
             this.Label1.TabIndex = 38;
             this.Label1.Text = "TF Note No:";
             // 
             // frmWarehouseTransfer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 579);
+            this.ClientSize = new System.Drawing.Size(632, 718);
             this.Controls.Add(this.Label9);
             this.Controls.Add(this.TxtTransferID);
             this.Controls.Add(this.DgvRecords);
@@ -412,6 +412,8 @@
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmWarehouseTransfer";
             this.Text = "frmWarehouseTransfer";
             this.Load += new System.EventHandler(this.frmWarehouseTransfer_Load);

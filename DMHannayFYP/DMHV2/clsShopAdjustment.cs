@@ -21,7 +21,8 @@
         {
             frmShopAdjustment shopAdjustment = new frmShopAdjustment
             {
-                FormMode = "New"
+                FormMode = "New",
+                LoggedInUser = UserID
             };
             shopAdjustment.Show();
         }

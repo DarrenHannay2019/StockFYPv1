@@ -53,7 +53,7 @@ namespace DMHV2
             deliveryHead.Reference = txtReference.Text.TrimEnd();
             deliveryHead.ShopRef = txtShopRef.Text.TrimEnd();
             deliveryHead.TotalItems = Convert.ToInt32(txtTotalGarments.Text.TrimEnd());
-            deliveryHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value);
+            deliveryHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value.ToString());
             deliveryHead.UserID = LoggedInUser;
             if (FormMode == "New")
             {
@@ -72,14 +72,17 @@ namespace DMHV2
             }
             logs.TransferReference = SavedID;
             deliveryLine.ShopDelID = SavedID;
-            
+            logs.MovementDate = deliveryHead.MovementDate;
+            logs.RecordType = "Shop Delivery Item Add";
+            logs.Reference = logs.RecordType;
+            logs.UserID = LoggedInUser;
+            logs.SupplierRef = "NULL";
             logs.StringMovementType = "Shop Return Item";
             for (int index = 0; index < DgvRecords.Rows.Count; index++)
-            {
-               
-               
+            {             
                 deliveryLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
-                deliveryLine.Qty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);
+                logs.StockCode = deliveryLine.StockCode;
+                deliveryLine.Qty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1].Value);
                 if (FormMode == "New")
                 {
                     logs.LocationRef = deliveryHead.WarehouseRef;

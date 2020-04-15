@@ -239,7 +239,6 @@
             // 
             // txtWarehouseRef
             // 
-            this.txtWarehouseRef.Enabled = false;
             this.txtWarehouseRef.Location = new System.Drawing.Point(181, 169);
             this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseRef.Name = "txtWarehouseRef";
@@ -397,7 +396,6 @@
             // 
             // txtWarehouseName
             // 
-            this.txtWarehouseName.Enabled = false;
             this.txtWarehouseName.Location = new System.Drawing.Point(181, 209);
             this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseName.Name = "txtWarehouseName";

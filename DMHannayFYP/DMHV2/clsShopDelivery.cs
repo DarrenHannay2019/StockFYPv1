@@ -10,20 +10,23 @@
         public int UserID;
         public void LoadNewForm()
         {
-            frmShopAdjustment shopAdjustment = new frmShopAdjustment
+            frmShopDelivery shopDelivery = new frmShopDelivery
             {
-                FormMode = "New"
+                FormMode = "New",
+                LoggedInUser = UserID
             };
-            shopAdjustment.Show();
+            shopDelivery.ShowDialog();
         }
         public void LoadSelectedForm()
         {
-            frmShopAdjustment shopAdjustment = new frmShopAdjustment
+            frmShopDelivery shopDelivery = new frmShopDelivery
             {
-                FormMode = "New"                
+                FormMode = "New",
+                LoggedInUser = UserID
             };
-            shopAdjustment.TxtSID.Text = ShopDelID.ToString();
-            shopAdjustment.Show();
+            shopDelivery.txtDelNoteNumber.Text = ShopDelID.ToString();
+            shopDelivery.ShowDialog();
+           
         }
         public int GetLastShopDelivery()
         {
@@ -39,7 +42,7 @@
                         using (SqlCommand SelectCmd = new SqlCommand())
                         {
                             SelectCmd.Connection = conn;
-                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopDelivery";
+                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopDeliveries";
                             Result = (int)SelectCmd.ExecuteScalar();
                         }
                     }
@@ -90,11 +93,11 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopDeliveries(ShopRef, ShopName, WarehouseRef, WarehouseName, Reference, TotalItems, DeliveryDate, DeliveryType, ConfirmedDate, Notes, CreatedBy, CreatedDate) VALUES (@ShopRef, @ShopName, @WarehouseRef, @WarehouseName, @Reference, @TotalItems, @DeliveryDate, @DeliveryType, @ConfirmedDate, @Notes, @CreatedBy, @CreatedDate)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopDeliveries(ShopRef, WarehouseRef, Reference, TotalItems, DeliveryDate, DeliveryType, ConfirmedDate, Notes, CreatedBy, CreatedDate) VALUES (@ShopRef, @WarehouseRef, @Reference, @TotalItems, @DeliveryDate, @DeliveryType, @ConfirmedDate, @Notes, @CreatedBy, @CreatedDate)";
                             InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                            InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
+                            //InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
                             InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                            InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
+                            //InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
                             InsertCmd.Parameters.AddWithValue("@Reference", Reference);
                             InsertCmd.Parameters.AddWithValue("@TotalItems", TotalItems);
                             InsertCmd.Parameters.AddWithValue("@DeliveryDate", MovementDate);
@@ -242,8 +245,8 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopDeliveryLines (DeliveriesID, StockCode, DeliveredQty) VALUES (@DeliveriesID, @StockCode, @DeliveredQty)";
-                            InsertCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
+                            InsertCmd.CommandText = "INSERT INTO tblShopDeliveryLines (ShopDeliveryID, StockCode, DeliveredQty) VALUES (@ShopDeliveryID, @StockCode, @DeliveredQty)";
+                            InsertCmd.Parameters.AddWithValue("@ShopDeliveryID", ShopDelID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@DeliveredQty", Qty);
                             Result = (int)InsertCmd.ExecuteNonQuery();

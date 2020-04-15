@@ -13,9 +13,10 @@
         {
             frmWarehouseAdjustment warehouseAdjustment = new frmWarehouseAdjustment
             {
-                FormMode = "New"
+                FormMode = "New",
+                LoggedInUser = UserID
             };
-            warehouseAdjustment.Show();
+            warehouseAdjustment.ShowDialog();
         }
         public void LoadSelectedForm()
         {
@@ -231,8 +232,8 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblWarehouseAdjustmentsLines (WarehouseAdjustID, StockCode, MovementType, Qty, Value) VALUES (@WarehouseAdjustID, @StockCode, @MovementType, @Qty, @Value)";
-                            InsertCmd.Parameters.AddWithValue("@WarehouseAdjustID", WarehouseAdjustmentID);
+                            InsertCmd.CommandText = "INSERT INTO tblWarehouseAdjustmentsLines (WarehouseAdjustmentID, StockCode, MovementType, Qty, Value) VALUES (@WarehouseAdjustmentID, @StockCode, @MovementType, @Qty, @Value)";
+                            InsertCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", WarehouseAdjustmentID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@MovementType", MovementType);
                             InsertCmd.Parameters.AddWithValue("@Qty", Qty);
@@ -276,12 +277,12 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblWarehouseAdjustmentsLines SET MovementType = @MovementType, Qty = @Qty, Value = @Value WHERE WarehouseAdjustID = @WarehouseAdjustID AND StockCode = @StockCode";
+                            UpdateCmd.CommandText = "UPDATE tblWarehouseAdjustmentsLines SET MovementType = @MovementType, Qty = @Qty, Value = @Value WHERE WarehouseAdjustmentID = @WarehouseAdjustmentID AND StockCode = @StockCode";
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             UpdateCmd.Parameters.AddWithValue("@MovementType", MovementType);
                             UpdateCmd.Parameters.AddWithValue("@Qty", Qty);
                             UpdateCmd.Parameters.AddWithValue("@Value", Value);
-                            UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustID", WarehouseAdjustmentID);
+                            UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", WarehouseAdjustmentID);
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
                     }

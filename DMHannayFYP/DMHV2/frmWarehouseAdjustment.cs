@@ -9,7 +9,7 @@
     public partial class frmWarehouseAdjustment : Form
     {
         public string FormMode { get; set; }
-        private int LoggedInUser { get; set; }
+        public int LoggedInUser { get; set; }
         public DateTime olddate { get; set; }
         public frmWarehouseAdjustment()
         {
@@ -77,18 +77,18 @@
             {
                 // Saving details to tblWarehouseAdjustmentLines Table
                 adjustmentLine.StockCode = dgvItems.Rows[index].Cells[0].Value.ToString();
-                adjustmentLine.MovementType = dgvItems.Rows[index].Cells[1].ToString();
-                adjustmentLine.Qty = Convert.ToInt32(dgvItems.Rows[index].Cells[2]);
-                adjustmentLine.Value = Convert.ToDecimal(dgvItems.Rows[index].Cells[3]);
+                adjustmentLine.MovementType = dgvItems.Rows[index].Cells[1].Value.ToString();
+                adjustmentLine.Qty = Convert.ToInt32(dgvItems.Rows[index].Cells[2].Value);
+                adjustmentLine.Value = Convert.ToDecimal(dgvItems.Rows[index].Cells[3].Value);
                 // Saving details to tblStockMovements Table
                 logs.StockCode = adjustmentLine.StockCode;
                 logs.LocationRef = adjustmentHead.WarehouseRef;
                 logs.LocationType = 1;
                 logs.SupplierRef = "N/A";
                 if (adjustmentLine.MovementType == "Loss")
-                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2]) * -1;
+                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2].Value) * -1;
                 else
-                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2]);
+                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2].Value);
                 logs.DeliveredQtyGarments = 0;
                 logs.DeliveredQtyBoxes = 0;
                 if (adjustmentLine.MovementType == "Loss")
@@ -136,7 +136,10 @@
             clsStock stock = new clsStock();
             stock.StockCode = TxtStockCode.Text.TrimEnd();
             stock.SupplierRef = TxtWarehouseRef.Text.TrimEnd();
-            TxtCurrentHangers.Text = stock.GetWarehouseStockQty().ToString();
+            if (TxtWarehouseName.Text == "")
+                TxtCurrentHangers.Text = "0";
+            else
+                TxtCurrentHangers.Text = stock.GetWarehouseStockQty().ToString();
         }
 
         private void TxtWarehouseRef_Leave(object sender, EventArgs e)
@@ -210,10 +213,10 @@
             int lqtyhangers = 0;
             for (int i = 0; i < dgvItems.Rows.Count; i++)
             {
-                if (dgvItems.Rows[i].Cells[2].Value.ToString() == "Stock Gain")
-                    lqtyhangers += Convert.ToInt32(dgvItems.Rows[i].Cells[3].Value);
+                if (dgvItems.Rows[i].Cells[1].Value.ToString() == "Loss")
+                    lqtyhangers += Convert.ToInt32(dgvItems.Rows[i].Cells[2].Value);
                 else
-                    lngqtyhangers += Convert.ToInt32(dgvItems.Rows[i].Cells[3].Value);
+                    lngqtyhangers += Convert.ToInt32(dgvItems.Rows[i].Cells[2].Value);
             }
             TxtTotalGain.Text = lngqtyhangers.ToString();
             TxtTotalLoss.Text = lqtyhangers.ToString();

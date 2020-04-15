@@ -394,7 +394,7 @@
                         SelectCmd.CommandType = CommandType.Text;
                         SelectCmd.Parameters.AddWithValue("@StockCode", StockCode);
                         SelectCmd.Parameters.AddWithValue("@LocationRef", SupplierRef);
-                        Result = (int)SelectCmd.ExecuteNonQuery();
+                        Result = (int)SelectCmd.ExecuteScalar();
                     }
                 }
 
@@ -422,7 +422,7 @@
                         SelectCmd.CommandType = CommandType.Text;
                         SelectCmd.Parameters.AddWithValue("@StockCode", StockCode);
                         SelectCmd.Parameters.AddWithValue("@LocationRef", SupplierRef);
-                        Result = (int)SelectCmd.ExecuteNonQuery();
+                        Result = (int)SelectCmd.ExecuteScalar();
                     }
                 }
 

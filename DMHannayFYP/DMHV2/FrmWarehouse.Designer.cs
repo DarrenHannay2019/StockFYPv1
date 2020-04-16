@@ -87,7 +87,7 @@
             this.CmdOK.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdOK.Name = "CmdOK";
             this.CmdOK.Size = new System.Drawing.Size(125, 30);
-            this.CmdOK.TabIndex = 13;
+            this.CmdOK.TabIndex = 1;
             this.CmdOK.Text = "Button1";
             this.CmdOK.UseVisualStyleBackColor = true;
             this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
@@ -154,11 +154,11 @@
             this.TabPage3.Controls.Add(this.TxtTotalStock);
             this.TabPage3.Controls.Add(this.Label12);
             this.TabPage3.Controls.Add(this.gridStock);
-            this.TabPage3.Location = new System.Drawing.Point(4, 25);
+            this.TabPage3.Location = new System.Drawing.Point(4, 31);
             this.TabPage3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.TabPage3.Name = "TabPage3";
             this.TabPage3.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.TabPage3.Size = new System.Drawing.Size(776, 485);
+            this.TabPage3.Size = new System.Drawing.Size(776, 479);
             this.TabPage3.TabIndex = 2;
             this.TabPage3.Text = "Stock";
             this.TabPage3.UseVisualStyleBackColor = true;
@@ -175,17 +175,17 @@
             this.gridTrans.ReadOnly = true;
             this.gridTrans.RowHeadersVisible = false;
             this.gridTrans.RowHeadersWidth = 62;
-            this.gridTrans.Size = new System.Drawing.Size(766, 477);
+            this.gridTrans.Size = new System.Drawing.Size(766, 471);
             this.gridTrans.TabIndex = 0;
             // 
             // TabPage2
             // 
             this.TabPage2.Controls.Add(this.gridTrans);
-            this.TabPage2.Location = new System.Drawing.Point(4, 25);
+            this.TabPage2.Location = new System.Drawing.Point(4, 31);
             this.TabPage2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.TabPage2.Name = "TabPage2";
             this.TabPage2.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.TabPage2.Size = new System.Drawing.Size(776, 485);
+            this.TabPage2.Size = new System.Drawing.Size(776, 479);
             this.TabPage2.TabIndex = 1;
             this.TabPage2.Text = "Transactions";
             this.TabPage2.UseVisualStyleBackColor = true;
@@ -197,7 +197,7 @@
             this.CmdClear.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdClear.Name = "CmdClear";
             this.CmdClear.Size = new System.Drawing.Size(125, 30);
-            this.CmdClear.TabIndex = 15;
+            this.CmdClear.TabIndex = 3;
             this.CmdClear.Text = "Clear";
             this.CmdClear.UseVisualStyleBackColor = true;
             this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
@@ -209,7 +209,7 @@
             this.CmdCancel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(125, 30);
-            this.CmdCancel.TabIndex = 14;
+            this.CmdCancel.TabIndex = 2;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
             this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
@@ -225,7 +225,7 @@
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
             this.TabControl1.Size = new System.Drawing.Size(784, 514);
-            this.TabControl1.TabIndex = 12;
+            this.TabControl1.TabIndex = 0;
             // 
             // TabPage1
             // 
@@ -268,7 +268,7 @@
             this.Label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label11.Name = "Label11";
             this.Label11.Size = new System.Drawing.Size(57, 24);
-            this.Label11.TabIndex = 22;
+            this.Label11.TabIndex = 20;
             this.Label11.Text = "EMail";
             // 
             // Label10
@@ -278,7 +278,7 @@
             this.Label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(83, 24);
-            this.Label10.TabIndex = 21;
+            this.Label10.TabIndex = 19;
             this.Label10.Text = "Website:";
             // 
             // Label8
@@ -288,7 +288,7 @@
             this.Label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(47, 24);
-            this.Label8.TabIndex = 23;
+            this.Label8.TabIndex = 21;
             this.Label8.Text = "Fax:";
             // 
             // Label7
@@ -298,7 +298,7 @@
             this.Label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(108, 24);
-            this.Label7.TabIndex = 19;
+            this.Label7.TabIndex = 18;
             this.Label7.Text = "Telephone:";
             // 
             // Label6
@@ -308,7 +308,7 @@
             this.Label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(102, 24);
-            this.Label6.TabIndex = 18;
+            this.Label6.TabIndex = 17;
             this.Label6.Text = "Post Code:";
             // 
             // Label5
@@ -318,7 +318,7 @@
             this.Label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(80, 24);
-            this.Label5.TabIndex = 17;
+            this.Label5.TabIndex = 16;
             this.Label5.Text = "Address";
             // 
             // Label4
@@ -328,7 +328,7 @@
             this.Label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(58, 24);
-            this.Label4.TabIndex = 13;
+            this.Label4.TabIndex = 22;
             this.Label4.Text = "Type:";
             // 
             // Label3
@@ -338,7 +338,7 @@
             this.Label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(134, 24);
-            this.Label3.TabIndex = 16;
+            this.Label3.TabIndex = 15;
             this.Label3.Text = "Contact Name:";
             // 
             // Label2
@@ -348,7 +348,7 @@
             this.Label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(169, 24);
-            this.Label2.TabIndex = 15;
+            this.Label2.TabIndex = 14;
             this.Label2.Text = "Warehouse Name:";
             // 
             // Label1
@@ -358,7 +358,7 @@
             this.Label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(146, 24);
-            this.Label1.TabIndex = 14;
+            this.Label1.TabIndex = 13;
             this.Label1.Text = "Warehouse Ref:";
             // 
             // cboWType
@@ -371,7 +371,7 @@
             this.cboWType.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cboWType.Name = "cboWType";
             this.cboWType.Size = new System.Drawing.Size(199, 30);
-            this.cboWType.TabIndex = 2;
+            this.cboWType.TabIndex = 1;
             // 
             // TxteMail
             // 
@@ -478,7 +478,7 @@
             this.TxtWarehouseName.MaxLength = 50;
             this.TxtWarehouseName.Name = "TxtWarehouseName";
             this.TxtWarehouseName.Size = new System.Drawing.Size(558, 28);
-            this.TxtWarehouseName.TabIndex = 1;
+            this.TxtWarehouseName.TabIndex = 2;
             this.TxtWarehouseName.Leave += new System.EventHandler(this.TxtWarehouseName_Leave);
             // 
             // TxtWarehouseRef
@@ -494,11 +494,11 @@
             // TabPage4
             // 
             this.TabPage4.Controls.Add(this.TxtMemo);
-            this.TabPage4.Location = new System.Drawing.Point(4, 25);
+            this.TabPage4.Location = new System.Drawing.Point(4, 31);
             this.TabPage4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.TabPage4.Name = "TabPage4";
             this.TabPage4.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.TabPage4.Size = new System.Drawing.Size(776, 485);
+            this.TabPage4.Size = new System.Drawing.Size(776, 479);
             this.TabPage4.TabIndex = 3;
             this.TabPage4.Text = "Memo";
             this.TabPage4.UseVisualStyleBackColor = true;

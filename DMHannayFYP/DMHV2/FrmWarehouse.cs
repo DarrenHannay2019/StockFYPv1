@@ -9,10 +9,10 @@ namespace DMHV2
 {
     public partial class FrmWarehouse : Form
     {
+        // Properties of the form to be used when creating the form from the class object
         public int UserIDs;
         public string Modeform { get; set; }
-        public string WarehouseRef { get; set; }
-        clsUtils clsUtils2 = new clsUtils();
+        public string WarehouseRef { get; set; }     
      
         public FrmWarehouse()
         {
@@ -21,6 +21,9 @@ namespace DMHV2
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
+            // Saving the record to the database tblWarehouses and tblSysLog tables
+            // New form = Save 
+            // old form = update
             clsWarehouse objWarehouse = new clsWarehouse(UserIDs);
             clsLogs logs = new clsLogs();
             logs.StockCode = "NULL";
@@ -89,11 +92,12 @@ namespace DMHV2
         private void CmdClear_Click(object sender, EventArgs e)
         {
             // Code from https://stackoverflow.com/questions/4811229/how-to-clear-the-text-of-all-textboxes-in-the-form
-            ClearTextBoxes(this);
+            ClearTextBoxes(this); // removes all text from each of the boxes on the form
         }
 
         private void FrmWarehouse_Load(object sender, EventArgs e)
         {
+            // Setups the form ready for new record or updating old record
             if (Modeform == "New")
             {
                 CmdOK.Text = "Save";
@@ -107,8 +111,10 @@ namespace DMHV2
         }
         private void LoadData()
         {
+            // properties used for loading the data into the form.
             int QtyInStock = 0;
             decimal ValueInStock = 0.0m;
+            // Loading the head table tblWarehouses into the form
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -138,6 +144,7 @@ namespace DMHV2
                 TxtMemo.Text = dtk.Rows[0][12].ToString();     
                 TxtContactName.Text = dtk.Rows[0][13].ToString(); 
             }
+            // Loading all the stock items for the selected warehouse
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -171,7 +178,7 @@ namespace DMHV2
                 gridStock.Columns[2].HeaderText = "Value";
                 gridStock.Columns[2].DefaultCellStyle.Format = "C2";
             }
-
+            // Loading all the transactions for the selected warehouse
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -206,6 +213,7 @@ namespace DMHV2
                 gridTrans.Columns[3].HeaderText = "Date";
                 gridTrans.Columns[4].HeaderText = "Reference";
             }
+            // Calculating the value and qty of products in the selected warehouse
             for (int i = 0; i < gridStock.Rows.Count; i++)
             {
                 QtyInStock += Convert.ToInt32(gridStock.Rows[i].Cells[1].Value);
@@ -213,10 +221,12 @@ namespace DMHV2
             }            
             label9.Text = QtyInStock.ToString();
             TxtTotalValue.Text = ValueInStock.ToString("C2");
+            // Changing the title of the form to the details of the warehouse
             this.Text = "Warehouse Details for [" + TxtWarehouseRef.Text.TrimEnd() + "] " + TxtWarehouseName.Text.TrimEnd();
         }
         private void ClearTextBoxes(Control control)
         {
+            // empty all the text from the text boxes in the form.
             // Code from https://stackoverflow.com/questions/4811229/how-to-clear-the-text-of-all-textboxes-in-the-form
             foreach (Control c in control.Controls)
             {
@@ -230,7 +240,7 @@ namespace DMHV2
                 }
             }
         }
-
+        // applying the proper case to each of the text boxes in the form
         private void TxtWarehouseRef_Leave(object sender, EventArgs e)
         {
             TxtWarehouseRef.Text = clsUtils.ChangeCase(TxtWarehouseRef.Text,1);
@@ -270,7 +280,7 @@ namespace DMHV2
         {
             TxtPostCode.Text = clsUtils.ChangeCase(TxtPostCode.Text, 1);
         }
-
+        // validating that a properly formatted website address has been entered.
         private void TxtWebsite_Leave(object sender, EventArgs e)
         {
             // https://stackoverflow.com/questions/3228984/a-better-way-to-validate-url-in-c-sharp-than-try-catch 
@@ -292,7 +302,7 @@ namespace DMHV2
                 MessageBox.Show("InValid URL  " + myString);
             }
         }
-
+        // checking to see if the format of the email address is correct.
         private void TxteMail_Leave(object sender, EventArgs e)
         {          
             if(clsUtils.IsValidEmail(TxteMail.Text))

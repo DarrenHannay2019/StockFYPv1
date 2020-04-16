@@ -9,8 +9,7 @@
     {
         // Properties / fields for the class
         // started 09/02/2020
-        // completed 00/02/2020
-        //public string WarehouseName;
+        // completed 00/02/2020       
         private int Users;
         public int UserID { get; set; }
         public string AddressLine1;
@@ -40,6 +39,7 @@
         }
         public void LoadNewRecord()
         {
+            // loading the new form and setting the properties of the form
             FrmWarehouse oWarehouse = new FrmWarehouse
             {
                 UserIDs = Users,
@@ -49,6 +49,7 @@
         }
         public void LoadSelectedRecord()
         {
+            // loading an old record into the form and displaying it
             FrmWarehouse oWarehouse = new FrmWarehouse
             {
                 UserIDs = Users,
@@ -59,6 +60,7 @@
         }
         public bool SaveWarehouseToDB()
         {
+            // Saving the entered data into the database
             SaveToDB = false;
             try
             {
@@ -108,6 +110,7 @@
         }
         public bool UpdateWarehouseToDB()
         {
+            // Updating selected warehouse record in the database
             UpdateToDB = true;
             try
             {
@@ -146,7 +149,8 @@
             return UpdateToDB;
         }
         public string GetWarehouseName()
-        {          
+        {        
+            // getting the name of a specific warehouse from the database
             try
             {
                 using (SqlConnection conn = new SqlConnection())
@@ -172,6 +176,7 @@
         }
         public int TotalWarehouseRecords()
         {
+            // check to see if there are any transactions in the database before deleting the warehouse record
             NoRecords = 0;
             try
             {
@@ -199,6 +204,7 @@
         }
         public bool DeleteWarehouseRecord()
         {
+            // delete the warehouse record from the database
             DeleteFromDB = false;
             try
             {

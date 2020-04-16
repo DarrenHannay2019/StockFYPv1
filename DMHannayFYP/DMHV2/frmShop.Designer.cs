@@ -82,7 +82,7 @@
             this.CmdOK.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdOK.Name = "CmdOK";
             this.CmdOK.Size = new System.Drawing.Size(125, 30);
-            this.CmdOK.TabIndex = 13;
+            this.CmdOK.TabIndex = 1;
             this.CmdOK.Text = "Button1";
             this.CmdOK.UseVisualStyleBackColor = true;
             this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
@@ -191,7 +191,7 @@
             this.CmdClear.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdClear.Name = "CmdClear";
             this.CmdClear.Size = new System.Drawing.Size(125, 30);
-            this.CmdClear.TabIndex = 15;
+            this.CmdClear.TabIndex = 3;
             this.CmdClear.Text = "Clear";
             this.CmdClear.UseVisualStyleBackColor = true;
             this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
@@ -202,7 +202,7 @@
             this.CmdCancel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(125, 30);
-            this.CmdCancel.TabIndex = 14;
+            this.CmdCancel.TabIndex = 2;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
             this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
@@ -218,7 +218,7 @@
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
             this.TabControl1.Size = new System.Drawing.Size(670, 514);
-            this.TabControl1.TabIndex = 12;
+            this.TabControl1.TabIndex = 0;
             // 
             // TabPage1
             // 

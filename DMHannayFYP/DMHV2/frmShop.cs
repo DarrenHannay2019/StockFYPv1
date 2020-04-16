@@ -8,6 +8,7 @@
 
     public partial class frmShop : Form
     {
+        // extra properties for the form.
         clsShop objShop = new clsShop();
         public int UserIDs;
         public string FormMode { get; set; }
@@ -15,7 +16,7 @@
         {
             InitializeComponent();
         }
-
+        // Saving = new updating = old to the database
         private void CmdOK_Click(object sender, EventArgs e)
         {
             if (TxteMail.Text != "Please Try Again")
@@ -72,13 +73,14 @@
 
         private void CmdCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();   // close the form cleanly
         }
-
+        // clearing all the text
         private void CmdClear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes(this);
         }
+        // to clear all the textboxes
         private void ClearTextBoxes(Control control)
         {
             // Code from https://stackoverflow.com/questions/4811229/how-to-clear-the-text-of-all-textboxes-in-the-form
@@ -96,7 +98,7 @@
 
             }
         }
-
+        // giving all the text boxes the correct case for the textbox
         private void TxtShopRef_Leave(object sender, EventArgs e)
         {      
             TxtShopRef.Text = clsUtils.ChangeCase(Convert.ToString(TxtShopRef.Text), 1);
@@ -136,7 +138,7 @@
         {
             TxtPostCode.Text = clsUtils.ChangeCase(TxtPostCode.Text, 1);
         }
-
+        // setup the form based on the type.
         private void frmShop_Load(object sender, EventArgs e)
         {
             if(FormMode == "New")
@@ -153,8 +155,10 @@
         }
         private void LoadData()
         {
+            // properties for loading data
             int QtyInStock = 0;
             decimal ValueInStock = 0.0m;
+            // get the record for the selected shop
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -184,6 +188,7 @@
                 cboWType.Text = dtk.Rows[0][10].ToString();
                 this.Text = "Shop Details for [" + TxtShopRef.Text.TrimEnd() + "] " + TxtShopName.Text.TrimEnd();
             }
+            // get the stock levels for the selected shop
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -217,6 +222,7 @@
                 gridStocks.Columns[2].HeaderText = "Value";
                 gridStocks.Columns[2].DefaultCellStyle.Format = "C2";
             }
+            // get all the transactions for the selected shop
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -258,6 +264,7 @@
             TxtTotalItems.Text = QtyInStock.ToString();
             TxtTotalValue.Text = ValueInStock.ToString("C2");
         }
+        // check the email address of the given email address.
         private void TxteMail_Leave(object sender, EventArgs e)
         {
             if (clsUtils.IsValidEmail(TxteMail.Text))

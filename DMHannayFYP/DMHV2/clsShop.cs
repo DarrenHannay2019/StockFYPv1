@@ -9,7 +9,7 @@
     {
         // Properties / fields for the class
         // started 09/02/2020
-        // completed 00/02/2020
+        // completed 19/02/2020
         public string ShopType;
         public string ShopName;
         public string ShopRef;
@@ -35,6 +35,7 @@
         }
         public void LoadNewRecord()
         {
+            // load new shop form.
             frmShop shop = new frmShop
             {
                 FormMode = "New"
@@ -44,6 +45,7 @@
         }
         public void LoadSelectedRecord()
         {
+            // load old shop form
             frmShop shop = new frmShop
             {
                 FormMode = "Old"
@@ -52,6 +54,7 @@
             shop.TxtShopRef.Text = ShopRef;
             shop.ShowDialog();
         }
+        // get shop name for the selected shop in all forms
         public string GetShopName()
         {
             try
@@ -76,6 +79,7 @@
             }
             return ShopName;
         }
+        // Save shop record to the database
         public bool SaveShopToDB()
         {
             SaveToDB = false;
@@ -124,6 +128,7 @@
             }
             return SaveToDB;
         }
+        // Update shop record to the database
         public bool UpdateShopToDB()
         {
             UpdateToDB = true;
@@ -163,6 +168,7 @@
             }
             return UpdateToDB;
         }
+        // get the total number of transactions before deleting the shop record
         public int TotalShopRecords()
         {
             Result = 0;
@@ -189,6 +195,7 @@
             }
             return Result;
         }
+        // delete the shop record from the database
         public bool DeleteShopRecord()
         {
             DeleteFromDB = false;

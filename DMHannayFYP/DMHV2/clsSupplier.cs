@@ -37,12 +37,12 @@ namespace DMHV2
             DeleteFromDB = false;
         }
         ~clsSupplier()
-        {
-            
+        {            
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
         }
+        // load a black supplier
         public void LoadNewRecord()
         {
             frmSupplier objSupplier = new frmSupplier
@@ -52,6 +52,7 @@ namespace DMHV2
             };
             objSupplier.ShowDialog();
         }
+        // load a selected supplier
         public void LoadSelectedRecord()
         {
             frmSupplier objSupplier = new frmSupplier
@@ -61,6 +62,7 @@ namespace DMHV2
             objSupplier.TxtSupplierRef.Text = SupplierRef;
             objSupplier.ShowDialog();
         }
+        // delete the selected supplier
         public bool DeleteSupplierRecord()
         {
             DeleteFromDB = false;
@@ -95,6 +97,7 @@ namespace DMHV2
             }
             return DeleteFromDB;
         }
+        // save the selected supplier
         public bool SaveSupplierRecord()
         {
             SaveToDB = false;
@@ -143,6 +146,7 @@ namespace DMHV2
             }
             return SaveToDB;           
         }
+        // update the selected supplier
         public bool UpdateSupplierRecord()
         {
             UpdateToDB = true;
@@ -189,6 +193,7 @@ namespace DMHV2
             }
             return UpdateToDB;
         }
+        // get the supplier name of the selected reference
         public string GetSupplierName()
         {
             try

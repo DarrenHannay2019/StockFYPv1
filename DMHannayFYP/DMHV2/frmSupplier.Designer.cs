@@ -73,7 +73,7 @@
             this.TxtMemo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtMemo.Multiline = true;
             this.TxtMemo.Name = "TxtMemo";
-            this.TxtMemo.Size = new System.Drawing.Size(679, 430);
+            this.TxtMemo.Size = new System.Drawing.Size(679, 424);
             this.TxtMemo.TabIndex = 0;
             // 
             // tabPage1
@@ -116,7 +116,7 @@
             this.TxtWebsiteAddress.MaxLength = 255;
             this.TxtWebsiteAddress.Name = "TxtWebsiteAddress";
             this.TxtWebsiteAddress.Size = new System.Drawing.Size(450, 28);
-            this.TxtWebsiteAddress.TabIndex = 47;
+            this.TxtWebsiteAddress.TabIndex = 11;
             this.TxtWebsiteAddress.Leave += new System.EventHandler(this.TxtWebsiteAddress_Leave);
             // 
             // label11
@@ -136,7 +136,7 @@
             this.TxtEmailAddress.MaxLength = 255;
             this.TxtEmailAddress.Name = "TxtEmailAddress";
             this.TxtEmailAddress.Size = new System.Drawing.Size(450, 28);
-            this.TxtEmailAddress.TabIndex = 45;
+            this.TxtEmailAddress.TabIndex = 10;
             this.TxtEmailAddress.Leave += new System.EventHandler(this.TxtEmailAddress_Leave);
             // 
             // TxtFaxNumber
@@ -146,7 +146,7 @@
             this.TxtFaxNumber.MaxLength = 20;
             this.TxtFaxNumber.Name = "TxtFaxNumber";
             this.TxtFaxNumber.Size = new System.Drawing.Size(192, 28);
-            this.TxtFaxNumber.TabIndex = 43;
+            this.TxtFaxNumber.TabIndex = 9;
             // 
             // TxtTelephoneNumber1
             // 
@@ -155,7 +155,7 @@
             this.TxtTelephoneNumber1.MaxLength = 20;
             this.TxtTelephoneNumber1.Name = "TxtTelephoneNumber1";
             this.TxtTelephoneNumber1.Size = new System.Drawing.Size(192, 28);
-            this.TxtTelephoneNumber1.TabIndex = 42;
+            this.TxtTelephoneNumber1.TabIndex = 8;
             // 
             // TxtPostCode
             // 
@@ -164,7 +164,7 @@
             this.TxtPostCode.MaxLength = 11;
             this.TxtPostCode.Name = "TxtPostCode";
             this.TxtPostCode.Size = new System.Drawing.Size(110, 28);
-            this.TxtPostCode.TabIndex = 41;
+            this.TxtPostCode.TabIndex = 7;
             this.TxtPostCode.Leave += new System.EventHandler(this.TxtPostCode_Leave);
             // 
             // TxtAddressLine4
@@ -174,7 +174,7 @@
             this.TxtAddressLine4.MaxLength = 60;
             this.TxtAddressLine4.Name = "TxtAddressLine4";
             this.TxtAddressLine4.Size = new System.Drawing.Size(455, 28);
-            this.TxtAddressLine4.TabIndex = 40;
+            this.TxtAddressLine4.TabIndex = 6;
             this.TxtAddressLine4.Leave += new System.EventHandler(this.TxtAddressLine4_Leave);
             // 
             // TxtAddressLine3
@@ -184,7 +184,7 @@
             this.TxtAddressLine3.MaxLength = 60;
             this.TxtAddressLine3.Name = "TxtAddressLine3";
             this.TxtAddressLine3.Size = new System.Drawing.Size(455, 28);
-            this.TxtAddressLine3.TabIndex = 39;
+            this.TxtAddressLine3.TabIndex = 5;
             this.TxtAddressLine3.Leave += new System.EventHandler(this.TxtAddressLine3_Leave);
             // 
             // TxtAddressLine2
@@ -194,7 +194,7 @@
             this.TxtAddressLine2.MaxLength = 60;
             this.TxtAddressLine2.Name = "TxtAddressLine2";
             this.TxtAddressLine2.Size = new System.Drawing.Size(455, 28);
-            this.TxtAddressLine2.TabIndex = 38;
+            this.TxtAddressLine2.TabIndex = 4;
             this.TxtAddressLine2.Leave += new System.EventHandler(this.TxtAddressLine2_Leave);
             // 
             // TxtAddressLine1
@@ -204,7 +204,7 @@
             this.TxtAddressLine1.MaxLength = 60;
             this.TxtAddressLine1.Name = "TxtAddressLine1";
             this.TxtAddressLine1.Size = new System.Drawing.Size(455, 28);
-            this.TxtAddressLine1.TabIndex = 37;
+            this.TxtAddressLine1.TabIndex = 3;
             this.TxtAddressLine1.Leave += new System.EventHandler(this.TxtAddressLine1_Leave);
             // 
             // TxtContactName
@@ -214,7 +214,7 @@
             this.TxtContactName.MaxLength = 60;
             this.TxtContactName.Name = "TxtContactName";
             this.TxtContactName.Size = new System.Drawing.Size(455, 28);
-            this.TxtContactName.TabIndex = 36;
+            this.TxtContactName.TabIndex = 2;
             this.TxtContactName.Leave += new System.EventHandler(this.TxtContactName_Leave);
             // 
             // TxtSupplierName
@@ -224,7 +224,7 @@
             this.TxtSupplierName.MaxLength = 60;
             this.TxtSupplierName.Name = "TxtSupplierName";
             this.TxtSupplierName.Size = new System.Drawing.Size(455, 28);
-            this.TxtSupplierName.TabIndex = 35;
+            this.TxtSupplierName.TabIndex = 1;
             this.TxtSupplierName.Leave += new System.EventHandler(this.TxtSupplierName_Leave);
             // 
             // TxtSupplierRef
@@ -235,7 +235,7 @@
             this.TxtSupplierRef.MaxLength = 8;
             this.TxtSupplierRef.Name = "TxtSupplierRef";
             this.TxtSupplierRef.Size = new System.Drawing.Size(149, 28);
-            this.TxtSupplierRef.TabIndex = 34;
+            this.TxtSupplierRef.TabIndex = 0;
             this.TxtSupplierRef.Leave += new System.EventHandler(this.TxtSupplierRef_Leave);
             // 
             // Label1
@@ -331,11 +331,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.gridTrans);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage2.Size = new System.Drawing.Size(687, 436);
+            this.tabPage2.Size = new System.Drawing.Size(687, 430);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Items";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -351,17 +351,17 @@
             this.gridTrans.Name = "gridTrans";
             this.gridTrans.ReadOnly = true;
             this.gridTrans.RowHeadersWidth = 62;
-            this.gridTrans.Size = new System.Drawing.Size(679, 430);
+            this.gridTrans.Size = new System.Drawing.Size(679, 424);
             this.gridTrans.TabIndex = 34;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.TxtMemo);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Location = new System.Drawing.Point(4, 31);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage3.Size = new System.Drawing.Size(687, 436);
+            this.tabPage3.Size = new System.Drawing.Size(687, 430);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Memo";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -376,7 +376,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(695, 465);
-            this.tabControl1.TabIndex = 39;
+            this.tabControl1.TabIndex = 0;
             // 
             // CmdClear
             // 
@@ -384,7 +384,7 @@
             this.CmdClear.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdClear.Name = "CmdClear";
             this.CmdClear.Size = new System.Drawing.Size(125, 30);
-            this.CmdClear.TabIndex = 38;
+            this.CmdClear.TabIndex = 3;
             this.CmdClear.Text = "Clear";
             this.CmdClear.UseVisualStyleBackColor = true;
             this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
@@ -395,7 +395,7 @@
             this.CmdCancel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(125, 30);
-            this.CmdCancel.TabIndex = 37;
+            this.CmdCancel.TabIndex = 2;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
             this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
@@ -406,7 +406,7 @@
             this.CmdOK.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.CmdOK.Name = "CmdOK";
             this.CmdOK.Size = new System.Drawing.Size(125, 30);
-            this.CmdOK.TabIndex = 36;
+            this.CmdOK.TabIndex = 1;
             this.CmdOK.Text = "Button1";
             this.CmdOK.UseVisualStyleBackColor = true;
             this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);

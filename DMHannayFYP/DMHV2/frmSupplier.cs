@@ -9,6 +9,7 @@ namespace DMHV2
 {
     public partial class frmSupplier : Form
     {
+        // extra properties for the form
         public int UserIDs { get; set; }
         public string FormMode { get; set;}
        
@@ -18,8 +19,9 @@ namespace DMHV2
         }
         private void CmdClear_Click(object sender, EventArgs e)
         {
-            ClearTextBoxes(this);
+            ClearTextBoxes(this); // clearing the text
         }
+        // used to perform the clearing of controls
         private void ClearTextBoxes(Control control)
         {
             // Code from https://stackoverflow.com/questions/4811229/how-to-clear-the-text-of-all-textboxes-in-the-form
@@ -39,6 +41,7 @@ namespace DMHV2
         {
             this.Close();   // close the form.
         }
+        // Save to the database
         private void CmdOK_Click(object sender, EventArgs e)
         {
             clsSupplier objSupplier = new clsSupplier();
@@ -79,6 +82,7 @@ namespace DMHV2
             }
             this.Close();
         }
+        // setting up the form based on the mode of the form
         private void frmSupplier_Load(object sender, EventArgs e)
         {
             if (FormMode == "New")
@@ -92,8 +96,10 @@ namespace DMHV2
                 LoadData();
             }
         }
+        // getting all the data from the database of the selected supplier
         private void LoadData()
         {
+            // get the record details of th selected supplier
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -117,11 +123,11 @@ namespace DMHV2
                 TxtPostCode.Text = dtk.Rows[0][6].ToString();
                 TxtTelephoneNumber1.Text = dtk.Rows[0][7].ToString();
                 TxtFaxNumber.Text = dtk.Rows[0][8].ToString();
-                TxtEmailAddress.Text = dtk.Rows[0][9].ToString();
-                //TxtWebsiteAddress.Text = dtk.Rows[0][10].ToString();             
+                TxtEmailAddress.Text = dtk.Rows[0][9].ToString();                             
                 TxtMemo.Text = dtk.Rows[0][10].ToString();
                 TxtContactName.Text = dtk.Rows[0][11].ToString();
             }
+            // get the transactions of the selected supplier
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -160,7 +166,7 @@ namespace DMHV2
                 this.Text = "Supplier Details for [" + TxtSupplierRef.Text.TrimEnd() + "] " + TxtSupplierName.Text.TrimEnd();
             }
         }
-
+        // proper case all the text boxes 
         private void TxtSupplierRef_Leave(object sender, EventArgs e)
         {
             TxtSupplierRef.Text = clsUtils.ChangeCase(TxtSupplierRef.Text, 1);
@@ -200,7 +206,7 @@ namespace DMHV2
         {
             TxtPostCode.Text = clsUtils.ChangeCase(TxtPostCode.Text, 1);
         }
-
+        // check the email address is valid address
         private void TxtEmailAddress_Leave(object sender, EventArgs e)
         {
             if (clsUtils.IsValidEmail(TxtEmailAddress.Text))
@@ -208,7 +214,7 @@ namespace DMHV2
             else
             { TxtEmailAddress.Text = "Please Try Again"; }
         }
-
+        // check the website is of the correct format.
         private void TxtWebsiteAddress_Leave(object sender, EventArgs e)
         {
             // https://stackoverflow.com/questions/3228984/a-better-way-to-validate-url-in-c-sharp-than-try-catch 

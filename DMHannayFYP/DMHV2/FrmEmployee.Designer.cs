@@ -51,7 +51,7 @@
             this.label1.Location = new System.Drawing.Point(13, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 17);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 14;
             this.label1.Text = "Employee ID:";
             // 
             // label2
@@ -60,7 +60,7 @@
             this.label2.Location = new System.Drawing.Point(13, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 17);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 13;
             this.label2.Text = "First Name:";
             // 
             // label3
@@ -69,7 +69,7 @@
             this.label3.Location = new System.Drawing.Point(13, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 17);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 12;
             this.label3.Text = "Last Name:";
             // 
             // label4
@@ -78,7 +78,7 @@
             this.label4.Location = new System.Drawing.Point(13, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 17);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 11;
             this.label4.Text = "Login Code:";
             // 
             // label5
@@ -87,7 +87,7 @@
             this.label5.Location = new System.Drawing.Point(13, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 17);
-            this.label5.TabIndex = 4;
+            this.label5.TabIndex = 10;
             this.label5.Text = "Password:";
             // 
             // label6
@@ -96,7 +96,7 @@
             this.label6.Location = new System.Drawing.Point(13, 201);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 17);
-            this.label6.TabIndex = 5;
+            this.label6.TabIndex = 9;
             this.label6.Text = "Profile:";
             // 
             // CboProfiles
@@ -109,7 +109,7 @@
             this.CboProfiles.Location = new System.Drawing.Point(109, 198);
             this.CboProfiles.Name = "CboProfiles";
             this.CboProfiles.Size = new System.Drawing.Size(121, 24);
-            this.CboProfiles.TabIndex = 6;
+            this.CboProfiles.TabIndex = 5;
             // 
             // TxtPassword
             // 
@@ -117,35 +117,35 @@
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '%';
             this.TxtPassword.Size = new System.Drawing.Size(100, 22);
-            this.TxtPassword.TabIndex = 7;
+            this.TxtPassword.TabIndex = 4;
             // 
             // TxtLoginCode
             // 
             this.TxtLoginCode.Location = new System.Drawing.Point(109, 122);
             this.TxtLoginCode.Name = "TxtLoginCode";
             this.TxtLoginCode.Size = new System.Drawing.Size(100, 22);
-            this.TxtLoginCode.TabIndex = 8;
+            this.TxtLoginCode.TabIndex = 3;
             // 
             // TxtLastName
             // 
             this.TxtLastName.Location = new System.Drawing.Point(109, 94);
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(100, 22);
-            this.TxtLastName.TabIndex = 9;
+            this.TxtLastName.TabIndex = 2;
             // 
             // TxtFirstName
             // 
             this.TxtFirstName.Location = new System.Drawing.Point(109, 54);
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(100, 22);
-            this.TxtFirstName.TabIndex = 10;
+            this.TxtFirstName.TabIndex = 1;
             // 
             // TxtEmployeeID
             // 
             this.TxtEmployeeID.Location = new System.Drawing.Point(109, 20);
             this.TxtEmployeeID.Name = "TxtEmployeeID";
             this.TxtEmployeeID.Size = new System.Drawing.Size(100, 22);
-            this.TxtEmployeeID.TabIndex = 11;
+            this.TxtEmployeeID.TabIndex = 0;
             // 
             // richTextBox1
             // 
@@ -153,7 +153,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(12, 267);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(284, 96);
-            this.richTextBox1.TabIndex = 12;
+            this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "ProfileID\t\t| Description\n-------------------------------------------------------\n" +
     "1\t\t| Standard Users\n2\t\t| System Administrator\n3\t\t| System Manager";
             // 
@@ -162,7 +162,7 @@
             this.BtnOK.Location = new System.Drawing.Point(134, 372);
             this.BtnOK.Name = "BtnOK";
             this.BtnOK.Size = new System.Drawing.Size(75, 23);
-            this.BtnOK.TabIndex = 13;
+            this.BtnOK.TabIndex = 6;
             this.BtnOK.Text = "Save";
             this.BtnOK.UseVisualStyleBackColor = true;
             this.BtnOK.Click += new System.EventHandler(this.BtnOK_Click);
@@ -172,7 +172,7 @@
             this.BtnCancel.Location = new System.Drawing.Point(221, 372);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 23);
-            this.BtnCancel.TabIndex = 14;
+            this.BtnCancel.TabIndex = 7;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);

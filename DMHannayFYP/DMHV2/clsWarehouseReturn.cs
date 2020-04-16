@@ -13,7 +13,8 @@
         {
             frmWarehouseReturn warehouseReturn = new frmWarehouseReturn()
             {
-                FormMode = "New"
+                FormMode = "New",
+                LoggedInUser = UserID
             };
             warehouseReturn.Show();
         }
@@ -81,8 +82,8 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblWarehouseReturns (ToWarehouseRef, WarehouseRef, Reference, TotalItems, TransactionDate, CreatedBy, CreatedDate) VALUES (@ToWarehouseRef, @WarehouseRef, @Reference, @TotalItems, @TransactionDate, @CreatedBy, @CreatedDate)";
-                            InsertCmd.Parameters.AddWithValue("@ToWarehouseRef", SupplierRef);
+                            InsertCmd.CommandText = "INSERT INTO tblWarehouseReturns (WarehouseRef, SupplierRef, Reference, TotalItems, TransactionDate, CreatedBy, CreatedDate) VALUES (@WarehouseRef, @SupplierRef, @Reference, @TotalItems, @TransactionDate, @CreatedBy, @CreatedDate)";
+                            InsertCmd.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                             InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                             InsertCmd.Parameters.AddWithValue("@Reference", Reference);
                             InsertCmd.Parameters.AddWithValue("@TotalItems", TotalItems);
@@ -225,8 +226,8 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblWarehouseReturnLines (ReturnID, StockCode, Qty, Value) VALUES (@ReturnID, @StockCode, @Qty, @Value)";
-                            InsertCmd.Parameters.AddWithValue("@ReturnID", WarehouseReturnID);
+                            InsertCmd.CommandText = "INSERT INTO tblWarehouseReturnLines (WarehouseReturnID, StockCode, Qty, Value) VALUES (@WarehouseReturnID, @StockCode, @Qty, @Value)";
+                            InsertCmd.Parameters.AddWithValue("@WarehouseReturnID", WarehouseReturnID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@Qty", ReturnQty);
                             InsertCmd.Parameters.AddWithValue("@Value", ReturnValue);

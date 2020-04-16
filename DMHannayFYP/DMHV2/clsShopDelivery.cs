@@ -21,7 +21,7 @@
         {
             frmShopDelivery shopDelivery = new frmShopDelivery
             {
-                FormMode = "New",
+                FormMode = "Old",
                 LoggedInUser = UserID
             };
             shopDelivery.txtDelNoteNumber.Text = ShopDelID.ToString();

@@ -28,7 +28,7 @@ namespace DMHV2
             {
                 FunctionID = 1,
                 Text = "Warehouses",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -46,7 +46,7 @@ namespace DMHV2
             {
                 FunctionID = 3,
                 Text = "Suppliers",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -63,7 +63,7 @@ namespace DMHV2
             {
                 FunctionID = 2,
                 Text = "Shops",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -80,7 +80,7 @@ namespace DMHV2
             {
                 FunctionID = 4,
                 Text = "Current Stock",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -97,7 +97,7 @@ namespace DMHV2
             {
                 FunctionID = 5,
                 Text = "All Stock",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -114,7 +114,7 @@ namespace DMHV2
             {
                 FunctionID = 6,
                 Text = "Seasons",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -131,7 +131,7 @@ namespace DMHV2
             {
                 FunctionID = 7,
                 Text = "Purchase Orders",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -175,7 +175,7 @@ namespace DMHV2
             {
                 FunctionID = 8,
                 Text = "Warehouse Adjustments",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -191,7 +191,7 @@ namespace DMHV2
             {
                 FunctionID = 9,
                 Text = "Warehouse Transfers",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -207,7 +207,7 @@ namespace DMHV2
             {
                 FunctionID = 10,
                 Text = "Warehouse Returns",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -223,7 +223,7 @@ namespace DMHV2
             {
                 FunctionID = 11,
                 Text = "Shop Deliveries",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -240,7 +240,7 @@ namespace DMHV2
             {
                 FunctionID = 12,
                 Text = "Shop Adjustments",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -256,7 +256,7 @@ namespace DMHV2
             {
                 FunctionID = 13,
                 Text = "Shop Transfers",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -272,7 +272,7 @@ namespace DMHV2
             {
                 FunctionID = 14,
                 Text = "Shop Sales",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };
@@ -288,7 +288,7 @@ namespace DMHV2
             {
                 FunctionID = 15,
                 Text = "Shop Returns",
-                UserID = UserID,
+                UserIDs = UserID,
                 MdiParent = this,
                 Dock = DockStyle.Fill
             };

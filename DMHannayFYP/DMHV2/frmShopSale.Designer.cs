@@ -76,7 +76,7 @@
             // 
             this.CheckBox1.AutoSize = true;
             this.CheckBox1.Location = new System.Drawing.Point(201, 100);
-            this.CheckBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CheckBox1.Margin = new System.Windows.Forms.Padding(4);
             this.CheckBox1.Name = "CheckBox1";
             this.CheckBox1.Size = new System.Drawing.Size(191, 28);
             this.CheckBox1.TabIndex = 81;
@@ -265,6 +265,7 @@
             this.DgvRecords.RowHeadersWidth = 51;
             this.DgvRecords.Size = new System.Drawing.Size(1039, 374);
             this.DgvRecords.TabIndex = 48;
+            this.DgvRecords.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvRecords_CellEndEdit);
             // 
             // DateTimePicker1
             // 
@@ -529,7 +530,7 @@
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmShopSale";
             this.Text = "frmShopSale";
             this.Load += new System.EventHandler(this.frmShopSale_Load);

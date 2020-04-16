@@ -261,7 +261,7 @@ namespace DMHV2
         }
         private void LoadData()
         {
-            int ShopDeliveryID = Convert.ToInt32(txtDelNoteNumber.Text.TrimEnd());
+            int SHDelID = Convert.ToInt32(txtDelNoteNumber.Text.TrimEnd());
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = clsUtils.GetConnString(1);
@@ -272,7 +272,7 @@ namespace DMHV2
                 {
                     SelectCmd.Connection = conn;
                     SelectCmd.CommandText = "SELECT * from tblShopDeliveries WHERE ShopDeliveryID = @ShopDeliveryID";
-                    SelectCmd.Parameters.AddWithValue("@ShopDeliveryID", ShopDeliveryID);
+                    SelectCmd.Parameters.AddWithValue("@ShopDeliveryID", SHDelID);
                     ShopDeliveryDataAdapter.SelectCommand = SelectCmd;
                     ShopDeliveryDataAdapter.Fill(ShopDeliveryHead);
                 }
@@ -300,7 +300,7 @@ namespace DMHV2
                 {
                     SelectCmd.Connection = conn;
                     SelectCmd.CommandText = "SELECT StockCode,DeliveredQty from tblShopDeliveryLines WHERE ShopDeliveryID = @ShopDeliveryID";
-                    SelectCmd.Parameters.AddWithValue("@ShopDeliveryID", ShopDeliveryID);
+                    SelectCmd.Parameters.AddWithValue("@ShopDeliveryID", SHDelID);
                     WarehouseAdjustLineDataAdapter.SelectCommand = SelectCmd;
                     WarehouseAdjustLineDataAdapter.Fill(WarehouseAdjustLine);
                     DgvRecords.DataSource = WarehouseAdjustLine;

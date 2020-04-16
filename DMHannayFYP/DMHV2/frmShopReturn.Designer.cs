@@ -32,11 +32,6 @@
             this.Label8 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
             this.DgvRecords = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtReturnID = new System.Windows.Forms.TextBox();
             this.Label11 = new System.Windows.Forms.Label();
             this.CheckBox1 = new System.Windows.Forms.CheckBox();
@@ -64,6 +59,9 @@
             this.cmdOK = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).BeginInit();
             this.GroupBox2.SuspendLayout();
             this.GroupBox1.SuspendLayout();
@@ -85,7 +83,7 @@
             this.Label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(117, 24);
-            this.Label8.TabIndex = 5;
+            this.Label8.TabIndex = 6;
             this.Label8.Text = "Transfer Qty:";
             // 
             // Label7
@@ -95,7 +93,7 @@
             this.Label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(66, 24);
-            this.Label7.TabIndex = 4;
+            this.Label7.TabIndex = 5;
             this.Label7.Text = "Name:";
             // 
             // DgvRecords
@@ -104,8 +102,6 @@
             this.DgvRecords.AllowUserToDeleteRows = false;
             this.DgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvRecords.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
@@ -114,45 +110,7 @@
             this.DgvRecords.Name = "DgvRecords";
             this.DgvRecords.RowHeadersWidth = 51;
             this.DgvRecords.Size = new System.Drawing.Size(475, 223);
-            this.DgvRecords.TabIndex = 5;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ReturnLineID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "ReturnID";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Stock Code";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Qty";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Value";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Visible = false;
-            this.Column5.Width = 125;
+            this.DgvRecords.TabIndex = 8;
             // 
             // txtReturnID
             // 
@@ -161,7 +119,7 @@
             this.txtReturnID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtReturnID.Name = "txtReturnID";
             this.txtReturnID.Size = new System.Drawing.Size(184, 28);
-            this.txtReturnID.TabIndex = 14;
+            this.txtReturnID.TabIndex = 4;
             // 
             // Label11
             // 
@@ -170,7 +128,7 @@
             this.Label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label11.Name = "Label11";
             this.Label11.Size = new System.Drawing.Size(83, 24);
-            this.Label11.TabIndex = 13;
+            this.Label11.TabIndex = 9;
             this.Label11.Text = "ReturnID";
             // 
             // CheckBox1
@@ -180,7 +138,7 @@
             this.CheckBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.CheckBox1.Name = "CheckBox1";
             this.CheckBox1.Size = new System.Drawing.Size(191, 28);
-            this.CheckBox1.TabIndex = 3;
+            this.CheckBox1.TabIndex = 6;
             this.CheckBox1.Text = "Return To Supplier";
             this.CheckBox1.UseVisualStyleBackColor = true;
             // 
@@ -191,7 +149,7 @@
             this.Label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(53, 24);
-            this.Label9.TabIndex = 11;
+            this.Label9.TabIndex = 5;
             this.Label9.Text = "Date:";
             // 
             // DtpDate
@@ -210,7 +168,7 @@
             this.txtShopName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtShopName.Name = "txtShopName";
             this.txtShopName.Size = new System.Drawing.Size(340, 28);
-            this.txtShopName.TabIndex = 12;
+            this.txtShopName.TabIndex = 7;
             this.txtShopName.TabStop = false;
             // 
             // txtCurrentQty
@@ -219,7 +177,7 @@
             this.txtCurrentQty.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtCurrentQty.Name = "txtCurrentQty";
             this.txtCurrentQty.Size = new System.Drawing.Size(184, 28);
-            this.txtCurrentQty.TabIndex = 5;
+            this.txtCurrentQty.TabIndex = 14;
             // 
             // txtStockCode
             // 
@@ -229,7 +187,7 @@
             this.txtStockCode.MaxLength = 30;
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(184, 28);
-            this.txtStockCode.TabIndex = 4;
+            this.txtStockCode.TabIndex = 3;
             this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // txtShopRef
@@ -241,6 +199,7 @@
             this.txtShopRef.Name = "txtShopRef";
             this.txtShopRef.Size = new System.Drawing.Size(184, 28);
             this.txtShopRef.TabIndex = 2;
+            this.txtShopRef.TextChanged += new System.EventHandler(this.txtShopRef_TextChanged);
             this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
             // txtReference
@@ -259,7 +218,7 @@
             this.Label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(66, 24);
-            this.Label5.TabIndex = 10;
+            this.Label5.TabIndex = 8;
             this.Label5.Text = "Name:";
             // 
             // Label4
@@ -269,7 +228,7 @@
             this.Label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(110, 24);
-            this.Label4.TabIndex = 9;
+            this.Label4.TabIndex = 13;
             this.Label4.Text = "Current Qty:";
             // 
             // txtWarehouseRef
@@ -279,7 +238,7 @@
             this.txtWarehouseRef.MaxLength = 8;
             this.txtWarehouseRef.Name = "txtWarehouseRef";
             this.txtWarehouseRef.Size = new System.Drawing.Size(114, 28);
-            this.txtWarehouseRef.TabIndex = 6;
+            this.txtWarehouseRef.TabIndex = 0;
             this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // cmdClear
@@ -288,7 +247,7 @@
             this.cmdClear.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdClear.Name = "cmdClear";
             this.cmdClear.Size = new System.Drawing.Size(140, 38);
-            this.cmdClear.TabIndex = 9;
+            this.cmdClear.TabIndex = 4;
             this.cmdClear.Text = "Clear";
             this.cmdClear.UseVisualStyleBackColor = true;
             this.cmdClear.Click += new System.EventHandler(this.cmdClear_Click);
@@ -300,7 +259,7 @@
             this.Label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(112, 24);
-            this.Label3.TabIndex = 8;
+            this.Label3.TabIndex = 12;
             this.Label3.Text = "Stock Code:";
             // 
             // cmdClearGrid
@@ -309,7 +268,7 @@
             this.cmdClearGrid.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdClearGrid.Name = "cmdClearGrid";
             this.cmdClearGrid.Size = new System.Drawing.Size(140, 38);
-            this.cmdClearGrid.TabIndex = 2;
+            this.cmdClearGrid.TabIndex = 3;
             this.cmdClearGrid.Text = "Delete All";
             this.cmdClearGrid.UseVisualStyleBackColor = true;
             this.cmdClearGrid.Click += new System.EventHandler(this.cmdClearGrid_Click);
@@ -320,7 +279,7 @@
             this.cmdAdd.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdAdd.Name = "cmdAdd";
             this.cmdAdd.Size = new System.Drawing.Size(140, 38);
-            this.cmdAdd.TabIndex = 1;
+            this.cmdAdd.TabIndex = 2;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
             this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
@@ -343,7 +302,7 @@
             this.GroupBox2.Name = "GroupBox2";
             this.GroupBox2.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.GroupBox2.Size = new System.Drawing.Size(799, 415);
-            this.GroupBox2.TabIndex = 6;
+            this.GroupBox2.TabIndex = 1;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Return To:";
             // 
@@ -353,7 +312,7 @@
             this.txtTotalItems.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTotalItems.Name = "txtTotalItems";
             this.txtTotalItems.Size = new System.Drawing.Size(108, 28);
-            this.txtTotalItems.TabIndex = 7;
+            this.txtTotalItems.TabIndex = 10;
             // 
             // Label10
             // 
@@ -362,7 +321,7 @@
             this.Label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(105, 24);
-            this.Label10.TabIndex = 6;
+            this.Label10.TabIndex = 9;
             this.Label10.Text = "Total Items:";
             // 
             // txtTransferQty
@@ -371,7 +330,7 @@
             this.txtTransferQty.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTransferQty.Name = "txtTransferQty";
             this.txtTransferQty.Size = new System.Drawing.Size(184, 28);
-            this.txtTransferQty.TabIndex = 0;
+            this.txtTransferQty.TabIndex = 1;
             // 
             // Label6
             // 
@@ -380,7 +339,7 @@
             this.Label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(146, 24);
-            this.Label6.TabIndex = 3;
+            this.Label6.TabIndex = 4;
             this.Label6.Text = "Warehouse Ref:";
             // 
             // Label2
@@ -390,7 +349,7 @@
             this.Label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(93, 24);
-            this.Label2.TabIndex = 7;
+            this.Label2.TabIndex = 11;
             this.Label2.Text = "Shop Ref:";
             // 
             // Label1
@@ -400,7 +359,7 @@
             this.Label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(103, 24);
-            this.Label1.TabIndex = 6;
+            this.Label1.TabIndex = 10;
             this.Label1.Text = "Reference:";
             // 
             // cmdOK
@@ -409,7 +368,7 @@
             this.cmdOK.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(140, 38);
-            this.cmdOK.TabIndex = 7;
+            this.cmdOK.TabIndex = 2;
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
             this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
@@ -420,7 +379,7 @@
             this.cmdCancel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(140, 38);
-            this.cmdCancel.TabIndex = 8;
+            this.cmdCancel.TabIndex = 3;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
@@ -447,9 +406,31 @@
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.GroupBox1.Size = new System.Drawing.Size(799, 245);
-            this.GroupBox1.TabIndex = 5;
+            this.GroupBox1.TabIndex = 0;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Current";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Stock Code";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Qty";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Value";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Visible = false;
+            this.Column5.Width = 125;
             // 
             // frmShopReturn
             // 
@@ -481,11 +462,6 @@
         internal System.Windows.Forms.Label Label8;
         internal System.Windows.Forms.Label Label7;
         internal System.Windows.Forms.DataGridView DgvRecords;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         internal System.Windows.Forms.TextBox txtReturnID;
         internal System.Windows.Forms.Label Label11;
         internal System.Windows.Forms.CheckBox CheckBox1;
@@ -513,5 +489,8 @@
         internal System.Windows.Forms.Button cmdOK;
         internal System.Windows.Forms.Button cmdCancel;
         internal System.Windows.Forms.GroupBox GroupBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

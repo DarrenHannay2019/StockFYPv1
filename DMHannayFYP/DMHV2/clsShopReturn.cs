@@ -12,7 +12,8 @@
         {
             frmShopReturn shopReturn = new frmShopReturn()
             {
-                FormMode = "New"
+                FormMode = "New",
+                LoggedInUser = UserID
             };
             shopReturn.Show();
         }
@@ -212,8 +213,8 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopReturnLines (ReturnID, StockCode, Qty, Value) VALUES (@ReturnID, @StockCode, @Qty, @Value)";
-                            InsertCmd.Parameters.AddWithValue("@ReturnID", ID);
+                            InsertCmd.CommandText = "INSERT INTO tblShopReturnLines (ShopReturnID, StockCode, Qty, Value) VALUES (@ShopReturnID, @StockCode, @Qty, @Value)";
+                            InsertCmd.Parameters.AddWithValue("@ShopReturnID", ID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@Qty", Qty);
                             InsertCmd.Parameters.AddWithValue("@Value", Value);

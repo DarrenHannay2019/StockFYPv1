@@ -16,7 +16,8 @@ namespace DMHV2
         {
             frmShopSale shopSale = new frmShopSale()
             {
-                FormMode = "New"
+                FormMode = "New",
+               LoggedInUser = UserID
             };
             shopSale.Show();
         }
@@ -225,12 +226,12 @@ namespace DMHV2
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblShopSalesLines (SalesID, DeliveredQty, StockCode, CurrentQty, TotalSold, QtySold, SalesAmount) VALUES (@SalesID, @StockCode, @DeliveredQty, @CurrentQty, @TotalSold, @QtySold, @SalesAmount)";
+                            InsertCmd.CommandText = "INSERT INTO tblShopSalesLines (SalesID, StockCode, DeliveredQty, CurrentQty, TotalSoldQty, QtySold, SalesAmount) VALUES (@SalesID, @StockCode, @DeliveredQty, @CurrentQty, @TotalSoldQty, @QtySold, @SalesAmount)";
                             InsertCmd.Parameters.AddWithValue("@SalesID", SalesID);
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@DeliveredQty", DeliveredQtyGarments);
                             InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
-                            InsertCmd.Parameters.AddWithValue("@TotalSold", TotalItems);
+                            InsertCmd.Parameters.AddWithValue("@TotalSoldQty", TotalItems);
                             InsertCmd.Parameters.AddWithValue("@QtySold", Qty);
                             InsertCmd.Parameters.AddWithValue("@SalesAmount", SalesAmount);                            
                             Result = (int)InsertCmd.ExecuteNonQuery();

@@ -14,8 +14,8 @@ namespace DMHV2
     public partial class frmSeason : Form
     {
         public string ModeOfForm { get; set; }
-        public int SeasonIDs { get; set; }
-        private int UserIDs;
+        public int SeasonIDs { get; set; }    
+        
         public frmSeason()
         {
             InitializeComponent();
@@ -23,26 +23,7 @@ namespace DMHV2
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            clsSeason season = new clsSeason();
-             clsLogs logs = new clsLogs();
-            logs.StockCode = "NULL";
-            logs.SupplierRef = "NULL";
-            logs.LocationRef = "NULL";
-            logs.Qty = 0;
-            logs.MovementDate =DateTime.Today;
-            logs.UserID = UserIDs;
-            if (ModeOfForm == "New")
-            {
-                logs.StringMovementType = "New Warehouse";
-                logs.RecordType = "New Warehouse Record";
-                logs.Reference = "New Waerhouse Record";
-            }
-            else
-            {
-                logs.StringMovementType = "Update Warehouse";
-                logs.RecordType = "Update-Item-Warehouse";
-                logs.Reference = "Update Warehouse Record";
-            }
+            clsSeason season = new clsSeason();   
             if(ModeOfForm == "New")
             {
                 // Save to the database                

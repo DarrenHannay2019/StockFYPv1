@@ -16,6 +16,7 @@
             { 
                 FormMode = "New"
             };
+            warehouseTransfer.LogggedInUser = UserID;            
             warehouseTransfer.Show();
         }
         public void LoadSelectedForm()
@@ -24,6 +25,7 @@
             {
                 FormMode = "Old"
             };
+            warehouseTransfer.TxtTransferID.Text = WarehouseTransferID.ToString();
             warehouseTransfer.Show();
         }
         public int GetLastWarehouseTransferHead()
@@ -88,13 +90,13 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblWarehouseTransfers (Reference, TransferDate, WharehouseRef, WarehouseName, ToWarehouseRef, ToWarehouseName, TotalQtyOut, TotalQtyIn, CreatedBy, CreatedDate) VALUES (@Reference, @TransferDate, @WarehouseRef, @WarehouseName, @ToWarehouseRef, @ToWarehouseName, @TotalQtyOut, @TotalQtyIn, @CreatedBy, @CreatedDate)";
+                            InsertCmd.CommandText = "INSERT INTO tblWarehouseTransfers (Reference, TransferDate, WarehouseRef,  ToWarehouseRef, TotalQtyOut, TotalQtyIn, CreatedBy, CreatedDate) VALUES (@Reference, @TransferDate, @WarehouseRef,  @ToWarehouseRef,  @TotalQtyOut, @TotalQtyIn, @CreatedBy, @CreatedDate)";
                             InsertCmd.Parameters.AddWithValue("@Reference", Reference);
                             InsertCmd.Parameters.AddWithValue("@TransferDate", MovementDate);
                             InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                            InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
+                            
                             InsertCmd.Parameters.AddWithValue("@ToWarehouseRef", ToWarehouseRef);
-                            InsertCmd.Parameters.AddWithValue("@ToWarehouseName", ToWarehouseName);
+                           
                             InsertCmd.Parameters.AddWithValue("@TotalQtyOut", Qty * -1);
                             InsertCmd.Parameters.AddWithValue("@TotalQtyIn", Qty);
                             InsertCmd.Parameters.AddWithValue("@CreatedBy", UserID);
@@ -232,8 +234,8 @@
                             InsertCmd.Connection = conn;
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
-                            InsertCmd.CommandText = "INSERT INTO tblWarehouseTransferLines (TransferID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@TransferID,  @StockCode, @CurrentQty, @TOQty, @TIQty)";
-                            InsertCmd.Parameters.AddWithValue("@TransferID", WarehouseTransferID);                            
+                            InsertCmd.CommandText = "INSERT INTO tblWarehouseTransferLines (WarehouseTransferID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@WarehouseTransferID,  @StockCode, @CurrentQty, @TOQty, @TIQty)";
+                            InsertCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);                            
                             InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
                             InsertCmd.Parameters.AddWithValue("@TOQty", TOQty);

@@ -12,7 +12,8 @@
         {
             frmShopTransfer shopTransfer = new frmShopTransfer()
             {
-                FormMode = "New"
+                FormMode = "New",
+                LogggedInUser = UserID
             };
             shopTransfer.Show();
         }
@@ -38,7 +39,7 @@
                         using (SqlCommand SelectCmd = new SqlCommand())
                         {
                             SelectCmd.Connection = conn;
-                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopTransfer";
+                            SelectCmd.CommandText = "SELECT COUNT(*) AS MaxRef FROM tblShopTransfers";
                             Result = (int)SelectCmd.ExecuteScalar();
                         }
                     }
@@ -62,7 +63,9 @@
         public string ShopRef;
         public string ToShopRef;
         public DateTime MovementDate { get; set; }
-        public string Reference;
+    public int ShopTransferID { get; internal set; }
+
+    public string Reference;
         public string ShopName;
         public string ToShopName;
         public int Qty;
@@ -224,7 +227,7 @@
                         InsertCmd.Connection.Open();
                         InsertCmd.CommandType = CommandType.Text;
                         InsertCmd.CommandText = "INSERT INTO tblShopTransferLines (ShopTransferID, StockCode, CurrentQty, TOQty, TIQty) VALUES (@ShopTransferID,  @StockCode, @CurrentQty, @TOQty, @TIQty)";
-                        InsertCmd.Parameters.AddWithValue("@TransferID", ID);                       
+                        InsertCmd.Parameters.AddWithValue("@ShopTransferID", ID);                       
                         InsertCmd.Parameters.AddWithValue("@StockCode", StockCode);
                         InsertCmd.Parameters.AddWithValue("@CurrentQty", CurrQty);
                         InsertCmd.Parameters.AddWithValue("@TOQty", TOQty);

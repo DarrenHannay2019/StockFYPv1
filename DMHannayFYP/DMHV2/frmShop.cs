@@ -52,6 +52,7 @@
                 objShop.eMail = TxteMail.Text.TrimEnd();
                 objShop.ContactName = TxtContactName.Text.TrimEnd();
                 objShop.Memo = TxtMemo.Text.TrimEnd();
+                objShop.UserID = UserIDs;
                 if (FormMode == "New")
                 {
                     objShop.SaveShopToDB();

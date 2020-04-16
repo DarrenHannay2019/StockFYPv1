@@ -39,6 +39,7 @@
             {
                 FormMode = "New"
             };
+            shop.UserIDs = UserID;
             shop.ShowDialog();
         }
         public void LoadSelectedRecord()

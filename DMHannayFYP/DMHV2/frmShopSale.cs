@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,24 +56,28 @@ namespace DMHV2
             clsShopSaleHead saleHead = new clsShopSaleHead();
             clsShopSaleLine saleLine = new clsShopSaleLine();
             clsLogs logs = new clsLogs();
-            
+            decimal toConvert;
             saleHead.ShopRef = txtShopRef.Text.TrimEnd();
             saleHead.ShopName = lblShopName.Text.TrimEnd();
             saleHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value);
-            saleHead.Value = Convert.ToDecimal(txtTotal.Text);
+            decimal.TryParse(txtTotal.Text, System.Globalization.NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out toConvert);
+            saleHead.Value = toConvert;
             saleHead.Qty = Convert.ToInt32(txtTotalGarments.Text.TrimEnd());
-            saleHead.VATRate = Convert.ToDecimal(txtVAT.Text);
+            decimal.TryParse(txtVAT.Text, System.Globalization.NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.CurrentCulture, out toConvert);
+            saleHead.VATRate = toConvert;
             saleHead.UserID = LoggedInUser;
+            saleHead.SaveShopSaleHead();
             saleLine.SalesID = saleHead.GetLastShopSaleHead();
             logs.StockCode = "ALL";
             logs.SupplierRef = "ALL";
             logs.LocationRef = saleHead.ShopRef;
             logs.Qty = saleHead.Qty;
             logs.RecordType = "Sales Add-Start";
+            logs.Reference = logs.RecordType;
             logs.MovementDate = saleHead.MovementDate;
             logs.StringMovementType = "Sales Add";
             logs.UserID = saleHead.UserID;
-            logs.Reference = "Sales ID: [" + saleHead.SalesID.ToString() + "]";
+            //logs.Reference = "Sales ID: [" + saleHead.SalesID.ToString() + "]";
             logs.SaveToSysLogTable();
             if (FormMode == "New")
             {
@@ -88,18 +93,18 @@ namespace DMHV2
                     logs.LocationRef = saleHead.ShopRef;
                     logs.MovementDate = saleHead.MovementDate;
                     logs.StockCode = saleLine.StockCode;
+                    logs.MovementValue = saleLine.SalesAmount;
                     logs.Qty = saleLine.Qty;
                     logs.StringMovementType = "Shop Sale Add-Item";
-                    logs.RecordType = "Sale Record [" + logs.StockCode + "]";
+                //    logs.RecordType = "Sale Record [" + logs.StockCode + "]";
                     logs.MovementDate = saleHead.MovementDate;
                     logs.UserID = saleHead.UserID;
                     logs.MovementType = 5;
-                    logs.LocationType = 2;
-                    logs.Reference = logs.Reference;
+                    logs.LocationType = 2;                   
                     logs.TransferReference = saleLine.SalesID;
-                    logs.DeliveredQtyGarments = logs.Qty;
+                    logs.DeliveredQtyHangers = logs.Qty;
                     logs.DeliveredQtyBoxes = 0;
-                    logs.DeliveredQtyHangers = logs.DeliveredQtyBoxes;
+                    logs.DeliveredQtyGarments = logs.DeliveredQtyBoxes;
                     logs.SupplierRef = "";  // Add function to clsStock to get the supplier Ref from the table.
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();                  
@@ -160,16 +165,7 @@ namespace DMHV2
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();
                 }
-                logs.StockCode = "ALL";
-                logs.SupplierRef = "ALL";
-                logs.LocationRef = saleHead.ShopRef;
-                logs.Qty = saleHead.Qty;
-                logs.RecordType = "Sales Update-End";
-                logs.MovementDate = saleHead.MovementDate;
-                logs.StringMovementType = "Sales Update";
-                logs.UserID = saleHead.UserID;
-                logs.Reference = "Sales ID: [" + saleHead.SalesID.ToString() + "]";
-                logs.SaveToSysLogTable();
+               
             }
             Close();
         }
@@ -302,7 +298,7 @@ namespace DMHV2
             VATAMount = SalesAmount / 5;
             double PreVAT = 0.0;
             PreVAT = SalesAmount - VATAMount;
-            txtNetSale.Text = PreVAT.ToString("C");
+            txtNet.Text = PreVAT.ToString("C");
             txtVAT.Text = VATAMount.ToString("C");
             txtTotal.Text = SalesAmount.ToString("C");         
         }
@@ -386,7 +382,7 @@ namespace DMHV2
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode, Delivered,TotalSold, CurrentQty, QtySold, SalesAmount from qrySalesGrid WHERE LocationRef = @LocationRef";
+                    SelectCmd.CommandText = "SELECT StockCode, Delivered,TotalSold, CurrentQty, SoldQty, SalesAmount from qrySalesGrid WHERE LocationRef = @LocationRef";
                     SelectCmd.Parameters.AddWithValue("@LocationRef", txtShopRef.Text.TrimEnd());
                     ShopSalesLineDataAdapter.SelectCommand = SelectCmd;
                     ShopSalesLineDataAdapter.Fill(ShopSalesLine);
@@ -413,6 +409,11 @@ namespace DMHV2
 
                 }
             }
+            Totals();
+        }
+
+        private void DgvRecords_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
             Totals();
         }
     }

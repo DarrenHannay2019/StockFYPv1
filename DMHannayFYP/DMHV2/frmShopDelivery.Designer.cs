@@ -76,7 +76,7 @@
             this.txtQty.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(115, 26);
-            this.txtQty.TabIndex = 53;
+            this.txtQty.TabIndex = 14;
             // 
             // DgvRecords
             // 
@@ -93,7 +93,7 @@
             this.DgvRecords.Name = "DgvRecords";
             this.DgvRecords.RowHeadersWidth = 51;
             this.DgvRecords.Size = new System.Drawing.Size(460, 205);
-            this.DgvRecords.TabIndex = 55;
+            this.DgvRecords.TabIndex = 25;
             // 
             // StockCodeDG
             // 
@@ -133,7 +133,7 @@
             this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(150, 25);
-            this.Label8.TabIndex = 52;
+            this.Label8.TabIndex = 16;
             this.Label8.Text = "Warehouse Qty";
             // 
             // StatusStrip1
@@ -146,7 +146,7 @@
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(3, 0, 24, 0);
             this.StatusStrip1.Size = new System.Drawing.Size(509, 26);
-            this.StatusStrip1.TabIndex = 59;
+            this.StatusStrip1.TabIndex = 29;
             this.StatusStrip1.Text = "StatusStrip1";
             // 
             // Label21
@@ -157,7 +157,7 @@
             this.Label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label21.Name = "Label21";
             this.Label21.Size = new System.Drawing.Size(115, 25);
-            this.Label21.TabIndex = 51;
+            this.Label21.TabIndex = 17;
             this.Label21.Text = "Stock Code";
             // 
             // Label22
@@ -168,7 +168,7 @@
             this.Label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label22.Name = "Label22";
             this.Label22.Size = new System.Drawing.Size(118, 25);
-            this.Label22.TabIndex = 54;
+            this.Label22.TabIndex = 15;
             this.Label22.Text = "Delivery Qty";
             // 
             // cmdClear
@@ -178,7 +178,7 @@
             this.cmdClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdClear.Name = "cmdClear";
             this.cmdClear.Size = new System.Drawing.Size(40, 35);
-            this.cmdClear.TabIndex = 36;
+            this.cmdClear.TabIndex = 7;
             this.cmdClear.Text = "-";
             this.cmdClear.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.cmdClear.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
             this.cmdClearForm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdClearForm.Name = "cmdClearForm";
             this.cmdClearForm.Size = new System.Drawing.Size(126, 35);
-            this.cmdClearForm.TabIndex = 39;
+            this.cmdClearForm.TabIndex = 10;
             this.cmdClearForm.Text = "Clear";
             this.cmdClearForm.UseVisualStyleBackColor = true;
             this.cmdClearForm.Click += new System.EventHandler(this.cmdClearForm_Click);
@@ -202,7 +202,7 @@
             this.txtStockCode.MaxLength = 30;
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(168, 30);
-            this.txtStockCode.TabIndex = 33;
+            this.txtStockCode.TabIndex = 4;
             this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // Label16
@@ -213,7 +213,7 @@
             this.Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label16.Name = "Label16";
             this.Label16.Size = new System.Drawing.Size(99, 25);
-            this.Label16.TabIndex = 42;
+            this.Label16.TabIndex = 21;
             this.Label16.Text = "Shop Ref:";
             // 
             // Label17
@@ -223,7 +223,7 @@
             this.Label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label17.Name = "Label17";
             this.Label17.Size = new System.Drawing.Size(122, 25);
-            this.Label17.TabIndex = 47;
+            this.Label17.TabIndex = 20;
             this.Label17.Text = "Shop Name:";
             // 
             // cmdAdd
@@ -232,7 +232,7 @@
             this.cmdAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdAdd.Name = "cmdAdd";
             this.cmdAdd.Size = new System.Drawing.Size(126, 35);
-            this.cmdAdd.TabIndex = 37;
+            this.cmdAdd.TabIndex = 8;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
             this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
@@ -243,7 +243,7 @@
             this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseRef.Name = "txtWarehouseRef";
             this.txtWarehouseRef.Size = new System.Drawing.Size(94, 30);
-            this.txtWarehouseRef.TabIndex = 44;
+            this.txtWarehouseRef.TabIndex = 3;
             this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
             // 
             // cmdAddItem
@@ -252,7 +252,7 @@
             this.cmdAddItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdAddItem.Name = "cmdAddItem";
             this.cmdAddItem.Size = new System.Drawing.Size(40, 35);
-            this.cmdAddItem.TabIndex = 35;
+            this.cmdAddItem.TabIndex = 6;
             this.cmdAddItem.Text = "+";
             this.cmdAddItem.UseVisualStyleBackColor = true;
             this.cmdAddItem.Click += new System.EventHandler(this.cmdAddItem_Click);
@@ -263,7 +263,7 @@
             this.txtQtyHangers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtQtyHangers.Name = "txtQtyHangers";
             this.txtQtyHangers.Size = new System.Drawing.Size(115, 30);
-            this.txtQtyHangers.TabIndex = 34;
+            this.txtQtyHangers.TabIndex = 5;
             // 
             // cmdCancel
             // 
@@ -271,7 +271,7 @@
             this.cmdCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(126, 35);
-            this.cmdCancel.TabIndex = 38;
+            this.cmdCancel.TabIndex = 9;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
@@ -283,7 +283,7 @@
             this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DateTimePicker1.Name = "DateTimePicker1";
             this.DateTimePicker1.Size = new System.Drawing.Size(192, 30);
-            this.DateTimePicker1.TabIndex = 30;
+            this.DateTimePicker1.TabIndex = 0;
             // 
             // txtShopRef
             // 
@@ -292,7 +292,7 @@
             this.txtShopRef.MaxLength = 8;
             this.txtShopRef.Name = "txtShopRef";
             this.txtShopRef.Size = new System.Drawing.Size(91, 30);
-            this.txtShopRef.TabIndex = 32;
+            this.txtShopRef.TabIndex = 2;
             this.txtShopRef.Leave += new System.EventHandler(this.txtShopRef_Leave);
             // 
             // Label4
@@ -304,7 +304,7 @@
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(152, 25);
-            this.Label4.TabIndex = 56;
+            this.Label4.TabIndex = 26;
             this.Label4.Text = "Delivery Total:";
             // 
             // txtShopName
@@ -313,7 +313,7 @@
             this.txtShopName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtShopName.Name = "txtShopName";
             this.txtShopName.Size = new System.Drawing.Size(299, 30);
-            this.txtShopName.TabIndex = 48;
+            this.txtShopName.TabIndex = 12;
             // 
             // Label18
             // 
@@ -323,7 +323,7 @@
             this.Label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label18.Name = "Label18";
             this.Label18.Size = new System.Drawing.Size(154, 25);
-            this.Label18.TabIndex = 43;
+            this.Label18.TabIndex = 19;
             this.Label18.Text = "Warehouse Ref:";
             // 
             // Label3
@@ -333,7 +333,7 @@
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(164, 25);
-            this.Label3.TabIndex = 46;
+            this.Label3.TabIndex = 22;
             this.Label3.Text = "Delivery Note No:";
             // 
             // Label2
@@ -344,7 +344,7 @@
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(134, 25);
-            this.Label2.TabIndex = 45;
+            this.Label2.TabIndex = 23;
             this.Label2.Text = "Delivery Date:";
             // 
             // Label20
@@ -354,7 +354,7 @@
             this.Label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label20.Name = "Label20";
             this.Label20.Size = new System.Drawing.Size(177, 25);
-            this.Label20.TabIndex = 49;
+            this.Label20.TabIndex = 18;
             this.Label20.Text = "Warehouse Name:";
             // 
             // Label1
@@ -364,7 +364,7 @@
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(110, 25);
-            this.Label1.TabIndex = 40;
+            this.Label1.TabIndex = 24;
             this.Label1.Text = "Record No:";
             // 
             // txtTotalGarments
@@ -374,7 +374,7 @@
             this.txtTotalGarments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalGarments.Name = "txtTotalGarments";
             this.txtTotalGarments.Size = new System.Drawing.Size(166, 30);
-            this.txtTotalGarments.TabIndex = 58;
+            this.txtTotalGarments.TabIndex = 28;
             // 
             // txtDelNoteNumber
             // 
@@ -382,7 +382,7 @@
             this.txtDelNoteNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDelNoteNumber.Name = "txtDelNoteNumber";
             this.txtDelNoteNumber.Size = new System.Drawing.Size(94, 30);
-            this.txtDelNoteNumber.TabIndex = 41;
+            this.txtDelNoteNumber.TabIndex = 11;
             // 
             // txtReference
             // 
@@ -392,7 +392,7 @@
             this.txtReference.MaxLength = 90;
             this.txtReference.Name = "txtReference";
             this.txtReference.Size = new System.Drawing.Size(166, 30);
-            this.txtReference.TabIndex = 31;
+            this.txtReference.TabIndex = 1;
             // 
             // txtWarehouseName
             // 
@@ -400,7 +400,7 @@
             this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWarehouseName.Name = "txtWarehouseName";
             this.txtWarehouseName.Size = new System.Drawing.Size(283, 30);
-            this.txtWarehouseName.TabIndex = 50;
+            this.txtWarehouseName.TabIndex = 13;
             // 
             // Label5
             // 
@@ -409,7 +409,7 @@
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(152, 25);
-            this.Label5.TabIndex = 57;
+            this.Label5.TabIndex = 27;
             this.Label5.Text = "Total Garments:";
             // 
             // frmShopDelivery

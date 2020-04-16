@@ -54,6 +54,7 @@
             this.CmdOK = new System.Windows.Forms.Button();
             this.DeadCodeCheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             StockCodeLabel = new System.Windows.Forms.Label();
             SupplierRefLabel = new System.Windows.Forms.Label();
             DeadCodeLabel = new System.Windows.Forms.Label();
@@ -125,10 +126,13 @@
             // 
             // gridTrans
             // 
+            this.gridTrans.AllowUserToAddRows = false;
+            this.gridTrans.AllowUserToDeleteRows = false;
             this.gridTrans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTrans.Location = new System.Drawing.Point(15, 305);
             this.gridTrans.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gridTrans.Name = "gridTrans";
+            this.gridTrans.ReadOnly = true;
             this.gridTrans.RowHeadersWidth = 62;
             this.gridTrans.Size = new System.Drawing.Size(548, 129);
             this.gridTrans.TabIndex = 68;
@@ -138,23 +142,23 @@
             this.textBox8.Location = new System.Drawing.Point(451, 166);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(110, 28);
+            this.textBox8.Size = new System.Drawing.Size(73, 28);
             this.textBox8.TabIndex = 67;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(450, 236);
+            this.textBox7.Location = new System.Drawing.Point(453, 236);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(110, 28);
+            this.textBox7.Size = new System.Drawing.Size(71, 28);
             this.textBox7.TabIndex = 66;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(451, 201);
+            this.textBox6.Location = new System.Drawing.Point(451, 202);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(110, 28);
+            this.textBox6.Size = new System.Drawing.Size(73, 28);
             this.textBox6.TabIndex = 65;
             // 
             // textBox5
@@ -184,12 +188,12 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(319, 243);
+            this.label5.Location = new System.Drawing.Point(332, 242);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 24);
+            this.label5.Size = new System.Drawing.Size(96, 24);
             this.label5.TabIndex = 61;
-            this.label5.Text = "Items In Stock:";
+            this.label5.Text = "Garments:";
             // 
             // label4
             // 
@@ -197,9 +201,9 @@
             this.label4.Location = new System.Drawing.Point(360, 208);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 24);
+            this.label4.Size = new System.Drawing.Size(68, 24);
             this.label4.TabIndex = 60;
-            this.label4.Text = "Sold Qty:";
+            this.label4.Text = "Boxes:";
             // 
             // CboSeason
             // 
@@ -241,7 +245,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(320, 166);
+            this.label2.Location = new System.Drawing.Point(396, 132);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 24);
@@ -307,11 +311,21 @@
             this.label6.TabIndex = 69;
             this.label6.Text = "Location Stock Levels";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(336, 170);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 24);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "Hangers:";
+            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 488);
+            this.ClientSize = new System.Drawing.Size(585, 488);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.gridTrans);
             this.Controls.Add(this.textBox8);
@@ -366,10 +380,11 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TxtStockCode;
         internal System.Windows.Forms.Button CmdCancel;
         internal System.Windows.Forms.Button CmdOK;
         internal System.Windows.Forms.CheckBox DeadCodeCheckBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox TxtStockCode;
     }
 }

@@ -171,7 +171,7 @@ namespace DMHV2
         private void TxtSupplierRef_Leave(object sender, EventArgs e)
         {
             TxtSupplierRef.Text = clsUtils.ChangeCase(TxtSupplierRef.Text, 1);
-            clsSupplier supplier = new clsSupplier(0)
+            clsSupplier supplier = new clsSupplier()
             {
                 SupplierRef = TxtSupplierRef.Text.TrimEnd()
             };
@@ -265,6 +265,7 @@ namespace DMHV2
         {
             GetAllSeasonData();
             LoadWarehousesIntoForm();
+            LoadSupplierIntoForm();
             LoadStockIntoForm();
             if(FormMode == "New")
             {
@@ -302,7 +303,7 @@ namespace DMHV2
                 }
                 TxtOurRef.Text = PurchaseHead.Rows[0][1].ToString();
                 TxtSupplierRef.Text = PurchaseHead.Rows[0][2].ToString();
-                clsSupplier supplier = new clsSupplier(LoggedUser);
+                clsSupplier supplier = new clsSupplier();
                 supplier.SupplierRef = TxtSupplierRef.Text;
                 TxtSupplierName.Text = supplier.GetSupplierName();
                 clsWarehouse warehouse = new clsWarehouse(LoggedUser);
@@ -409,6 +410,25 @@ namespace DMHV2
             TxtStockCode.AutoCompleteSource = AutoCompleteSource.CustomSource;
             TxtStockCode.AutoCompleteCustomSource = ACSC;
             TxtStockCode.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        }
+        private void LoadSupplierIntoForm()
+        {
+            AutoCompleteStringCollection ACSC = new AutoCompleteStringCollection();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = clsUtils.GetConnString(1);
+                SqlDataAdapter adp = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                adp.SelectCommand = new SqlCommand("SELECT SupplierRef from tblSuppliers", conn);
+                adp.Fill(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    ACSC.Add(Convert.ToString(row[0]));
+                }
+            }
+            TxtSupplierRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            TxtSupplierRef.AutoCompleteCustomSource = ACSC;
+            TxtSupplierRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
         private void GetAllSeasonData()
         {

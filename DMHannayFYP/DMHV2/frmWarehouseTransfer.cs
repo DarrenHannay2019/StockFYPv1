@@ -26,7 +26,8 @@ namespace DMHV2
             int rownum;
             rownum = (int)DgvRecords.Rows.Add();
             DgvRecords.Rows[rownum].Cells[0].Value = TxtStockCode.Text.TrimEnd();
-            DgvRecords.Rows[rownum].Cells[1].Value = TxtTransferFromQty.Text.TrimEnd();
+            DgvRecords.Rows[rownum].Cells[1].Value = TxtCurrentQty.Text.TrimEnd();
+            DgvRecords.Rows[rownum].Cells[2].Value = TxtTransferFromQty.Text.TrimEnd();
             Totals();
             TxtCurrentQty.Clear();
             TxtTransferFromQty.Clear();
@@ -48,7 +49,7 @@ namespace DMHV2
             int SavedID = 0;
             transferHead.WarehouseRef = TxtFromWarehouseRef.Text.TrimEnd();
             transferHead.ToWarehouseRef = TxtToWarehouseRef.Text.TrimEnd();
-            
+            transferHead.MovementDate = Convert.ToDateTime(DtpDate.Value);
             transferHead.Qty = Convert.ToInt32(txtTotalTransferTo.Text.TrimEnd());
             transferHead.UserID = LogggedInUser;
             transferHead.Reference = TxtTFNote.Text.TrimEnd();
@@ -85,16 +86,20 @@ namespace DMHV2
             for (int index = 0; index < DgvRecords.Rows.Count;index++)
             {
                 transferLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
-                transferLine.CurrentQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);
-                transferLine.TOQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]) * -1;
-                transferLine.TIQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]);
+                logs.StockCode = transferLine.StockCode;
+                transferLine.CurrentQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1].Value);
+                transferLine.TOQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2].Value) * -1;
+                transferLine.TIQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2].Value);
                if(FormMode == "New")
                 {
+                    
                     logs.Qty = transferLine.TOQty;
+                    logs.LocationRef = TxtFromWarehouseRef.Text.TrimEnd();
                     logs.DeliveredQtyHangers = logs.Qty;
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();
                     transferLine.SaveWarehouseTransferLine();
+                    logs.LocationRef = TxtToWarehouseRef.Text.TrimEnd();
                     logs.Qty = transferLine.TIQty;
                     logs.DeliveredQtyHangers = logs.Qty;
                     logs.SaveToSysLogTable();
@@ -143,7 +148,7 @@ namespace DMHV2
             if (FormMode == "New")
             {
                 CmdOK.Text = "Save";
-                this.Text = "New Shop Delivery";
+                this.Text = "New Warehouse Transfer";
                 DtpDate.Value = clsUtils.GetSundayDate(DateTime.Now, 1);
             }
             else
@@ -200,7 +205,7 @@ namespace DMHV2
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode,CurrentQty,Qty from tblWarehouseTranferLines WHERE WarehouseTransferID = @WarehouseTransferID";
+                    SelectCmd.CommandText = "SELECT StockCode,CurrentQty,TOQty from tblWarehouseTransferLines WHERE WarehouseTransferID = @WarehouseTransferID";
                     SelectCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);
                     WarehouseAdjustLineDataAdapter.SelectCommand = SelectCmd;
                     WarehouseAdjustLineDataAdapter.Fill(WarehouseAdjustLine);
@@ -309,7 +314,7 @@ namespace DMHV2
 
             for (int i = 0; i < DgvRecords.Rows.Count; i++)
             {
-                lngqtyhangers += Convert.ToInt32(DgvRecords.Rows[i].Cells[1].Value);
+                lngqtyhangers += Convert.ToInt32(DgvRecords.Rows[i].Cells[2].Value);
             }
             txtTotalTransferTo.Text = lngqtyhangers.ToString();
         }

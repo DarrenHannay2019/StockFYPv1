@@ -9,7 +9,7 @@ namespace DMHV2
 {
     public partial class frmSupplier : Form
     {
-        public int UserIDs;
+        public int UserIDs { get; set; }
         public string FormMode { get; set;}
        
         public frmSupplier()
@@ -41,7 +41,7 @@ namespace DMHV2
         }
         private void CmdOK_Click(object sender, EventArgs e)
         {
-            clsSupplier objSupplier = new clsSupplier(UserIDs);
+            clsSupplier objSupplier = new clsSupplier();
             if (FormMode == "New")
             {
                 objSupplier.SupplierRef = TxtSupplierRef.Text.TrimEnd();
@@ -57,6 +57,7 @@ namespace DMHV2
                 objSupplier.Fax = TxtFaxNumber.Text.TrimEnd();
                 objSupplier.Memo = TxtMemo.Text.TrimEnd();               
                 objSupplier.WebsiteAddress = TxtWebsiteAddress.Text.TrimEnd();
+                objSupplier.UserID = UserIDs;
                 objSupplier.SaveSupplierRecord();
             }
             else

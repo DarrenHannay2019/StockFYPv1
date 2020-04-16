@@ -9,7 +9,7 @@ namespace DMHV2
     public partial class frmDataGrid : Form
     {
         #region Functions
-        public int UserID;
+        public int UserIDs;
         public int FunctionID { get; set; }
         private string SqlCmdString { get; set; }
         public frmDataGrid()
@@ -21,25 +21,26 @@ namespace DMHV2
         {
             if(FunctionID == 1)
             {
-                clsWarehouse objWarehouse = new clsWarehouse(UserID);
+                clsWarehouse objWarehouse = new clsWarehouse(UserIDs);
                 objWarehouse.LoadNewRecord();
             }
             if(FunctionID == 2)
             {
                 clsShop objShop = new clsShop();
-                objShop.UserID = UserID;
+                objShop.UserID = UserIDs;
                 objShop.LoadNewRecord();                
             }
             if (FunctionID == 3)
             {
-                clsSupplier objSupplier = new clsSupplier(UserID);
+                clsSupplier objSupplier = new clsSupplier();
+                objSupplier.UserID = UserIDs;
                 objSupplier.LoadNewRecord();
             }
             if (FunctionID == 4)
             {
                 clsStock objStock = new clsStock
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 objStock.LoadNewForm();
             }
@@ -47,7 +48,7 @@ namespace DMHV2
             {
                 clsStock objStock = new clsStock
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 objStock.LoadNewForm();
             }
@@ -58,20 +59,20 @@ namespace DMHV2
             }
             if (FunctionID == 7)
             {
-                clsPurchaseOrder objPurchaseOrder = new clsPurchaseOrder(UserID);
+                clsPurchaseOrder objPurchaseOrder = new clsPurchaseOrder(UserIDs);
                 objPurchaseOrder.LoadNewPurchaseOrder();
             }
             if (FunctionID == 8)
             {
                 clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment();
-                oWarehouseAdjustment.UserID = UserID;
+                oWarehouseAdjustment.UserID = UserIDs;
                 oWarehouseAdjustment.LoadNewForm();
             }
             if (FunctionID == 9)
             {
                 clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer
                 {
-                    UserID = UserID                    
+                    UserID = UserIDs                    
                 };
                 oWarehouseTransfer.LoadNewForm();
             }
@@ -79,7 +80,7 @@ namespace DMHV2
             {
                 clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 oWarehouseReturn.LoadNewForm();
             }
@@ -87,7 +88,7 @@ namespace DMHV2
             {
                 clsShopDelivery oShopDelivery = new clsShopDelivery
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 oShopDelivery.LoadNewForm();
             }
@@ -95,7 +96,7 @@ namespace DMHV2
             {
                 clsShopAdjustment oShopAdjustment = new clsShopAdjustment
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 oShopAdjustment.LoadNewForm();
             }
@@ -103,7 +104,7 @@ namespace DMHV2
             {
                 clsShopTransfer oShopTransfer = new clsShopTransfer()
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 oShopTransfer.LoadNewForm();
             }
@@ -111,7 +112,7 @@ namespace DMHV2
             {
                 clsShopSale oShopSale = new clsShopSale
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 oShopSale.LoadNewForm();
             }
@@ -119,7 +120,7 @@ namespace DMHV2
             {
                 clsShopReturn oShopReturn = new clsShopReturn
                 {
-                    UserID = UserID
+                    UserID = UserIDs
                 };
                 oShopReturn.LoadNewForm();
             }
@@ -129,145 +130,138 @@ namespace DMHV2
         private void TsbRecord_Click(object sender, EventArgs e)
         {
             int selectid = 0;
-            int RowCount = DataGridView1.Rows.Count;
-            if (RowCount != 0)
-                selectid = DataGridView1.CurrentRow.Index;
-            else
-            {
-                MessageBox.Show("No Records", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (selectid == 0)
-                MessageBox.Show("Unable to show record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                string i;
-                i = DataGridView1.Rows[selectid].Cells[0].Value.ToString();
-                if (FunctionID == 1)
-                {
-                    clsWarehouse oWarehouse = new clsWarehouse(UserID)
-                    {
-                        WarehouseRef = i
-                    };
-                    oWarehouse.LoadSelectedRecord();
-                }
-                if (FunctionID == 2)
-                {
-                    clsShop oShop = new clsShop
-                    {
-                        ShopRef = i
-                    };
-                    oShop.LoadSelectedRecord();
-                }
-                if (FunctionID == 3)
-                {
-                    clsSupplier oSupplier = new clsSupplier(UserID)
-                    {
-                        SupplierRef = i
-                    };
-                    oSupplier.LoadSelectedRecord();
-                }
-                if (FunctionID == 4)
-                {
-                    clsStock oStock = new clsStock
-                    {
-                        StockCode = i
-                    };
-                    oStock.LoadSelectedForm();
-                }
-                if (FunctionID == 5)
-                {
-                    clsStock oStock = new clsStock
-                    {
-                        StockCode = i
-                    };
-                    oStock.LoadSelectedForm();
-                }
-                if (FunctionID == 6)
-                {
-                    clsSeason oSeason = new clsSeason
-                    {
-                        SeasonID = Convert.ToInt32(i)
-                    };
-                    oSeason.LoadSelectedSeasonForm();
-                }
-                if (FunctionID == 7)
-                {
-                    clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder(UserID)
-                    {
-                        PurchaseOrderID = Convert.ToInt32(i)
-                    };
-                    oPurchaseOrder.LoadSelectedPurchaseOrder();
-                }
-                if (FunctionID == 8)
-                {
-                    clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment
-                    {
-                        UserID = UserID,
-                        WarehouseAdjustmentID = Convert.ToInt32(i)
-                    };
-                    oWarehouseAdjustment.LoadSelectedForm();
+            selectid = DataGridView1.CurrentRow.Index;
 
-                }
-                if (FunctionID == 9)
+            string i;
+            i = DataGridView1.Rows[selectid].Cells[0].Value.ToString();
+            if (FunctionID == 1)
+            {
+                clsWarehouse oWarehouse = new clsWarehouse(UserIDs)
                 {
-                    clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer
-                    {
-                        WarehouseTransferID = Convert.ToInt32(i),
-                        UserID = UserID
-                    };
-                    oWarehouseTransfer.LoadSelectedForm();
-                }
-                if (FunctionID == 10)
-                {
-                    clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn
-                    {
-                        WarehouseReturnID = Convert.ToInt32(i),
-                        UserID = UserID
-                    };
-                }
-                if (FunctionID == 11)
-                {
-                    clsShopDelivery oShopDelivery = new clsShopDelivery();
-                    oShopDelivery.ShopDelID = Convert.ToInt32(i);
-                    oShopDelivery.UserID = UserID;
-                }
-                if (FunctionID == 12)
-                {
-                    clsShopAdjustment oShopAdjustment = new clsShopAdjustment
-                    {
-                        UserID = UserID,
-                        ID = Convert.ToInt32(i)
-                    };
-                    oShopAdjustment.LoadSelectedForm();
-                }
-                if (FunctionID == 13)
-                {
-                    clsShopTransfer oShopTransfer = new clsShopTransfer
-                    {
-                        UserID = UserID,
-                        ShopTransferID = Convert.ToInt32(i)
-                    };
-                    oShopTransfer.LoadSelectedForm();
-                }
-                if (FunctionID == 14)
-                {
-                    clsShopSale oShopSale = new clsShopSale
-                    {
-                        SalesID = Convert.ToInt32(i),
-                        UserID = UserID
-                    };
-                    oShopSale.LoadSelectedForm();
-                }
-                if (FunctionID == 15)
-                {
-                    clsShopReturn oShopReturn = new clsShopReturn
-                    {
-                        ShopReturnID = Convert.ToInt32(i),
-                        UserID = UserID
-                    };
-                    oShopReturn.LoadSelectedForm();
-                }
+                    WarehouseRef = i
+                };
+                oWarehouse.LoadSelectedRecord();
             }
+            if (FunctionID == 2)
+            {
+                clsShop oShop = new clsShop
+                {
+                    ShopRef = i
+                };
+                oShop.LoadSelectedRecord();
+            }
+            if (FunctionID == 3)
+            {
+                clsSupplier oSupplier = new clsSupplier()
+                {
+                    SupplierRef = i
+                };
+                oSupplier.LoadSelectedRecord();
+            }
+            if (FunctionID == 4)
+            {
+                clsStock oStock = new clsStock
+                {
+                    StockCode = i
+                };
+                oStock.LoadSelectedForm();
+            }
+            if (FunctionID == 5)
+            {
+                clsStock oStock = new clsStock
+                {
+                    StockCode = i
+                };
+                oStock.LoadSelectedForm();
+            }
+            if (FunctionID == 6)
+            {
+                clsSeason oSeason = new clsSeason
+                {
+                    SeasonID = Convert.ToInt32(i)
+                };
+                oSeason.LoadSelectedSeasonForm();
+            }
+            if (FunctionID == 7)
+            {
+                clsPurchaseOrder oPurchaseOrder = new clsPurchaseOrder(UserIDs)
+                {
+                    PurchaseOrderID = Convert.ToInt32(i)
+                };
+                oPurchaseOrder.LoadSelectedPurchaseOrder();
+            }
+            if (FunctionID == 8)
+            {
+                clsWarehouseAdjustment oWarehouseAdjustment = new clsWarehouseAdjustment
+                {
+                    UserID = UserIDs,
+                    WarehouseAdjustmentID = Convert.ToInt32(i)
+                };
+                oWarehouseAdjustment.LoadSelectedForm();
+
+            }
+            if (FunctionID == 9)
+            {
+                clsWarehouseTransfer oWarehouseTransfer = new clsWarehouseTransfer
+                {
+                    WarehouseTransferID = Convert.ToInt32(i),
+                    UserID = UserIDs
+                };
+                oWarehouseTransfer.LoadSelectedForm();
+            }
+            if (FunctionID == 10)
+            {
+                clsWarehouseReturn oWarehouseReturn = new clsWarehouseReturn
+                {
+                    WarehouseReturnID = Convert.ToInt32(i),
+                    UserID = UserIDs
+                };
+                oWarehouseReturn.LoadSelectedForm();
+            }
+            if (FunctionID == 11)
+            {
+                clsShopDelivery oShopDelivery = new clsShopDelivery();
+                oShopDelivery.ShopDelID = Convert.ToInt32(i);               
+                oShopDelivery.LoadSelectedForm();
+            }
+
+            if (FunctionID == 12)
+            {
+                clsShopAdjustment oShopAdjustment = new clsShopAdjustment
+                {
+                    UserID = UserIDs,
+                    ID = Convert.ToInt32(i)
+                };
+                oShopAdjustment.LoadSelectedForm();
+            }
+            if (FunctionID == 13)
+            {
+                clsShopTransfer oShopTransfer = new clsShopTransfer
+                {
+                    UserID = UserIDs,
+                    ShopTransferID = Convert.ToInt32(i)
+                };
+                oShopTransfer.LoadSelectedForm();
+            }
+            if (FunctionID == 14)
+            {
+                clsShopSale oShopSale = new clsShopSale
+                {
+                    SalesID = Convert.ToInt32(i),
+                    UserID = UserIDs
+                };
+                oShopSale.LoadSelectedForm();
+            }
+            if (FunctionID == 15)
+            {
+                clsShopReturn oShopReturn = new clsShopReturn
+                {
+                    ShopReturnID = Convert.ToInt32(i),
+                    UserID = UserIDs
+                };
+                oShopReturn.LoadSelectedForm();
+            }
+
             TsbRefresh.PerformClick();
         }
 
@@ -280,7 +274,7 @@ namespace DMHV2
             i = DataGridView1[0, selectid].Value.ToString();
             if (FunctionID == 1)
             {
-                clsWarehouse oWarehouse = new clsWarehouse(UserID)
+                clsWarehouse oWarehouse = new clsWarehouse(UserIDs)
                 {
                     WarehouseRef = i
                 };
@@ -312,7 +306,7 @@ namespace DMHV2
             }
             if (FunctionID == 3)
             {
-                clsSupplier oSupplier = new clsSupplier(UserID)
+                clsSupplier oSupplier = new clsSupplier()
                 {
                     SupplierRef = i
                 };
@@ -388,7 +382,7 @@ namespace DMHV2
                     {
                         PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
                     };
-                    clsPurchaseOrderHead orderHead = new clsPurchaseOrderHead(UserID)
+                    clsPurchaseOrderHead orderHead = new clsPurchaseOrderHead(UserIDs)
                     {
                         PurchaseOrderID = oPurchaseOrder.PurchaseOrderID
                     };
@@ -1254,37 +1248,37 @@ namespace DMHV2
                 DataGridView1.Columns[2].Width = 150;
                 DataGridView1.Columns[2].Visible = true;
                 // From Shop Ref
-                DataGridView1.Columns[3].HeaderText = "From Shop Ref";
+                //DataGridView1.Columns[3].HeaderText = "From Shop Ref";
+                //DataGridView1.Columns[3].Width = 150;
+                //DataGridView1.Columns[3].Visible = true;
+                // From Shop Name
+                DataGridView1.Columns[3].HeaderText = "From Shop Name";
                 DataGridView1.Columns[3].Width = 150;
                 DataGridView1.Columns[3].Visible = true;
-                // From Shop Name
-                DataGridView1.Columns[4].HeaderText = "From Shop Name";
+                // To Shop Ref
+                //DataGridView1.Columns[5].HeaderText = "To Shop Ref";
+                //DataGridView1.Columns[5].Width = 150;
+                //DataGridView1.Columns[5].Visible = true;
+                // To Shop Name
+                DataGridView1.Columns[4].HeaderText = "To Shop Name";
                 DataGridView1.Columns[4].Width = 150;
                 DataGridView1.Columns[4].Visible = true;
-                // To Shop Ref
-                DataGridView1.Columns[5].HeaderText = "To Shop Ref";
+                // Total Qty In
+                DataGridView1.Columns[5].HeaderText = "Qty In";
                 DataGridView1.Columns[5].Width = 150;
                 DataGridView1.Columns[5].Visible = true;
-                // To Shop Name
-                DataGridView1.Columns[6].HeaderText = "To Shop Name";
+                // Total Qty Out
+                DataGridView1.Columns[6].HeaderText = "Qty Out";
                 DataGridView1.Columns[6].Width = 150;
                 DataGridView1.Columns[6].Visible = true;
-                // Total Qty In
-                DataGridView1.Columns[7].HeaderText = "Qty In";
+                // Created By
+                DataGridView1.Columns[7].HeaderText = "Created By";
                 DataGridView1.Columns[7].Width = 150;
                 DataGridView1.Columns[7].Visible = true;
-                // Total Qty Out
-                DataGridView1.Columns[8].HeaderText = "Qty Out";
+                // Created Date
+                DataGridView1.Columns[8].HeaderText = "Created Date";
                 DataGridView1.Columns[8].Width = 150;
                 DataGridView1.Columns[8].Visible = true;
-                // Created By
-                DataGridView1.Columns[9].HeaderText = "Created By";
-                DataGridView1.Columns[9].Width = 150;
-                DataGridView1.Columns[9].Visible = true;
-                // Created Date
-                DataGridView1.Columns[10].HeaderText = "Created Date";
-                DataGridView1.Columns[10].Width = 150;
-                DataGridView1.Columns[10].Visible = true;
                 TSSLFunction.Text = "Shop Transfers";
             }
             if (FunctionID == 14)

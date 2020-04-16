@@ -26,7 +26,8 @@ namespace DMHV2
             int rownum;
             rownum = (int)DgvRecords.Rows.Add();
             DgvRecords.Rows[rownum].Cells[0].Value = TxtStockCode.Text.TrimEnd();
-            DgvRecords.Rows[rownum].Cells[1].Value = TxtTransferFromQty.Text.TrimEnd();
+            DgvRecords.Rows[rownum].Cells[1].Value = TxtCurrentQty.Text.TrimEnd();
+            DgvRecords.Rows[rownum].Cells[2].Value = TxtTransferFromQty.Text.TrimEnd();
             Totals();
             TxtCurrentQty.Clear();
             TxtTransferFromQty.Clear();
@@ -49,8 +50,10 @@ namespace DMHV2
            
             int SavedID = 0;
             transferHead.ShopRef = TxtFromShopRef.Text.TrimEnd();
+            transferHead.ShopName = txtFromShopName.Text.TrimEnd();
+            transferHead.ToShopName = txtToShopName.Text.TrimEnd();
             transferHead.ToShopRef = TxtToShopRef.Text.TrimEnd();
-
+            transferHead.MovementDate = Convert.ToDateTime(DtpDate.Value);
             transferHead.Qty = Convert.ToInt32(txtTotalTransferTo.Text.TrimEnd());
             transferHead.UserID = LogggedInUser;
             transferHead.Reference = TxtTFNote.Text.TrimEnd();
@@ -87,16 +90,19 @@ namespace DMHV2
             for (int index = 0; index < DgvRecords.Rows.Count; index++)
             {
                 transferLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
-                transferLine.CurrQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);
-                transferLine.TOQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]) * -1;
-                transferLine.TIQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2]);
+                logs.StockCode = transferLine.StockCode;
+                transferLine.CurrQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1].Value);
+                transferLine.TOQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2].Value) * -1;
+                transferLine.TIQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[2].Value);
                 if (FormMode == "New")
                 {
+                    logs.LocationRef = transferHead.ShopRef;
                     logs.Qty = transferLine.TOQty;
                     logs.DeliveredQtyHangers = logs.Qty;
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();
                     transferLine.SaveShopTransferLine();
+                    logs.LocationRef = transferHead.ToShopRef;
                     logs.Qty = transferLine.TIQty;
                     logs.DeliveredQtyHangers = logs.Qty;
                     logs.SaveToSysLogTable();
@@ -169,9 +175,9 @@ namespace DMHV2
                     ACSC.Add(Convert.ToString(row[0]));
                 }
             }
-            TxtToShopRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            TxtToShopRef.AutoCompleteCustomSource = ACSC;
-            TxtToShopRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            TxtFromShopRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            TxtFromShopRef.AutoCompleteCustomSource = ACSC;
+            TxtFromShopRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
         private void LoadShopsIntoForm_ToBox()
         {
@@ -312,7 +318,7 @@ namespace DMHV2
 
             for (int i = 0; i < DgvRecords.Rows.Count; i++)
             {
-                lngqtyhangers += Convert.ToInt32(DgvRecords.Rows[i].Cells[1].Value);
+                lngqtyhangers += Convert.ToInt32(DgvRecords.Rows[i].Cells[2].Value);
             }            
             txtTotalTransferTo.Text = lngqtyhangers.ToString();
 

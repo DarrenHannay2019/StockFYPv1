@@ -72,25 +72,32 @@ namespace DMHV2
             }
             logs.TransferReference = SavedID;
             returnLine.ShopReturnID = SavedID;
-            logs.LocationType = 2;
+            logs.MovementDate = returnHead.MovementDate;
+            logs.UserID = returnHead.UserID;
             logs.MovementType = 8;
             logs.StringMovementType = "Shop Return Item";
             for (int index = 0; index < DgvRecords.Rows.Count; index++)
             {
                 logs.LocationRef = returnHead.WarehouseRef;
                 returnLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();
-                returnLine.Qty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);
+                returnLine.Qty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1].Value);
+                logs.StockCode = returnLine.StockCode;
+                logs.RecordType = "Shop Return";
+                logs.Reference = logs.StringMovementType;
+                logs.SupplierRef = "N/A";
                 if (FormMode == "New")
-                {
+                { 
+                    logs.LocationType = 2;
                     logs.LocationRef = returnHead.ShopRef;
                     logs.Qty = returnLine.Qty * -1;
-                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.DeliveredQtyHangers = returnLine.Qty *-1;
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();
                     returnLine.SaveShopReturnLine();
                     logs.LocationRef = returnHead.WarehouseRef;
+                    logs.LocationType = 1;
                     logs.Qty = returnLine.Qty;
-                    logs.DeliveredQtyHangers = logs.Qty;
+                    logs.DeliveredQtyHangers = returnLine.Qty;
                     logs.SaveToSysLogTable();
                     logs.SaveToStockMovementsTable();
                 }
@@ -132,7 +139,7 @@ namespace DMHV2
 
         private void txtShopRef_Leave(object sender, EventArgs e)
         {
-            txtShopRef.Text = clsShop.ChangeCase(txtWarehouseRef.Text, 1);
+            txtShopRef.Text = clsShop.ChangeCase(txtShopRef.Text, 1);
             clsShop Shop = new clsShop()
             {
                 ShopRef = txtShopRef.Text.TrimEnd()
@@ -275,9 +282,9 @@ namespace DMHV2
                     ACSC.Add(Convert.ToString(row[0]));
                 }
             }
-            txtWarehouseRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtWarehouseRef.AutoCompleteCustomSource = ACSC;
-            txtWarehouseRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtShopRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtShopRef.AutoCompleteCustomSource = ACSC;
+            txtShopRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
         private void LoadStockIntoForm()
         {
@@ -308,6 +315,11 @@ namespace DMHV2
             }
             txtTotalItems.Text = lngqtyhangers.ToString();
             
+
+        }
+
+        private void txtShopRef_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

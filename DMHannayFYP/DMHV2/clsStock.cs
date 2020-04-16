@@ -43,6 +43,7 @@
         public void LoadSelectedForm()
         {
             frmStock objStock = new frmStock();
+            objStock.TxtStockCode.Text = StockCode;
             objStock.FormMode = "Old";
             objStock.ShowDialog();
         }
@@ -104,15 +105,15 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblStock SET SupplierRef = @SupplierRef, DeadCode = @DeadCode, AmountTaken = @AmountTaken, DeliveredQtyHangers = @DeliveredQtyHangers, CostValue = @CostValue, PCMarkUp = @PCMarkUp, ZeroQty = @ZeroQty, SeasonName = @SeasonName WHERE StockCode = @StockCode";
+                        sqlCommand.CommandText = "UPDATE tblStock SET SupplierRef = @SupplierRef, DeadCode = @DeadCode, AmountTaken = @AmountTaken, DeliveredQtyHangers = @DeliveredQtyHangers, DeliveredQtyBoxes = @DeliveredQtyBoxes,  DeliveredQtyGarments = @DeliveredQtyGarments, CostValue = @CostValue, PCMarkUp = @PCMarkUp, ZeroQty = @ZeroQty, SeasonName = @SeasonName WHERE StockCode = @StockCode";
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         sqlCommand.Parameters.AddWithValue("@SeasonName", SeasonName);
                         sqlCommand.Parameters.AddWithValue("@DeadCode", DeadCode);
                         sqlCommand.Parameters.AddWithValue("@AmountTaken", AmountTaken);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyItem", DeliveredQtyGarments);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
                         sqlCommand.Parameters.AddWithValue("@DeliveredQtyBoxes", DeliveredQtyBoxes);
-                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyLoose", DeliveredQtyHangers);
+                        sqlCommand.Parameters.AddWithValue("@DeliveredQtyHangers", DeliveredQtyHangers);
                         sqlCommand.Parameters.AddWithValue("@CostValue", CostValue);
                         sqlCommand.Parameters.AddWithValue("@PCMarkUp", PCMarkUp);
                         sqlCommand.Parameters.AddWithValue("@ZeroQty", ZeroQty);

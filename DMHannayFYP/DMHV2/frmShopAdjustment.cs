@@ -260,7 +260,7 @@
                 using (SqlCommand SelectCmd = new SqlCommand())
                 {
                     SelectCmd.Connection = conn;
-                    SelectCmd.CommandText = "SELECT StockCode,MovementType,Qty from tblShopAdjustmentsLines WHERE ShopAdjustmentID = @ShopAdjustmentID";
+                    SelectCmd.CommandText = "SELECT StockCode,MovementType,Qty from tblShopAdjustmentLines WHERE ShopAdjustmentID = @ShopAdjustmentID";
                     SelectCmd.Parameters.AddWithValue("@ShopAdjustmentID", ShopAdjustID);
                     ShopAdjustLineDataAdapter.SelectCommand = SelectCmd;
                     ShopAdjustLineDataAdapter.Fill(ShopAdjustLine);

@@ -49,7 +49,9 @@
             returnHead.SupplierRef = txtSupplierRef.Text.TrimEnd();
             returnHead.TotalItems = Convert.ToInt32(txtTotalItems.Text.TrimEnd());
             returnHead.MovementDate = Convert.ToDateTime(DtpDate.Value);
+            logs.MovementDate = returnHead.MovementDate;
             returnHead.UserID = LoggedInUser;
+            logs.UserID = returnHead.UserID;
             if (FormMode == "New")
             {
                 returnHead.SaveWarehouseReturnHead();
@@ -69,15 +71,19 @@
             returnLine.WarehouseReturnID = SavedID;
             logs.LocationType = 1;
             logs.MovementType = 9;
+            logs.RecordType = "Warehouse Return";
+            logs.Reference = logs.RecordType;
             logs.StringMovementType = "Warehouse Return Item";
             for (int index = 0; index < DgvRecords.Rows.Count; index++)
             {
                 logs.LocationRef = returnHead.WarehouseRef;
                 returnLine.StockCode = DgvRecords.Rows[index].Cells[0].Value.ToString();                
-                returnLine.ReturnQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1]);               
+                returnLine.ReturnQty = Convert.ToInt32(DgvRecords.Rows[index].Cells[1].Value);               
                 if (FormMode == "New")
                 {
                     logs.LocationRef = returnHead.WarehouseRef;
+                    logs.StockCode = returnLine.StockCode;
+                    logs.SupplierRef = "N/A";
                     logs.Qty = returnLine.ReturnQty * -1;
                     logs.DeliveredQtyHangers = logs.Qty;
                     logs.SaveToSysLogTable();
@@ -136,7 +142,7 @@
 
         private void txtWarehouseRef_Leave(object sender, EventArgs e)
         {
-            txtWarehouseRef.Text = clsWarehouse.ChangeCase(txtSupplierRef.Text, 1);
+            txtWarehouseRef.Text = clsWarehouse.ChangeCase(txtWarehouseRef.Text, 1);
             clsWarehouse warehouse = new clsWarehouse(0)
             {
                 WarehouseRef = txtWarehouseRef.Text.TrimEnd()
@@ -151,13 +157,13 @@
             LoadSupplierIntoForm();
             if (FormMode == "New")
             {
-                cmdAdd.Text = "Save";
+                cmdOK.Text = "Save";
                 this.Text = "New Warehouse Return";
                 DtpDate.Value = clsUtils.GetSundayDate(DateTime.Now, 1);
             }
             else
             {
-                cmdAdd.Text = "OK";
+                cmdOK.Text = "OK";
                 LoadData();
             }
         }
@@ -197,9 +203,9 @@
                     ACSC.Add(Convert.ToString(row[0]));
                 }
             }
-            txtSupplierRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtSupplierRef.AutoCompleteCustomSource = ACSC;
-            txtSupplierRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtWarehouseRef.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtWarehouseRef.AutoCompleteCustomSource = ACSC;
+            txtWarehouseRef.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
         private void LoadStockIntoForm()
         {
@@ -251,7 +257,7 @@
                 warehouse.WarehouseRef = txtWarehouseRef.Text;
                 txtWarehouseName.Text = warehouse.GetWarehouseName();
                 txtSupplierRef.Text = WarehouseReturnHead.Rows[0][2].ToString();
-                clsSupplier supplier = new clsSupplier(0);
+                clsSupplier supplier = new clsSupplier();
                 supplier.SupplierRef = txtSupplierRef.Text.TrimEnd();
                 txtSupplierName.Text = supplier.GetSupplierName();
                 txtReference.Text = WarehouseReturnHead.Rows[0][3].ToString();
@@ -297,7 +303,7 @@
         private void txtSupplierRef_Leave(object sender, EventArgs e)
         {
             txtSupplierRef.Text = clsSupplier.ChangeCase(txtSupplierRef.Text, 1);
-            clsSupplier warehouse = new clsSupplier(0)
+            clsSupplier warehouse = new clsSupplier()
             {
                 SupplierRef = txtSupplierRef.Text.TrimEnd()
             };

@@ -28,17 +28,17 @@ namespace DMHV2
         public string Memo;      
         public string SupplierRef;        
         public string SupplierName;
-        private int user;
-        public clsSupplier(int users)
+       
+        public clsSupplier()
         {
-            user = users;
+            
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
         }
         ~clsSupplier()
         {
-            user = 0;
+            
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;

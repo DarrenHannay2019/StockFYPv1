@@ -31,14 +31,6 @@
             this.Label9 = new System.Windows.Forms.Label();
             this.TxtTransferID = new System.Windows.Forms.TextBox();
             this.DgvRecords = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmdDeleteFromGrid = new System.Windows.Forms.Button();
             this.CmdAddToGrid = new System.Windows.Forms.Button();
             this.txtTotalTransferTo = new System.Windows.Forms.TextBox();
@@ -61,6 +53,10 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvRecords)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,10 +85,6 @@
             this.DgvRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvRecords.ColumnHeadersHeight = 29;
             this.DgvRecords.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
             this.Column5,
             this.Column6,
             this.Column7,
@@ -103,62 +95,6 @@
             this.DgvRecords.RowHeadersWidth = 51;
             this.DgvRecords.Size = new System.Drawing.Size(569, 238);
             this.DgvRecords.TabIndex = 33;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "LineID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "TransferID";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "SMTOID";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Visible = false;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "SMTIID";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 162.2788F;
-            this.Column5.HeaderText = "Stock Code";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.FillWeight = 61.57903F;
-            this.Column6.HeaderText = "Current Qty";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.FillWeight = 76.14214F;
-            this.Column7.HeaderText = "Qty";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "To Qty";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.Visible = false;
             // 
             // CmdDeleteFromGrid
             // 
@@ -382,6 +318,34 @@
             this.Label1.TabIndex = 38;
             this.Label1.Text = "TF Note No:";
             // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 162.2788F;
+            this.Column5.HeaderText = "Stock Code";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 61.57903F;
+            this.Column6.HeaderText = "Current Qty";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 76.14214F;
+            this.Column7.HeaderText = "Qty";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "To Qty";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            // 
             // frmWarehouseTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -428,14 +392,6 @@
         internal System.Windows.Forms.Label Label9;
         internal System.Windows.Forms.TextBox TxtTransferID;
         internal System.Windows.Forms.DataGridView DgvRecords;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         internal System.Windows.Forms.Button CmdDeleteFromGrid;
         internal System.Windows.Forms.Button CmdAddToGrid;
         internal System.Windows.Forms.TextBox txtTotalTransferTo;
@@ -458,5 +414,9 @@
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Label Label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

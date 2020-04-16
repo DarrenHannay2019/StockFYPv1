@@ -281,7 +281,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
             this.IsMdiContainer = true;
-            this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

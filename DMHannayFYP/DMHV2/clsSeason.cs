@@ -6,6 +6,7 @@
 
     public class clsSeason : clsUtils
     { 
+        // properties for the class
         public int SeasonID { get; set; }
         public string SeasonName;
         public clsSeason()
@@ -16,7 +17,7 @@
         {
 
         }
-       
+       // load new season form
         public void LoadNewSeasonForm()
         {
             frmSeason season = new frmSeason
@@ -26,6 +27,7 @@
             };
             season.ShowDialog();
         }
+        // load old season form
         public void LoadSelectedSeasonForm()
         {
             frmSeason season = new frmSeason()
@@ -36,6 +38,7 @@
             };            
             season.ShowDialog();
         }
+        // delete season name from database
         public bool DeleteSeasonName()
         {
             DeleteFromDB = false;
@@ -63,6 +66,7 @@
             }
             return DeleteFromDB;
         }
+        // update season name in database
         public bool UpdateSeasonName()
         {
             UpdateToDB = true;
@@ -90,6 +94,7 @@
             }
             return UpdateToDB;     
         }
+        // save season name to database
         public bool SaveSeasonName()
         {
             using (SqlConnection conn = new SqlConnection())

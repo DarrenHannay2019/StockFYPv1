@@ -47,6 +47,7 @@ namespace DMHV2
 
         private void frmSeason_Load(object sender, EventArgs e)
         {
+            // setup the form
             if(ModeOfForm == "New")
             {
                 BtnOK.Text = "Save";
@@ -60,6 +61,7 @@ namespace DMHV2
         }
         private string LoadData()
         {
+            // load the data from the database of the selected ID
             string SName = "";
             try
             {
@@ -79,6 +81,7 @@ namespace DMHV2
                     }
                     catch (SqlException ex)
                     {
+                        MessageBox.Show( ex.Message.ToString());
                         conn.Close();
                         conn.Dispose();
                         throw;

@@ -28,6 +28,12 @@
             DeleteFromDB = false;
             UpdateToDB = false;
         }
+        ~clsStock()
+        {
+            SaveToDB = false;
+            DeleteFromDB = false;
+            UpdateToDB = false;
+        }
         public void LoadNewForm()
         {
             frmStock objStock = new frmStock();

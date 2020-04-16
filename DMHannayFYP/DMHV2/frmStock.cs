@@ -41,6 +41,7 @@ namespace DMHV2
 
         private void frmStock_Load(object sender, EventArgs e)
         {
+            GetAllSeasonData();
             if(FormMode == "New")
             {
                 CmdOK.Text = "Save";
@@ -50,6 +51,30 @@ namespace DMHV2
                 CmdOK.Text = "Ok";
                 LoadData();
             }
+        }
+        private void GetAllSeasonData()
+        {
+            SqlConnection conn = new SqlConnection
+            {
+                ConnectionString = clsUtils.GetConnString(1)
+            };
+            conn.Open();
+            SqlCommand SelectCmd = new SqlCommand
+            {
+                CommandText = "SELECT SeasonName from tblSeasons",
+                Connection = conn
+            };
+            SqlDataReader dataReader;
+            dataReader = SelectCmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {                   
+                    CboSeason.Items.Add(dataReader.GetString(i));
+                }
+            }
+            dataReader.Close();
+            conn.Close();
         }
         private void LoadData()
         {
@@ -67,6 +92,7 @@ namespace DMHV2
                     sqlDataAdapter.SelectCommand = SelectCmd;
                     sqlDataAdapter.Fill(dtk);
                 }
+
                 //TxtSupplierRef.Text = dtk.Rows[0][1].ToString();
                 //TxtSupplierName.Text = dtk.Rows[0][1].ToString();
                 //TxtAddressLine1.Text = dtk.Rows[0][2].ToString();

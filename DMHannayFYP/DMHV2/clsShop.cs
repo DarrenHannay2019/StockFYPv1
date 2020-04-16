@@ -25,7 +25,14 @@
         public string WebsiteAddress;
         public string Memo;
         public int UserID;
+        public clsShop()
+        {
 
+        }
+        ~clsShop() 
+        {
+        
+        }
         public void LoadNewRecord()
         {
             frmShop shop = new frmShop

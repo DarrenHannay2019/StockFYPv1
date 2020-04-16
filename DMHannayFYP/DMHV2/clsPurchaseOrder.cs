@@ -14,7 +14,6 @@
         public string WarehouseRef { get; set; }
         public string SeasonName { get; set; }
         public int UserID;
-
         public int TotalGarments;
         public int TotalHangers;
         public int TotalBoxes;
@@ -41,7 +40,10 @@
         }
         ~clsPurchaseOrder()
         {
-           
+            SaveToDB = false;
+            UpdateToDB = false;
+            DeleteFromDB = false;
+            Users = 0;
         }
         public void LoadNewPurchaseOrder()
         {
@@ -69,8 +71,7 @@
         {
             SaveToDB = false;
             UpdateToDB = false;
-            DeleteFromDB = false;
-           
+            DeleteFromDB = false;           
         }
 
         ~clsPurchaseOrderLine()
@@ -114,7 +115,6 @@
             {
                 SaveToDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
-
             }
             return SaveToDB;
         }
@@ -175,11 +175,8 @@
     }
     public class clsPurchaseOrderHead : clsPurchaseOrder
     {
-        
-       
         public clsPurchaseOrderHead(int U)
-        {
-            
+        {            
             SaveToDB = false;
             UpdateToDB = false;
             DeleteFromDB = false;
@@ -239,7 +236,6 @@
             {
                 SaveToDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
-
             }
             return SaveToDB;
         }
@@ -290,7 +286,6 @@
             {
                 UpdateToDB = false;
                 MessageBox.Show("Error in adding to database\n" + ex.Message);
-
             }
             return UpdateToDB;
         }

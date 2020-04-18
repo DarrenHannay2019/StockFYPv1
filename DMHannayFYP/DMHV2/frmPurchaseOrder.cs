@@ -99,7 +99,7 @@ namespace DMHV2
                     if(orderLine.SaveToPurchaseOrderLinetbl() == true)
                     {
                         stock.StockCode = orderLine.StockCode;
-                        if(stock.CheckStockCodeSave() == false)
+                        if(stock.CheckStockCodeSave() == 0)
                         {
                             stock.StockCode = orderLine.StockCode;
                             stock.SupplierRef = orderHead.SupplierRef;
@@ -204,7 +204,7 @@ namespace DMHV2
             TxtStockCode.Text = clsUtils.ChangeCase(TxtStockCode.Text.TrimEnd(), 1);
             clsStock stock = new clsStock();
             stock.StockCode = TxtStockCode.Text.TrimEnd();
-            if(stock.CheckStockCodeSave() == true)
+            if(stock.CheckStockCodeSave() != 0)
             {
                 MessageBox.Show("Already StockCode in Database");
             }
@@ -472,6 +472,11 @@ namespace DMHV2
         private void TxtVATAmount_Leave(object sender, EventArgs e)
         {
             TotalCalc();
+        }
+
+        private void TxtOurRef_Leave(object sender, EventArgs e)
+        {
+            TxtOurRef.Text = clsUtils.ChangeCase(TxtOurRef.Text.TrimEnd(), 1);
         }
     }
 }

@@ -148,7 +148,7 @@ namespace DMHV2
             // Functions not implemented as of this release
            // shopFunctionsToolStripMenuItem.Visible = false;
            // maintananceFunctionsToolStripMenuItem.Visible = false;
-            reportsToolStripMenuItem.Visible = false;
+          //  reportsToolStripMenuItem.Visible = false;
            // warehouseAdjustmentsToolStripMenuItem.Visible = false;
           //  warehouseReturnsToolStripMenuItem.Visible = false;
           //  warehouseTransfersToolStripMenuItem.Visible = false;
@@ -318,6 +318,22 @@ namespace DMHV2
         {
             clsSettings settings = new clsSettings();
             settings.LoadSettings();
+        }
+
+        private void totalValueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //15
+            frmDataGrid objGrid = new frmDataGrid
+            {
+                FunctionID = 16,
+                Text = "Company Valuation",
+                UserIDs = UserID,
+                MdiParent = this,
+                Dock = DockStyle.Fill
+            };
+            objGrid.Show();
+            splitContainer1.Panel2.Controls.Add(objGrid);
+            objGrid.BringToFront();
         }
     }
 }

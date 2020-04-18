@@ -175,7 +175,7 @@
                         using (SqlCommand UpdateCmd = new SqlCommand())
                         {
                             UpdateCmd.Connection = conn;
-                            UpdateCmd.CommandText = "UPDATE tblStock SET AmountTaken = SELECT SUM(tblSalesLine.LineAmount) FROM tblStock,tblSalesLine WHERE (tblStock.StockCode = tblSalesLine.StockCode)";
+                            UpdateCmd.CommandText = "UPDATE tblStock SET AmountTaken = SUM(tblSalesLine.LineAmount) As AmountTaken FROM tblStock,tblSalesLine WHERE (tblStock.StockCode = tblSalesLine.StockCode)";
                             UpdateCmd.CommandType = CommandType.Text;
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
@@ -214,7 +214,7 @@
                         using (SqlCommand UpdateCmd = new SqlCommand())
                         {
                             UpdateCmd.Connection = conn;
-                            UpdateCmd.CommandText = "UPDATE tblStock SET CostValue = SELECT SUM(tblPurchaseOrderLine.LineAmount) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandText = "UPDATE tblStock SET CostValue = qryPurchaseLineSum.LineAmount FROM tblStock,QryPurchaseLineSum WHERE (tblStock.StockCode = qryPurchaseLineSum.StockCode)";
                             UpdateCmd.CommandType = CommandType.Text;
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
@@ -252,7 +252,7 @@
                         using (SqlCommand UpdateCmd = new SqlCommand())
                         {
                             UpdateCmd.Connection = conn;
-                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyHangers = SELECT SUM(tblPurchaseOrderLine.DeliveredQtyHangers) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyHangers = qryPurchaseLineSum.QtyHangers FROM tblStock,qryPurchaseLineSum WHERE (tblStock.StockCode = qryPurchaseLineSum.StockCode)";
                             UpdateCmd.CommandType = CommandType.Text;
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
@@ -290,7 +290,7 @@
                         using (SqlCommand UpdateCmd = new SqlCommand())
                         {
                             UpdateCmd.Connection = conn;
-                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyBoxes = SELECT SUM(tblPurchaseOrderLine.DeliveredQtyBoxes) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyBoxes = qryPurchaseLineSum.QtyBoxes FROM tblStock,qryPurchaseLineSum WHERE (tblStock.StockCode = qryPurchaseLineSum.StockCode)";
                             UpdateCmd.CommandType = CommandType.Text;
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
@@ -328,7 +328,7 @@
                         using (SqlCommand UpdateCmd = new SqlCommand())
                         {
                             UpdateCmd.Connection = conn;
-                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyGarments = SELECT SUM(tblPurchaseOrderLine.DeliveredQtyGarments) FROM tblStock,tblPurchaseOrderLine WHERE (tblStock.StockCode = tblPurchaseOrderLine.StockCode)";
+                            UpdateCmd.CommandText = "UPDATE tblStock SET DeliveredQtyGarments = qryPurchaseLineSum.QtyGarments FROM tblStock,qryPurchaseLineSum WHERE (tblStock.StockCode = qryPurchaseLineSum.StockCode)";
                             UpdateCmd.CommandType = CommandType.Text;
                             Result = (int)UpdateCmd.ExecuteNonQuery();
                         }
@@ -353,7 +353,7 @@
             }
             return UpdateToDB;
         }
-        public bool CheckStockCodeSave()
+        public int CheckStockCodeSave()
         {
             Result = 0;
             try
@@ -368,7 +368,7 @@
                         SelectCmd.CommandText = "SELECT COUNT(*) AS Records FROM tblStock WHERE StockCode = @StockCode";
                         SelectCmd.CommandType = CommandType.Text;
                         SelectCmd.Parameters.AddWithValue("@StockCode", StockCode);
-                        Result = (int)SelectCmd.ExecuteNonQuery();
+                        Result = (int)SelectCmd.ExecuteScalar();
                     }
                 }
 
@@ -378,7 +378,7 @@
                 MessageBox.Show(ex.Message);
                 throw;
             }
-            return UpdateToDB;
+            return Result;
         }
         public bool UpdatePCMarkup()
         {

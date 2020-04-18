@@ -50,7 +50,7 @@
             frmPurchaseOrder oPurchaseOrder = new frmPurchaseOrder();
             oPurchaseOrder.FormMode = "New";
             oPurchaseOrder.LoggedUser = Users;
-            oPurchaseOrder.Show();
+            oPurchaseOrder.ShowDialog();
         }
         public void LoadSelectedPurchaseOrder()
         {

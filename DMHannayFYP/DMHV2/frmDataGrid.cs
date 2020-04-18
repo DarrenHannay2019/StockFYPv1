@@ -759,7 +759,8 @@ namespace DMHV2
                 }
                 BindingSource1.DataSource = dataTable;
                 DataGridView1.DataSource = BindingSource1;
-                TSSCount.Text = DataGridView1.Rows.Count.ToString();
+                int count = DataGridView1.Rows.Count + 1;
+                TSSCount.Text = count.ToString();
             }
         }
         private void CustomiseDataGrid()
@@ -867,6 +868,7 @@ namespace DMHV2
                 DataGridView1.Columns[12].Width = 100;
                 DataGridView1.Columns[12].Visible = true;
                 TSSLFunction.Text = "Current Stock";
+                TSBBalances.Visible = true;
             }
             if (FunctionID == 5)
             {
@@ -926,6 +928,7 @@ namespace DMHV2
                 DataGridView1.Columns[12].Width = 100;
                 DataGridView1.Columns[12].Visible = true;
                 TSSLFunction.Text = "All Stock";
+                TSBBalances.Visible = true;
             }
             if (FunctionID == 6)
             {
@@ -1308,7 +1311,7 @@ namespace DMHV2
                 DataGridView1.Columns[5].HeaderText = "Total VAT";
                 DataGridView1.Columns[5].Width = 150;
                 DataGridView1.Columns[5].Visible = true;
-                DataGridView1.Columns[5].DefaultCellStyle.Format = "P2";
+                DataGridView1.Columns[5].DefaultCellStyle.Format = "C2";
                 // Total Value
                 DataGridView1.Columns[6].HeaderText = "Total Value";
                 DataGridView1.Columns[6].Width = 150;
@@ -1361,6 +1364,24 @@ namespace DMHV2
                 DataGridView1.Columns[7].Visible = true;
                 TSSLFunction.Text = "Shop Returns";
             }
+            if (FunctionID == 16)
+            {
+                DataGridView1.Columns[2].DefaultCellStyle.Format = "C2";
+                TSSLFunction.Text = "Total Value";
+                decimal valuescost;
+                valuescost = 0.0m;
+                for (int i = 0; i < DataGridView1.Rows.Count; i++)
+                {
+                    valuescost += Convert.ToDecimal(DataGridView1.Rows[i].Cells[2].Value);
+                }
+                TSSCount.Text = valuescost.ToString("C2");                    
+                TSBBalances.Visible = false;
+                TsbNew.Visible = false;
+                TsbRecord.Visible = false;
+                TsbFind.Visible = false;
+                TsbPrint.Visible = false;
+                TsbDelete.Visible = false;
+            }
         }
         private string GetFunctionSelectString()
         {
@@ -1390,7 +1411,7 @@ namespace DMHV2
             }
             else if (FunctionID == 7)
             {
-                SqlCmdString = "SELECT * from qryPurchaseOrders";
+                SqlCmdString = "SELECT * from qryPurchaseOrders order by PurchaseOrderID desc";
             }
             if (FunctionID == 8)
             {
@@ -1424,6 +1445,10 @@ namespace DMHV2
             {
                 SqlCmdString = "SELECT * from qryShopReturns";
             }
+            if(FunctionID == 16)
+            {
+                SqlCmdString = "SELECT * from qryTotalValue";
+            }
             return SqlCmdString;
         }
         #endregion
@@ -1432,6 +1457,25 @@ namespace DMHV2
         private void TSBBalances_Click(object sender, EventArgs e)
         {
             // Function not implemented.
+            clsStock stock = new clsStock();
+            if(FunctionID == 4)
+            {
+                stock.UpdateCostValue();
+               // stock.UpdateAmountTaken();
+                stock.UpdateDeliveredQtyBoxesValue();
+                stock.UpdateDeliveredQtyGarmentsValue();
+                stock.UpdateDeliveredQtyHangersValue();
+                stock.UpdatePCMarkup();
+            }
+            if(FunctionID == 5)
+            {
+                stock.UpdateCostValue();
+               // stock.UpdateAmountTaken();
+                stock.UpdateDeliveredQtyBoxesValue();
+                stock.UpdateDeliveredQtyGarmentsValue();
+                stock.UpdateDeliveredQtyHangersValue();
+                stock.UpdatePCMarkup();
+            }
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

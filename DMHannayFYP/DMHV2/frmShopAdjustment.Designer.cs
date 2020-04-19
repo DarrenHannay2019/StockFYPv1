@@ -37,6 +37,10 @@
             this.txtTotalLoss = new System.Windows.Forms.TextBox();
             this.txtTotalGain = new System.Windows.Forms.TextBox();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.stockCodeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransFromQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransToQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrices = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmdDeleteFromGrid = new System.Windows.Forms.Button();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.txtAdjustHangers = new System.Windows.Forms.TextBox();
@@ -58,20 +62,16 @@
             this.Label4 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
             this.txtStockCode = new System.Windows.Forms.TextBox();
-            this.stockCodeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransFromQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransToQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrices = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtSID
             // 
             this.TxtSID.Location = new System.Drawing.Point(611, 14);
-            this.TxtSID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtSID.Margin = new System.Windows.Forms.Padding(4);
             this.TxtSID.Name = "TxtSID";
             this.TxtSID.Size = new System.Drawing.Size(145, 22);
-            this.TxtSID.TabIndex = 45;
+            this.TxtSID.TabIndex = 27;
             // 
             // Label11
             // 
@@ -81,7 +81,7 @@
             this.Label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label11.Name = "Label11";
             this.Label11.Size = new System.Drawing.Size(176, 24);
-            this.Label11.TabIndex = 44;
+            this.Label11.TabIndex = 26;
             this.Label11.Text = "Shop Adjustment ID";
             // 
             // Label9
@@ -92,7 +92,7 @@
             this.Label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(95, 24);
-            this.Label9.TabIndex = 52;
+            this.Label9.TabIndex = 15;
             this.Label9.Text = "Total Gain";
             // 
             // Label6
@@ -103,26 +103,26 @@
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(95, 24);
-            this.Label6.TabIndex = 55;
+            this.Label6.TabIndex = 17;
             this.Label6.Text = "Total Loss";
             // 
             // txtTotalLoss
             // 
             this.txtTotalLoss.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalLoss.Location = new System.Drawing.Point(587, 540);
-            this.txtTotalLoss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalLoss.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalLoss.Name = "txtTotalLoss";
             this.txtTotalLoss.Size = new System.Drawing.Size(71, 28);
-            this.txtTotalLoss.TabIndex = 54;
+            this.txtTotalLoss.TabIndex = 18;
             // 
             // txtTotalGain
             // 
             this.txtTotalGain.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalGain.Location = new System.Drawing.Point(460, 540);
-            this.txtTotalGain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalGain.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalGain.Name = "txtTotalGain";
             this.txtTotalGain.Size = new System.Drawing.Size(85, 28);
-            this.txtTotalGain.TabIndex = 53;
+            this.txtTotalGain.TabIndex = 16;
             // 
             // dgvItems
             // 
@@ -136,247 +136,11 @@
             this.TransToQty,
             this.UnitPrices});
             this.dgvItems.Location = new System.Drawing.Point(57, 271);
-            this.dgvItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvItems.Margin = new System.Windows.Forms.Padding(4);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersWidth = 51;
             this.dgvItems.Size = new System.Drawing.Size(711, 236);
-            this.dgvItems.TabIndex = 39;
-            // 
-            // CmdDeleteFromGrid
-            // 
-            this.CmdDeleteFromGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdDeleteFromGrid.Location = new System.Drawing.Point(697, 207);
-            this.CmdDeleteFromGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CmdDeleteFromGrid.Name = "CmdDeleteFromGrid";
-            this.CmdDeleteFromGrid.Size = new System.Drawing.Size(37, 41);
-            this.CmdDeleteFromGrid.TabIndex = 35;
-            this.CmdDeleteFromGrid.Text = "-";
-            this.CmdDeleteFromGrid.UseVisualStyleBackColor = true;
-            this.CmdDeleteFromGrid.Click += new System.EventHandler(this.CmdDeleteFromGrid_Click);
-            // 
-            // cboType
-            // 
-            this.cboType.AutoCompleteCustomSource.AddRange(new string[] {
-            "Gain",
-            "Loss"});
-            this.cboType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboType.FormattingEnabled = true;
-            this.cboType.Items.AddRange(new object[] {
-            "Loss",
-            "Gain"});
-            this.cboType.Location = new System.Drawing.Point(336, 219);
-            this.cboType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(177, 30);
-            this.cboType.TabIndex = 32;
-            // 
-            // txtAdjustHangers
-            // 
-            this.txtAdjustHangers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdjustHangers.Location = new System.Drawing.Point(539, 219);
-            this.txtAdjustHangers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtAdjustHangers.Name = "txtAdjustHangers";
-            this.txtAdjustHangers.Size = new System.Drawing.Size(79, 28);
-            this.txtAdjustHangers.TabIndex = 33;
-            // 
-            // Label8
-            // 
-            this.Label8.AutoSize = true;
-            this.Label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label8.Location = new System.Drawing.Point(521, 180);
-            this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(142, 24);
-            this.Label8.TabIndex = 43;
-            this.Label8.Text = "Adjustment Qty:";
-            // 
-            // CmdAddToGrid
-            // 
-            this.CmdAddToGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAddToGrid.Location = new System.Drawing.Point(651, 208);
-            this.CmdAddToGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CmdAddToGrid.Name = "CmdAddToGrid";
-            this.CmdAddToGrid.Size = new System.Drawing.Size(37, 42);
-            this.CmdAddToGrid.TabIndex = 34;
-            this.CmdAddToGrid.Text = "+";
-            this.CmdAddToGrid.UseVisualStyleBackColor = true;
-            this.CmdAddToGrid.Click += new System.EventHandler(this.CmdAddToGrid_Click);
-            // 
-            // Label7
-            // 
-            this.Label7.AutoSize = true;
-            this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label7.Location = new System.Drawing.Point(331, 180);
-            this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(157, 24);
-            this.Label7.TabIndex = 42;
-            this.Label7.Text = "Adjustment Type:";
-            // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label5.Location = new System.Drawing.Point(53, 133);
-            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(116, 24);
-            this.Label5.TabIndex = 50;
-            this.Label5.Text = "Shop Name:";
-            // 
-            // txtWarehouseName
-            // 
-            this.txtWarehouseName.Enabled = false;
-            this.txtWarehouseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseName.Location = new System.Drawing.Point(177, 129);
-            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(183, 28);
-            this.txtWarehouseName.TabIndex = 51;
-            // 
-            // DateTimePicker1
-            // 
-            this.DateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimePicker1.Location = new System.Drawing.Point(177, 4);
-            this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.DateTimePicker1.Name = "DateTimePicker1";
-            this.DateTimePicker1.Size = new System.Drawing.Size(217, 28);
-            this.DateTimePicker1.TabIndex = 28;
-            this.DateTimePicker1.Value = new System.DateTime(2017, 9, 1, 0, 0, 0, 0);
-            // 
-            // Label10
-            // 
-            this.Label10.AutoSize = true;
-            this.Label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label10.Location = new System.Drawing.Point(13, 9);
-            this.Label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(156, 24);
-            this.Label10.TabIndex = 46;
-            this.Label10.Text = "Transaction Date:";
-            // 
-            // CmdOK
-            // 
-            this.CmdOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.CmdOK.Location = new System.Drawing.Point(460, 578);
-            this.CmdOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CmdOK.Name = "CmdOK";
-            this.CmdOK.Size = new System.Drawing.Size(87, 41);
-            this.CmdOK.TabIndex = 36;
-            this.CmdOK.Text = "Add";
-            this.CmdOK.UseVisualStyleBackColor = true;
-            this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
-            // 
-            // txtCurrentHangers
-            // 
-            this.txtCurrentHangers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrentHangers.Location = new System.Drawing.Point(197, 219);
-            this.txtCurrentHangers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCurrentHangers.Name = "txtCurrentHangers";
-            this.txtCurrentHangers.Size = new System.Drawing.Size(131, 28);
-            this.txtCurrentHangers.TabIndex = 40;
-            // 
-            // CmdCancel
-            // 
-            this.CmdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.CmdCancel.Location = new System.Drawing.Point(651, 578);
-            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CmdCancel.Name = "CmdCancel";
-            this.CmdCancel.Size = new System.Drawing.Size(117, 41);
-            this.CmdCancel.TabIndex = 38;
-            this.CmdCancel.Text = "Cancel";
-            this.CmdCancel.UseVisualStyleBackColor = true;
-            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
-            // 
-            // CmdClear
-            // 
-            this.CmdClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.CmdClear.Location = new System.Drawing.Point(555, 578);
-            this.CmdClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CmdClear.Name = "CmdClear";
-            this.CmdClear.Size = new System.Drawing.Size(87, 41);
-            this.CmdClear.TabIndex = 37;
-            this.CmdClear.Text = "Clear";
-            this.CmdClear.UseVisualStyleBackColor = true;
-            this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
-            // 
-            // txtWarehouseRef
-            // 
-            this.txtWarehouseRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseRef.Location = new System.Drawing.Point(177, 82);
-            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtWarehouseRef.MaxLength = 8;
-            this.txtWarehouseRef.Name = "txtWarehouseRef";
-            this.txtWarehouseRef.Size = new System.Drawing.Size(76, 28);
-            this.txtWarehouseRef.TabIndex = 30;
-            this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
-            // 
-            // txtReference
-            // 
-            this.txtReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReference.Location = new System.Drawing.Point(177, 47);
-            this.txtReference.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtReference.MaxLength = 50;
-            this.txtReference.Name = "txtReference";
-            this.txtReference.Size = new System.Drawing.Size(161, 28);
-            this.txtReference.TabIndex = 29;
-            // 
-            // Label1
-            // 
-            this.Label1.AutoSize = true;
-            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label1.Location = new System.Drawing.Point(67, 50);
-            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(103, 24);
-            this.Label1.TabIndex = 49;
-            this.Label1.Text = "Reference:";
-            // 
-            // Label2
-            // 
-            this.Label2.AutoSize = true;
-            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label2.Location = new System.Drawing.Point(76, 92);
-            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(93, 24);
-            this.Label2.TabIndex = 47;
-            this.Label2.Text = "Shop Ref:";
-            // 
-            // Label4
-            // 
-            this.Label4.AutoSize = true;
-            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label4.Location = new System.Drawing.Point(192, 180);
-            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(110, 24);
-            this.Label4.TabIndex = 41;
-            this.Label4.Text = "Current Qty:";
-            // 
-            // Label3
-            // 
-            this.Label3.AutoSize = true;
-            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label3.Location = new System.Drawing.Point(57, 180);
-            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(112, 24);
-            this.Label3.TabIndex = 48;
-            this.Label3.Text = "Stock Code:";
-            // 
-            // txtStockCode
-            // 
-            this.txtStockCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStockCode.Location = new System.Drawing.Point(60, 219);
-            this.txtStockCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtStockCode.MaxLength = 30;
-            this.txtStockCode.Name = "txtStockCode";
-            this.txtStockCode.Size = new System.Drawing.Size(129, 28);
-            this.txtStockCode.TabIndex = 31;
-            this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
+            this.dgvItems.TabIndex = 19;
             // 
             // stockCodeCol
             // 
@@ -409,6 +173,242 @@
             this.UnitPrices.MinimumWidth = 6;
             this.UnitPrices.Name = "UnitPrices";
             this.UnitPrices.Visible = false;
+            // 
+            // CmdDeleteFromGrid
+            // 
+            this.CmdDeleteFromGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdDeleteFromGrid.Location = new System.Drawing.Point(697, 207);
+            this.CmdDeleteFromGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdDeleteFromGrid.Name = "CmdDeleteFromGrid";
+            this.CmdDeleteFromGrid.Size = new System.Drawing.Size(37, 41);
+            this.CmdDeleteFromGrid.TabIndex = 7;
+            this.CmdDeleteFromGrid.Text = "-";
+            this.CmdDeleteFromGrid.UseVisualStyleBackColor = true;
+            this.CmdDeleteFromGrid.Click += new System.EventHandler(this.CmdDeleteFromGrid_Click);
+            // 
+            // cboType
+            // 
+            this.cboType.AutoCompleteCustomSource.AddRange(new string[] {
+            "Gain",
+            "Loss"});
+            this.cboType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboType.FormattingEnabled = true;
+            this.cboType.Items.AddRange(new object[] {
+            "Loss",
+            "Gain"});
+            this.cboType.Location = new System.Drawing.Point(336, 219);
+            this.cboType.Margin = new System.Windows.Forms.Padding(4);
+            this.cboType.Name = "cboType";
+            this.cboType.Size = new System.Drawing.Size(177, 30);
+            this.cboType.TabIndex = 4;
+            // 
+            // txtAdjustHangers
+            // 
+            this.txtAdjustHangers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdjustHangers.Location = new System.Drawing.Point(539, 219);
+            this.txtAdjustHangers.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAdjustHangers.Name = "txtAdjustHangers";
+            this.txtAdjustHangers.Size = new System.Drawing.Size(79, 28);
+            this.txtAdjustHangers.TabIndex = 5;
+            // 
+            // Label8
+            // 
+            this.Label8.AutoSize = true;
+            this.Label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label8.Location = new System.Drawing.Point(521, 180);
+            this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label8.Name = "Label8";
+            this.Label8.Size = new System.Drawing.Size(142, 24);
+            this.Label8.TabIndex = 14;
+            this.Label8.Text = "Adjustment Qty:";
+            // 
+            // CmdAddToGrid
+            // 
+            this.CmdAddToGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdAddToGrid.Location = new System.Drawing.Point(651, 208);
+            this.CmdAddToGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdAddToGrid.Name = "CmdAddToGrid";
+            this.CmdAddToGrid.Size = new System.Drawing.Size(37, 42);
+            this.CmdAddToGrid.TabIndex = 6;
+            this.CmdAddToGrid.Text = "+";
+            this.CmdAddToGrid.UseVisualStyleBackColor = true;
+            this.CmdAddToGrid.Click += new System.EventHandler(this.CmdAddToGrid_Click);
+            // 
+            // Label7
+            // 
+            this.Label7.AutoSize = true;
+            this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label7.Location = new System.Drawing.Point(331, 180);
+            this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label7.Name = "Label7";
+            this.Label7.Size = new System.Drawing.Size(157, 24);
+            this.Label7.TabIndex = 13;
+            this.Label7.Text = "Adjustment Type:";
+            // 
+            // Label5
+            // 
+            this.Label5.AutoSize = true;
+            this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label5.Location = new System.Drawing.Point(53, 133);
+            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(116, 24);
+            this.Label5.TabIndex = 21;
+            this.Label5.Text = "Shop Name:";
+            // 
+            // txtWarehouseName
+            // 
+            this.txtWarehouseName.Enabled = false;
+            this.txtWarehouseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWarehouseName.Location = new System.Drawing.Point(177, 129);
+            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseName.Name = "txtWarehouseName";
+            this.txtWarehouseName.Size = new System.Drawing.Size(183, 28);
+            this.txtWarehouseName.TabIndex = 22;
+            // 
+            // DateTimePicker1
+            // 
+            this.DateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateTimePicker1.Location = new System.Drawing.Point(177, 4);
+            this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.DateTimePicker1.Name = "DateTimePicker1";
+            this.DateTimePicker1.Size = new System.Drawing.Size(217, 28);
+            this.DateTimePicker1.TabIndex = 0;
+            this.DateTimePicker1.Value = new System.DateTime(2017, 9, 1, 0, 0, 0, 0);
+            // 
+            // Label10
+            // 
+            this.Label10.AutoSize = true;
+            this.Label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label10.Location = new System.Drawing.Point(13, 9);
+            this.Label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label10.Name = "Label10";
+            this.Label10.Size = new System.Drawing.Size(156, 24);
+            this.Label10.TabIndex = 25;
+            this.Label10.Text = "Transaction Date:";
+            // 
+            // CmdOK
+            // 
+            this.CmdOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.CmdOK.Location = new System.Drawing.Point(460, 578);
+            this.CmdOK.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdOK.Name = "CmdOK";
+            this.CmdOK.Size = new System.Drawing.Size(87, 41);
+            this.CmdOK.TabIndex = 8;
+            this.CmdOK.Text = "Add";
+            this.CmdOK.UseVisualStyleBackColor = true;
+            this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
+            // 
+            // txtCurrentHangers
+            // 
+            this.txtCurrentHangers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrentHangers.Location = new System.Drawing.Point(197, 219);
+            this.txtCurrentHangers.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCurrentHangers.Name = "txtCurrentHangers";
+            this.txtCurrentHangers.Size = new System.Drawing.Size(131, 28);
+            this.txtCurrentHangers.TabIndex = 11;
+            // 
+            // CmdCancel
+            // 
+            this.CmdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.CmdCancel.Location = new System.Drawing.Point(651, 578);
+            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdCancel.Name = "CmdCancel";
+            this.CmdCancel.Size = new System.Drawing.Size(117, 41);
+            this.CmdCancel.TabIndex = 10;
+            this.CmdCancel.Text = "Cancel";
+            this.CmdCancel.UseVisualStyleBackColor = true;
+            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
+            // 
+            // CmdClear
+            // 
+            this.CmdClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.CmdClear.Location = new System.Drawing.Point(555, 578);
+            this.CmdClear.Margin = new System.Windows.Forms.Padding(4);
+            this.CmdClear.Name = "CmdClear";
+            this.CmdClear.Size = new System.Drawing.Size(87, 41);
+            this.CmdClear.TabIndex = 9;
+            this.CmdClear.Text = "Clear";
+            this.CmdClear.UseVisualStyleBackColor = true;
+            this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
+            // 
+            // txtWarehouseRef
+            // 
+            this.txtWarehouseRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWarehouseRef.Location = new System.Drawing.Point(177, 82);
+            this.txtWarehouseRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWarehouseRef.MaxLength = 8;
+            this.txtWarehouseRef.Name = "txtWarehouseRef";
+            this.txtWarehouseRef.Size = new System.Drawing.Size(76, 28);
+            this.txtWarehouseRef.TabIndex = 2;
+            this.txtWarehouseRef.Leave += new System.EventHandler(this.txtWarehouseRef_Leave);
+            // 
+            // txtReference
+            // 
+            this.txtReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReference.Location = new System.Drawing.Point(177, 47);
+            this.txtReference.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReference.MaxLength = 50;
+            this.txtReference.Name = "txtReference";
+            this.txtReference.Size = new System.Drawing.Size(161, 28);
+            this.txtReference.TabIndex = 1;
+            // 
+            // Label1
+            // 
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.Location = new System.Drawing.Point(67, 50);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(103, 24);
+            this.Label1.TabIndex = 24;
+            this.Label1.Text = "Reference:";
+            // 
+            // Label2
+            // 
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Location = new System.Drawing.Point(76, 92);
+            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(93, 24);
+            this.Label2.TabIndex = 23;
+            this.Label2.Text = "Shop Ref:";
+            // 
+            // Label4
+            // 
+            this.Label4.AutoSize = true;
+            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label4.Location = new System.Drawing.Point(192, 180);
+            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(110, 24);
+            this.Label4.TabIndex = 12;
+            this.Label4.Text = "Current Qty:";
+            // 
+            // Label3
+            // 
+            this.Label3.AutoSize = true;
+            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.Location = new System.Drawing.Point(57, 180);
+            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(112, 24);
+            this.Label3.TabIndex = 20;
+            this.Label3.Text = "Stock Code:";
+            // 
+            // txtStockCode
+            // 
+            this.txtStockCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStockCode.Location = new System.Drawing.Point(60, 219);
+            this.txtStockCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockCode.MaxLength = 30;
+            this.txtStockCode.Name = "txtStockCode";
+            this.txtStockCode.Size = new System.Drawing.Size(129, 28);
+            this.txtStockCode.TabIndex = 3;
+            this.txtStockCode.Leave += new System.EventHandler(this.txtStockCode_Leave);
             // 
             // frmShopAdjustment
             // 

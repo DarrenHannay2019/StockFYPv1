@@ -130,7 +130,7 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblPurchaseOrderLines SET DeliveredQtyGarments = @DeliveredQtyGarments, DeliveredQtyBoxes = @DeliveredQtyBoxes, DeliveredQtyHangers = @DeliveredQtyHangers, LineAmount = @LineAmount,LineVAT = @LineVAT WHERE PurchaseOrderID = @PurchaseOrderID AND StockCode = @StockCode";
+                        sqlCommand.CommandText = "UPDATE tblPurchaseOrderLines SET DeliveredQtyGarments = @DeliveredQtyGarments, DeliveredQtyBoxes = @DeliveredQtyBoxes, DeliveredQtyHangers = @DeliveredQtyHangers, LineAmount = @LineAmount WHERE PurchaseOrderID = @PurchaseOrderID AND StockCode = @StockCode";
                         sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
                         sqlCommand.Parameters.AddWithValue("@StockCode", StockCode);
                         sqlCommand.Parameters.AddWithValue("@DeliveredQtyGarments", DeliveredQtyGarments);
@@ -251,7 +251,7 @@
                     using (SqlCommand sqlCommand = new SqlCommand())
                     {
                         sqlCommand.Connection = sqlConnection;
-                        sqlCommand.CommandText = "UPDATE tblPurchaseOrders SET OurRef = @OurRef, SupplierRef = @SupplierRef, LocationRef = @LocationRef, TotalItems = @TotalItems, TotalBoxes = @TotalBoxes, TotalLoose = @TotalLoose, NetAmount = @NetAmount, DeliveryCharge = @DeliveryCharge, Commission = @Commission, VATAmount = @VATAmount, TotalAmount = @TotalAmount, DeliveryDate = @DeliveryDate, SeasonName = @SeasonName, Notes = @Notes, InvoiceNumber = @InvoiceNumber, ShipperName = @ShipperName, ShipperInvoice = @ShipperInvoice WHERE DeliveriesID = @DeliveriesID";
+                        sqlCommand.CommandText = "UPDATE tblPurchaseOrders SET OurRef = @OurRef, SupplierRef = @SupplierRef, LocationRef = @LocationRef, TotalItems = @TotalItems, TotalBoxes = @TotalBoxes, TotalLoose = @TotalLoose, NetAmount = @NetAmount, DeliveryCharge = @DeliveryCharge, Commission = @Commission, VATAmount = @VATAmount, TotalAmount = @TotalAmount, DeliveryDate = @DeliveryDate, SeasonName = @SeasonName, Notes = @Notes, InvoiceNumber = @InvoiceNumber, ShipperName = @ShipperName, ShipperInvoice = @ShipperInvoice WHERE PurchaseOrderID = @PurchaseOrderID";
                         sqlCommand.Parameters.AddWithValue("@OurRef", OurRef);
                         sqlCommand.Parameters.AddWithValue("@SupplierRef", SupplierRef);
                         sqlCommand.Parameters.AddWithValue("@LocationRef", WarehouseRef);
@@ -269,7 +269,7 @@
                         sqlCommand.Parameters.AddWithValue("@InvoiceNumber", SupplierInvoice);
                         sqlCommand.Parameters.AddWithValue("@ShipperName", Shipper);
                         sqlCommand.Parameters.AddWithValue("@ShipperInvoice", ShipperInvoice);
-                        sqlCommand.Parameters.AddWithValue("@DeliveriesID", PurchaseOrderID);
+                        sqlCommand.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
                         Result = (int)sqlCommand.ExecuteNonQuery();
                     }
                 }

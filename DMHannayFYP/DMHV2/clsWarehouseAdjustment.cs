@@ -22,8 +22,11 @@
         {
             frmWarehouseAdjustment warehouseAdjustment = new frmWarehouseAdjustment
             {
-                FormMode = "Old"
+                FormMode = "Old",
+                LoggedInUser = UserID
+
             };
+            warehouseAdjustment.TxtRecordID.Text = WarehouseAdjustmentID.ToString();
             warehouseAdjustment.Show();
         }
         public int GetLastWarehouseAdjustmentHead()
@@ -135,7 +138,7 @@
                             UpdateCmd.CommandType = CommandType.Text;
                             UpdateCmd.CommandText = "UPDATE tblWarehouseAdjustments SET WarehouseRef = @WarehouseRef, Reference = @Reference, TotalLossItems = @TotalLossItems, TotalGainItems = @TotalGainItems, MovementDate = @MovementDate WHERE WarehouseAdjustmentID = @WarehouseAdjustmentID";
                             UpdateCmd.Parameters.AddWithValue("@WarehouseAdjustmentID", WarehouseAdjustmentID);
-                            UpdateCmd.Parameters.AddWithValue("@WarehouseRef", ShopRef);
+                            UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
                             UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
                             UpdateCmd.Parameters.AddWithValue("@TotalLossItems", TotalLossItems);
                             UpdateCmd.Parameters.AddWithValue("@TotalGainItems", TotalGainItems);

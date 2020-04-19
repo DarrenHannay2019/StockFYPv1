@@ -31,6 +31,7 @@ namespace DMHV2
             txtQtyHangers.Clear();
             txtQty.Clear();
             txtStockCode.Clear();
+            txtStockCode.Select();
         }
 
         private void cmdClear_Click(object sender, EventArgs e)
@@ -91,6 +92,7 @@ namespace DMHV2
                     logs.Qty = deliveryLine.Qty * -1;
                     logs.DeliveredQtyHangers = logs.Qty;
                     logs.SaveToSysLogTable();
+
                     logs.SaveToStockMovementsTable();
                     deliveryLine.SaveShopDeliveryLine();
                     logs.LocationType = 2;
@@ -120,6 +122,7 @@ namespace DMHV2
                     logs.SaveToStockMovementsTable();
                 }
             }
+            this.Close();
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)
@@ -155,7 +158,7 @@ namespace DMHV2
 
         private void txtShopRef_Leave(object sender, EventArgs e)
         {
-            txtWarehouseRef.Text = clsShop.ChangeCase(txtWarehouseRef.Text, 1);
+            txtShopRef.Text = clsShop.ChangeCase(txtShopRef.Text, 1);
             clsShop Shop = new clsShop()
             {
                 ShopRef = txtShopRef.Text.TrimEnd()
@@ -165,11 +168,16 @@ namespace DMHV2
 
         private void txtStockCode_Leave(object sender, EventArgs e)
         {
-            txtStockCode.Text = clsUtils.ChangeCase(txtStockCode.Text, 1);
-            clsStock stock = new clsStock();
-            stock.StockCode = txtStockCode.Text.TrimEnd();
-            stock.SupplierRef = txtWarehouseRef.Text.TrimEnd();
-            txtQty.Text = stock.GetWarehouseStockQty().ToString();
+            if (txtStockCode.TextLength != 0)
+            {
+                txtStockCode.Text = clsUtils.ChangeCase(txtStockCode.Text, 1);
+                clsStock stock = new clsStock();
+                stock.StockCode = txtStockCode.Text.TrimEnd();
+                stock.SupplierRef = txtWarehouseRef.Text.TrimEnd();
+                txtQty.Text = stock.GetWarehouseStockQty().ToString();
+            }
+            else
+            { }            
         }
 
         private void frmShopDelivery_Load(object sender, EventArgs e)

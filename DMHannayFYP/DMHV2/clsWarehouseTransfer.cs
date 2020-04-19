@@ -138,14 +138,12 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblWarehouseTransfers SET Reference = @Reference, TransferDate = @TransferDate, WarehouseRef = @WarehouseRef, WarehouseName = @WarehouseName, ToWarehouseRef = @ToWarehouseRef, ToWarehouseName = @ToShopName, TotalQtyOut = @TotalQtyOut, TotalQtyOut = @TotalQtyOut WHERE TransferID = @TransferID";
-                            UpdateCmd.Parameters.AddWithValue("@TransferID", WarehouseTransferID);
+                            UpdateCmd.CommandText = "UPDATE tblWarehouseTransfers SET Reference = @Reference, TransferDate = @TransferDate, WarehouseRef = @WarehouseRef, ToWarehouseRef = @ToWarehouseRef, TotalQtyOut = @TotalQtyOut, TotalQtyIn = @TotalQtyIn WHERE WarehouseTransferID = @WarehouseTransferID";
+                            UpdateCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);
                             UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
                             UpdateCmd.Parameters.AddWithValue("@TransferDate", MovementDate);
-                            UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                            UpdateCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
+                            UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);    
                             UpdateCmd.Parameters.AddWithValue("@ToWarehouseRef", ToWarehouseRef);
-                            UpdateCmd.Parameters.AddWithValue("@ToWarehouseName", ToWarehouseName);
                             UpdateCmd.Parameters.AddWithValue("@TotalQtyOut", Qty * -1);
                             UpdateCmd.Parameters.AddWithValue("@TotalQtyIn", Qty);
                             Result = (int)UpdateCmd.ExecuteNonQuery();
@@ -189,8 +187,8 @@
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE FROM tblWarehouseTransfers WHERE TransferID = @TransferID";
-                            DeleteCmd.Parameters.AddWithValue("@TransferID", WarehouseTransferID);
+                            DeleteCmd.CommandText = "DELETE FROM tblWarehouseTransfers WHERE WarehouseTransferID = @WarehouseTransferID";
+                            DeleteCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }
@@ -281,9 +279,8 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblWarehouseTransferLines SET CurrentQty = @CurrentQty, TOQty = @TOQty, TIQty = @TIQty WHERE TransferID = @TransferID AND StockCode = @StockCode";
-                            UpdateCmd.Parameters.AddWithValue("@TransferID", WarehouseTransferID);
-                           
+                            UpdateCmd.CommandText = "UPDATE tblWarehouseTransferLines SET CurrentQty = @CurrentQty, TOQty = @TOQty, TIQty = @TIQty WHERE WarehouseTransferID = @WarehouseTransferID AND StockCode = @StockCode";
+                            UpdateCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             UpdateCmd.Parameters.AddWithValue("@CurrentQty", CurrentQty);
                             UpdateCmd.Parameters.AddWithValue("@TOQty", TOQty);
@@ -329,8 +326,8 @@
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE FROM tblWarehouseTransferLines WHERE TransferID = @TransferID;";
-                            DeleteCmd.Parameters.AddWithValue("@TransferID", WarehouseTransferID);
+                            DeleteCmd.CommandText = "DELETE FROM tblWarehouseTransferLines WHERE WarehouseTransferID = @WarehouseTransferID;";
+                            DeleteCmd.Parameters.AddWithValue("@WarehouseTransferID", WarehouseTransferID);
                             DeleteCmd.ExecuteNonQuery();
                         }
                     }

@@ -41,7 +41,19 @@
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
-            clsWarehouseAdjustmentHead adjustmentHead = new clsWarehouseAdjustmentHead();           
+            if(FormMode == "New")
+            {
+                SaveToDb();
+            }
+            else
+            {
+                UpdateToDb();
+            }
+            this.Close();
+        }
+        private void SaveToDb()
+        {
+            clsWarehouseAdjustmentHead adjustmentHead = new clsWarehouseAdjustmentHead();
             int SavedID = 0;
             // Header of both adjustments and log file
             adjustmentHead.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
@@ -50,24 +62,10 @@
             adjustmentHead.TotalLossItems = Convert.ToInt32(TxtTotalLoss.Text.TrimEnd());
             adjustmentHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value);
             adjustmentHead.UserID = LoggedInUser;
-            if (FormMode == "New")
-            {
+           
                 adjustmentHead.SaveWarehouseAdjustmentHead();
                 SavedID = adjustmentHead.GetLastWarehouseAdjustmentHead();
-            }
-            else
-            {
-                clsLogs Dlogs = new clsLogs();  // Delete old StockMovements Data from Table
-                Dlogs.TransferReference = Convert.ToInt32(TxtRecordID.Text.TrimEnd());
-                Dlogs.MovementDate = olddate;
-                Dlogs.MovementType = 6;
-                Dlogs.DeleteFromStockMovemmentsTable();
-                Dlogs.MovementType = 7;
-                Dlogs.DeleteFromStockMovemmentsTable();
-                adjustmentHead.WarehouseAdjustmentID = Convert.ToInt32(TxtRecordID.Text.TrimEnd());
-                adjustmentHead.UpdateWarehouseAdjustmentHead();
-               
-            }
+           
             clsWarehouseAdjustmentLine adjustmentLine = new clsWarehouseAdjustmentLine();
             clsLogs logs = new clsLogs();  // Save To system Log and StockMovements Table
             logs.TransferReference = SavedID;
@@ -108,9 +106,63 @@
                 else
                     adjustmentLine.UpdateWarehouseAdjustmentLine();
             }
-            this.Close();
         }
-
+        private void UpdateToDb()
+        {
+            clsWarehouseAdjustmentHead adjustmentHead = new clsWarehouseAdjustmentHead();
+            clsLogs logs = new clsLogs();  // Delete old StockMovements Data from Table
+            logs.TransferReference = Convert.ToInt32(TxtRecordID.Text.TrimEnd());
+            // Header of both adjustments and log file
+            adjustmentHead.WarehouseRef = TxtWarehouseRef.Text.TrimEnd();
+            adjustmentHead.Reference = TxtReference.Text.TrimEnd();
+            adjustmentHead.TotalGainItems = Convert.ToInt32(TxtTotalGain.Text.TrimEnd());
+            adjustmentHead.TotalLossItems = Convert.ToInt32(TxtTotalLoss.Text.TrimEnd());
+            adjustmentHead.MovementDate = Convert.ToDateTime(DateTimePicker1.Value);
+            logs.MovementDate = olddate;
+            logs.MovementType = 6;
+            logs.DeleteFromStockMovemmentsTable();
+            logs.MovementType = 7;
+            logs.DeleteFromStockMovemmentsTable();
+            adjustmentHead.WarehouseAdjustmentID = Convert.ToInt32(TxtRecordID.Text.TrimEnd());
+            adjustmentHead.UpdateWarehouseAdjustmentHead();
+            clsWarehouseAdjustmentLine adjustmentLine = new clsWarehouseAdjustmentLine();
+            // Save To system Log and StockMovements Table
+            adjustmentLine.WarehouseAdjustmentID = logs.TransferReference;
+            logs.LocationRef = adjustmentHead.WarehouseRef;
+            for (int index = 0; index < dgvItems.Rows.Count; index++)
+            {
+                // Saving details to tblWarehouseAdjustmentLines Table
+                adjustmentLine.StockCode = dgvItems.Rows[index].Cells[0].Value.ToString();
+                adjustmentLine.MovementType = dgvItems.Rows[index].Cells[1].Value.ToString();
+                adjustmentLine.Qty = Convert.ToInt32(dgvItems.Rows[index].Cells[2].Value);
+                //adjustmentLine.Value = Convert.ToDecimal(dgvItems.Rows[index].Cells[3].Value);
+                // Saving details to tblStockMovements Table
+                logs.StockCode = adjustmentLine.StockCode;
+                logs.LocationRef = adjustmentHead.WarehouseRef;
+                logs.LocationType = 1;
+                logs.SupplierRef = "N/A";
+                if (adjustmentLine.MovementType == "Loss")
+                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2].Value) * -1;
+                else
+                    logs.DeliveredQtyHangers = Convert.ToInt32(dgvItems.Rows[index].Cells[2].Value);
+                logs.DeliveredQtyGarments = 0;
+                logs.DeliveredQtyBoxes = 0;
+                if (adjustmentLine.MovementType == "Loss")
+                    logs.MovementType = 7;
+                else
+                    logs.MovementType = 6;
+                logs.MovementDate = adjustmentHead.MovementDate;
+                logs.Reference = adjustmentHead.Reference;
+                logs.StringMovementType = "WarehouseAdjustment-" + adjustmentLine.MovementType;
+                logs.RecordType = "WarehouseAdjustment-Item";
+                logs.UserID = LoggedInUser;
+                // Save to the relevent data tables on each itteration of the Datagridview control
+                logs.SaveToSysLogTable();
+                logs.SaveToStockMovementsTable();
+                adjustmentLine.UpdateWarehouseAdjustmentLine();
+            }
+        }
+    
         private void CmdClear_Click(object sender, EventArgs e)
         {
             TxtAdjustHangers.Clear();
@@ -282,6 +334,11 @@
                     dgvItems.Columns[2].HeaderText = "Qty";                    
                 }                
             }
+        }
+
+        private void dgvItems_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            Totals();
         }
     }
 }

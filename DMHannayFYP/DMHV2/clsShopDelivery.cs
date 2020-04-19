@@ -74,11 +74,8 @@
         public string WarehouseRef;
         public string WarehouseName;
         public string Reference;
-        public DateTime MovementDate;
-      //  public int UserID;
-        public int TotalItems;
-      //  public int ID;
-       // public int ShopDelID;
+        public DateTime MovementDate;      
+        public int TotalItems;   
         public bool SaveShopDeliveryHead()
         {
             try
@@ -94,10 +91,8 @@
                             InsertCmd.Connection.Open();
                             InsertCmd.CommandType = CommandType.Text;
                             InsertCmd.CommandText = "INSERT INTO tblShopDeliveries(ShopRef, WarehouseRef, Reference, TotalItems, DeliveryDate, DeliveryType, ConfirmedDate, Notes, CreatedBy, CreatedDate) VALUES (@ShopRef, @WarehouseRef, @Reference, @TotalItems, @DeliveryDate, @DeliveryType, @ConfirmedDate, @Notes, @CreatedBy, @CreatedDate)";
-                            InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                            //InsertCmd.Parameters.AddWithValue("@ShopName", ShopName);
-                            InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                            //InsertCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
+                            InsertCmd.Parameters.AddWithValue("@ShopRef", ShopRef);     
+                            InsertCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);   
                             InsertCmd.Parameters.AddWithValue("@Reference", Reference);
                             InsertCmd.Parameters.AddWithValue("@TotalItems", TotalItems);
                             InsertCmd.Parameters.AddWithValue("@DeliveryDate", MovementDate);
@@ -143,12 +138,10 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblShopDeliveries SET ShopRef = @ShopRef, ShopName = @ShopName, WarehouseRef = @WarehouseRef, WarehouseName = @WarehouseName, Reference = @Reference, TotalItems = @TotalItems, DeliveryDate = @DeliveryDate, DeliveryType = @DeliveryType, ConfirmedDate = @ConfirmedDate, Notes = @Notes WHERE DeliveriesID = @DeliveriesID";
-                            UpdateCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
+                            UpdateCmd.CommandText = "UPDATE tblShopDeliveries SET ShopRef = @ShopRef, WarehouseRef = @WarehouseRef, Reference = @Reference, TotalItems = @TotalItems, DeliveryDate = @DeliveryDate, DeliveryType = @DeliveryType, ConfirmedDate = @ConfirmedDate, Notes = @Notes WHERE ShopDeliveryID = @ShopDeliveryID";
+                            UpdateCmd.Parameters.AddWithValue("@ShopDeliveryID", ShopDelID);
                             UpdateCmd.Parameters.AddWithValue("@ShopRef", ShopRef);
-                            UpdateCmd.Parameters.AddWithValue("@ShopName", ShopName);
                             UpdateCmd.Parameters.AddWithValue("@WarehouseRef", WarehouseRef);
-                            UpdateCmd.Parameters.AddWithValue("@WarehouseName", WarehouseName);
                             UpdateCmd.Parameters.AddWithValue("@Reference", Reference);
                             UpdateCmd.Parameters.AddWithValue("@TotalItems", TotalItems);
                             UpdateCmd.Parameters.AddWithValue("@DeliveryDate", MovementDate);
@@ -172,7 +165,7 @@
             }
             catch (SqlException ex)
             {
-                System.Windows.Forms.MessageBox.Show("Error in Saving\n" + ex.Message);
+                System.Windows.Forms.MessageBox.Show("Error in Updating\n" + ex.Message);
                 UpdateToDB = false;
                 throw;
             }
@@ -196,14 +189,14 @@
                             DeleteCmd.Connection = conn;
                             DeleteCmd.Connection.Open();
                             DeleteCmd.CommandType = CommandType.Text;
-                            DeleteCmd.CommandText = "DELETE from tblShopDeliveries where DeliveriesID = @DeliveriesID;";
-                            DeleteCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
+                            DeleteCmd.CommandText = "DELETE from tblShopDeliveries where ShopDeliveryID = @ShopDeliveryID;";
+                            DeleteCmd.Parameters.AddWithValue("@ShopDeliveryID", ShopDelID);
                             Result = (int)DeleteCmd.ExecuteNonQuery();
                         }
                     }
                     catch (SqlException ex)
                     {
-                        System.Windows.Forms.MessageBox.Show("Error in Saving\n" + ex.Message);
+                        System.Windows.Forms.MessageBox.Show("Error in Deleting\n" + ex.Message);
                         DeleteFromDB = false;
                         throw;
                     }
@@ -229,8 +222,7 @@
     public class clsShopDeliveryLine : clsShopDelivery
     {
         public string StockCode;
-        public int Qty;
-      //  public string ShopDelID;
+        public int Qty;     
         public bool SaveShopDeliveryLine()
         {
             try
@@ -290,8 +282,8 @@
                             UpdateCmd.Connection = conn;
                             UpdateCmd.Connection.Open();
                             UpdateCmd.CommandType = CommandType.Text;
-                            UpdateCmd.CommandText = "UPDATE tblShopDeliveryLines SET DeliveredQty = @DeliveredQty WHERE DeliveriesID = @DeliveriesID AND StockCode = StockCode";
-                            UpdateCmd.Parameters.AddWithValue("@DeliveriesID", ShopDelID);
+                            UpdateCmd.CommandText = "UPDATE tblShopDeliveryLines SET DeliveredQty = @DeliveredQty WHERE ShopDeliveryID = @ShopDeliveryID AND StockCode = StockCode";
+                            UpdateCmd.Parameters.AddWithValue("@ShopDeliveryID", ShopDelID);
                             UpdateCmd.Parameters.AddWithValue("@StockCode", StockCode);
                             UpdateCmd.Parameters.AddWithValue("@DeliveredQty", Qty);
                             Result = (int)UpdateCmd.ExecuteNonQuery();

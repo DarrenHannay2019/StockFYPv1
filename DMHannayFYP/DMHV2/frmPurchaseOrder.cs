@@ -314,21 +314,13 @@ namespace DMHV2
                 TxtTotalGarments.Text = PurchaseHead.Rows[0][5].ToString();
                 TxtTotalBoxes.Text = PurchaseHead.Rows[0][6].ToString();
                 TxtTotalLooseItems.Text = PurchaseHead.Rows[0][7].ToString();
-                decimal TotalNet = Convert.ToDecimal(PurchaseHead.Rows[0][8]);                
-                decimal DelCharge = Convert.ToDecimal(PurchaseHead.Rows[0][9]);
-                decimal CommissionCharge = Convert.ToDecimal(PurchaseHead.Rows[0][10]);
-                decimal VatAmount = Convert.ToDecimal(PurchaseHead.Rows[0][11]);
-                decimal TotalOrder = Convert.ToDecimal(PurchaseHead.Rows[0][12]);
-                string TotalNetString = TotalNet.ToString("C");
-                string CommissionString = CommissionCharge.ToString("C");
-                string DeliveryString = DelCharge.ToString("C");
-                string VatString = VatAmount.ToString("C");
-                string OrderString = TotalOrder.ToString("C");
-                TxtTotalNet.Text = TotalNetString;
-                TxtCommission.Text = CommissionString;
-                TxtDeliveryCharges.Text = DeliveryString;
-                TxtVATAmount.Text = VatString;
-                TxtTotalOrderPrice.Text = OrderString;
+                TxtTotalNet.Text = PurchaseHead.Rows[0][8].ToString();
+                TxtDeliveryCharges.Text = PurchaseHead.Rows[0][9].ToString();
+                TxtCommission.Text = PurchaseHead.Rows[0][10].ToString();
+                TxtVATAmount.Text = PurchaseHead.Rows[0][11].ToString();
+                TxtTotalOrderPrice.Text = PurchaseHead.Rows[0][12].ToString();
+                
+              
                 dateTimePicker1.Value = Convert.ToDateTime(PurchaseHead.Rows[0][13].ToString());
                 //deliveryType not on form [14]               
                 TxtNotes.Text = PurchaseHead.Rows[0][15].ToString();
@@ -477,6 +469,11 @@ namespace DMHV2
         private void TxtOurRef_Leave(object sender, EventArgs e)
         {
             TxtOurRef.Text = clsUtils.ChangeCase(TxtOurRef.Text.TrimEnd(), 1);
+        }
+
+        private void DgvItems_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            TotalCalc();
         }
     }
 }

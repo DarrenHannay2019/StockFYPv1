@@ -310,7 +310,7 @@ namespace DMHV2
             clsStock stock = new clsStock();
             stock.StockCode = TxtStockCode.Text.TrimEnd();
             stock.SupplierRef = TxtFromShopRef.Text.TrimEnd();
-            TxtCurrentQty.Text = stock.GetWarehouseStockQty().ToString();
+            TxtCurrentQty.Text = stock.GetShopStockQty().ToString();
         }
         public void Totals()
         {

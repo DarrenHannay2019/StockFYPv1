@@ -28,7 +28,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\spectreSVR01\BNU\Public\MyApp\</InstallUrl>
     <UpdateUrl>\\spectreSVR01\SPHDocuments\BNU\Public\MyApp\</UpdateUrl>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

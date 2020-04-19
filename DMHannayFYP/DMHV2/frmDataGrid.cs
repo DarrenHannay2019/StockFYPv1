@@ -759,7 +759,7 @@ namespace DMHV2
                 }
                 BindingSource1.DataSource = dataTable;
                 DataGridView1.DataSource = BindingSource1;
-                int count = DataGridView1.Rows.Count + 1;
+                int count = DataGridView1.Rows.Count;
                 TSSCount.Text = count.ToString();
             }
         }
@@ -780,6 +780,8 @@ namespace DMHV2
                 DataGridView1.Columns[2].Width = 120;
                 DataGridView1.Columns[2].HeaderText = "Warehouse Type";
                 TSSLFunction.Text = "Warehouses";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 2)
             {
@@ -793,6 +795,8 @@ namespace DMHV2
                 DataGridView1.Columns[2].Width = 120;
                 DataGridView1.Columns[2].HeaderText = "Shop Type";
                 TSSLFunction.Text = "Shops";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 3)
             {
@@ -809,6 +813,8 @@ namespace DMHV2
                 DataGridView1.Columns[3].Width = 120;
                 DataGridView1.Columns[3].HeaderText = "Telephone Number";
                 TSSLFunction.Text = "Suppliers";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 4)
             {
@@ -866,9 +872,11 @@ namespace DMHV2
                 // CreatedDate
                 DataGridView1.Columns[12].HeaderText = "Created Date";
                 DataGridView1.Columns[12].Width = 100;
-                DataGridView1.Columns[12].Visible = true;
+                DataGridView1.Columns[12].Visible = false;
                 TSSLFunction.Text = "Current Stock";
                 TSBBalances.Visible = true;
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 5)
             {
@@ -926,9 +934,11 @@ namespace DMHV2
                 // CreatedDate
                 DataGridView1.Columns[12].HeaderText = "Created Date";
                 DataGridView1.Columns[12].Width = 100;
-                DataGridView1.Columns[12].Visible = true;
+                DataGridView1.Columns[12].Visible = false;
                 TSSLFunction.Text = "All Stock";
                 TSBBalances.Visible = true;
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 6)
             {
@@ -939,12 +949,14 @@ namespace DMHV2
                 DataGridView1.Columns[1].Width = 220;
                 DataGridView1.Columns[1].HeaderText = "Season Name";
                 TSSLFunction.Text = "Seasons";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 7)
             {
                 // Purchase Order ID
                 DataGridView1.Columns[0].HeaderText = "Order ID";
-                DataGridView1.Columns[0].Width = 150;
+                DataGridView1.Columns[0].Width = 70;
                 DataGridView1.Columns[0].Visible = true;
                 DataGridView1.Columns[0].DefaultCellStyle.Format = "000000";
                 // Our Ref
@@ -965,39 +977,39 @@ namespace DMHV2
                 DataGridView1.Columns[4].Visible = true;
                 // Total Items
                 DataGridView1.Columns[5].HeaderText = "Total Items";
-                DataGridView1.Columns[5].Width = 150;
+                DataGridView1.Columns[5].Width = 50;
                 DataGridView1.Columns[5].Visible = true;
                 // Total Boxes
                 DataGridView1.Columns[6].HeaderText = "Total Boxes";
-                DataGridView1.Columns[6].Width = 150;
+                DataGridView1.Columns[6].Width = 50;
                 DataGridView1.Columns[6].Visible = true;
                 // Total Loose
                 DataGridView1.Columns[7].HeaderText = "Total Loose";
-                DataGridView1.Columns[7].Width = 150;
+                DataGridView1.Columns[7].Width = 50;
                 DataGridView1.Columns[7].Visible = true;
                 // Net Amount
                 DataGridView1.Columns[8].HeaderText = "Net Amount";
-                DataGridView1.Columns[8].Width = 150;
-                DataGridView1.Columns[8].Visible = true;
+                DataGridView1.Columns[8].Width = 80;
+                DataGridView1.Columns[8].Visible = false;
                 DataGridView1.Columns[8].DefaultCellStyle.Format = "C2";
                 // Delivery Charage
                 DataGridView1.Columns[9].HeaderText = "Delivery Charge";
                 DataGridView1.Columns[9].Width = 150;
-                DataGridView1.Columns[9].Visible = true;
+                DataGridView1.Columns[9].Visible = false;
                 DataGridView1.Columns[9].DefaultCellStyle.Format = "C2";
                 // Commission
                 DataGridView1.Columns[10].HeaderText = "Commission";
                 DataGridView1.Columns[10].Width = 150;
-                DataGridView1.Columns[10].Visible = true;
+                DataGridView1.Columns[10].Visible = false;
                 DataGridView1.Columns[10].DefaultCellStyle.Format = "C2";
                 // VAT Amount
                 DataGridView1.Columns[11].HeaderText = "VAT Amount";
                 DataGridView1.Columns[11].Width = 150;
-                DataGridView1.Columns[11].Visible = true;
+                DataGridView1.Columns[11].Visible = false;
                 DataGridView1.Columns[11].DefaultCellStyle.Format = "C2";
                 // Total Amount
                 DataGridView1.Columns[12].HeaderText = "Total Amount";
-                DataGridView1.Columns[12].Width = 150;
+                DataGridView1.Columns[12].Width = 80;
                 DataGridView1.Columns[12].Visible = true;
                 DataGridView1.Columns[12].DefaultCellStyle.Format = "C2";
                 // Delivery Date
@@ -1011,28 +1023,30 @@ namespace DMHV2
                 // Notes
                 DataGridView1.Columns[15].HeaderText = "Notes";
                 DataGridView1.Columns[15].Width = 150;
-                DataGridView1.Columns[15].Visible = true;
+                DataGridView1.Columns[15].Visible = false;
                 // Invoice Number
                 DataGridView1.Columns[16].HeaderText = "Invoice";
                 DataGridView1.Columns[16].Width = 150;
-                DataGridView1.Columns[16].Visible = true;
+                DataGridView1.Columns[16].Visible = false;
                 // Shipper Name
                 DataGridView1.Columns[17].HeaderText = "Shipper";
                 DataGridView1.Columns[17].Width = 150;
-                DataGridView1.Columns[17].Visible = true;
+                DataGridView1.Columns[17].Visible = false;
                 // Shipper Invoice
                 DataGridView1.Columns[18].HeaderText = "Shipper Invoice";
                 DataGridView1.Columns[18].Width = 150;
-                DataGridView1.Columns[18].Visible = true;
+                DataGridView1.Columns[18].Visible = false;
                 // Created By
                 DataGridView1.Columns[19].HeaderText = "Created By";
-                DataGridView1.Columns[19].Width = 150;
+                DataGridView1.Columns[19].Width = 100;
                 DataGridView1.Columns[19].Visible = true;
                 // Created Date
                 DataGridView1.Columns[20].HeaderText = "Created Date";
                 DataGridView1.Columns[20].Width = 150;
-                DataGridView1.Columns[20].Visible = true;
+                DataGridView1.Columns[20].Visible = false;
                 TSSLFunction.Text = "Purchase Orders";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 8)
             {
@@ -1070,6 +1084,8 @@ namespace DMHV2
                 DataGridView1.Columns[7].Width = 150;
                 DataGridView1.Columns[7].Visible = true;
                 TSSLFunction.Text = "Warehouse Adjustments";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 9)
             {
@@ -1111,6 +1127,8 @@ namespace DMHV2
                 DataGridView1.Columns[8].Width = 150;
                 DataGridView1.Columns[8].Visible = true;
                 TSSLFunction.Text = "Warehouse Transfers";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 10)
             {
@@ -1148,6 +1166,8 @@ namespace DMHV2
                 DataGridView1.Columns[7].Width = 150;
                 DataGridView1.Columns[7].Visible = true;
                 TSSLFunction.Text = "Warehouse Returns";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 11)
             {
@@ -1155,7 +1175,7 @@ namespace DMHV2
                 DataGridView1.Columns[0].HeaderText = "Shop Delivery ID";
                 DataGridView1.Columns[0].Width = 150;
                 DataGridView1.Columns[0].Visible = true;
-                DataGridView1.Columns[9].DefaultCellStyle.Format = "00000000";
+                DataGridView1.Columns[0].DefaultCellStyle.Format = "00000000";
                 // Shop Ref
                 DataGridView1.Columns[1].HeaderText = "Shop Ref";
                 DataGridView1.Columns[1].Width = 150;
@@ -1197,6 +1217,8 @@ namespace DMHV2
                 DataGridView1.Columns[10].Width = 150;
                 DataGridView1.Columns[10].Visible = true;
                 TSSLFunction.Text = "Shop Deliveries";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 12)
             {
@@ -1234,6 +1256,8 @@ namespace DMHV2
                 DataGridView1.Columns[7].Width = 150;
                 DataGridView1.Columns[7].Visible = true;
                 TSSLFunction.Text = "Shop Adjustments";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 13)
             {
@@ -1283,6 +1307,8 @@ namespace DMHV2
                 DataGridView1.Columns[8].Width = 150;
                 DataGridView1.Columns[8].Visible = true;
                 TSSLFunction.Text = "Shop Transfers";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 14)
             {
@@ -1326,6 +1352,8 @@ namespace DMHV2
                 DataGridView1.Columns[8].Width = 150;
                 DataGridView1.Columns[8].Visible = true;
                 TSSLFunction.Text = "Shop Sales";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 15)
             {
@@ -1363,6 +1391,8 @@ namespace DMHV2
                 DataGridView1.Columns[7].Width = 150;
                 DataGridView1.Columns[7].Visible = true;
                 TSSLFunction.Text = "Shop Returns";
+                int count = DataGridView1.Rows.Count;
+                TSSCount.Text = count.ToString();
             }
             if (FunctionID == 16)
             {

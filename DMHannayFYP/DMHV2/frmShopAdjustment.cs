@@ -96,7 +96,8 @@
                 adjustmentLine.StockCode = dgvItems.Rows[index].Cells[0].Value.ToString();
                 adjustmentLine.MovementType = dgvItems.Rows[index].Cells[1].Value.ToString();
                 adjustmentLine.Qty = Convert.ToInt32(dgvItems.Rows[index].Cells[2].Value);
-                adjustmentLine.Value = Convert.ToDecimal(dgvItems.Rows[index].Cells[3].Value);
+                
+               // adjustmentLine.Value = Convert.ToDecimal(dgvItems.Rows[index].Cells[3].Value);
                 // Saving details to tblStockMovements Table
                 logs.StockCode = adjustmentLine.StockCode;
                 logs.LocationRef = adjustmentHead.ShopRef;
@@ -176,7 +177,7 @@
                 conn.ConnectionString = clsUtils.GetConnString(1);
                 SqlDataAdapter adp = new SqlDataAdapter();
                 DataTable dt = new DataTable();
-                adp.SelectCommand = new SqlCommand("SELECT WarehouseRef from tblWarehouses", conn);
+                adp.SelectCommand = new SqlCommand("SELECT ShopRef from tblShops", conn);
                 adp.Fill(dt);
                 
                 foreach (DataRow row in dt.Rows)

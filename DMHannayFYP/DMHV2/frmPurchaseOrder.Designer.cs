@@ -41,6 +41,11 @@
             this.TxtNetCostLine = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.DgvItems = new System.Windows.Forms.DataGridView();
+            this.ColStockCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQtyItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQtyBoxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQtyLoose = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNetAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtShipperInvoiceNumber = new System.Windows.Forms.TextBox();
             this.TxtTotalOrderPrice = new System.Windows.Forms.TextBox();
             this.TxtTotalNet = new System.Windows.Forms.TextBox();
@@ -89,11 +94,6 @@
             this.CboSeasonName = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.TxtOurRef = new System.Windows.Forms.TextBox();
-            this.ColStockCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColQtyItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColQtyBoxes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColQtyLoose = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNetAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label31 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvItems)).BeginInit();
             this.SuspendLayout();
@@ -224,6 +224,47 @@
             this.DgvItems.RowHeadersWidth = 51;
             this.DgvItems.Size = new System.Drawing.Size(631, 188);
             this.DgvItems.TabIndex = 60;
+            this.DgvItems.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvItems_CellEndEdit);
+            // 
+            // ColStockCode
+            // 
+            this.ColStockCode.FillWeight = 180F;
+            this.ColStockCode.HeaderText = "Stock Code";
+            this.ColStockCode.MinimumWidth = 8;
+            this.ColStockCode.Name = "ColStockCode";
+            this.ColStockCode.Width = 180;
+            // 
+            // ColQtyItems
+            // 
+            this.ColQtyItems.FillWeight = 90F;
+            this.ColQtyItems.HeaderText = "Qty Items";
+            this.ColQtyItems.MinimumWidth = 8;
+            this.ColQtyItems.Name = "ColQtyItems";
+            this.ColQtyItems.Width = 90;
+            // 
+            // ColQtyBoxes
+            // 
+            this.ColQtyBoxes.FillWeight = 90F;
+            this.ColQtyBoxes.HeaderText = "Qty Boxes";
+            this.ColQtyBoxes.MinimumWidth = 8;
+            this.ColQtyBoxes.Name = "ColQtyBoxes";
+            this.ColQtyBoxes.Width = 90;
+            // 
+            // ColQtyLoose
+            // 
+            this.ColQtyLoose.FillWeight = 50F;
+            this.ColQtyLoose.HeaderText = "Qty Loose";
+            this.ColQtyLoose.MinimumWidth = 8;
+            this.ColQtyLoose.Name = "ColQtyLoose";
+            this.ColQtyLoose.Width = 50;
+            // 
+            // ColNetAmount
+            // 
+            this.ColNetAmount.FillWeight = 140F;
+            this.ColNetAmount.HeaderText = "NetAmount";
+            this.ColNetAmount.MinimumWidth = 8;
+            this.ColNetAmount.Name = "ColNetAmount";
+            this.ColNetAmount.Width = 140;
             // 
             // TxtShipperInvoiceNumber
             // 
@@ -694,46 +735,6 @@
             this.TxtOurRef.Size = new System.Drawing.Size(177, 30);
             this.TxtOurRef.TabIndex = 3;
             this.TxtOurRef.Leave += new System.EventHandler(this.TxtOurRef_Leave);
-            // 
-            // ColStockCode
-            // 
-            this.ColStockCode.FillWeight = 180F;
-            this.ColStockCode.HeaderText = "Stock Code";
-            this.ColStockCode.MinimumWidth = 8;
-            this.ColStockCode.Name = "ColStockCode";
-            this.ColStockCode.Width = 180;
-            // 
-            // ColQtyItems
-            // 
-            this.ColQtyItems.FillWeight = 90F;
-            this.ColQtyItems.HeaderText = "Qty Items";
-            this.ColQtyItems.MinimumWidth = 8;
-            this.ColQtyItems.Name = "ColQtyItems";
-            this.ColQtyItems.Width = 90;
-            // 
-            // ColQtyBoxes
-            // 
-            this.ColQtyBoxes.FillWeight = 90F;
-            this.ColQtyBoxes.HeaderText = "Qty Boxes";
-            this.ColQtyBoxes.MinimumWidth = 8;
-            this.ColQtyBoxes.Name = "ColQtyBoxes";
-            this.ColQtyBoxes.Width = 90;
-            // 
-            // ColQtyLoose
-            // 
-            this.ColQtyLoose.FillWeight = 50F;
-            this.ColQtyLoose.HeaderText = "Qty Loose";
-            this.ColQtyLoose.MinimumWidth = 8;
-            this.ColQtyLoose.Name = "ColQtyLoose";
-            this.ColQtyLoose.Width = 50;
-            // 
-            // ColNetAmount
-            // 
-            this.ColNetAmount.FillWeight = 140F;
-            this.ColNetAmount.HeaderText = "NetAmount";
-            this.ColNetAmount.MinimumWidth = 8;
-            this.ColNetAmount.Name = "ColNetAmount";
-            this.ColNetAmount.Width = 140;
             // 
             // label31
             // 

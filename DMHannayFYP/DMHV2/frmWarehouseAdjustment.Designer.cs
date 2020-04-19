@@ -69,7 +69,7 @@
             this.TxtRecordID.Margin = new System.Windows.Forms.Padding(4);
             this.TxtRecordID.Name = "TxtRecordID";
             this.TxtRecordID.Size = new System.Drawing.Size(70, 22);
-            this.TxtRecordID.TabIndex = 55;
+            this.TxtRecordID.TabIndex = 13;
             // 
             // Label6
             // 
@@ -78,7 +78,7 @@
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(75, 17);
-            this.Label6.TabIndex = 54;
+            this.Label6.TabIndex = 12;
             this.Label6.Text = "Record ID:";
             // 
             // TxtTotalLoss
@@ -89,7 +89,7 @@
             this.TxtTotalLoss.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtTotalLoss.Name = "TxtTotalLoss";
             this.TxtTotalLoss.Size = new System.Drawing.Size(26, 19);
-            this.TxtTotalLoss.TabIndex = 41;
+            this.TxtTotalLoss.TabIndex = 25;
             this.TxtTotalLoss.Text = "00";
             // 
             // TxtTotalGain
@@ -100,7 +100,7 @@
             this.TxtTotalGain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtTotalGain.Name = "TxtTotalGain";
             this.TxtTotalGain.Size = new System.Drawing.Size(26, 19);
-            this.TxtTotalGain.TabIndex = 39;
+            this.TxtTotalGain.TabIndex = 23;
             this.TxtTotalGain.Text = "00";
             // 
             // LblTotalLoss
@@ -111,7 +111,7 @@
             this.LblTotalLoss.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblTotalLoss.Name = "LblTotalLoss";
             this.LblTotalLoss.Size = new System.Drawing.Size(80, 19);
-            this.LblTotalLoss.TabIndex = 40;
+            this.LblTotalLoss.TabIndex = 24;
             this.LblTotalLoss.Text = "Total Loss:";
             // 
             // lblTotalGain
@@ -122,7 +122,7 @@
             this.lblTotalGain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalGain.Name = "lblTotalGain";
             this.lblTotalGain.Size = new System.Drawing.Size(80, 19);
-            this.lblTotalGain.TabIndex = 38;
+            this.lblTotalGain.TabIndex = 22;
             this.lblTotalGain.Text = "Total Gain:";
             // 
             // dgvItems
@@ -141,7 +141,8 @@
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersWidth = 51;
             this.dgvItems.Size = new System.Drawing.Size(665, 262);
-            this.dgvItems.TabIndex = 46;
+            this.dgvItems.TabIndex = 27;
+            this.dgvItems.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellEndEdit);
             // 
             // Column3
             // 
@@ -175,7 +176,7 @@
             this.CmdRemoveFromGrid.Margin = new System.Windows.Forms.Padding(4);
             this.CmdRemoveFromGrid.Name = "CmdRemoveFromGrid";
             this.CmdRemoveFromGrid.Size = new System.Drawing.Size(38, 41);
-            this.CmdRemoveFromGrid.TabIndex = 34;
+            this.CmdRemoveFromGrid.TabIndex = 7;
             this.CmdRemoveFromGrid.Text = "-";
             this.CmdRemoveFromGrid.UseVisualStyleBackColor = true;
             this.CmdRemoveFromGrid.Click += new System.EventHandler(this.CmdRemoveFromGrid_Click);
@@ -195,7 +196,7 @@
             this.CboType.Margin = new System.Windows.Forms.Padding(4);
             this.CboType.Name = "CboType";
             this.CboType.Size = new System.Drawing.Size(142, 24);
-            this.CboType.TabIndex = 31;
+            this.CboType.TabIndex = 4;
             // 
             // TxtAdjustHangers
             // 
@@ -203,7 +204,7 @@
             this.TxtAdjustHangers.Margin = new System.Windows.Forms.Padding(4);
             this.TxtAdjustHangers.Name = "TxtAdjustHangers";
             this.TxtAdjustHangers.Size = new System.Drawing.Size(180, 22);
-            this.TxtAdjustHangers.TabIndex = 32;
+            this.TxtAdjustHangers.TabIndex = 5;
             // 
             // Label8
             // 
@@ -212,7 +213,7 @@
             this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(108, 17);
-            this.Label8.TabIndex = 42;
+            this.Label8.TabIndex = 14;
             this.Label8.Text = "Adjustment Qty:";
             // 
             // CmdAddToGrid
@@ -222,7 +223,7 @@
             this.CmdAddToGrid.Margin = new System.Windows.Forms.Padding(4);
             this.CmdAddToGrid.Name = "CmdAddToGrid";
             this.CmdAddToGrid.Size = new System.Drawing.Size(38, 42);
-            this.CmdAddToGrid.TabIndex = 33;
+            this.CmdAddToGrid.TabIndex = 6;
             this.CmdAddToGrid.Text = "+";
             this.CmdAddToGrid.UseVisualStyleBackColor = true;
             this.CmdAddToGrid.Click += new System.EventHandler(this.CmdAddToGrid_Click);
@@ -234,7 +235,7 @@
             this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(118, 17);
-            this.Label7.TabIndex = 43;
+            this.Label7.TabIndex = 15;
             this.Label7.Text = "Adjustment Type:";
             // 
             // Label5
@@ -244,7 +245,7 @@
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(49, 17);
-            this.Label5.TabIndex = 52;
+            this.Label5.TabIndex = 20;
             this.Label5.Text = "Name:";
             // 
             // TxtWarehouseName
@@ -254,7 +255,7 @@
             this.TxtWarehouseName.Margin = new System.Windows.Forms.Padding(4);
             this.TxtWarehouseName.Name = "TxtWarehouseName";
             this.TxtWarehouseName.Size = new System.Drawing.Size(180, 22);
-            this.TxtWarehouseName.TabIndex = 53;
+            this.TxtWarehouseName.TabIndex = 21;
             // 
             // DateTimePicker1
             // 
@@ -262,7 +263,7 @@
             this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePicker1.Name = "DateTimePicker1";
             this.DateTimePicker1.Size = new System.Drawing.Size(179, 22);
-            this.DateTimePicker1.TabIndex = 28;
+            this.DateTimePicker1.TabIndex = 0;
             // 
             // Label10
             // 
@@ -271,7 +272,7 @@
             this.Label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(42, 17);
-            this.Label10.TabIndex = 50;
+            this.Label10.TabIndex = 19;
             this.Label10.Text = "Date:";
             // 
             // CmdOK
@@ -280,7 +281,7 @@
             this.CmdOK.Margin = new System.Windows.Forms.Padding(4);
             this.CmdOK.Name = "CmdOK";
             this.CmdOK.Size = new System.Drawing.Size(87, 28);
-            this.CmdOK.TabIndex = 35;
+            this.CmdOK.TabIndex = 8;
             this.CmdOK.Text = "Add";
             this.CmdOK.UseVisualStyleBackColor = true;
             this.CmdOK.Click += new System.EventHandler(this.CmdOK_Click);
@@ -291,7 +292,7 @@
             this.TxtCurrentHangers.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCurrentHangers.Name = "TxtCurrentHangers";
             this.TxtCurrentHangers.Size = new System.Drawing.Size(95, 22);
-            this.TxtCurrentHangers.TabIndex = 44;
+            this.TxtCurrentHangers.TabIndex = 26;
             // 
             // CmdCancel
             // 
@@ -299,7 +300,7 @@
             this.CmdCancel.Margin = new System.Windows.Forms.Padding(4);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(87, 28);
-            this.CmdCancel.TabIndex = 37;
+            this.CmdCancel.TabIndex = 10;
             this.CmdCancel.Text = "Cancel";
             this.CmdCancel.UseVisualStyleBackColor = true;
             this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
@@ -310,7 +311,7 @@
             this.CmdClear.Margin = new System.Windows.Forms.Padding(4);
             this.CmdClear.Name = "CmdClear";
             this.CmdClear.Size = new System.Drawing.Size(87, 28);
-            this.CmdClear.TabIndex = 36;
+            this.CmdClear.TabIndex = 9;
             this.CmdClear.Text = "Clear";
             this.CmdClear.UseVisualStyleBackColor = true;
             this.CmdClear.Click += new System.EventHandler(this.CmdClear_Click);
@@ -322,7 +323,7 @@
             this.TxtWarehouseRef.MaxLength = 8;
             this.TxtWarehouseRef.Name = "TxtWarehouseRef";
             this.TxtWarehouseRef.Size = new System.Drawing.Size(83, 22);
-            this.TxtWarehouseRef.TabIndex = 49;
+            this.TxtWarehouseRef.TabIndex = 2;
             this.TxtWarehouseRef.Leave += new System.EventHandler(this.TxtWarehouseRef_Leave);
             // 
             // TxtReference
@@ -332,7 +333,7 @@
             this.TxtReference.MaxLength = 50;
             this.TxtReference.Name = "TxtReference";
             this.TxtReference.Size = new System.Drawing.Size(148, 22);
-            this.TxtReference.TabIndex = 29;
+            this.TxtReference.TabIndex = 1;
             // 
             // Label1
             // 
@@ -341,7 +342,7 @@
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(78, 17);
-            this.Label1.TabIndex = 51;
+            this.Label1.TabIndex = 11;
             this.Label1.Text = "Reference:";
             // 
             // Label2
@@ -351,7 +352,7 @@
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(111, 17);
-            this.Label2.TabIndex = 48;
+            this.Label2.TabIndex = 18;
             this.Label2.Text = "Warehouse Ref:";
             // 
             // Label4
@@ -361,7 +362,7 @@
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(85, 17);
-            this.Label4.TabIndex = 45;
+            this.Label4.TabIndex = 16;
             this.Label4.Text = "Current Qty:";
             // 
             // Label3
@@ -371,7 +372,7 @@
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(84, 17);
-            this.Label3.TabIndex = 47;
+            this.Label3.TabIndex = 17;
             this.Label3.Text = "Stock Code:";
             // 
             // TxtStockCode
@@ -381,7 +382,7 @@
             this.TxtStockCode.MaxLength = 30;
             this.TxtStockCode.Name = "TxtStockCode";
             this.TxtStockCode.Size = new System.Drawing.Size(128, 22);
-            this.TxtStockCode.TabIndex = 30;
+            this.TxtStockCode.TabIndex = 3;
             this.TxtStockCode.Leave += new System.EventHandler(this.TxtStockCode_Leave);
             // 
             // frmWarehouseAdjustment
